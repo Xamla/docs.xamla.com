@@ -1,0 +1,1787 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>torch-moveit - Torch wrapper for MoveIt!</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-moveit</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Metamethods">Metamethods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../classes/CollisionObject.html">CollisionObject</a></li>
+  <li><strong>MoveGroup</strong></li>
+  <li><a href="../classes/Plan.html">Plan</a></li>
+  <li><a href="../classes/PlanningSceneInterface.html">PlanningSceneInterface</a></li>
+  <li><a href="../classes/RobotState.html">RobotState</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>MoveGroup</code></h1>
+<p>LUA wrapper for moveit planning environment
+ dependency to tourch.ros</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getName">MoveGroup:getName ()</a></td>
+	<td class="summary">Get the name of the group this instance operates on.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getPlanningFrame">MoveGroup:getPlanningFrame ()</a></td>
+	<td class="summary">Get the name of the frame in which the robot is planning.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getEndEffectorLink">MoveGroup:getEndEffectorLink ()</a></td>
+	<td class="summary">Get the current end-effector link.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getJoints">MoveGroup:getJoints ([strings])</a></td>
+	<td class="summary">Get all the joints this instance operates on (including fixed joints).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setGoalTolerance">MoveGroup:setGoalTolerance (tolerance)</a></td>
+	<td class="summary">Set the tolerance that is used for reaching the goal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getGoalJointTolerance">MoveGroup:getGoalJointTolerance ()</a></td>
+	<td class="summary">Get the tolerance that is used for reaching a joint goal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setGoalJointTolerance">MoveGroup:setGoalJointTolerance (tolerance)</a></td>
+	<td class="summary">Set the joint tolerance (for each joint) that is used for reaching the goal when moving to a joint value target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getGoalOrientationTolerance">MoveGroup:getGoalOrientationTolerance ()</a></td>
+	<td class="summary">Get the tolerance that is used for reaching an orientation goal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setGoalOrientationTolerance">MoveGroup:setGoalOrientationTolerance (tolerance)</a></td>
+	<td class="summary">Set the orientation tolerance that is used for reaching the goal when moving to a pose.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getGoalPositionTolerance">MoveGroup:getGoalPositionTolerance ()</a></td>
+	<td class="summary">Get the tolerance that is used for reaching a position goal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setGoalPositionTolerance">MoveGroup:setGoalPositionTolerance (tolerance)</a></td>
+	<td class="summary">Set the position tolerance that is used for reaching the goal when moving to a pose</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setMaxVelocityScalingFactor">MoveGroup:setMaxVelocityScalingFactor (factor)</a></td>
+	<td class="summary">Set a scaling factor for optionally reducing the maximum joint velocity.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setPlannerId">MoveGroup:setPlannerId (name)</a></td>
+	<td class="summary">Specify a planner to be used for further planning.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getPlannigTime">MoveGroup:getPlannigTime ()</a></td>
+	<td class="summary">Get the number of seconds set by setPlanningTime(seconds).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setPlanningTime">MoveGroup:setPlanningTime (seconds)</a></td>
+	<td class="summary">Specify the maximum amount of time to use when planning.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getVariableCount">MoveGroup:getVariableCount ()</a></td>
+	<td class="summary">Get the number of variables used to describe the state of this group.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setNumPlanningAttempts">MoveGroup:setNumPlanningAttempts (attempts)</a></td>
+	<td class="summary">Set the number of times the motion plan is to be computed from scratch before the shortest solution is returned.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setStartStateToCurrentState">MoveGroup:setStartStateToCurrentState ()</a></td>
+	<td class="summary">Set the starting state for planning to be that reported by the robot's joint state publication.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setSupportSurfaceName">MoveGroup:setSupportSurfaceName (name)</a></td>
+	<td class="summary">For pick/place operations, the name of the support surface is used to specify the fact that attached objects are allowed to touch the support surface.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setWorkspace">MoveGroup:setWorkspace (minx, miny, minz, maxx, maxy, maxz[, end_effector_link])</a></td>
+	<td class="summary">function setWorkspace
+ Specify the workspace bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:allowLooking">MoveGroup:allowLooking ([flag=true])</a></td>
+	<td class="summary">Specify whether the robot is allowed to look around before moving if it determines it should.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:allowReplanning">MoveGroup:allowReplanning ([flag=true])</a></td>
+	<td class="summary">Specify whether the robot is allowed to replan if it detects changes in the environment.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setRandomTarget">MoveGroup:setRandomTarget ()</a></td>
+	<td class="summary">Set the joint state goal to a random joint configuration.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setNamedTarget">MoveGroup:setNamedTarget (name)</a></td>
+	<td class="summary">Set the current joint values to be ones previously remembered by rememberJointValues() or,
+ if not found, that are specified in the SRDF under the name name as a group state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setPositionTarget">MoveGroup:setPositionTarget (x[, y[, z[, end_effector_link]]])</a></td>
+	<td class="summary">Set the goal position of the end-effector end<em>effector</em>link to be (x, y, z).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setOrientationTarget">MoveGroup:setOrientationTarget (x[, y[, z[, w[, end_effector_link]]]])</a></td>
+	<td class="summary">Set the goal orientation of the end-effector end<em>effector</em>link to be the quaternion (x,y,z,w).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setRPYTarget">MoveGroup:setRPYTarget (roll, pitch, yaw[, end_effector_link])</a></td>
+	<td class="summary">Set the goal orientation of the end-effector end<em>effector</em>link to be (roll,pitch,yaw) radians.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setPoseTarget">MoveGroup:setPoseTarget (target[, end_effector_link])</a></td>
+	<td class="summary">Set the goal pose of the end-effector end<em>effector</em>link.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setPoseReferenceFrame">MoveGroup:setPoseReferenceFrame (frame_name)</a></td>
+	<td class="summary">Specify which reference frame to assume for poses specified without a reference frame.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setEndEffectorLink">MoveGroup:setEndEffectorLink (name)</a></td>
+	<td class="summary">Specify the parent link of the end-effector.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getEndEffectorlink">MoveGroup:getEndEffectorlink ()</a></td>
+	<td class="summary">Get the current end-effector link.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:clearPoseTarget">MoveGroup:clearPoseTarget ()</a></td>
+	<td class="summary">Forget pose(s) specified for end<em>effector</em>link.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:clearPoseTargets">MoveGroup:clearPoseTargets ()</a></td>
+	<td class="summary">Forget any poses specified for all end-effectors.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:moveAsync">MoveGroup:moveAsync ()</a></td>
+	<td class="summary">Plan and execute a trajectory that takes the group of joints declared in the constructor to the specified target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:move">MoveGroup:move ()</a></td>
+	<td class="summary">Plan and execute a trajectory that takes the group of joints declared in the constructor to the specified target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:plan">MoveGroup:plan ([plan_output])</a></td>
+	<td class="summary">Compute a motion plan that takes the group declared in the constructor from the current state to the specified target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:asyncExecute">MoveGroup:asyncExecute (plan)</a></td>
+	<td class="summary">Given a plan, execute it without waiting for completion.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:execute">MoveGroup:execute (plan)</a></td>
+	<td class="summary">Given a plan, execute it while waiting for completion.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setJointPostureConstraint">MoveGroup:setJointPostureConstraint (joint_name, position, tolerance_above, tolerance_below, weight)</a></td>
+	<td class="summary">Specify a set of moveit_msgs::JointConstraint path constraints to use.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:setOrientationConstraint">MoveGroup:setOrientationConstraint (link_name, frame_id, orientation_w, absolute_x_axis_tolerance, absolute_y_axis_tolerance, absolute_z_axis_tolerance, weight)</a></td>
+	<td class="summary">Specify a set of moveit_msgs::OrientationConstraint path constraints to use.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:clearPathConstraints">MoveGroup:clearPathConstraints ()</a></td>
+	<td class="summary">Specify that no path constraints are to be used.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:computeCartesianPath_Tensor">MoveGroup:computeCartesianPath_Tensor (positions, orientations, eef_step, jump_threshold[, avoid_collisions=true])</a></td>
+	<td class="summary">Specify a set of moveit_msgs::OrientationConstraint path constraints to use.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:attachObject">MoveGroup:attachObject (object[, link])</a></td>
+	<td class="summary">Given the name of an object in the planning scene, make the object attached to a link of the robot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:detachObject">MoveGroup:detachObject (object)</a></td>
+	<td class="summary">Detach an object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:stop">MoveGroup:stop ()</a></td>
+	<td class="summary">Stop any trajectory execution, if one is active.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:startStateMonitor">MoveGroup:startStateMonitor ([wait=0.01])</a></td>
+	<td class="summary">When reasoning about the current state of a robot, a CurrentStateMonitor instance is automatically constructed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getCurrentState">MoveGroup:getCurrentState ()</a></td>
+	<td class="summary">Get the current state of the robot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getCurrentPose_Tensor">MoveGroup:getCurrentPose_Tensor (end_effector_link[, output])</a></td>
+	<td class="summary">Get the current state of the robot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getCurrentPose_StampedTransform">MoveGroup:getCurrentPose_StampedTransform (end_effector_link[, output])</a></td>
+	<td class="summary">Get the current state of the robot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:getCurrentPose">MoveGroup:getCurrentPose (end_effector_link[, output])</a></td>
+	<td class="summary">Get the current state of the robot.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:pick">MoveGroup:pick (object)</a></td>
+	<td class="summary">Pick up an object.</td>
+	</tr>
+</table>
+<h2><a href="#Metamethods">Metamethods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MoveGroup:__init">MoveGroup:__init (name)</a></td>
+	<td class="summary">Init function.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MoveGroup:getName"></a>
+    <strong>MoveGroup:getName ()</strong>
+    </dt>
+    <dd>
+    Get the name of the group this instance operates on.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getPlanningFrame"></a>
+    <strong>MoveGroup:getPlanningFrame ()</strong>
+    </dt>
+    <dd>
+    Get the name of the frame in which the robot is planning.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getEndEffectorLink"></a>
+    <strong>MoveGroup:getEndEffectorLink ()</strong>
+    </dt>
+    <dd>
+    Get the current end-effector link.
+ This returns the value set by setEndEffectorLink()
+ (or indirectly by setEndEffector()).
+ If setEndEffectorLink() was not called, this function reports the link name that serves as parent of an end-effector attached to this group.
+ If there are multiple end-effectors, one of them is returned. If no such link is known, the empty string is returned.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getJoints"></a>
+    <strong>MoveGroup:getJoints ([strings])</strong>
+    </dt>
+    <dd>
+    Get all the joints this instance operates on (including fixed joints).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">strings</span>
+            <span class="types"><span class="type">strings</span></span>
+         be empty
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        moveit.Strings
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setGoalTolerance"></a>
+    <strong>MoveGroup:setGoalTolerance (tolerance)</strong>
+    </dt>
+    <dd>
+    Set the tolerance that is used for reaching the goal.
+ For joint state goals, this will be distance for each joint, in the configuration space (radians or meters depending on joint type).
+ For pose goals this will be the radius of a sphere where the end-effector must reach.
+ This function simply triggers calls to setGoalPositionTolerance, setGoalOrientationTolerance and setGoalJointTolerance.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+         Goal error tolerance radians or meters depending on joint type
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="../classes/MoveGroup.html#MoveGroup:setGoalPositionTolerance">setGoalPositionTolerance</a></li>
+         <li><a href="../classes/MoveGroup.html#MoveGroup:setGoalOrientationTolerance">setGoalOrientationTolerance</a></li>
+         <li><a href="../classes/MoveGroup.html#MoveGroup:setGoalJointTolerance">setGoalJointTolerance</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getGoalJointTolerance"></a>
+    <strong>MoveGroup:getGoalJointTolerance ()</strong>
+    </dt>
+    <dd>
+    Get the tolerance that is used for reaching a joint goal.
+ Distance for each joint in configuration space.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Goal error tolerance in rad
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setGoalJointTolerance"></a>
+    <strong>MoveGroup:setGoalJointTolerance (tolerance)</strong>
+    </dt>
+    <dd>
+    Set the joint tolerance (for each joint) that is used for reaching the goal when moving to a joint value target.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+         Goal error tolerance in rad
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getGoalOrientationTolerance"></a>
+    <strong>MoveGroup:getGoalOrientationTolerance ()</strong>
+    </dt>
+    <dd>
+    Get the tolerance that is used for reaching an orientation goal.
+ This is the tolerance for roll, pitch and yaw, in radians.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Goal tolerance in radians
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setGoalOrientationTolerance"></a>
+    <strong>MoveGroup:setGoalOrientationTolerance (tolerance)</strong>
+    </dt>
+    <dd>
+    Set the orientation tolerance that is used for reaching the goal when moving to a pose.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+         Goal tolerance in radians
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getGoalPositionTolerance"></a>
+    <strong>MoveGroup:getGoalPositionTolerance ()</strong>
+    </dt>
+    <dd>
+    Get the tolerance that is used for reaching a position goal.
+ This is the radius of a sphere where the end-effector must reach.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Goal tolerance in meter
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setGoalPositionTolerance"></a>
+    <strong>MoveGroup:setGoalPositionTolerance (tolerance)</strong>
+    </dt>
+    <dd>
+    Set the position tolerance that is used for reaching the goal when moving to a pose
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+         Goal tolerance in meter
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setMaxVelocityScalingFactor"></a>
+    <strong>MoveGroup:setMaxVelocityScalingFactor (factor)</strong>
+    </dt>
+    <dd>
+    Set a scaling factor for optionally reducing the maximum joint velocity.
+ Allowed values are in [0,1]. The maximum joint velocity specified in the robot model is multiplied by the factor.
+ If outside valid range (imporantly, this includes it being set to 0.0), the factor is set to a default value of 1.0 internally (i.e. maximum joint velocity).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">factor</span>
+            <span class="types"><span class="type">int</span></span>
+         between [0,1]
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setPlannerId"></a>
+    <strong>MoveGroup:setPlannerId (name)</strong>
+    </dt>
+    <dd>
+    Specify a planner to be used for further planning.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getPlannigTime"></a>
+    <strong>MoveGroup:getPlannigTime ()</strong>
+    </dt>
+    <dd>
+    Get the number of seconds set by setPlanningTime(seconds).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:setPlanningTime">setPlanningTime</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setPlanningTime"></a>
+    <strong>MoveGroup:setPlanningTime (seconds)</strong>
+    </dt>
+    <dd>
+    Specify the maximum amount of time to use when planning.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">seconds</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getVariableCount"></a>
+    <strong>MoveGroup:getVariableCount ()</strong>
+    </dt>
+    <dd>
+    Get the number of variables used to describe the state of this group.
+  This is larger or equal to the number of DOF.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setNumPlanningAttempts"></a>
+    <strong>MoveGroup:setNumPlanningAttempts (attempts)</strong>
+    </dt>
+    <dd>
+    Set the number of times the motion plan is to be computed from scratch before the shortest solution is returned.
+ The default value is 1.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">attempts</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setStartStateToCurrentState"></a>
+    <strong>MoveGroup:setStartStateToCurrentState ()</strong>
+    </dt>
+    <dd>
+    Set the starting state for planning to be that reported by the robot's joint state publication.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setSupportSurfaceName"></a>
+    <strong>MoveGroup:setSupportSurfaceName (name)</strong>
+    </dt>
+    <dd>
+    For pick/place operations, the name of the support surface is used to specify the fact that attached objects are allowed to touch the support surface.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setWorkspace"></a>
+    <strong>MoveGroup:setWorkspace (minx, miny, minz, maxx, maxy, maxz[, end_effector_link])</strong>
+    </dt>
+    <dd>
+    function setWorkspace
+ Specify the workspace bounding box.  The box is specified in the planning frame (i.e. relative to the robot root link start position).
+ This is useful when the MoveGroup's group contains the root joint of the robot -- i.e. when planning motion for the robot relative to the world.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">minx</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">miny</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">minz</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">maxx</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">maxy</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">maxz</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         should be the name of the use end effector link
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:allowLooking"></a>
+    <strong>MoveGroup:allowLooking ([flag=true])</strong>
+    </dt>
+    <dd>
+    Specify whether the robot is allowed to look around before moving if it determines it should.
+ (default is true).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:allowReplanning"></a>
+    <strong>MoveGroup:allowReplanning ([flag=true])</strong>
+    </dt>
+    <dd>
+    Specify whether the robot is allowed to replan if it detects changes in the environment.
+ (default is true)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setRandomTarget"></a>
+    <strong>MoveGroup:setRandomTarget ()</strong>
+    </dt>
+    <dd>
+    Set the joint state goal to a random joint configuration.
+ After this call, the JointValueTarget is used instead of any previously set Position, Orientation, or Pose targets.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setNamedTarget"></a>
+    <strong>MoveGroup:setNamedTarget (name)</strong>
+    </dt>
+    <dd>
+    Set the current joint values to be ones previously remembered by rememberJointValues() or,
+ if not found, that are specified in the SRDF under the name name as a group state.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setPositionTarget"></a>
+    <strong>MoveGroup:setPositionTarget (x[, y[, z[, end_effector_link]]])</strong>
+    </dt>
+    <dd>
+    Set the goal position of the end-effector end<em>effector</em>link to be (x, y, z).
+ If end<em>effector</em>link is empty then getEndEffectorLink() is used.
+ This new position target replaces any pre-existing JointValueTarget or pre-existing Position, Orientation, or Pose target for this end<em>effector</em>link.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span> or <span class="type">double</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:getEndEffectorLink">getEndEffectorLink</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setOrientationTarget"></a>
+    <strong>MoveGroup:setOrientationTarget (x[, y[, z[, w[, end_effector_link]]]])</strong>
+    </dt>
+    <dd>
+    Set the goal orientation of the end-effector end<em>effector</em>link to be the quaternion (x,y,z,w).
+ If end<em>effector</em>link is empty then getEndEffectorLink() is used.
+ This new orientation target replaces any pre-existing JointValueTarget or pre-existing Position, Orientation, or Pose target for this end<em>effector</em>link.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span> or <span class="type">double</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setRPYTarget"></a>
+    <strong>MoveGroup:setRPYTarget (roll, pitch, yaw[, end_effector_link])</strong>
+    </dt>
+    <dd>
+    Set the goal orientation of the end-effector end<em>effector</em>link to be (roll,pitch,yaw) radians.
+ If end<em>effector</em>link is empty then getEndEffectorLink() is used.
+ This new orientation target replaces any pre-existing JointValueTarget or pre-existing Position, Orientation, or Pose target for this end<em>effector</em>link.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">roll</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">pitch</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">yaw</span>
+            <span class="types"><span class="type">double</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:getEndEffectorLink">getEndEffectorLink</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setPoseTarget"></a>
+    <strong>MoveGroup:setPoseTarget (target[, end_effector_link])</strong>
+    </dt>
+    <dd>
+    Set the goal pose of the end-effector end<em>effector</em>link.
+ If end<em>effector</em>link is empty then getEndEffectorLink() is used.
+ This new pose target replaces any pre-existing JointValueTarget or pre-existing Position, Orientation, or Pose target for this end<em>effector</em>link.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:getEndEffectorLink">getEndEffectorLink</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setPoseReferenceFrame"></a>
+    <strong>MoveGroup:setPoseReferenceFrame (frame_name)</strong>
+    </dt>
+    <dd>
+    Specify which reference frame to assume for poses specified without a reference frame.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frame_name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setEndEffectorLink"></a>
+    <strong>MoveGroup:setEndEffectorLink (name)</strong>
+    </dt>
+    <dd>
+    Specify the parent link of the end-effector. <br/>
+ This end<em>effector</em>link will be used in calls to pose target functions when end<em>effector</em>link is not explicitly specified.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getEndEffectorlink"></a>
+    <strong>MoveGroup:getEndEffectorlink ()</strong>
+    </dt>
+    <dd>
+    Get the current end-effector link.
+ This returns the value set by setEndEffectorLink() (or indirectly by setEndEffector()).
+ If setEndEffectorLink() was not called, this function reports the link name that serves as parent of an end-effector attached to this group.
+ If there are multiple end-effectors, one of them is returned. If no such link is known, the empty string is returned.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:setEndEffectorLink">setEndEffectorLink</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:clearPoseTarget"></a>
+    <strong>MoveGroup:clearPoseTarget ()</strong>
+    </dt>
+    <dd>
+    Forget pose(s) specified for end<em>effector</em>link.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:clearPoseTargets"></a>
+    <strong>MoveGroup:clearPoseTargets ()</strong>
+    </dt>
+    <dd>
+    Forget any poses specified for all end-effectors.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:moveAsync"></a>
+    <strong>MoveGroup:moveAsync ()</strong>
+    </dt>
+    <dd>
+    Plan and execute a trajectory that takes the group of joints declared in the constructor to the specified target.
+ This call is not blocking (does not wait for the execution of the trajectory to complete).
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:move"></a>
+    <strong>MoveGroup:move ()</strong>
+    </dt>
+    <dd>
+    Plan and execute a trajectory that takes the group of joints declared in the constructor to the specified target.
+ This call is always blocking (waits for the execution of the trajectory to complete) and requires an asynchronous spinner to be started.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:plan"></a>
+    <strong>MoveGroup:plan ([plan_output])</strong>
+    </dt>
+    <dd>
+    Compute a motion plan that takes the group declared in the constructor from the current state to the specified target.
+ No execution is performed. The resulting plan is stored in plan.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">plan_output</span>
+            <span class="types"><span class="type">moveit.Plan</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">int</span></span>
+        status if the plan was generated successfully</li>
+        <li>
+           <span class="types"><span class="type">moveit.Plan</span></span>
+        plan_output final plan</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:asyncExecute"></a>
+    <strong>MoveGroup:asyncExecute (plan)</strong>
+    </dt>
+    <dd>
+    Given a plan, execute it without waiting for completion. <br/>
+ Return true on success.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">plan</span>
+            <span class="types"><span class="type">moveit.Plan</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        success
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:execute"></a>
+    <strong>MoveGroup:execute (plan)</strong>
+    </dt>
+    <dd>
+    Given a plan, execute it while waiting for completion.  Return true on success.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">plan</span>
+            <span class="types"><span class="type">moveit.Plan</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        success
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setJointPostureConstraint"></a>
+    <strong>MoveGroup:setJointPostureConstraint (joint_name, position, tolerance_above, tolerance_below, weight)</strong>
+    </dt>
+    <dd>
+    Specify a set of moveit_msgs::JointConstraint path constraints to use.
+ This replaces any path constraints set in previous calls to setPathConstraints().
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">joint_name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">tolerance_above</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">tolerance_below</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">weight</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:clearPathConstraints">clearPathConstraints</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:setOrientationConstraint"></a>
+    <strong>MoveGroup:setOrientationConstraint (link_name, frame_id, orientation_w, absolute_x_axis_tolerance, absolute_y_axis_tolerance, absolute_z_axis_tolerance, weight)</strong>
+    </dt>
+    <dd>
+    Specify a set of moveit_msgs::OrientationConstraint path constraints to use.
+ This replaces any path constraints set in previous calls to setPathConstraints().
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">link_name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">frame_id</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">orientation_w</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">absolute_x_axis_tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">absolute_y_axis_tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">absolute_z_axis_tolerance</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">weight</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:clearPathConstraints">clearPathConstraints</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:clearPathConstraints"></a>
+    <strong>MoveGroup:clearPathConstraints ()</strong>
+    </dt>
+    <dd>
+    Specify that no path constraints are to be used. <br/>
+ This removes any path constraints set in previous calls to setPathConstraints().
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:computeCartesianPath_Tensor"></a>
+    <strong>MoveGroup:computeCartesianPath_Tensor (positions, orientations, eef_step, jump_threshold[, avoid_collisions=true])</strong>
+    </dt>
+    <dd>
+    Specify a set of moveit_msgs::OrientationConstraint path constraints to use.
+ This replaces any path constraints set in previous calls to setPathConstraints().
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">positions</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         This table should hold a number of waypoints 3D Tensors
+        </li>
+        <li><span class="parameter">orientations</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         This table should hold a number of orientations for each waypoint
+        </li>
+        <li><span class="parameter">eef_step</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">jump_threshold</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">avoid_collisions</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+         (<em>default</em> true)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">moveit.Plan</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:clearPathConstraints">clearPathConstraints</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:attachObject"></a>
+    <strong>MoveGroup:attachObject (object[, link])</strong>
+    </dt>
+    <dd>
+    Given the name of an object in the planning scene, make the object attached to a link of the robot.
+ If no link name is specified, the end-effector is used. If there is no end-effector, the first link in the group is used.
+ If the object name does not exist an error will be produced in move_group, but the request made by this interface will succeed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:detachObject"></a>
+    <strong>MoveGroup:detachObject (object)</strong>
+    </dt>
+    <dd>
+    Detach an object.  name specifies the name of the object attached to this group, or the name of the link the object is attached to.
+ If there is no name specified, and there is only one attached object, that object is detached.
+ An error is produced if no object to detach is identified.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:stop"></a>
+    <strong>MoveGroup:stop ()</strong>
+    </dt>
+    <dd>
+    Stop any trajectory execution, if one is active.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:startStateMonitor"></a>
+    <strong>MoveGroup:startStateMonitor ([wait=0.01])</strong>
+    </dt>
+    <dd>
+    When reasoning about the current state of a robot, a CurrentStateMonitor instance is automatically constructed.
+ This function allows triggering the construction of that object from the beginning, so that future calls to functions such as getCurrentState() will not take so long and are less likely to fail.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">wait</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+         (<em>default</em> 0.01)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/MoveGroup.html#MoveGroup:getCurrentState">getCurrentState</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getCurrentState"></a>
+    <strong>MoveGroup:getCurrentState ()</strong>
+    </dt>
+    <dd>
+    Get the current state of the robot.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">moveit.RobotState</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getCurrentPose_Tensor"></a>
+    <strong>MoveGroup:getCurrentPose_Tensor (end_effector_link[, output])</strong>
+    </dt>
+    <dd>
+    Get the current state of the robot.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">output</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span></span>
+         end<em>effector</em>link
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">torch.DoubleTensor</span></span>
+        output
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getCurrentPose_StampedTransform"></a>
+    <strong>MoveGroup:getCurrentPose_StampedTransform (end_effector_link[, output])</strong>
+    </dt>
+    <dd>
+    Get the current state of the robot.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">output</span>
+            <span class="types"><span class="type">tf.StampedTransform</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">tf.StampedTransform</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:getCurrentPose"></a>
+    <strong>MoveGroup:getCurrentPose (end_effector_link[, output])</strong>
+    </dt>
+    <dd>
+    Get the current state of the robot.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">end_effector_link</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">output</span>
+            <span class="types"><span class="type">tf.Transform</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">tf.Transform</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MoveGroup:pick"></a>
+    <strong>MoveGroup:pick (object)</strong>
+    </dt>
+    <dd>
+    Pick up an object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Name of the object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">MoveItErrorCode</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Metamethods"></a>Metamethods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MoveGroup:__init"></a>
+    <strong>MoveGroup:__init (name)</strong>
+    </dt>
+    <dd>
+    Init function.
+ Specify the group name for which to construct this commander instance.
+ Throws an exception if there is an initialization error.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         of the kinematic move group
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-18 11:16:10 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

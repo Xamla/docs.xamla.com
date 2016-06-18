@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>torch-moveit - Torch wrapper for MoveIt!</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-moveit</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>CollisionObject</strong></li>
+  <li><a href="../classes/MoveGroup.html">MoveGroup</a></li>
+  <li><a href="../classes/Plan.html">Plan</a></li>
+  <li><a href="../classes/PlanningSceneInterface.html">PlanningSceneInterface</a></li>
+  <li><a href="../classes/RobotState.html">RobotState</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>CollisionObject</code></h1>
+<p>LUA wrapper for moveit collision objects environment
+ dependency to tourch.ros</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:getId">CollisionObject:getId ()</a></td>
+	<td class="summary">Get id of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:setId">CollisionObject:setId (id)</a></td>
+	<td class="summary">Get id of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:getFrameId">CollisionObject:getFrameId ()</a></td>
+	<td class="summary">Get the Frame id of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:setFrameId">CollisionObject:setFrameId (frame_id)</a></td>
+	<td class="summary">Set Frame id of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:getOperation">CollisionObject:getOperation ()</a></td>
+	<td class="summary">Get operation of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:setOperation">CollisionObject:setOperation (op)</a></td>
+	<td class="summary">Get operation of the collision object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:addPrimitive">CollisionObject:addPrimitive (primitive_type, dimensions, pose)</a></td>
+	<td class="summary">Add an object with position in space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionObject:addPlane">CollisionObject:addPlane (coefs, pose)</a></td>
+	<td class="summary">Add an plane with position in space.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "CollisionObject:getId"></a>
+    <strong>CollisionObject:getId ()</strong>
+    </dt>
+    <dd>
+    Get id of the collision object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:setId"></a>
+    <strong>CollisionObject:setId (id)</strong>
+    </dt>
+    <dd>
+    Get id of the collision object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:getFrameId"></a>
+    <strong>CollisionObject:getFrameId ()</strong>
+    </dt>
+    <dd>
+    Get the Frame id of the collision object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:setFrameId"></a>
+    <strong>CollisionObject:setFrameId (frame_id)</strong>
+    </dt>
+    <dd>
+    Set Frame id of the collision object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frame_id</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:getOperation"></a>
+    <strong>CollisionObject:getOperation ()</strong>
+    </dt>
+    <dd>
+    Get operation of the collision object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        <em>operation</em>type
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:setOperation"></a>
+    <strong>CollisionObject:setOperation (op)</strong>
+    </dt>
+    <dd>
+    Get operation of the collision object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">op</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:addPrimitive"></a>
+    <strong>CollisionObject:addPrimitive (primitive_type, dimensions, pose)</strong>
+    </dt>
+    <dd>
+    Add an object with position in space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">primitive_type</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">dimensions</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">pose</span>
+            <span class="types"><span class="type">tf.Transform</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CollisionObject:addPlane"></a>
+    <strong>CollisionObject:addPlane (coefs, pose)</strong>
+    </dt>
+    <dd>
+    Add an plane with position in space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">coefs</span>
+            <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">pose</span>
+            <span class="types"><span class="type">tf.Transform</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-18 11:16:10 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>torch-moveit - Torch wrapper for MoveIt!</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-moveit</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../classes/CollisionObject.html">CollisionObject</a></li>
+  <li><a href="../classes/MoveGroup.html">MoveGroup</a></li>
+  <li><a href="../classes/Plan.html">Plan</a></li>
+  <li><a href="../classes/PlanningSceneInterface.html">PlanningSceneInterface</a></li>
+  <li><strong>RobotState</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>RobotState</code></h1>
+<p>LUA wrapper for moveit robot state environment
+ dependency to tourch.ros</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariableCount">RobotState:getVariableCount ()</a></td>
+	<td class="summary">function getVariableNames
+Get the number of variables that make up this state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariableNames">RobotState:getVariableNames ([names])</a></td>
+	<td class="summary">Get the names of the variables that make up this state, in the order they are stored in memory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariablePositions">RobotState:getVariablePositions ()</a></td>
+	<td class="summary">Get a raw pointer to the positions of the variables stored in this state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:hasVelocities">RobotState:hasVelocities ()</a></td>
+	<td class="summary">By default, if velocities are never set or initialized, the state remembers that there are no velocities set.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariableVelocities">RobotState:getVariableVelocities ()</a></td>
+	<td class="summary">Get const access to the velocities of the variables that make up this state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:hasAccelerations">RobotState:hasAccelerations ()</a></td>
+	<td class="summary">Check if accelerations are provided.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariableAccelerations">RobotState:getVariableAccelerations ()</a></td>
+	<td class="summary">Get raw access to the accelerations of the variables that make up this state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:hasEffort">RobotState:hasEffort ()</a></td>
+	<td class="summary">Check if efforts are provided.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:getVariableEffort">RobotState:getVariableEffort ()</a></td>
+	<td class="summary">Get raw access to the effort of the variables that make up this state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:setToDefaultValues">RobotState:setToDefaultValues ()</a></td>
+	<td class="summary">Set all joints to their default positions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:setToRandomPositions">RobotState:setToRandomPositions ()</a></td>
+	<td class="summary">Set all joints to random values.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#RobotState:setFromIK">RobotState:setFromIK (group_id, pose[, attempts=10[, timeout=0.1]])</a></td>
+	<td class="summary">If the group this state corresponds to is a chain and a solver is available, then the joint values can be set by computing inverse kinematics.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "RobotState:getVariableCount"></a>
+    <strong>RobotState:getVariableCount ()</strong>
+    </dt>
+    <dd>
+    function getVariableNames
+Get the number of variables that make up this state.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:getVariableNames"></a>
+    <strong>RobotState:getVariableNames ([names])</strong>
+    </dt>
+    <dd>
+    Get the names of the variables that make up this state, in the order they are stored in memory.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">names</span>
+            <span class="types"><span class="type">moveit.Strings</span></span>
+
+
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">moveit.Strings</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:getVariablePositions"></a>
+    <strong>RobotState:getVariablePositions ()</strong>
+    </dt>
+    <dd>
+    Get a raw pointer to the positions of the variables stored in this state.  Use carefully.
+If you change these values externally you need to make sure you trigger a forced update for the state by calling update(true).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:hasVelocities"></a>
+    <strong>RobotState:hasVelocities ()</strong>
+    </dt>
+    <dd>
+    By default, if velocities are never set or initialized, the state remembers that there are no velocities set.
+This is useful to know when serializing or copying the state.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:getVariableVelocities"></a>
+    <strong>RobotState:getVariableVelocities ()</strong>
+    </dt>
+    <dd>
+    Get const access to the velocities of the variables that make up this state. <br/>
+The values are in the same order as reported by getVariableNames.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/RobotState.html#RobotState:getVariableNames">getVariableNames</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:hasAccelerations"></a>
+    <strong>RobotState:hasAccelerations ()</strong>
+    </dt>
+    <dd>
+    Check if accelerations are provided.
+By default, if accelerations are never set or initialized, the state remembers that there are no accelerations set.
+This is useful to know when serializing or copying the state. If @see hasAccelerations() reports true, @see hasEffort() will certainly report false.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:getVariableAccelerations"></a>
+    <strong>RobotState:getVariableAccelerations ()</strong>
+    </dt>
+    <dd>
+    Get raw access to the accelerations of the variables that make up this state.
+The values are in the same order as reported by getVariableNames().
+The area of memory overlaps with effort (effort and acceleration should not be set at the same time)
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/RobotState.html#RobotState:getVariableNames">getVariableNames</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:hasEffort"></a>
+    <strong>RobotState:hasEffort ()</strong>
+    </dt>
+    <dd>
+    Check if efforts are provided.
+By default, if effort is never set or initialized, the state remembers that there is no effort set.
+This is useful to know when serializing or copying the state. If @see hasEffort() reports true, @see hasAccelerations() will certainly report false.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:getVariableEffort"></a>
+    <strong>RobotState:getVariableEffort ()</strong>
+    </dt>
+    <dd>
+    Get raw access to the effort of the variables that make up this state.
+The values are in the same order as reported by getVariableNames().
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">torch.DoubleTensor</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/RobotState.html#RobotState:getVariableNames">getVariableNames</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:setToDefaultValues"></a>
+    <strong>RobotState:setToDefaultValues ()</strong>
+    </dt>
+    <dd>
+    Set all joints to their default positions. <br/>
+The default position is 0, or if that is not within bounds then half way between min and max bound.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:setToRandomPositions"></a>
+    <strong>RobotState:setToRandomPositions ()</strong>
+    </dt>
+    <dd>
+    Set all joints to random values.
+Values will be within default bounds.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "RobotState:setFromIK"></a>
+    <strong>RobotState:setFromIK (group_id, pose[, attempts=10[, timeout=0.1]])</strong>
+    </dt>
+    <dd>
+    If the group this state corresponds to is a chain and a solver is available, then the joint values can be set by computing inverse kinematics.
+The pose is assumed to be in the reference frame of the kinematic model.
+Returns true on success.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">group_id</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">pose</span>
+            <span class="types"><span class="type">tf.Transform</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">attempts</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+         (<em>default</em> 10)
+        </li>
+        <li><span class="parameter">timeout</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+         (<em>default</em> 0.1)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-18 11:16:10 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
