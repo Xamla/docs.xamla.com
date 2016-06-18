@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Torch7/Lua Wrapper for ROS</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-ros</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/ros.actionlib.html">ros.actionlib</a></li>
+  <li><a href="../modules/console.html">console</a></li>
+  <li><strong>master</strong></li>
+  <li><a href="../modules/md5.html">md5</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../classes/AsyncSpinner.html">AsyncSpinner</a></li>
+  <li><a href="../classes/CallbackQueue.html">CallbackQueue</a></li>
+  <li><a href="../classes/Duration.html">Duration</a></li>
+  <li><a href="../classes/MessageBuffer.html">MessageBuffer</a></li>
+  <li><a href="../classes/ActionClient.html">ActionClient</a></li>
+  <li><a href="../classes/SimpleActionServer.html">SimpleActionServer</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>master</code></h1>
+<p>Collection of functions to query information about the ROS master</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#execute">execute (method, request, wait_for_master)</a></td>
+	<td class="summary">Execute an XMLRPC call on the master.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getHost">getHost ()</a></td>
+	<td class="summary">Get the hostname where the master runs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPort">getPort ()</a></td>
+	<td class="summary">Get the port where the master runs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getURI">getURI ()</a></td>
+	<td class="summary">Get the full URI to the master (eg.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#check">check ()</a></td>
+	<td class="summary">Check if the master is running.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTopics">getTopics ([output])</a></td>
+	<td class="summary">Get the list of topics that are being published by all nodes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNodes">getNodes ([output])</a></td>
+	<td class="summary">Retreives the currently-known list of nodes from the master.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setRetryTimeout">setRetryTimeout (_1[, _2])</a></td>
+	<td class="summary">Set the max time this node should spend looping trying to connect to the master.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "execute"></a>
+    <strong>execute (method, request, wait_for_master)</strong>
+    </dt>
+    <dd>
+    Execute an XMLRPC call on the master.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">method</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         The RPC method to invoke
+        </li>
+        <li><span class="parameter">request</span>
+            <span class="types"><span class="type">std.Variable</span></span>
+
+<pre><code>The arguments to the RPC call
+</code></pre>
+
+        </li>
+        <li><span class="parameter">wait_for_master</span>
+            <span class="types"><span class="type">bool</span></span>
+         Whether or not this call should loop until it can contact the master
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        result true if the master is available, false otherwise.</li>
+        <li>
+           <span class="types"><span class="type">std.Variable</span></span>
+        response The resonse that was received.</li>
+        <li>
+           <span class="types"><span class="type">std.Variable</span></span>
+        payload The payload that was received.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getHost"></a>
+    <strong>getHost ()</strong>
+    </dt>
+    <dd>
+    Get the hostname where the master runs.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The master's hostname
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPort"></a>
+    <strong>getPort ()</strong>
+    </dt>
+    <dd>
+    Get the port where the master runs.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The master's port.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getURI"></a>
+    <strong>getURI ()</strong>
+    </dt>
+    <dd>
+    Get the full URI to the master (eg.  http://host:port/).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The URI of the master
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "check"></a>
+    <strong>check ()</strong>
+    </dt>
+    <dd>
+    Check if the master is running.
+ This method tries to contact the master. You can call it any time after ros::init has been called.
+ The intended usage is to check whether the master is up before trying to make other
+ requests (subscriptions, advertisements, etc.).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the master is available, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTopics"></a>
+    <strong>getTopics ([output])</strong>
+    </dt>
+    <dd>
+    Get the list of topics that are being published by all nodes.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">output</span>
+            <span class="types"><span class="type">std.VariableTable</span></span>
+         Will be filled the the topic names. If parameter is not present, the table will be created by the function
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">std.VariableTable</span></span>
+        Table containing the names of all topics
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNodes"></a>
+    <strong>getNodes ([output])</strong>
+    </dt>
+    <dd>
+    Retreives the currently-known list of nodes from the master.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">output</span>
+            <span class="types"><span class="type">std.StringVector</span></span>
+         Will be filled with the list of nodes. If parameter is not present, the object will be created by this function
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">std.StringVector</span></span>
+        List of nodes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setRetryTimeout"></a>
+    <strong>setRetryTimeout (_1[, _2])</strong>
+    </dt>
+    <dd>
+    Set the max time this node should spend looping trying to connect to the master.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">_1</span>
+            <span class="types"><span class="type">number</span> or <span class="type">ros.Duration</span></span>
+         If number: time duration in secons, fractional number possible
+        </li>
+        <li><span class="parameter">_2</span>
+            <span class="types"><span class="type">number</span></span>
+         If present, _1 represends the seconds and _2 represends the nanoseconds
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-18 21:52:32 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
