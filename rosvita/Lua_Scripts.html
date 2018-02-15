@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Lua Scripts &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
+        <link rel="next" title="Access to ROSVITA from External ROS" href="Combination_with_External_ROS.html"/>
+        <link rel="prev" title="ROSVITA Graph Concept" href="Graph_Concept.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Startet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using Lua Scripts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Lua_Scripts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-lua-scripts">
+<h1>Using Lua Scripts<a class="headerlink" href="#using-lua-scripts" title="Permalink to this headline">¶</a></h1>
+<p>In the following, two simple example LUA scripts are shown.
+The first of these scripts simply prints the current joint positions and endeffector pose of a robot “MoveGroup” (kinematic chain):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;ros&#39;</span>
+<span class="n">local</span> <span class="n">motionLibrary</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;xamlamoveit.motionLibrary&#39;</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">main</span><span class="p">()</span>
+  <span class="n">ros</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;readPose&quot;</span><span class="p">)</span>
+
+  <span class="n">local</span> <span class="n">nh</span> <span class="o">=</span> <span class="n">ros</span><span class="o">.</span><span class="n">NodeHandle</span><span class="p">()</span>
+  <span class="n">local</span> <span class="n">motion_service</span> <span class="o">=</span> <span class="n">motionLibrary</span><span class="o">.</span><span class="n">MotionService</span><span class="p">(</span><span class="n">nh</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">move_group</span> <span class="o">=</span> <span class="n">motion_service</span><span class="p">:</span><span class="n">getMoveGroup</span><span class="p">()</span>  <span class="o">--</span> <span class="c1">#If no name is specified first move group is used.</span>
+
+  <span class="n">local</span> <span class="n">q</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">:</span><span class="n">getCurrentJointValues</span><span class="p">()</span>
+  <span class="o">--</span> <span class="c1">#Show joint names and corresponding joint values:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Current joint positions:&#39;</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">values</span>
+  <span class="n">local</span> <span class="n">n</span> <span class="o">=</span> <span class="n">q</span><span class="p">:</span><span class="n">getNames</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+  <span class="n">end</span>
+
+  <span class="n">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">:</span><span class="n">getCurrentPose</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Current pose (relative to world):&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">toTensor</span><span class="p">())</span> <span class="o">--</span> <span class="c1">#Show pose as 4x4 tensor.</span>
+
+  <span class="n">motion_service</span><span class="p">:</span><span class="n">shutdown</span><span class="p">()</span>
+  <span class="n">ros</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Elements of type “JointValues” (here: “q”) consist of a vector of values (“q.values”) for each joint and of the “xamlamoveit” datatype “JointSet”, which contains the names of the joints. Hence, “JointValues” always needs a “JointSet”, so it is quite clear which joints the vector of values refers to.</p>
+</div>
+<p>Execution of the second script causes the robot (e.g. a UR5 arm) to move to a random joint angle position within joint limits:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="n">require</span> <span class="s2">&quot;ros&quot;</span>
+<span class="n">local</span> <span class="n">motionLibrary</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;xamlamoveit.motionLibrary&#39;</span>
+<span class="n">local</span> <span class="n">datatypes</span> <span class="o">=</span> <span class="n">require</span> <span class="s2">&quot;xamlamoveit.datatypes&quot;</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">randomseed</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">then</span> <span class="k">return</span> <span class="mi">1</span> <span class="n">elseif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="n">then</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span> <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">main</span><span class="p">()</span>
+  <span class="n">ros</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;simpleMovement&quot;</span><span class="p">)</span>
+
+  <span class="n">local</span> <span class="n">nh</span> <span class="o">=</span> <span class="n">ros</span><span class="o">.</span><span class="n">NodeHandle</span><span class="p">()</span>
+  <span class="n">local</span> <span class="n">motion_service</span> <span class="o">=</span> <span class="n">motionLibrary</span><span class="o">.</span><span class="n">MotionService</span><span class="p">(</span><span class="n">nh</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">move_group</span> <span class="o">=</span> <span class="n">motion_service</span><span class="p">:</span><span class="n">getMoveGroup</span><span class="p">()</span>
+
+  <span class="n">local</span> <span class="n">plan_parameters</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">:</span><span class="n">getDefaultPlanParameters</span><span class="p">()</span>
+  <span class="n">local</span> <span class="n">q</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">:</span><span class="n">getCurrentJointValues</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start:&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+  <span class="o">--</span> <span class="c1">#Get joint limits:</span>
+  <span class="n">local</span> <span class="n">max_min_pos</span><span class="p">,</span> <span class="n">max_vel</span><span class="p">,</span> <span class="n">max_acc</span> <span class="o">=</span> <span class="n">motion_service</span><span class="p">:</span><span class="n">queryJointLimits</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">getNames</span><span class="p">())</span>
+
+  <span class="o">--</span> <span class="c1">#Construct random target joint values within joint limits:</span>
+  <span class="n">local</span> <span class="n">target_joint_values</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">values</span><span class="p">:</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">q</span><span class="o">.</span><span class="n">values</span><span class="p">:</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">do</span>
+    <span class="n">target_joint_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_min_pos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">max_min_pos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">max_min_pos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">end</span>
+  <span class="n">local</span> <span class="n">target</span> <span class="o">=</span> <span class="n">datatypes</span><span class="o">.</span><span class="n">JointValues</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">target_joint_values</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;target:&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+  <span class="n">move_group</span><span class="p">:</span><span class="n">moveJ</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Movement finished.&quot;</span><span class="p">)</span>
+
+  <span class="n">motion_service</span><span class="p">:</span><span class="n">shutdown</span><span class="p">()</span>
+  <span class="n">ros</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Copy the contents shown above into files “<code class="docutils literal"><span class="pre">readPose.lua</span></code>” and “<code class="docutils literal"><span class="pre">simpleMovement.lua</span></code>” and place them into the subfolder “src” of your project folder.
+Then execute the LUA scripts by typing the following commands in the ROSVITA terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">xamla</span><span class="o">/</span><span class="n">Rosvita</span><span class="o">.</span><span class="n">Control</span><span class="o">/</span><span class="n">projects</span><span class="o">/&lt;</span><span class="n">project</span> <span class="n">name</span><span class="o">&gt;/</span><span class="n">src</span>
+<span class="n">th</span> <span class="n">readPose</span><span class="o">.</span><span class="n">lua</span>
+<span class="n">th</span> <span class="n">simpleMovement</span><span class="o">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>Now, the current joint angles and endeffector pose are printed in the terminal. Moreover, in the “World View” (e.g. opened in a second browser), the random robot movement can be observed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before running the scripts, make sure that your current robot configuration has been compiled and ROS has  been started successfully (indicated by a green “GO” with check mark at the top bar of the ROSVITA environment).</p>
+</div>
+<p>Here we used some subpackages of the package “xamlamoveit”. The package “xamlamoveit” can be found at <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit</span></code>. In particular, we used some functions of the “MotionService” and “MoveGroup” classes, which are implemented in files “MotionService.lua” and “MoveGroup.lua”, respectively, and can be found here: <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit/motionLibrary/</span></code>.</p>
+<p>Further helpful scripts can be found within the subfolders of the higher-level path <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/</span></code>, in particular <code class="docutils literal"><span class="pre">cli/teachWaypoints.lua</span></code> and <code class="docutils literal"><span class="pre">cli/moveRobot.lua</span></code>, as well as <code class="docutils literal"><span class="pre">auto_calibration/runCalibration.lua</span></code> (the latter requires the addition of a camera to the robot configuration).</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Combination_with_External_ROS.html" class="btn btn-neutral float-right" title="Access to ROSVITA from External ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Graph_Concept.html" class="btn btn-neutral" title="ROSVITA Graph Concept" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com.
+      Last updated on Jan 31, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

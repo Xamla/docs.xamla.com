@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ROSVITA Graph Concept &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
+        <link rel="next" title="Using Lua Scripts" href="Lua_Scripts.html"/>
+        <link rel="prev" title="Creation of Own Robot Models" href="Own_Robot_Models.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Startet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROSVITA Graph Concept</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-graphs">Example Graphs:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-graph-1">Example Graph 1:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-selection">Module Selection:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-graph-2">Example Graph 2:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Module Selection:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-graph-3">Example Graph 3:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Module Selection:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ROSVITA Graph Concept</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Graph_Concept.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rosvita-graph-concept">
+<h1>ROSVITA Graph Concept<a class="headerlink" href="#rosvita-graph-concept" title="Permalink to this headline">¶</a></h1>
+<p>To create a new “xgraph”, click on the “+ New” button in the top bar. The graph view opens and the name of the new xgraph appears in the list of “Runtime Slots” together with its process ID (see top left edge of the ROSVITA environment).
+On the right side bar under the title “Module Catalog”, you can now select individual modules and drag and drop them into the graph editor, which initially only has a “Start/Input” module and an “End/Output” module.
+Clicking with the left mouse button in the graph editor will give you a text field, with which you can search for particular modules.
+Clicking with the right mouse button in the graph editor will give you four different options: You can choose between inserting a comment, adding another module, deleting a selected element (e.g. a module, connection, comment, etc), or compiling the current graph.
+In more detail, “Compile” creates a .Net assembly (DLL) from the source code of the .Net code modules so that the functionality of the modules can be used in the runtime environment of the graph. If errors occur during compilation (e.g. syntax errors), these are displayed under “Errors” in the output area.
+If you click on a certain module in the graph editor, a short description of this module appears at the bottom of the right side bar. By clicking on one of the input, output, or parameter pins of the module, you will get a description of the clicked pin. Right-click on a module provides the option to duplicate or delete the module. By clicking on a module pin, it is also possible to draw connections between modules or module parameters: Click on the corresponding pin and keep the mouse button pressed, drag it to another module pin and release it there. By right-clicking on a connection and selecting “Disconnect”, connections between modules or their parameters can be removed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The triangular green module pins denote so-called “flow connections”, i.e. between these pins always just one connection can be drawn. You cannot have multiple connections on a triangular pin. The round gray module pins, on the other hand, are “parallel connections”, i.e. such a pin can be connected to several other pins.</p>
+</div>
+<p>Module parameter values ​​can either be entered manually in the corresponding text fields of the “Properties” pane at the right side bar, or set by a connection to another module that provides these values. To show the parameter fields of a certain module in the “Properties” pane, the corresponding module has to be clicked (see Fig. 9.1).</p>
+<div class="figure" id="id3">
+<img alt="_images/Graph_Editor.png" src="_images/Graph_Editor.png" />
+<p class="caption"><span class="caption-text">Figure 9.1  ROSVITA Graph Editor.</span></p>
+</div>
+<p>Once you have finished the graph from “Start” to “End”, you can save it by pressing the button “Save as…” or “Save” at the top bar of the graph editor. Moreover, you can execute the graph by clicking on the “Start” button, and stop the execution by clicking on the “Stop” button. If the execution of the graph involves a robot movement (as in some of the following examples), then this movement can be observed in the “World View” (e.g. opened in a second browser window).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before executing a graph, make sure that your current robot configuration has been compiled and ROS has  been started successfully (indicated by a green “GO” with check mark at the top bar of the ROSVITA environment).</p>
+</div>
+<div class="section" id="example-graphs">
+<h2>Example Graphs:<a class="headerlink" href="#example-graphs" title="Permalink to this headline">¶</a></h2>
+<p>In the following we want to build some example graphs, which concretely illustrate the graph concept. The first of these graphs simply performs some arithmetic operations, while the second and third graph are designed to cause robot movements.</p>
+<div class="section" id="example-graph-1">
+<h3>Example Graph 1:<a class="headerlink" href="#example-graph-1" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="_images/Example_Graph1.png" src="_images/Example_Graph1.png" />
+<p class="caption"><span class="caption-text">Figure 9.1  ROSVITA Example Graph1 (simple arithmetic operations).</span></p>
+</div>
+<p>The first graph (see Fig. 9.1) simply performs some mathematical operations, like addition and multiplication of two floating point numbers. All the modules used for this graph can be found in the “Module Catalog” under “System” -&gt; “Math”, or directly via module search.</p>
+<div class="section" id="module-selection">
+<h4>Module Selection:<a class="headerlink" href="#module-selection" title="Permalink to this headline">¶</a></h4>
+<p>To create the first example graph, we use the following modules:</p>
+<ul class="simple">
+<li>“Add” (addition of two floating point numbers)</li>
+<li>“Cos” (cosinus calculation)</li>
+<li>“Substract” (subtraction of two floating point numbers)</li>
+<li>“Multiply” (multiplication of two floating point numbers)</li>
+<li>“Divide” (division of two floation point numbers)</li>
+<li>“Sqrt” (square root calculation)</li>
+<li>“ViewString” (6x) (display of resulting numbers as string)</li>
+</ul>
+<p>Operands for the first addition are both “pi” (3.14159265359) entered into the corresponding property fields (“Operand1” and “Operand2”) of this module (module “Add”).</p>
+<p>Note, that here we only have parallel connections between modules (see Fig. 9.1).</p>
+</div>
+</div>
+<div class="section" id="example-graph-2">
+<h3>Example Graph 2:<a class="headerlink" href="#example-graph-2" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<img alt="_images/Example_Graph2.png" src="_images/Example_Graph2.png" />
+<p class="caption"><span class="caption-text">Figure 9.2  ROSVITA Example Graph2 (simple robot movement).</span></p>
+</div>
+<p>The second example graph (see Fig. 9.2) is designed to cause the robot (e.g. a UR5 arm) to successively move to two different joint angle positions. We assume that in the “World View” already some joint angle positions have been stored, such that we can choose two of them as target positions for the movement.</p>
+<div class="section" id="id1">
+<h4>Module Selection:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>To create the second example graph, we need two “MoveJ” modules, which can be found in the
+“Module Catalog” under “Xamla”-&gt;”Robotics”, or directly via module search.
+With the “MoveJ” module, the robot can be moved to a specific joint angle position.
+This operation explicitly requires the target values ​​for the joint angles.
+All other module parameters (“collisionChecking”, “velocityScaling”, “sampleResolution” and “cacheResult”)
+have default values.
+Target values ​​for the joint angles can be selected in the “target” properties field of the module (see Fig. 9.2): Simply choose the name of one of the joint angle configurations previously saved in the “World View”.</p>
+</div>
+</div>
+<div class="section" id="example-graph-3">
+<h3>Example Graph 3:<a class="headerlink" href="#example-graph-3" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<img alt="_images/Example_Graph3.png" src="_images/Example_Graph3.png" />
+<p class="caption"><span class="caption-text">Figure 9.3  ROSVITA Example Graph3 (repeated robot movement implemented by a “for loop”).</span></p>
+</div>
+<p>The third example graph (see Fig. 9.3) extends the second example graph by a for loop. Hence, running this graph causes the robot to repeat the movement from target joint position1 to target joint position2 for 11 times. As before, we assume to have some joint angle positions previously stored in the  “World View”.</p>
+<div class="section" id="id2">
+<h4>Module Selection:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the modules from “Example Graph2”, we only need a “ForLoop” module, which can be found in the “ModuleCatalog” under “Xamla”-&gt;”Robotics”. The “ForLoop” module, enables us to repeatedly execute parts of the graph (here, the two “MoveJ” commands). As parameter values it only needs a start and an end value, as well as an increment for the counting.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Lua_Scripts.html" class="btn btn-neutral float-right" title="Using Lua Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Own_Robot_Models.html" class="btn btn-neutral" title="Creation of Own Robot Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com.
+      Last updated on Jan 30, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

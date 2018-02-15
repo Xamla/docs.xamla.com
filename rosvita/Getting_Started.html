@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Startet &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
+        <link rel="next" title="ROSVITA Main View" href="Main_View.html"/>
+        <link rel="prev" title="Welcome to ROSVITA" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Startet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Startet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Getting_Started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-startet">
+<span id="getting-started-label"></span><h1>Getting Startet<a class="headerlink" href="#getting-startet" title="Permalink to this headline">¶</a></h1>
+<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is:</p>
+<ul class="simple">
+<li>An up-to-date <a class="reference external" href="https://help.ubuntu.com/community/Installation/">Ubuntu</a> operating system (16.04 or higher),</li>
+<li>The software container platform <a class="reference external" href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce">Docker</a> (<a class="reference internal" href="Docker_Installation.html#docker-installation-label"><span class="std std-ref">short installation instructions</span></a>),</li>
+<li>And finally the <strong>ROSVITA Docker image</strong>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For safety reasons, it is recommended to use <strong>two network cards</strong>: one for your intranet and one for your robot. For setting up the two network connections, click on the symbol with the two arrows in the top bar of your Ubuntu installation and select the menu item “Edit Connections…”. For your intranet choose a dynamic IP address (IPv4 Settings -&gt; Method: Automatic (DHCP)) and for your robot choose a static IP address (IPv4 Settings -&gt; Method: Manual).</p>
+</div>
+<p>To be able to pull the ROSVITA Docker image from <a class="reference external" href="https://hub.docker.com/">Docker Hub</a>, you need a Docker account. If you do not have a Docker ID already, simply <a class="reference external" href="https://cloud.docker.com/">sign up to Docker</a> with username, Email address and password. If you are interested in getting early access to a BETA version of ROSVITA, please <a class="reference external" href="http://xamla.com/en/#early-access">contact us</a> so we can give you permission to pull the ROSVITA Docker image from Docker Hub. Moreover, we intend to make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone with valid Docker account should be able to <code class="docutils literal"><span class="pre">docker</span> <span class="pre">pull</span></code> the ROSVITA image from Docker Hub without restrictions.</p>
+<p>Use the following commands to pull the latest ROSVITA Docker image from Docker Hub:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">login</span>
+<span class="n">docker</span> <span class="n">pull</span> <span class="n">xamla</span><span class="o">/</span><span class="n">early</span><span class="o">-</span><span class="n">access</span><span class="o">-</span><span class="n">rosvita</span><span class="p">:</span><span class="n">rosvita</span><span class="o">-</span><span class="n">images</span><span class="o">-</span><span class="n">v0</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Thereafter, ROSVITA can be started by creating and executing a shell script <strong>rosvita-start.sh</strong> with the following content:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
+
+printf &quot;Check if ROSvita is already running... &quot;
+if [[ $(docker ps -a | grep rosvita | wc -l) &gt; 0 ]]; then
+        echo &quot;YES&quot;
+        echo &quot;ROSvita is already running&quot;
+        echo &quot;Use &#39;docker attach rosvita&#39; to attach to the container. Use CTRL+P, CTRL+Q to detach from the container.&quot;
+        exit 0
+else
+        echo &quot;NO&quot;
+        echo &quot;Starting ROSvita&quot;
+        docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/Rosvita/data:/home/xamla/Rosvita.Control/data -v ~/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ~/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/early-access-rosvita:rosvita-images-v0.1 rosvita
+fi
+
+if [[ $(docker ps -a | grep rosvita | wc -l) &gt; 0 ]]; then
+        echo &quot;Ok&quot;
+        echo &quot;Use &#39;docker attach rosvita&#39; to attach to the container. Use CTRL+P, CTRL+Q to detach from the container.&quot;
+else
+        echo &quot;Failed&quot;
+        exit 1
+fi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Change the name of the ROSVITA Docker image used in this script to the actual name of the current image (“xamla/early-access-rosvita:rosvita-images-v0.1” -&gt; “&lt;name of current rosvita image&gt;”).</p>
+</div>
+<p>Before executing the script, go into your home folder and create a folder “Rosvita” with three subfolders “data”, “projects” and “robot_parts”:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;/</span><span class="p">;</span> <span class="n">mkdir</span> <span class="n">Rosvita</span><span class="p">;</span> <span class="n">cd</span> <span class="n">Rosvita</span><span class="p">;</span> <span class="n">mkdir</span> <span class="n">data</span> <span class="n">projects</span> <span class="n">robot_parts</span>
+</pre></div>
+</div>
+<p>To be able to execute the start script, you probably first have to change permissions with the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">rosvita</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Then execute the start script by simply typing:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rosvita</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>The following text should appear in the terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Check</span> <span class="k">if</span> <span class="n">ROSvita</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">running</span><span class="o">...</span> <span class="n">NO</span>
+<span class="n">Starting</span> <span class="n">ROSvita</span>
+<span class="o">&lt;</span><span class="n">longer</span> <span class="n">chain</span> <span class="n">of</span> <span class="n">characters</span><span class="o">&gt;</span>
+<span class="n">Ok</span>
+<span class="n">Use</span> <span class="s1">&#39;docker attach rosvita&#39;</span> <span class="n">to</span> <span class="n">attach</span> <span class="n">to</span> <span class="n">the</span> <span class="n">container</span><span class="o">.</span> <span class="n">Use</span> <span class="n">CTRL</span><span class="o">+</span><span class="n">P</span><span class="p">,</span> <span class="n">CTRL</span><span class="o">+</span><span class="n">Q</span> <span class="n">to</span> <span class="n">detach</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">container</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In an internet browser (for example in “Chrome”), the user interface of the “Rosvita Robot Programming System” can now be opened by entering <code class="docutils literal"><span class="pre">localhost:5000</span></code> in the address bar.
+The login screen appears. After successful login with username and password, the ROSVITA main development environment opens.</p>
+<p>To stop ROSVITA simply type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">stop</span> <span class="n">rosvita</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All changes to files of the ROSVITA Docker image are temporary and get lost after an update of the image. Therefore, <strong>do not modify the ROSVITA Docker image, but always make changes locally in your own project folder</strong> (/home/&lt;username&gt;/Rosvita/projects/).</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Main_View.html" class="btn btn-neutral float-right" title="ROSVITA Main View" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to ROSVITA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com.
+      Last updated on Feb 08, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
