@@ -101,7 +101,7 @@ fill: #fff;
 }
 
 .menu .active {
-padding: 21px 0 24px 0;
+padding: 21px 20px 24px 20px;
 margin: 7px 0 0 0;
 background-color: #596591;
 display: flex;
@@ -112,12 +112,13 @@ justify-content: center;
 color: white;
 display: flex;
 justify-content: center;
-width: 220px;
+/* width: 220px; */
 margin: 0 0 0 15px;
+padding: 0px 20px;
 }
 
 .menu li:nth-child(2) {
-width: 165px;
+/* width: 165px; */
 }
 
 .menu h2 {
