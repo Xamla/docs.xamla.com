@@ -14,82 +14,35 @@ To use ROSVITA, no complex installation process is necessary, because the ROSVIT
 
 To be able to pull the ROSVITA Docker image from `Docker Hub <https://hub.docker.com/>`_, you need a Docker account. If you do not have a Docker ID already, simply `sign up to Docker <https://cloud.docker.com/>`_ with username, Email address and password. If you are interested in getting early access to a BETA version of ROSVITA, please `contact us <http://xamla.com/en/#early-access>`_ so we can give you permission to pull the ROSVITA Docker image from Docker Hub. Moreover, we intend to make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone with valid Docker account should be able to ``docker pull`` the ROSVITA image from Docker Hub without restrictions.
 
-Use the following commands to pull the latest ROSVITA Docker image from Docker Hub::
+Use the following commands to pull the latest ROSVITA Docker image from Docker Hub. 
+**Change the version tag v0.2 to the current version number!**
+
+.. code-block:: bash
 
    docker login
    docker pull xamla/early-access-rosvita:v0.2
 
-Thereafter, ROSVITA can be started by following the steps below::
+Thereafter, ROSVITA can be started by following the steps:
 
-1. Go into your home folder and create a shell script **rosvita-start.sh** with the following content:
+1. Go into your home folder and download the shell script `rosvita-start.sh <https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh>`_.
+2. Change permissions to be able to execute the start script.
+3. And finally execute the script.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      #!/bin/bash
+   cd ~
+   wget https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh
+   chmod u+x rosvita-start.sh
+   ./rosvita-start.sh
 
-      echo "Check if folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts' exist and create them otherwise..."
-      cd ~
-      if [[ $(ls | grep -x Rosvita | wc -l) > 0 ]]; then
-         echo "Folder 'Rosvita' exists."
-         cd Rosvita
-         if [[ $(ls | grep -x data | wc -l) > 0 ]]; then
-              echo "Subfolder 'data' exists."
-         else
-              echo "Creating subfolder 'data'."
-              mkdir data
-         fi
-         if [[ $(ls | grep -x projects | wc -l) > 0 ]]; then
-              echo "Subfolder 'projects' exists."
-         else
-              echo "Creating subfolder 'projects'."
-              mkdir projects
-         fi
-         if [[ $(ls | grep -x robot_parts | wc -l) > 0 ]]; then
-              echo "Subfolder 'robot_parts' exists."
-         else
-              echo "Creating subfolder 'robot_parts'."
-              mkdir robot_parts
-         fi
-      else
-         echo "Creating folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts'."
-         mkdir Rosvita
-         cd Rosvita
-         mkdir data projects robot_parts
-      fi
-      
-      echo "Check if ROSvita is already running..."
-      if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
-              echo "YES"
-              echo "ROSvita is already running"
-              echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
-              exit 0
-      else
-              echo "NO"
-              echo "Starting ROSvita"
-              docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/Rosvita/data:/home/xamla/Rosvita.Control/data -v ~/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ~/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/early-access-rosvita:v0.2 rosvita
-      fi
-      
-      if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
-              echo "Ok"
-              echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
-      else
-              echo "Failed"
-              exit 1
-      fi
+.. note:: **Change the version tag v0.2** of the ROSVITA Docker image used in this script **to the actual version number:** ``xamla/early-access-rosvita:v0.2 -> xamla/early-access-rosvita:vX.X``.
 
-   .. note:: Change the name of the ROSVITA Docker image used in this script to the actual name of the current image (**xamla/early-access-rosvita:v0.2** -> **xamla/early-access-rosvita:vX.X**).
 
-2. Change permissions to be able to execute the start script::
+In an internet browser (for example in **Chrome**), the user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar. The login screen appears. After successful login with username and password (default: **admin** and **r2d2c3po**), the ROSVITA main development environment opens (see :ref:`next chapter <main-view-label>`).
 
-      chmod u+x rosvita-start.sh
+To stop ROSVITA simply type:
 
-3. And finally execute the script::
-
-      ./rosvita-start.sh
-
-4. In an internet browser (for example in **Chrome**), the user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar. The login screen appears. After successful login with username and password (default: **admin** and **r2d2c3po**), the ROSVITA main development environment opens.
-
-To stop ROSVITA simply type::
+.. code-block:: bash
 
    docker stop rosvita
 
