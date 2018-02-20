@@ -1,7 +1,7 @@
 .. _getting-started-label:
 
 *****************
-Getting Startet
+Getting Started
 *****************
 
 To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is:
