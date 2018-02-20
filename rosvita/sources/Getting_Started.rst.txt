@@ -17,60 +17,81 @@ To be able to pull the ROSVITA Docker image from `Docker Hub <https://hub.docker
 Use the following commands to pull the latest ROSVITA Docker image from Docker Hub::
 
    docker login
-   docker pull xamla/early-access-rosvita:rosvita-images-v0.1
+   docker pull xamla/early-access-rosvita:v0.2
 
-Thereafter, ROSVITA can be started by creating and executing a shell script **rosvita-start.sh** with the following content::
+Thereafter, ROSVITA can be started by following the steps below::
 
-   #!/bin/bash
+1. Go into your home folder and create a shell script **rosvita-start.sh** with the following content:
 
-   printf "Check if ROSvita is already running... "
-   if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
-           echo "YES"
-           echo "ROSvita is already running"
-           echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
-           exit 0
-   else
-           echo "NO"
-           echo "Starting ROSvita"
-           docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/Rosvita/data:/home/xamla/Rosvita.Control/data -v ~/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ~/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/early-access-rosvita:rosvita-images-v0.1 rosvita
-   fi
+   .. code-block:: bash
 
-   if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
-           echo "Ok"
-           echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container." 
-   else 
-           echo "Failed"
-           exit 1
-   fi
+      #!/bin/bash
 
-.. note:: Change the name of the ROSVITA Docker image used in this script to the actual name of the current image ("xamla/early-access-rosvita:rosvita-images-v0.1" -> "<name of current rosvita image>").
+      echo "Check if folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts' exist and create them otherwise..."
+      cd ~
+      if [[ $(ls | grep -x Rosvita | wc -l) > 0 ]]; then
+         echo "Folder 'Rosvita' exists."
+         cd Rosvita
+         if [[ $(ls | grep -x data | wc -l) > 0 ]]; then
+              echo "Subfolder 'data' exists."
+         else
+              echo "Creating subfolder 'data'."
+              mkdir data
+         fi
+         if [[ $(ls | grep -x projects | wc -l) > 0 ]]; then
+              echo "Subfolder 'projects' exists."
+         else
+              echo "Creating subfolder 'projects'."
+              mkdir projects
+         fi
+         if [[ $(ls | grep -x robot_parts | wc -l) > 0 ]]; then
+              echo "Subfolder 'robot_parts' exists."
+         else
+              echo "Creating subfolder 'robot_parts'."
+              mkdir robot_parts
+         fi
+      else
+         echo "Creating folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts'."
+         mkdir Rosvita
+         cd Rosvita
+         mkdir data projects robot_parts
+      fi
+      
+      echo "Check if ROSvita is already running..."
+      if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
+              echo "YES"
+              echo "ROSvita is already running"
+              echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
+              exit 0
+      else
+              echo "NO"
+              echo "Starting ROSvita"
+              docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/Rosvita/data:/home/xamla/Rosvita.Control/data -v ~/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ~/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/early-access-rosvita:v0.2 rosvita
+      fi
+      
+      if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
+              echo "Ok"
+              echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
+      else
+              echo "Failed"
+              exit 1
+      fi
 
-Before executing the script, go into your home folder and create a folder "Rosvita" with three subfolders "data", "projects" and "robot_parts"::
+   .. note:: Change the name of the ROSVITA Docker image used in this script to the actual name of the current image (**xamla/early-access-rosvita:v0.2** -> **xamla/early-access-rosvita:vX.X**).
 
-   cd /home/<username>/; mkdir Rosvita; cd Rosvita; mkdir data projects robot_parts
+2. Change permissions to be able to execute the start script::
 
-To be able to execute the start script, you probably first have to change permissions with the following command::
+      chmod u+x rosvita-start.sh
 
-   chmod u+x rosvita-start.sh
+3. And finally execute the script::
 
-Then execute the start script by simply typing::
+      ./rosvita-start.sh
 
-   ./rosvita-start.sh
-
-The following text should appear in the terminal::
-
-   Check if ROSvita is already running... NO
-   Starting ROSvita
-   <longer chain of characters>
-   Ok
-   Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container.
-
-In an internet browser (for example in "Chrome"), the user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar.
-The login screen appears. After successful login with username and password, the ROSVITA main development environment opens.
+4. In an internet browser (for example in **Chrome**), the user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar. The login screen appears. After successful login with username and password (default: **admin** and **r2d2c3po**), the ROSVITA main development environment opens.
 
 To stop ROSVITA simply type::
 
    docker stop rosvita
 
-.. note:: All changes to files of the ROSVITA Docker image are temporary and get lost after an update of the image. Therefore, **do not modify the ROSVITA Docker image, but always make changes locally in your own project folder** (/home/<username>/Rosvita/projects/).
+.. note:: All changes to files of the ROSVITA Docker image are temporary and get lost after an update of the image. Therefore, **do not modify the ROSVITA Docker image, but always make changes locally in your own project folder** (~/Rosvita/projects/).
 

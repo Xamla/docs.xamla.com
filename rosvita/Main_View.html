@@ -166,20 +166,20 @@
             
   <div class="section" id="rosvita-main-view">
 <h1>ROSVITA Main View<a class="headerlink" href="#rosvita-main-view" title="Permalink to this headline">¶</a></h1>
-<p>After successful download, import and start of the ROSVITA Docker image (see previous chapter), open an internet browser (e.g. “Chrome”) and enter <code class="docutils literal"><span class="pre">localhost:5000</span></code> in the address bar. The login screen of ROSVITA appears (see Fig. 1.1).</p>
+<p>After successful download, import and start of the ROSVITA Docker image (see <a class="reference internal" href="Getting_Started.html#getting-started-label"><span class="std std-ref">previous chapter</span></a>), open an internet browser (e.g. <strong>Chrome</strong>) and enter <code class="docutils literal"><span class="pre">localhost:5000</span></code> in the address bar. The login screen of ROSVITA appears (see Fig. 1.1).</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="images/Login_Screen.png"><img alt="images/Login_Screen.png" src="images/Login_Screen.png" style="width: 377.4px; height: 410.4px;" /></a>
 <p class="caption"><span class="caption-text">Figure 1.1  The ROSVITA Login Screen.</span></p>
 </div>
-<p>Type in your username and password and the ROSVITA main development environment opens:</p>
+<p>Type in your username and password (default: <strong>admin</strong> and <strong>r2d2c3po</strong>) and the ROSVITA main development environment opens (see <a class="reference internal" href="#fig-main-view"><span class="std std-ref">Fig. 1.2</span></a>). You should <strong>change your password</strong> in your <strong>Account Settings</strong> (see later in this chapter and <a class="reference internal" href="#fig-user-settings"><span class="std std-ref">Fig. 1.3</span></a>).</p>
 <div class="figure" id="id2">
-<img alt="images/Main_View.png" src="images/Main_View.png" />
+<span id="fig-main-view"></span><img alt="images/Main_View.png" src="images/Main_View.png" />
 <p class="caption"><span class="caption-text">Figure 1.2  The ROSVITA Main View.</span></p>
 </div>
 <p>The main view of the ROSVITA robot programming environment (Fig. 1.2) consists of several parts:</p>
 <ol class="arabic simple">
 <li>A central start window (“multi document area”) from which a new project can be created and a stored project can be opened. Later, this window will display either the configuration of the robot (“Configuration View”), the “Robot Jogging”, the path planning (“World View”), the system monitoring (“Monitoring View”), an executable graph (.xgraph), or an open file (e.g. a .xacro file).</li>
-<li>A header that displays the current project name (if a project is opened) and the status of the underlying ROS robot operating system.</li>
+<li>A header that displays the current project name (if a project is opened), the status of the underlying ROS robot operating system and the logged-on user.</li>
 <li>Another header for each view. Depending on the selected view, there are buttons for compiling, saving, starting, stopping, selecting a kinematic chain (“Move Group”) for path planning, etc.</li>
 <li>A listing of the loaded graphs (.xgraphs) together with the corresponding process IDs (PIDs).</li>
 <li>A file browser with file search, path display, upload/download between local computer and ROSVITA server, etc.</li>
@@ -194,6 +194,14 @@
 </li>
 </ol>
 <p>All parts of the main view, apart from the central multi document area, can be collapsed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We recommend to <strong>change your ROSVITA password</strong> when logged in to ROSVITA for the first time. Thereto, simply go into your user settings, i.e. click on the user button at the top right of the ROSVITA environment and choose the menu item <strong>Account Settings</strong>. A screen called <strong>User Settings</strong> appears (see Fig. 1.3). There again choose “Account Settings”, type in your new password and click onto the “Change” button.</p>
+</div>
+<div class="figure" id="id3">
+<span id="fig-user-settings"></span><img alt="images/User_Settings.png" src="images/User_Settings.png" />
+<p class="caption"><span class="caption-text">Figure 1.3  The ROSVITA User Settings Screen.</span></p>
+</div>
 </div>
 
 
@@ -219,7 +227,7 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Jan 30, 2018.
+      Last updated on Feb 20, 2018.
 
     </p>
   </div>
