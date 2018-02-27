@@ -37,8 +37,7 @@ Thereafter, ROSVITA can be started by following the steps:
 
 .. note:: **Change the version tag v0.2** of the ROSVITA Docker image used in this script **to the actual version number:** ``xamla/early-access-rosvita:v0.2 -> xamla/early-access-rosvita:vX.X``.
 
-
-In an internet browser (for example in **Chrome**), the user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar. The login screen appears. After successful login with username and password (default: **admin** and **r2d2c3po**), the ROSVITA main development environment opens (see :ref:`next chapter <main-view-label>`).
+The user interface of the "Rosvita Robot Programming System" can now be opened by entering ``localhost:5000`` in the address bar of your internet browser. We strongly recommend to use |Chrome_link|, because the user experience will be limited in Firefox due to the significantly slower browser performance. The login screen of ROSVITA appears. After successful login with username and password (default: **admin** and **r2d2c3po**), the ROSVITA main development environment opens (see :ref:`next chapter <main-view-label>`).
 
 To stop ROSVITA simply type:
 
@@ -74,3 +73,8 @@ To stop ROSVITA simply type:
 .. |Rosvita_StartScript_link| raw:: html
 
    <a href="https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh" target="_blank">rosvita_start.sh</a> 
+
+.. |Chrome_link| raw:: html
+
+   <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Chrome</a> 
+

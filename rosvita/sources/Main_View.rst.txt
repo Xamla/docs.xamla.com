@@ -4,7 +4,11 @@
 ROSVITA Main View
 *********************
 
-After successful download, import and start of the ROSVITA Docker image (see :ref:`previous chapter <getting-started-label>`), open an internet browser (e.g. **Chrome**) and enter ``localhost:5000`` in the address bar. The login screen of ROSVITA appears (see Fig. 1.1).
+After successful download, import and start of the ROSVITA Docker image (see :ref:`previous chapter <getting-started-label>`), open an internet browser and enter ``localhost:5000`` in the address bar. 
+
+.. note:: We strongly recommend to use |Chrome_link|, because the user experience will be limited in Firefox due to the significantly slower browser performance.
+
+The login screen of ROSVITA appears (see Fig. 1.1).
 
 .. figure:: images/Login_Screen.png
    :scale: 30 %
@@ -44,3 +48,9 @@ All parts of the main view, apart from the central multi document area, can be c
 
    Figure 1.3  The ROSVITA User Settings Screen.
 
+
+
+
+.. |Chrome_link| raw:: html
+
+   <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Chrome</a> 
