@@ -167,7 +167,7 @@
   <div class="section" id="using-lua-scripts">
 <h1>Using Lua Scripts<a class="headerlink" href="#using-lua-scripts" title="Permalink to this headline">¶</a></h1>
 <p>In the following, two simple example LUA scripts are shown.
-The first of these scripts simply prints the current joint positions and endeffector pose of a robot “MoveGroup” (kinematic chain):</p>
+The first of these scripts simply prints the current joint positions and end effector pose of a robot “MoveGroup” (kinematic chain):</p>
 <div class="highlight-Lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;ros&#39;</span>
 <span class="kd">local</span> <span class="n">motionLibrary</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;xamlamoveit.motionLibrary&#39;</span>
 
@@ -254,12 +254,12 @@ th readPose.lua
 th simpleMovement.lua
 </pre></div>
 </div>
-<p>Now, the current joint angles and endeffector pose are printed in the terminal. Moreover, in the “World View” (e.g. opened in a second browser), the random robot movement can be observed.</p>
+<p>Now, the current joint angles and end effector pose are printed in the terminal. Moreover, in the “World View” (e.g. opened in a second browser), the random robot movement can be observed.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Before running the scripts, make sure that your current robot configuration has been compiled and ROS has  been started successfully (indicated by a green “GO” with check mark at the top bar of the ROSVITA environment).</p>
 </div>
-<p>Here we used some subpackages of the package <strong>xamlamoveit</strong>. The package <strong>xamlamoveit</strong> can be found at <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit</span></code>. In particular, we used some functions of the <strong>MotionService</strong> and <strong>MoveGroup</strong> classes, which are implemented in files <strong>MotionService.lua</strong> and <strong>MoveGroup.lua</strong>, respectively, and can be found here: <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit/motionLibrary/</span></code>.</p>
+<p>Here we used some sub packages of the package <strong>xamlamoveit</strong>. The package <strong>xamlamoveit</strong> can be found at <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit</span></code>. In particular, we used some functions of the <strong>MotionService</strong> and <strong>MoveGroup</strong> classes, which are implemented in files <strong>MotionService.lua</strong> and <strong>MoveGroup.lua</strong>, respectively, and can be found here: <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit/motionLibrary/</span></code>.</p>
 <p>Further helpful scripts can be found within the subfolders of the higher-level path <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/</span></code>, in particular <code class="docutils literal"><span class="pre">cli/teachWaypoints.lua</span></code> and <code class="docutils literal"><span class="pre">cli/moveRobot.lua</span></code>, as well as <code class="docutils literal"><span class="pre">auto_calibration/runCalibration.lua</span></code> (the latter requires the addition of a camera to the robot configuration).</p>
 </div>
 
@@ -286,7 +286,7 @@ th simpleMovement.lua
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+      Last updated on Mar 15, 2018.
 
     </p>
   </div>
