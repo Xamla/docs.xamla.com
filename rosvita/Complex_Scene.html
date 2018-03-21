@@ -99,7 +99,11 @@
 <li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Complex Scene</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Complex Scene</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage-of-identical-robot-parts-distinction-via-prefix">Usage of identical robot parts (distinction via prefix):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-a-real-robot">Configuring a real robot:</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -185,15 +189,39 @@ This is done by clicking on the corresponding robot part in the list of added �
 <li>Gripper WSG-50 (Weiss Robotics)</li>
 </ul>
 <p>After pressing the “Compile” button, the robot with gripper should appear in the 3D view of the “Configuration” window.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you want to use several <strong>same robot parts</strong> in the scene (for example, two WSG-50 grippers), they must be distinguished by “<strong>Prefix</strong>”. Simply use the “Prefix” field in the “Properties” list for the corresponding robot part.</p>
+<div class="section" id="usage-of-identical-robot-parts-distinction-via-prefix">
+<h2>Usage of identical robot parts (distinction via prefix):<a class="headerlink" href="#usage-of-identical-robot-parts-distinction-via-prefix" title="Permalink to this headline">¶</a></h2>
+<p>If several <strong>same robot parts</strong> shall be added to the scene (for example, two WSG-50 grippers), they must be distinguished by “<strong>Prefix</strong>”. Thereto, simply use the <strong>“Prefix” field</strong> in the <strong>“Properties” list</strong> for the corresponding robot part and actuator.</p>
+<div class="figure">
+<img alt="images/Prefix_RobotPart.png" src="images/Prefix_RobotPart.png" />
+</div>
+<div class="figure" id="id1">
+<img alt="images/Prefix_Actuator.png" src="images/Prefix_Actuator.png" />
+<p class="caption"><span class="caption-text">Figures 12.1 and 12.2  Prefix usage for e.g. two WSG-50 grippers.</span></p>
+</div>
+<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. two UR5 robot arms), in addition to the distinction by “<strong>Prefix</strong>”, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the “<strong>+ Add</strong>” button in the top bar of the configuration view (see Figure 12.4).</p>
+<div class="figure" id="id2">
+<img alt="images/2xUR5_Prefix.png" src="images/2xUR5_Prefix.png" />
+<p class="caption"><span class="caption-text">Figure 12.3  Prefix usage for e.g. two UR5 robot arms.</span></p>
+</div>
+<div class="figure" id="id3">
+<img alt="images/2xUR5_MoveGroups.png" src="images/2xUR5_MoveGroups.png" />
+<p class="caption"><span class="caption-text">Figure 12.4  Addition of a second move group and end effector for the second UR5 robot arm.</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">All changes in files of your own project folder (under <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/projects</span></code>) are saved locally to your computer (at <code class="docutils literal"><span class="pre">/home/&lt;username&gt;/Rosvita/projects</span></code>). <strong>Changes outside of your own project folder</strong>, e.g. changes to a robot part in the library (<code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/library</span></code>) <strong>will not be saved permanently</strong> and get lost when ROSVITA is stopped.</p>
+<p class="last">To be able to select the renamed links (e.g. “second_base_link”) in the “Properties” list of e.g. the second move group, the “Compile” button has to be pressed after the renaming. Moreover, to be able to select the second move group as group for e.g. the second end effector, again the “Compile” button has to be pressed first. Hence, for creating a configuration with two identical robot parts, the “<strong>Compile</strong>” button has to be pressed <strong>several times</strong>.</p>
+</div>
+</div>
+<div class="section" id="configuring-a-real-robot">
+<h2>Configuring a real robot:<a class="headerlink" href="#configuring-a-real-robot" title="Permalink to this headline">¶</a></h2>
+<p>To configure a real robot, in the actuator’s “Properties” list the “Simulate” checkmark has to be removed and instead, the  ip address of the robot has to be entered.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All USB devices (e.g. cameras) have to be plugged in before starting ROSVITA.</p>
 </div>
 <p>… to be continued</p>
+</div>
 </div>
 
 
@@ -217,7 +245,7 @@ This is done by clicking on the corresponding robot part in the list of added �
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+      Last updated on Mar 21, 2018.
 
     </p>
   </div>
