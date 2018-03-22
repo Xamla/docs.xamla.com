@@ -174,7 +174,12 @@
 <p class="last">For a better understanding, it is recommended to first read the chapter <a class="reference internal" href="Robot_Configuration.html#robot-config-label"><span class="std std-ref">Creating a Robot Configuration</span></a>.</p>
 </div>
 <p>If several robot parts and associated actuators shall be added to a scene (e.g. a “Yaskawa Motoman SDA10D” and the different parts of the “Weiss Robotics WSG-50 Gripper”), they must be linked together correctly.
-This is done by clicking on the corresponding robot part in the list of added “RobotParts” on the left side of the “Configuration” view and choosing a “Parent link” in the “Properties” bar belonging to this robot part. (E.g. robot part: “wsg50 mount”, parent link: “arm_right_link_tool0” of the Yaskawa Motoman SDA10D.)</p>
+This is done by clicking on the corresponding robot part in the list of added “RobotParts” on the left side of the “Configuration” view and choosing a “<strong>Parent link</strong>” in the “<strong>Properties</strong>” bar belonging to this robot part.
+<strong>Example:</strong> Robot part: “wsg50 mount”, parent link: “arm_right_link_tool0 (Motoman SDA10D)” (see Fig. 12.1)</p>
+<div class="figure" id="id1">
+<img alt="images/ParentLink_Setting.png" src="images/ParentLink_Setting.png" />
+<p class="caption"><span class="caption-text">Figure 12.1  Setting of a parent link in the properties list of a robot part.</span></p>
+</div>
 <p>Overall, the following robot parts and parent links are needed to e.g. connect the Weiss Robotics WSG-50 gripper to the right arm of the Yaskawa Motoman SDA10D:</p>
 <ul class="simple">
 <li>Yaskawa Motoman SDA10D; <code class="docutils literal"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">world</span></code></li>
@@ -195,18 +200,18 @@ This is done by clicking on the corresponding robot part in the list of added �
 <div class="figure">
 <img alt="images/Prefix_RobotPart.png" src="images/Prefix_RobotPart.png" />
 </div>
-<div class="figure" id="id1">
-<img alt="images/Prefix_Actuator.png" src="images/Prefix_Actuator.png" />
-<p class="caption"><span class="caption-text">Figures 12.1 and 12.2  Prefix usage for e.g. two WSG-50 grippers.</span></p>
-</div>
-<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. two UR5 robot arms), in addition to the distinction by “<strong>Prefix</strong>”, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the “<strong>+ Add</strong>” button in the top bar of the configuration view (see Figure 12.4).</p>
 <div class="figure" id="id2">
-<img alt="images/2xUR5_Prefix.png" src="images/2xUR5_Prefix.png" />
-<p class="caption"><span class="caption-text">Figure 12.3  Prefix usage for e.g. two UR5 robot arms.</span></p>
+<img alt="images/Prefix_Actuator.png" src="images/Prefix_Actuator.png" />
+<p class="caption"><span class="caption-text">Figures 12.2 and 12.3  Prefix usage for e.g. two WSG-50 grippers.</span></p>
 </div>
+<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. two UR5 robot arms), in addition to the distinction by “<strong>Prefix</strong>”, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the “<strong>+ Add</strong>” button in the top bar of the configuration view (see Fig. 12.5).</p>
 <div class="figure" id="id3">
+<img alt="images/2xUR5_Prefix.png" src="images/2xUR5_Prefix.png" />
+<p class="caption"><span class="caption-text">Figure 12.4  Prefix usage for e.g. two UR5 robot arms.</span></p>
+</div>
+<div class="figure" id="id4">
 <img alt="images/2xUR5_MoveGroups.png" src="images/2xUR5_MoveGroups.png" />
-<p class="caption"><span class="caption-text">Figure 12.4  Addition of a second move group and end effector for the second UR5 robot arm.</span></p>
+<p class="caption"><span class="caption-text">Figure 12.5  Addition of a second move group and end effector for the second UR5 robot arm.</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -215,7 +220,11 @@ This is done by clicking on the corresponding robot part in the list of added �
 </div>
 <div class="section" id="configuring-a-real-robot">
 <h2>Configuring a real robot:<a class="headerlink" href="#configuring-a-real-robot" title="Permalink to this headline">¶</a></h2>
-<p>To configure a real robot, in the actuator’s “Properties” list the “Simulate” checkmark has to be removed and instead, the  ip address of the robot has to be entered.</p>
+<p>To configure a real robot, in the actuator’s “Properties” list the “Simulate” checkmark has to be removed and instead, the  IP address of the robot has to be entered (see Fig. 12.6).</p>
+<div class="figure" id="id5">
+<img alt="images/Real_Robot.png" src="images/Real_Robot.png" />
+<p class="caption"><span class="caption-text">Figure 12.6  Configuration of a real robot. (The IP address must be changed to the IP of your robot.)</span></p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">All USB devices (e.g. cameras) have to be plugged in before starting ROSVITA.</p>
@@ -245,7 +254,7 @@ This is done by clicking on the corresponding robot part in the list of added �
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Mar 21, 2018.
+      Last updated on Mar 22, 2018.
 
     </p>
   </div>
