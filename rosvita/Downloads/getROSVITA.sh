@@ -12,35 +12,46 @@ else
    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    sudo apt-get update
    sudo apt-get install docker-ce
+   if [[ $(sudo docker -v | grep -c 'Docker version') > 0 ]]; then
+      echo "Docker CE has been installed successfully."
+   else
+      echo "Docker installation failed. Please try again."
+      exit 1
+   fi
+   echo "Adding user to group docker.."
+   echo "After that you have to run './getROSVITA.sh' again in the same terminal."
+   echo "Alternatively, you can log your user out and in again, before starting the script in a new terminal."
    sudo usermod -aG docker $USER
    su - $USER
-   echo "Docker CE has been installed successfully."
 fi
 echo ""
 
 echo "The ROSVITA image will be downloaded from Docker Hub, press CTRL+C to cancel"
 read -p "Press ENTER to continue"
 echo "Getting ROSVITA from Docker Hub.."
-if [[ $(grep -q 'auths": {}' ~/.docker/config.json) ]]; then 
-   echo "Please log in to Docker first."
-fi
 docker pull xamla/early-access-rosvita:v0.2
-echo "ROSVITA image has been downloaded successfully."
-echo "Use 'docker rmi <image-id>' to remove old images and save disk space."
+if [[ $(docker images | grep -c 'early-access-rosvita') == 0 ]]; then
+   echo "Please log in to Docker first. Then run './getROSVITA.sh' again."
+   exit 1
+else
+   echo "ROSVITA image has been downloaded successfully."
+   echo "Use 'docker rmi <image-id>' to remove old images and save disk space."
+fi
 echo ""
 
 echo "Creating script '/opt/Rosvita/rosvita_start.sh' for starting ROSVITA.."
 cd /opt
 if [[ $(ls | grep -x Rosvita | wc -l) == 0 ]]; then
-   mkdir Rosvita
+   sudo mkdir Rosvita
+   sudo chown -R $USER /opt/Rosvita/
    cd Rosvita
    wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh
-   chmod u+x rosvita_start.sh
+   sudo chmod a+x rosvita_start.sh
 else
    cd Rosvita
    if [[ $(ls | grep -x rosvita_start.sh | wc -l) == 0 ]]; then
       wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh
-      chmod u+x rosvita_start.sh
+      sudo chmod a+x rosvita_start.sh
    else
       echo "ROSVITA start script already exists."
    fi
@@ -55,11 +66,12 @@ else
    wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_icon.png
    cd ${HOME}/Desktop
    wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/ROSVITA.desktop
-   chmod a+x ROSVITA.desktop
+   sudo chmod a+x ROSVITA.desktop
 fi
 echo "Finished."
 echo ""
 
 echo "ROSVITA will be started, press CTRL+C to cancel"
 read -p "Press ENTER to continue"
+cd /opt/Rosvita/
 ./rosvita_start.sh
