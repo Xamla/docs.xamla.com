@@ -3,25 +3,18 @@
 echo "Check if folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts' exist and create them otherwise..."
 cd ~
 if [[ $(ls | grep -x Rosvita | wc -l) > 0 ]]; then
-   echo "Folder 'Rosvita' exists."
    cd Rosvita
-   if [[ $(ls | grep -x data | wc -l) > 0 ]]; then
-        echo "Subfolder 'data' exists."
-   else
-        echo "Creating subfolder 'data'."
-        mkdir data
+   if [[ $(ls | grep -x data | wc -l) == 0 ]]; then
+      echo "Creating subfolder 'data'."
+      mkdir data
    fi
-   if [[ $(ls | grep -x projects | wc -l) > 0 ]]; then
-        echo "Subfolder 'projects' exists."
-   else
-        echo "Creating subfolder 'projects'."
-        mkdir projects
+   if [[ $(ls | grep -x projects | wc -l) == 0 ]]; then
+      echo "Creating subfolder 'projects'."
+      mkdir projects
    fi
-   if [[ $(ls | grep -x robot_parts | wc -l) > 0 ]]; then
-        echo "Subfolder 'robot_parts' exists."
-   else
-        echo "Creating subfolder 'robot_parts'."
-        mkdir robot_parts
+   if [[ $(ls | grep -x robot_parts | wc -l) == 0 ]]; then
+      echo "Creating subfolder 'robot_parts'."
+      mkdir robot_parts
    fi
 else
    echo "Creating folder 'Rosvita' with subfolders 'data', 'projects' and 'robot_parts'."
@@ -34,8 +27,6 @@ echo "Check if ROSvita is already running..."
 if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
         echo "YES"
         echo "ROSvita is already running"
-        echo "Use 'docker attach rosvita' to attach to the container. Use CTRL+P, CTRL+Q to detach from the container."
-        exit 0
 else
         echo "NO"
         echo "Starting ROSvita"
@@ -50,3 +41,18 @@ else
         exit 1
 fi
 
+
+echo "Open browser interface with Google Chrome"
+if [[ $(google-chrome --version | grep -c 'Google Chrome') > 0 ]]; then
+   google-chrome http://localhost:5000
+else
+   echo "Google Chrome will be installed, press CTRL+C to cancel"
+   read -p "Press ENTER to continue"
+   sudo apt-get install libxss1 libappindicator1 libindicator7
+   cd ${HOME}/Downloads
+   wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   sudo dpkg -i google-chrome*.deb
+   sudo apt-get install -f
+   sudo dpkg -i google-chrome*.deb
+   google-chrome http://localhost:5000
+fi
