@@ -166,47 +166,40 @@
             
   <div class="section" id="getting-started">
 <span id="getting-started-label"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is:</p>
-<ul class="simple">
-<li>An up-to-date <a href="https://help.ubuntu.com/community/Installation/" target="_blank">Ubuntu</a> operating system (16.04 or higher),</li>
-<li>The software container platform <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce" target="_blank">Docker</a> (<a class="reference internal" href="Docker_Installation.html#docker-installation-label"><span class="std std-ref">short installation instructions</span></a>),</li>
-<li>And finally the <strong>ROSVITA Docker image</strong>.</li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">For safety reasons, it is recommended to use <strong>two network cards</strong>: one for your intranet and one for your robot. For setting up the two network connections, click on the symbol with the two arrows in the top bar of your Ubuntu installation and select the menu item “Edit Connections…”. For your <strong>intranet</strong> choose a <strong>dynamic IP address</strong> (IPv4 Settings -&gt; Method: Automatic (DHCP)) and for your <strong>robot</strong> choose a <strong>static IP address</strong> (IPv4 Settings -&gt; Method: Manual).</p>
-</div>
-<p>To be able to pull the ROSVITA Docker image from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>, you need a Docker account. If you do not have a Docker ID already, simply <a href="https://cloud.docker.com/" target="_blank">sign up to Docker</a> with username, Email address and password. If you are interested in getting early access to a BETA version of ROSVITA, please <a href="http://xamla.com/en/#early-access" target="_blank">contact us</a> so we can give you permission to pull the ROSVITA Docker image from Docker Hub. Moreover, we intend to make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone with valid Docker account should be able to <code class="docutils literal"><span class="pre">docker</span> <span class="pre">pull</span></code> the ROSVITA image from Docker Hub without restrictions.</p>
-<p>Use the following commands to pull the latest ROSVITA Docker image from Docker Hub.
-<strong>Change the version tag v0.2 to the current version number!</strong></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo docker login
-sudo docker pull xamla/early-access-rosvita:v0.2
+<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date <a href="https://www.ubuntu.com/download/desktop" target="_blank">Ubuntu</a> operating system (preferentially <strong>Ubuntu 16.04</strong>).</p>
+<p>To <strong>get ROSVITA</strong>, simply download the shell script <a class="reference download internal" href="downloads/getROSVITA.sh" download=""><code class="xref download docutils literal"><span class="pre">getROSVITA.sh</span></code></a>.
+Then change permissions to be able to execute the script und finally run the script, i.e. in a terminal type:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads<span class="p">;</span> sudo chmod u+x getROSVITA.sh<span class="p">;</span> ./getROSVITA.sh
 </pre></div>
 </div>
-<p>Thereafter, ROSVITA can be started by following the steps:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At the moment you need a valid Docker account and early access privileges to download ROSVITA. If you are interested in getting early access to a BETA version of ROSVITA, please <a href="http://xamla.com/en/#early-access" target="_blank">contact us</a>. We will make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone should be able to get ROSVITA without restrictions.</p>
+</div>
+<p>The script will:</p>
 <ol class="arabic simple">
-<li>Go into your home folder and download the shell script <a href="https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh" target="_blank">rosvita_start.sh</a>.</li>
-<li>Change permissions to be able to execute the start script.</li>
-<li>And finally execute the script.</li>
+<li>Install <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce" target="_blank">Docker</a> if not already installed.</li>
+<li>Download the <strong>ROSVITA Docker image</strong> from <a href="https://hub.docker.com/explore/" target="_blank">Docker Hub</a>.</li>
+<li>Download the <strong>ROSVITA start script</strong>.</li>
+<li>Create a <strong>desktop icon</strong> for starting ROSVITA.</li>
+<li>Finally <strong>start ROSVITA</strong> and open the user interface <strong>in Google Chrome</strong>, which if necessary will be installed.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
-wget https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/Downloads/rosvita_start.sh
-chmod u+x rosvita_start.sh
-./rosvita_start.sh
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><strong>Change the version tag v0.2</strong> of the ROSVITA Docker image used in this script <strong>to the actual version number:</strong> <code class="docutils literal"><span class="pre">xamla/early-access-rosvita:v0.2</span> <span class="pre">-&gt;</span> <span class="pre">xamla/early-access-rosvita:vX.X</span></code>.</p>
-</div>
-<p>The user interface of the “Rosvita Robot Programming System” can now be opened by entering <code class="docutils literal"><span class="pre">localhost:5000</span></code> in the address bar of your internet browser. We strongly recommend to use <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Chrome</a>, because the user experience will be limited in Firefox due to the significantly slower browser performance. The login screen of ROSVITA appears. After successful login with username and password (default: <strong>admin</strong> and <strong>r2d2c3po</strong>), the ROSVITA main development environment opens (see <a class="reference internal" href="Main_View.html#main-view-label"><span class="std std-ref">next chapter</span></a>).</p>
-<p>To stop ROSVITA simply type:</p>
+<p>As a result, the ROSVITA login screen appears. After successful login with username and password (default: <strong>admin</strong> and <strong>r2d2c3po</strong>), the ROSVITA main development environment opens (see <a class="reference internal" href="Main_View.html#main-view-label"><span class="std std-ref">next chapter</span></a>).</p>
+<p>To <strong>stop ROSVITA</strong> simply type:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>docker stop rosvita
 </pre></div>
 </div>
+<p>To <strong>restart ROSVITA</strong> simply <strong>doubleclick the desktop icon</strong> or open a terminal and run the start script by typing:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/opt/Rosvita/rosvita_start.sh
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">All changes to files of the ROSVITA Docker image are temporary and get lost after an update of the image. Therefore, <strong>do not modify the ROSVITA Docker image, but always make changes locally in your own project folder</strong> (~/Rosvita/projects/).</p>
+<p class="last">We strongly recommend to run ROSVITA in <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are running Ubuntu 18.04, you currently have to modify the ‘getROSVITA.sh’ script slightly, because Docker does not support Ubuntu 18.04, yet. Simply replace ‘<strong>$(lsb_release -cs)</strong>’ by ‘<strong>artful</strong>’ in the docker installation part of the script.</p>
 </div>
 </div>
 
@@ -233,7 +226,7 @@ chmod u+x rosvita_start.sh
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Mar 22, 2018.
+      Last updated on Apr 10, 2018.
 
     </p>
   </div>
