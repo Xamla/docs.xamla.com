@@ -9,7 +9,11 @@ else
    sudo apt-get remove docker docker-engine docker.io
    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   if [[ $(lsb_release -rs) == "18.04" ]]; then
+      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+   else
+      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   fi
    sudo apt-get update
    sudo apt-get install docker-ce
    if [[ $(sudo docker -v | grep -c 'Docker version') > 0 ]]; then
