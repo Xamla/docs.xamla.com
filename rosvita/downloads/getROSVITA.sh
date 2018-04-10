@@ -24,7 +24,8 @@ else
    fi
    echo "Adding user to group docker.."
    sudo usermod -aG docker $USER
-   echo "Log off your user and then log in again to activate group changes. After that run './getROSVITA.sh' again."
+   echo "Log off your user and then log in again to activate group changes." 
+   echo "After that open a terminal and run 'cd ~/Downloads; ./getROSVITA.sh' again."
    exit 0
 fi
 echo ""
