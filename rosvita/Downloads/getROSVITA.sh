@@ -31,7 +31,7 @@ read -p "Press ENTER to continue"
 echo "Getting ROSVITA from Docker Hub.."
 docker pull xamla/early-access-rosvita:v0.2
 if [[ $(docker images | grep -c 'early-access-rosvita') == 0 ]]; then
-   echo "Please log in to Docker first. Then run './getROSVITA.sh' again."
+   echo "Please log in to Docker first (via 'docker login'). Then run './getROSVITA.sh' again."
    exit 1
 else
    echo "ROSVITA image has been downloaded successfully."
@@ -73,5 +73,4 @@ echo ""
 
 echo "ROSVITA will be started, press CTRL+C to cancel"
 read -p "Press ENTER to continue"
-cd /opt/Rosvita/
-./rosvita_start.sh
+/opt/Rosvita/rosvita_start.sh
