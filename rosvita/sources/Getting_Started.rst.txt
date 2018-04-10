@@ -39,8 +39,6 @@ To **restart ROSVITA** simply **doubleclick the desktop icon** or open a termina
 
 .. note:: We strongly recommend to run ROSVITA in |Chrome_link|, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.
 
-.. note:: If you are running Ubuntu 18.04, you currently have to modify the 'getROSVITA.sh' script slightly, because Docker does not support Ubuntu 18.04, yet. Simply replace '**$(lsb_release -cs)**' by '**artful**' in the docker installation part of the script.
-
 
 
 
