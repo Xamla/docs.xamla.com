@@ -4,7 +4,7 @@
 Getting Started
 *****************
 
-To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date |Ubuntu_link| operating system (preferentially **Ubuntu 16.04**).
+To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date |Ubuntu_link| operating system (preferentially **Ubuntu 16.04 or higher**).
 
 To **get ROSVITA**, simply download the shell script :download:`getROSVITA.sh <downloads/getROSVITA.sh>`.
 Then change permissions to be able to execute the script und finally run the script, i.e. in a terminal type:
@@ -13,7 +13,7 @@ Then change permissions to be able to execute the script und finally run the scr
 
    cd ~/Downloads; sudo chmod u+x getROSVITA.sh; ./getROSVITA.sh
 
-.. note:: At the moment you need a valid Docker account and early access privileges to download ROSVITA. If you are interested in getting early access to a BETA version of ROSVITA, please |Xamla_EarlyAccess_link|. We will make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone should be able to get ROSVITA without restrictions.
+.. note:: At the moment you need a valid Docker account and **early access privileges** to download ROSVITA. If you are interested in getting early access to a BETA version of ROSVITA, please |Xamla_EarlyAccess_link|. We will make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone should be able to get ROSVITA without restrictions.
 
 The script will:
 
