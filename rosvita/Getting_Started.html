@@ -24,20 +24,13 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="ROSVITA Main View" href="Main_View.html"/>
-        <link rel="prev" title="Welcome to ROSVITA" href="index.html"/> 
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <!--<link rel="stylesheet" href="static/pygments.css" type="text/css" />-->
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>    
+    <link rel="next" title="ROSVITA Main View" href="Main_View.html" />
+    <link rel="prev" title="Welcome to ROSVITA" href="index.html" /> 
 
   
   <script src="static/js/modernizr.min.js"></script>
@@ -120,9 +113,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -172,17 +166,13 @@ Then change permissions to be able to execute the script und finally run the scr
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads<span class="p">;</span> sudo chmod u+x getROSVITA.sh<span class="p">;</span> ./getROSVITA.sh
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">At the moment you need a valid Docker account and <strong>early access privileges</strong> to download ROSVITA. If you are interested in getting early access to a BETA version of ROSVITA, please <a href="http://xamla.com/en/#early-access" target="_blank">contact us</a>. We will make publicly available a first official version of ROSVITA in mid-2018. From then on, everyone should be able to get ROSVITA without restrictions.</p>
-</div>
 <p>The script will:</p>
 <ol class="arabic simple">
 <li>Install <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce" target="_blank">Docker</a> if not already installed.</li>
 <li>Download the <strong>ROSVITA Docker image</strong> from <a href="https://hub.docker.com/explore/" target="_blank">Docker Hub</a>.</li>
-<li>Download the <strong>ROSVITA start script</strong>.</li>
+<li>Download the <strong>ROSVITA start script</strong>: <a href="https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_start.sh" target="_blank">rosvita_start.sh</a>.</li>
 <li>Create a <strong>desktop icon</strong> for starting ROSVITA.</li>
-<li>Finally <strong>start ROSVITA</strong> and open the user interface <strong>in Google Chrome</strong>, which if necessary will be installed.</li>
+<li>Finally <strong>start ROSVITA</strong> and open the user interface in your default web browser.</li>
 </ol>
 <p>As a result, the ROSVITA login screen appears. After successful login with username and password (default: <strong>admin</strong> and <strong>r2d2c3po</strong>), the ROSVITA main development environment opens (see <a class="reference internal" href="Main_View.html#main-view-label"><span class="std std-ref">next chapter</span></a>).</p>
 <p>To <strong>stop ROSVITA</strong> simply type:</p>
@@ -201,9 +191,7 @@ Then change permissions to be able to execute the script und finally run the scr
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -222,7 +210,7 @@ Then change permissions to be able to execute the script und finally run the scr
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Apr 10, 2018.
+      Last updated on Jul 02, 2018.
 
     </p>
   </div>
@@ -245,6 +233,7 @@ Then change permissions to be able to execute the script und finally run the scr
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -258,19 +247,13 @@ Then change permissions to be able to execute the script und finally run the scr
 
   
 
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.StickyNav.enable();
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
