@@ -24,27 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="ROSVITA File Browser" href="File_Browser.html"/>
-        <link rel="prev" title="Path Planning (“World View”)" href="Path_Planning.html"/> 
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ROSVITA File Browser" href="File_Browser.html" />
+    <link rel="prev" title="Path Planning (“World View”)" href="Path_Planning.html" /> 
 
   
   <script src="static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -112,7 +104,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +112,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -166,23 +159,25 @@
             
   <div class="section" id="robot-jogging">
 <h1>Robot Jogging<a class="headerlink" href="#robot-jogging" title="Permalink to this headline">¶</a></h1>
-<p>In addition to automatic path planning, ROSVITA also offers the possibility of manual, step-by-step control of the robot movement (comparable to the robot control via “teach pendant”). Click on the blue-highlighted Xamla symbol and select the menu item “Robot Jogging” to switch to the view for manual, step-by-step control of the robot movement. The current robot configuration appears in a 3D view. Underneath the 3D view you find a display of the current “Tool Position”, which is updated in real-time as the robot moves. To the right of the 3D view is a bar where you can set the speed, the “Move Group” to be controlled, the “End Effector” being moved, and the “Reference Frame” for the driving commands. To the right of this bar is a control panel with the buttons for the driving commands. By selecting the “Cartesian” robot control in the top bar of the “Robot Jogging” view, 12 driving command buttons appear in the control panel, namely translation in +/- x, y, and z direction, as well as rotation around +/- x, y, and z axis of the reference coordinate system (see Fig. 5.1). After pressing the “Start” button in the upper bar, the robot moves as soon as you click on one of the driving commands in the control panel. When the Cartesian robot jogging is selected, the interactive marker for moving the robot is also available.</p>
+<p>In addition to automatic path planning, ROSVITA also offers the possibility of manual, <strong>step-by-step control</strong> of the robot movement (comparable to the robot control via <strong>teach pendant</strong>). Click on the blue-highlighted <strong>Xamla</strong> symbol and select the menu item <strong>Robot Jogging</strong> to switch to the view for manual, step-by-step control of the robot movement. The current robot configuration appears in a 3D view. Underneath the 3D view you find a display of the current <strong>Tool Position</strong>, which is updated in real-time as the robot moves. To the right of the 3D view is a bar where you can set the <strong>Speed</strong>, the <strong>Move Group</strong> to be controlled, the <strong>End Effector</strong> being moved, and the <strong>Reference Frame</strong> for the driving commands. To the right of this bar is a control panel with the buttons for the driving commands. By selecting the <strong>Cartesian</strong> robot control in the top bar of the <strong>Robot Jogging</strong> view and pressing the <strong>START</strong> button (also located at the top bar), 12 driving command buttons appear in the control panel, namely translation in +/- x, y, and z direction, as well as rotation around +/- x, y, and z axis of the reference coordinate system (see Fig. 5.1). The robot moves as soon as you click on one of the driving commands in the control panel. When the Cartesian robot jogging is selected, the interactive marker for moving the robot is also available.</p>
 <div class="figure" id="id1">
 <img alt="images/Robot_jogging_cartesian.png" src="images/Robot_jogging_cartesian.png" />
 <p class="caption"><span class="caption-text">Figure 5.1  Cartesian robot jogging.</span></p>
 </div>
-<p>Alternatively, instead of choosing the Cartesian robot control, one can also select the control of the individual joint angles (“joints”) at the top bar. The control panel will then show the joints of the selected “Move Group” along with the current joint angle for each joint. When the “Start” field is pressed, “Left / Right arrows appear next to each joint, allowing you to rotate gradually around the corresponding joint.</p>
+<p>Alternatively, instead of choosing the Cartesian robot control, one can also select the control of the individual joint angles (<strong>Joints</strong>) at the top bar and press <strong>START</strong>. The control panel will then show the joints of the selected <strong>Move Group</strong> along with the current joint angle for each joint and with left/right arrows next to each joint. Pressing one of these arrows will rotate the corresponding robot axis gradually around the choosen joint.</p>
 <div class="figure" id="id2">
 <img alt="images/Robot_jogging_joints.png" src="images/Robot_jogging_joints.png" />
 <p class="caption"><span class="caption-text">Figure 5.2  Robot jogging via joints.</span></p>
 </div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last"><strong>Robot Jogging</strong> can also be performed from the <strong>World View</strong> by choosing the <strong>Jogging</strong> pane on the right side bar of this view.</p>
+</div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -201,11 +196,11 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+      Last updated on Jul 03, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -224,6 +219,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -237,19 +233,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
