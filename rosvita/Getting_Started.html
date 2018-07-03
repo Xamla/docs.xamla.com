@@ -25,10 +25,9 @@
   
 
   <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  <!--<link rel="stylesheet" href="static/pygments.css" type="text/css" />-->
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>    
     <link rel="next" title="ROSVITA Main View" href="Main_View.html" />
     <link rel="prev" title="Welcome to ROSVITA" href="index.html" /> 
 
@@ -37,7 +36,7 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -105,7 +104,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -160,7 +159,7 @@
             
   <div class="section" id="getting-started">
 <span id="getting-started-label"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date <a href="https://www.ubuntu.com/download/desktop" target="_blank">Ubuntu</a> operating system (preferentially <strong>Ubuntu 16.04 or higher</strong>).</p>
+<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date <a href="https://www.ubuntu.com/download/desktop" target="_blank">Ubuntu</a> operating system (preferentially <strong>Ubuntu 16.04 or higher</strong>) and an up-to-date internet browser (preferentially <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>).</p>
 <p>To <strong>get ROSVITA</strong>, simply download the shell script <a class="reference download internal" href="downloads/getROSVITA.sh" download=""><code class="xref download docutils literal"><span class="pre">getROSVITA.sh</span></code></a>.
 Then change permissions to be able to execute the script und finally run the script, i.e. in a terminal type:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads<span class="p">;</span> sudo chmod u+x getROSVITA.sh<span class="p">;</span> ./getROSVITA.sh
@@ -185,7 +184,11 @@ Then change permissions to be able to execute the script und finally run the scr
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">We strongly recommend to run ROSVITA in <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.</p>
+<p class="last">Our shell scripts are written for <strong>Bash</strong>. Hence, <strong>do not run them with “sh”</strong>, but simply set them to executable (e.g. “sudo chmod u+x rosvita_start.sh”) and call them directly as descriped above.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We strongly recommend to run ROSVITA in <strong>Google Chrome</strong>, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.</p>
 </div>
 </div>
 
@@ -210,11 +213,11 @@ Then change permissions to be able to execute the script und finally run the scr
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Jul 02, 2018.
+      Last updated on Jul 03, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -251,7 +254,7 @@ Then change permissions to be able to execute the script und finally run the scr
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 
