@@ -20,7 +20,7 @@ else
    fi
    echo "Adding user to group docker.."
    sudo usermod -aG docker $USER
-   echo "Log off your user and then log in again to activate group changes." 
+   echo "Restart computer to activate group changes." 
    echo "After that open a terminal and run 'cd ~/Downloads; ./getROSVITA.sh' again."
    exit 0
 fi
@@ -29,8 +29,8 @@ echo ""
 echo "The ROSVITA image will be downloaded from Docker Hub, press CTRL+C to cancel"
 read -p "Press ENTER to continue"
 echo "Getting ROSVITA from Docker Hub.."
-docker pull xamla/early-access-rosvita:v0.7.0
-if [[ $(docker images | grep -c 'early-access-rosvita') == 0 ]]; then
+docker pull xamla/rosvita
+if [[ $(docker images | grep -c 'rosvita') == 0 ]]; then
    echo "Please log in to Docker first (via 'docker login'). Then run './getROSVITA.sh' again."
    exit 1
 else
