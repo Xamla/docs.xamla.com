@@ -1,17 +1,18 @@
 #!/bin/bash
 
 echo "Docker will be installed if not already there, press CTRL+C to cancel"
-read -p "Press ENTER to continue"
+read -p "Press ENTER to continue and follow the instructions on screen"
+
 if [[ $(docker -v | grep -c 'Docker version') > 0 ]]; then
    echo "Docker is already installed."
 else
    echo "Starting installation of Docker.."
    sudo apt-get remove docker docker-engine docker.io
-   sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+   sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    sudo apt-get update
-   sudo apt-get install docker-ce
+   sudo apt-get install -y docker-ce
    if [[ $(sudo docker -v | grep -c 'Docker version') > 0 ]]; then
       echo "Docker CE has been installed successfully."
    else
@@ -20,18 +21,15 @@ else
    fi
    echo "Adding user to group docker.."
    sudo usermod -aG docker $USER
-   echo "Restart computer to activate group changes." 
-   echo "After that open a terminal and run 'cd ~/Downloads; ./getROSVITA.sh' again."
-   exit 0
 fi
 echo ""
 
 echo "The ROSVITA image will be downloaded from Docker Hub, press CTRL+C to cancel"
 read -p "Press ENTER to continue"
 echo "Getting ROSVITA from Docker Hub.."
-docker pull xamla/rosvita
-if [[ $(docker images | grep -c 'rosvita') == 0 ]]; then
-   echo "Please log in to Docker first (via 'docker login'). Then run './getROSVITA.sh' again."
+sudo docker pull xamla/rosvita:latest
+if [[ $(sudo docker images | grep -c 'xamla/rosvita') == 0 ]]; then
+   echo "Could not download Rosvita image. Please check your internet connection. If the problem does not go away, we are happy to help you at http://discuss.xamla.com."
    exit 1
 else
    echo "ROSVITA image has been downloaded successfully."
@@ -71,6 +69,7 @@ fi
 echo "Finished."
 echo ""
 
-echo "ROSVITA will be started, press CTRL+C to cancel"
-read -p "Press ENTER to continue"
-/opt/Rosvita/rosvita_start.sh
+echo "IMPORTANT:"
+echo "Please restart your computer now for the changes to take effect. Afterwards you can start Rosvita by double clicking the desktop icon."
+echo "If you have any trouble or would like to give use feedback, feel free to visit: http://discuss.xamla.com."
+exit 0

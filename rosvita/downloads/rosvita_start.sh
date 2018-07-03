@@ -30,7 +30,8 @@ if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
 else
         echo "NO"
         echo "Starting ROSvita"
-        docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -e DISPLAY=$DISPLAY -e host_uid=$(id -u) -e host_gid=$(id -g) -v /dev/bus/usb:/dev/bus/usb -v /tmp/.X11-unix:/tmp/.X11-unix -v ${HOME}/Rosvita/data:/home/xamla/Rosvita.Control/data -v ${HOME}/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ${HOME}/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/early-access-rosvita:v0.7.0 rosvita
+        docker run -dti --net=host --rm --name=rosvita --user xamla --privileged -e DISPLAY=$DISPLAY -e host_uid=$(id -u) -e host_gid=$(id -g) -v /dev/bus/usb:/dev/bus/usb -v /tmp/.X11-unix:/tmp/.X11-unix -v ${HOME}/Rosvita/data:/home/xamla/Rosvita.Control/data -v ${HOME}/Rosvita/projects:/home/xamla/Rosvita.Control/projects -v ${HOME}/Rosvita/robot_parts:/home/xamla/Rosvita.Control/library/robot_parts/custom xamla/rosvita:latest rosvita
+        sleep 1
 fi
 
 if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
