@@ -24,27 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="Creating a Robot Configuration" href="Robot_Configuration.html"/>
-        <link rel="prev" title="ROSVITA Main View" href="Main_View.html"/> 
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating a Robot Configuration" href="Robot_Configuration.html" />
+    <link rel="prev" title="ROSVITA Main View" href="Main_View.html" /> 
 
   
   <script src="static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -112,7 +104,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +112,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -166,9 +159,9 @@
             
   <div class="section" id="creating-a-new-project">
 <h1>Creating a New Project<a class="headerlink" href="#creating-a-new-project" title="Permalink to this headline">¶</a></h1>
-<p>In the ROSVITA main development environment, by clicking on the blue-highlighted “Xamla” icon in the upper left corner,
-a selection bar appears, in which you select the menu item “New Project”.
-Alternatively, you can also click on “New Project” directly in the middle of the start screen.
+<p>In the ROSVITA main development environment, by clicking on the blue-highlighted <strong>Xamla</strong> icon in the upper left corner,
+a selection bar appears, in which you select the menu item <strong>New Project</strong>.
+Alternatively, you can also click on <strong>New Project</strong> directly in the middle of the start screen.
 A text box appears in which you can enter the desired name of the project (see Fig. 2.1).</p>
 <div class="figure" id="id1">
 <img alt="images/Project_Creation.png" src="images/Project_Creation.png" />
@@ -176,10 +169,10 @@ A text box appears in which you can enter the desired name of the project (see F
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Enter a name without a path here, as the path under which the project is saved is already specified in the ROSVITA start script (“rosvita-start.sh”).</p>
+<p class="last">Enter a name without a path here, as the path under which the project is saved is already specified in the ROSVITA start script (“rosvita_start.sh”).</p>
 </div>
-<p>After clicking on the “Create” button, the project is created and opened in the integrated file browser.
-Under the default path (normally “<code class="docutils literal"><span class="pre">/home/rosvita/Rosvita/projects/</span></code>”)
+<p>After clicking on the <strong>Create</strong> button, the project is created and opened in the integrated file browser.
+Under the default path (normally <code class="docutils literal"><span class="pre">/home/&lt;username&gt;/Rosvita/projects/</span></code>)
 you will find the project folder with the previously entered name.
 So far it contains only empty folders (“db”, “src”) or files
 (“robotModel/main.xacro”, “robot.urdf”, “project.json”, “README.md”), that all contain empty structures,
@@ -202,9 +195,7 @@ which will be filled later on.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -223,11 +214,11 @@ which will be filled later on.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+      Last updated on Jul 03, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -246,6 +237,7 @@ which will be filled later on.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -259,19 +251,13 @@ which will be filled later on.</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
