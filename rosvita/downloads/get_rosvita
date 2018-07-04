@@ -77,10 +77,15 @@ fi
 echo "Finished."
 echo ""
 
-echo "IMPORTANT:"
-echo "The computer will be restarted now to make the addition to the docker group effective." 
-echo "Afterwards you can start ROSVITA by double clicking the desktop icon."
-echo "If you have any trouble or would like to give us feedback, feel free to visit: http://discuss.xamla.com."
-read -p "Press ENTER to restart computer"
-sudo reboot
+if [[ $(groups | grep docker | wc -l) > 0 ]]; then
+   echo "To start ROSVITA simply double click the desktop icon"
+   echo "If you have any trouble or would like to give us feedback, feel free to visit: http://discuss.xamla.com."
+else
+   echo "IMPORTANT:"
+   echo "The computer will be restarted now to make the addition to the docker group effective." 
+   echo "Afterwards you can start ROSVITA by double clicking the desktop icon."
+   echo "If you have any trouble or would like to give us feedback, feel free to visit: http://discuss.xamla.com."
+   read -p "Press ENTER to restart computer"
+   sudo reboot
+fi
 
