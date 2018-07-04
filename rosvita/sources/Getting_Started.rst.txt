@@ -21,14 +21,17 @@ The script will:
 3. Download the **ROSVITA start script**: |start_script_link|.
 4. Download the **ROSVITA stop script**: |stop_script_link|.
 5. Create a **desktop icon** for starting ROSVITA.
-6. Finally **restart the computer** to make the addition to the docker group effective.
+6. If not already in group docker, **restart the computer** to activate group changes.
 
 Now you can **start ROSVITA by double clicking the desktop icon**,
-or by opening a terminal and running the start script by typing:
+or by opening a terminal and running the start script by simply typing:
 
 .. code-block:: bash
 
-   /opt/rosvita/rosvita_start
+   rosvita_start
+
+(To run ROSVITA in **debug mode** type ``rosvita_start --debug``. 
+Afterwards enter **rosvita** into the terminal, open a web browser and enter ``localhost:5000`` into the address bar.)
 
 As a result, the ROSVITA login screen appears in your default web browser. 
 After successful login with username and password (default: **admin** and **r2d2c3po**), 
@@ -38,9 +41,10 @@ To **stop ROSVITA** simply run the ROSVITA stop script:
 
 .. code-block:: bash
 
-   /opt/rosvita/rosvita_stop
+   rosvita_stop
 
-or in a terminal type ``docker stop rosvita``.
+If you have any trouble or would like to give us feedback, feel free to visit our |Rosvita_forum_link|.
+Moreover, check out our |Rosvita_video_link|.
 
 .. note:: We strongly recommend to run ROSVITA in **Google Chrome**, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.
 
@@ -74,4 +78,12 @@ or in a terminal type ``docker stop rosvita``.
 .. |Chrome_link| raw:: html
 
    <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>
+
+.. |Rosvita_forum_link| raw:: html
+
+   <a href="http://discuss.xamla.com" target="_blank">ROSVITA forum</a>
+
+.. |Rosvita_video_link| raw:: html
+
+   <a href="https://youtu.be/VAfwk-MnBuA" target="_blank">ROSVITA tutorial video</a>
 

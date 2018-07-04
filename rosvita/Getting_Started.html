@@ -173,21 +173,24 @@ sudo chmod u+x get_rosvita
 <li>Download the <strong>ROSVITA start script</strong>: <a href="https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_start" target="_blank">rosvita_start</a>.</li>
 <li>Download the <strong>ROSVITA stop script</strong>: <a href="https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_stop" target="_blank">rosvita_stop</a>.</li>
 <li>Create a <strong>desktop icon</strong> for starting ROSVITA.</li>
-<li>Finally <strong>restart the computer</strong> to make the addition to the docker group effective.</li>
+<li>If not already in group docker, <strong>restart the computer</strong> to activate group changes.</li>
 </ol>
 <p>Now you can <strong>start ROSVITA by double clicking the desktop icon</strong>,
-or by opening a terminal and running the start script by typing:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>/opt/rosvita/rosvita_start
+or by opening a terminal and running the start script by simply typing:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>rosvita_start
 </pre></div>
 </div>
+<p>(To run ROSVITA in <strong>debug mode</strong> type <code class="docutils literal"><span class="pre">rosvita_start</span> <span class="pre">--debug</span></code>.
+Afterwards enter <strong>rosvita</strong> into the terminal, open a web browser and enter <code class="docutils literal"><span class="pre">localhost:5000</span></code> into the address bar.)</p>
 <p>As a result, the ROSVITA login screen appears in your default web browser.
 After successful login with username and password (default: <strong>admin</strong> and <strong>r2d2c3po</strong>),
 the ROSVITA main development environment opens (see <a class="reference internal" href="Main_View.html#main-view-label"><span class="std std-ref">next chapter</span></a>).</p>
 <p>To <strong>stop ROSVITA</strong> simply run the ROSVITA stop script:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>/opt/rosvita/rosvita_stop
+<div class="highlight-bash"><div class="highlight"><pre><span></span>rosvita_stop
 </pre></div>
 </div>
-<p>or in a terminal type <code class="docutils literal"><span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">rosvita</span></code>.</p>
+<p>If you have any trouble or would like to give us feedback, feel free to visit our <a href="http://discuss.xamla.com" target="_blank">ROSVITA forum</a>.
+Moreover, check out our <a href="https://youtu.be/VAfwk-MnBuA" target="_blank">ROSVITA tutorial video</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">We strongly recommend to run ROSVITA in <strong>Google Chrome</strong>, because in other internet browsers like Firefox the user experience will be limited due to the significantly slower browser performance.</p>
