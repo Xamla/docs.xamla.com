@@ -5,8 +5,6 @@ if [[ $(docker ps -a | grep rosvita | wc -l) > 0 ]]; then
         echo "YES"
         echo "Stopping ROSVITA"
         docker stop rosvita
-        echo "Removing ROSVITA container"
-        docker rm rosvita
 else
         echo "NO"
         exit 0
