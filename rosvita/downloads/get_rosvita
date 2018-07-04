@@ -63,6 +63,12 @@ else
    fi
 fi
 
+if [[ $(echo $PATH | grep /opt/rosvita | wc -l) == 0 ]]; then
+   echo "Add path /opt/rosvita to your PATH variable in ~/.bashrc"
+   echo 'export PATH=$PATH:/opt/rosvita' >> ${HOME}/.bashrc
+fi
+source ${HOME}/.bashrc
+
 echo "Creating desktop icon for starting ROSVITA.."
 cd ${HOME}/Desktop
 if [[ $(ls | grep -x ROSVITA.desktop | wc -l) > 0 ]]; then
