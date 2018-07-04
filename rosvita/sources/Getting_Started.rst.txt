@@ -11,7 +11,7 @@ To **get ROSVITA**, simply download the shell script |get_script_link|, then cha
 .. code-block:: bash
 
    wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/get_rosvita
-   sudo chmod u+x get_rosvita
+   chmod u+x get_rosvita
    ./get_rosvita
 
 The script will:
