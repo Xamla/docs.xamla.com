@@ -45,7 +45,7 @@ if [[ $(ls | grep -x rosvita | wc -l) == 0 ]]; then
    cd rosvita
    wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_start
    sudo chmod a+x rosvita_start
-   wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_sop
+   wget -q https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/rosvita_stop
    sudo chmod a+x rosvita_stop
 else
    cd rosvita
