@@ -24,27 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="ROSVITA Code Editor" href="Code_Editor.html"/>
-        <link rel="prev" title="Robot Jogging" href="Robot_Jogging.html"/> 
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ROSVITA Code Editor" href="Code_Editor.html" />
+    <link rel="prev" title="Robot Jogging" href="Robot_Jogging.html" /> 
 
   
   <script src="static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -112,7 +104,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +112,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -168,17 +161,17 @@
 <h1>ROSVITA File Browser<a class="headerlink" href="#rosvita-file-browser" title="Permalink to this headline">¶</a></h1>
 <p>The ROSVITA file browser is located on the left edge of the ROSVITA programming environment and offers all the convenience of a typical file browser:</p>
 <ul class="simple">
-<li>Display of the current path and change to the home directory by clicking on the house icon to the left of the path.</li>
+<li>Display of the current path and change to the home directory by clicking on the <strong>house icon</strong> to the left of the path.</li>
 <li>Display of the contents (files and folders) of the current path as a list.</li>
-<li>Sorting of the contents list in ascending or descending order by name, size, date of last modification and creation date. To do this, either click directly in the bar above the file list on the desired sort criterion (“Name”, “Size”, …) or right-click on the file list and select the menu item “Sort by”.</li>
-<li>Filtering of the contents list by file or folder name. To do this, enter in the text box “Filter …” at the top bar of the file browser the desired file or folder name and click on the loupe symbol next to it.</li>
-<li>If you click on the bent up arrow with the two dots in the file list, you get one level up in the directory tree.</li>
+<li>Sorting of the contents list in ascending or descending order by name, size, date of last modification and creation date. To do this, either click directly in the bar above the file list on the desired sort criterion (“Name”, “Size”, …) or right-click on the file list and select the menu item <strong>Sort by</strong>.</li>
+<li>Filtering of the contents list by file or folder name. To do this, enter in the text box <strong>Filter …</strong> at the top bar of the file browser the desired file or folder name and click on the loupe symbol next to it.</li>
+<li>If you click on the <strong>bent up arrow</strong> with the two dots in the file list, you get one level up in the directory tree.</li>
 <li>Double-clicking on a folder opens it in the file browser.
 Double-clicking on a file opens it in the Rosvita code editor (see next chapter).</li>
-<li>Folders and files can be renamed or deleted by choosing them per mouse click (to the left of the file or folder a check mark appears) and then clicking the “Rename” or “Delete” icon at the top bar (above the path display). Alternatively, the menu item “Rename” or “Delete” can also be selected by right-clicking on the file list.</li>
-<li>By clicking on the +folder icon at the top bar of the file browser you can create a new folder (this can also be done by right-clicking on the list).</li>
-<li>Furthermore, by right-clicking on the list, selected files can be copied and pasted elsewhere.</li>
-<li>By clicking on the fields “Upload” (arrow up) or “Download” (arrow down) at the top bar of the file browser, files can be uploaded to the ROSVITA server or downloaded to your computer. Downloaded files will appear in the “<code class="docutils literal"><span class="pre">/home/&lt;username&gt;/Downloads</span></code>” folder. To upload entire folders to the ROSVITA server, these have to be compressed and packaged first: <code class="docutils literal"><span class="pre">tar</span> <span class="pre">cvfz</span> <span class="pre">my_folder.tgz</span> <span class="pre">my_folder</span></code> and then unpacked after uploading. Thereto, type in the ROSVITA terminal: <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzvf</span> <span class="pre">my_folder.tgz</span></code>.</li>
+<li>Folders and files can be renamed or deleted by choosing them per mouse click (to the left of the file or folder a check mark appears) and then clicking the <strong>Rename</strong> or <strong>Delete</strong> icon at the top bar (above the path display). Alternatively, the menu item <strong>Rename</strong> or <strong>Delete</strong> can also be selected by right-clicking on the file list.</li>
+<li>By clicking on the <strong>+folder icon</strong> at the top bar of the file browser you can create a new folder (this can also be done by right-clicking on the list).</li>
+<li>Furthermore, by right-clicking on the list, selected files can be <strong>copied</strong> and <strong>pasted</strong> elsewhere.</li>
+<li>By clicking on the fields <strong>Upload</strong> (arrow up) or <strong>Download</strong> (arrow down) at the top bar of the file browser, files can be uploaded to the ROSVITA server or downloaded to your computer. Downloaded files will appear in the <code class="docutils literal"><span class="pre">/home/&lt;username&gt;/Downloads</span></code> folder. To upload entire folders to the ROSVITA server, these have to be compressed and packaged first: <code class="docutils literal"><span class="pre">tar</span> <span class="pre">cvfz</span> <span class="pre">my_folder.tgz</span> <span class="pre">my_folder</span></code> and then unpacked after uploading. Thereto, in the ROSVITA terminal enter: <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzvf</span> <span class="pre">my_folder.tgz</span></code>.</li>
 </ul>
 <div class="figure" id="id1">
 <img alt="images/File_Browser.png" src="images/File_Browser.png" />
@@ -188,9 +181,7 @@ Double-clicking on a file opens it in the Rosvita code editor (see next chapter)
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -209,11 +200,11 @@ Double-clicking on a file opens it in the Rosvita code editor (see next chapter)
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+      Last updated on Jul 05, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -232,6 +223,7 @@ Double-clicking on a file opens it in the Rosvita code editor (see next chapter)
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -245,19 +237,13 @@ Double-clicking on a file opens it in the Rosvita code editor (see next chapter)
 
   
 
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
