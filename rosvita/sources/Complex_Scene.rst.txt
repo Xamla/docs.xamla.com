@@ -1,3 +1,5 @@
+.. _complex-scene-label:
+
 **************************
 Building a Complex Scene
 **************************
@@ -51,11 +53,12 @@ If two **identical robot arms** shall be added to the scene (e.g. two UR5 robot 
 
 .. note:: To be able to select the renamed links (e.g. "second_base_link") in the "Properties" list of e.g. the second move group, the "Compile" button has to be pressed after the renaming. Moreover, to be able to select the second move group as group for e.g. the second end effector, again the "Compile" button has to be pressed first. Hence, for creating a configuration with two identical robot parts, the "**Compile**" button has to be pressed **several times**.  
 
+.. _config-real-robot-label:
 
 Configuring a real robot:
 --------------------------
 
-To configure a real robot, in the actuator's "Properties" list the "Simulate" checkmark has to be removed and instead, the  IP address of the robot has to be entered (see Fig. 12.6). 
+To configure a real robot, in the **Actuator**'s **Properties** list the **Simulate** checkmark has to be removed and instead, the  IP address of the robot has to be entered (see Fig. 12.6). 
 
 .. figure:: images/Real_Robot.png
 

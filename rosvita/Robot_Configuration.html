@@ -180,6 +180,10 @@ Continuously pressing the left mouse button within the 3D view allows rotation, 
 <p class="first admonition-title">Note</p>
 <p class="last">A robot configuration always needs at least one <strong>Robot Part</strong> (Xacro/URDF robot description, 3D visualization and collision model), as well as the associated <strong>Actuator</strong> (robot driver).</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the <strong>Properties</strong> menu of the <strong>Actuator</strong> (here: <strong>Robot Arm UR</strong>) the <strong>Simulate</strong> checkmark is set per default. If you want to configure a <strong>real robot</strong>, you have to remove this checkmark and enter the IP adress of the robot (see also <a class="reference internal" href="Complex_Scene.html#config-real-robot-label"><span class="std std-ref">here</span></a>).</p>
+</div>
 <p>By clicking on the <strong>Save</strong> button at the top bar of the <strong>Configuration View</strong>, the current configuration is saved
 in the current project, i.e. some of the files in the project folder created before are now filled with life.
 If you previously selected the <strong>UR5</strong> robot arm, in the <strong>robotModel</strong> folder a new folder
