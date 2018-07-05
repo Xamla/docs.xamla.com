@@ -24,27 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="Creating a New Project" href="New_Project.html"/>
-        <link rel="prev" title="Getting Started" href="Getting_Started.html"/> 
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating a New Project" href="New_Project.html" />
+    <link rel="prev" title="Getting Started" href="Getting_Started.html" /> 
 
   
   <script src="static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -112,7 +104,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +112,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -178,18 +171,18 @@
 </div>
 <p>The main view of the ROSVITA robot programming environment (Fig. 1.2) consists of several parts:</p>
 <ol class="arabic simple">
-<li>A central start window (“multi document area”) from which a new project can be created and a stored project can be opened. Later, this window will display either the configuration of the robot (“Configuration View”), the “Robot Jogging”, the path planning (“World View”), the system monitoring (“Monitoring View”), an executable graph (.xgraph), or an open file (e.g. a .xacro file).</li>
-<li>A header that displays the current project name (if a project is opened), the status of the underlying ROS robot operating system and the logged in user.</li>
-<li>Another header for each view. Depending on the selected view, there are buttons for compiling, saving, starting, stopping, selecting a kinematic chain (“Move Group”) for path planning, etc.</li>
-<li>A listing of the loaded graphs (.xgraphs) together with the corresponding process IDs (PIDs).</li>
-<li>A file browser with file search, path display, upload/download between local computer and ROSVITA server, etc.</li>
+<li>A central start window (<strong>multi document area</strong>) from which a new project can be created and a stored project can be opened. Later, this window will display either the configuration of the robot (<strong>Configuration View</strong>), the <strong>Robot Jogging</strong>, the path planning (<strong>World View</strong>), the system monitoring (<strong>Monitoring View</strong>), an executable graph (<strong>XGraph</strong>), or an open file (e.g. a .xacro file).</li>
+<li>A header that displays the current <strong>project name</strong> (if a project is opened), the <strong>status</strong> of the underlying ROS robot operating system and the logged in user.</li>
+<li>Another header for each view. Depending on the selected view, there are buttons for compiling, saving, starting, stopping, selecting a kinematic chain (move group) for path planning, etc.</li>
+<li>A listing of the loaded graphs (<strong>XGraphs</strong>) together with the corresponding process IDs (PIDs).</li>
+<li>A <strong>file browser</strong> with file search, path display, upload/download between local computer and ROSVITA server, etc.</li>
 <li>And finally, at the bottom, several switchable panes with:<ul>
-<li>a display of possible error messages</li>
-<li>a display of all outputs</li>
-<li>a terminal (e.g. to execute scripts)</li>
-<li>a display of the log outputs</li>
-<li>a display of the heartbeat system monitoring</li>
-<li>a ROS display</li>
+<li>a display of possible <strong>error messages</strong></li>
+<li>a display of all <strong>outputs</strong></li>
+<li>a <strong>terminal</strong> (e.g. to execute scripts)</li>
+<li>a display of the <strong>log outputs</strong></li>
+<li>a display of the <strong>heartbeat system monitoring</strong></li>
+<li>a <strong>ROS display</strong> of ROS services and topics</li>
 </ul>
 </li>
 </ol>
@@ -206,9 +199,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -227,11 +218,11 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Xamla.com.
-      Last updated on Apr 10, 2018.
+      Last updated on Jul 05, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -250,6 +241,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -263,19 +255,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
