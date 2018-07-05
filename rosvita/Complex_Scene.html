@@ -166,14 +166,17 @@
 <p class="first admonition-title">Hint</p>
 <p class="last">For a better understanding, it is recommended to first read the chapter <a class="reference internal" href="Robot_Configuration.html#robot-config-label"><span class="std std-ref">Creating a Robot Configuration</span></a>.</p>
 </div>
-<p>If several robot parts and associated actuators shall be added to a scene (e.g. a “Yaskawa Motoman SDA10D” and the different parts of the “Weiss Robotics WSG-50 Gripper”), they must be linked together correctly.
-This is done by clicking on the corresponding robot part in the list of added “RobotParts” on the left side of the “Configuration” view and choosing a “<strong>Parent link</strong>” in the “<strong>Properties</strong>” bar belonging to this robot part.
-<strong>Example:</strong> Robot part: “wsg50 mount”, parent link: “arm_right_link_tool0 (Motoman SDA10D)” (see Fig. 12.1)</p>
+<p>If several robot parts of a scene shall be linked together (e.g. the right arm of a <strong>Yaskawa Motoman SDA10D</strong> and the <strong>Weiss Robotics WSG-50 Gripper</strong>), you have to adapt the <strong>Parent link</strong> in the <strong>Properties</strong> bar belonging to the corresponding robot part (e.g. the <strong>WSG-50</strong>).</p>
+<p>Example (see Fig. 12.1):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Robot</span> <span class="n">part</span><span class="p">:</span> <span class="n">wsg50</span> <span class="n">mount</span>
+<span class="n">Parent</span> <span class="n">link</span><span class="p">:</span> <span class="n">arm_right_link_tool0</span> <span class="p">(</span><span class="n">Motoman</span> <span class="n">SDA10D</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="figure" id="id1">
 <img alt="images/ParentLink_Setting.png" src="images/ParentLink_Setting.png" />
 <p class="caption"><span class="caption-text">Figure 12.1  Setting of a parent link in the properties list of a robot part.</span></p>
 </div>
-<p>Overall, the following robot parts and parent links are needed to e.g. connect the Weiss Robotics WSG-50 gripper to the right arm of the Yaskawa Motoman SDA10D:</p>
+<p>Overall, the following robot parts with the following parent links are needed to e.g. connect the Weiss Robotics WSG-50 gripper with custom mount and fingers to the right arm of the Yaskawa Motoman SDA10D:</p>
 <ul class="simple">
 <li>Yaskawa Motoman SDA10D; <code class="docutils literal"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">world</span></code></li>
 <li>wsg50 mount; <code class="docutils literal"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">arm_right_link_tool0</span> <span class="pre">(Yaskawa</span> <span class="pre">Motoman</span> <span class="pre">SDA10D)</span></code></li>
@@ -186,10 +189,10 @@ This is done by clicking on the corresponding robot part in the list of added �
 <li>Motoman SDA10D (Yaskawa)</li>
 <li>Gripper WSG-50 (Weiss Robotics)</li>
 </ul>
-<p>After pressing the “Compile” button, the robot with gripper should appear in the 3D view of the “Configuration” window.</p>
+<p>After pressing the <strong>Compile</strong> button, the robot with gripper should appear in the 3D view of the <strong>Configuration</strong> window.</p>
 <div class="section" id="usage-of-identical-robot-parts-distinction-via-prefix">
 <h2>Usage of identical robot parts (distinction via prefix):<a class="headerlink" href="#usage-of-identical-robot-parts-distinction-via-prefix" title="Permalink to this headline">¶</a></h2>
-<p>If several <strong>same robot parts</strong> shall be added to the scene (for example, two WSG-50 grippers), they must be distinguished by “<strong>Prefix</strong>”. Thereto, simply use the <strong>“Prefix” field</strong> in the <strong>“Properties” list</strong> for the corresponding robot part and actuator.</p>
+<p>If several <strong>same robot parts</strong> shall be added to the scene (for example, <strong>two WSG-50 grippers</strong>), they must be distinguished by <strong>Prefix</strong>. Thereto, simply use the <strong>Prefix field</strong> in the <strong>Properties</strong> list for the corresponding robot part and actuator.</p>
 <div class="figure">
 <img alt="images/Prefix_RobotPart.png" src="images/Prefix_RobotPart.png" />
 </div>
@@ -197,7 +200,7 @@ This is done by clicking on the corresponding robot part in the list of added �
 <img alt="images/Prefix_Actuator.png" src="images/Prefix_Actuator.png" />
 <p class="caption"><span class="caption-text">Figures 12.2 and 12.3  Prefix usage for e.g. two WSG-50 grippers.</span></p>
 </div>
-<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. two UR5 robot arms), in addition to the distinction by “<strong>Prefix</strong>”, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the “<strong>+ Add</strong>” button in the top bar of the configuration view (see Fig. 12.5).</p>
+<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. <strong>two UR5 robot arms</strong>), in addition to the distinction by <strong>Prefix</strong>, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the <strong>+ Add</strong> button in the top bar of the configuration view (see Fig. 12.5).</p>
 <div class="figure" id="id3">
 <img alt="images/2xUR5_Prefix.png" src="images/2xUR5_Prefix.png" />
 <p class="caption"><span class="caption-text">Figure 12.4  Prefix usage for e.g. two UR5 robot arms.</span></p>
@@ -208,7 +211,7 @@ This is done by clicking on the corresponding robot part in the list of added �
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To be able to select the renamed links (e.g. “second_base_link”) in the “Properties” list of e.g. the second move group, the “Compile” button has to be pressed after the renaming. Moreover, to be able to select the second move group as group for e.g. the second end effector, again the “Compile” button has to be pressed first. Hence, for creating a configuration with two identical robot parts, the “<strong>Compile</strong>” button has to be pressed <strong>several times</strong>.</p>
+<p class="last">To be able to select the renamed links (e.g. <strong>second_base_link</strong>) in the <strong>Properties</strong> list of e.g. the second move group, the <strong>Compile</strong> button has to be pressed after the renaming. Moreover, to be able to select the second move group as group for e.g. the second end effector, again the <strong>Compile</strong> button has to be pressed first. Hence, for creating a configuration with two identical robot parts, the <strong>Compile</strong> button has to be pressed <strong>several times</strong>.</p>
 </div>
 </div>
 <div class="section" id="configuring-a-real-robot">
