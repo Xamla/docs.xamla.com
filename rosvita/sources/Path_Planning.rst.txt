@@ -17,7 +17,7 @@ Next to the **Plan** button at the top bar, the path planner can be selected fro
 `OMPL <http://ompl.kavrakilab.org/>`_ .
 Furthermore you can select the **Move group** and the **End effector** at the top bar, which especially becomes interesting with several robot arms.
 
-By right-clicking in the scene, the current joint values and pose of the robot, as well as a current joint trajectory and Cartesian path can be saved. Moreover, as mentioned before, the ghost can be moved to the second interactive marker (called **pose picker**), collision objects can be added to the scene and the active cursor (i.e. the currently chosen interactive marker) can be rotated.
+By right-clicking in the scene, the current joint values and pose of the robot, as well as a current joint trajectory and Cartesian path can be saved. Moreover, as mentioned before, the ghost can be moved to the second interactive marker (called **pose picker**), **collision objects** can be added to the scene and the active cursor (i.e. the currently chosen interactive marker) can be rotated.
 Saved joint values, poses, joint trajectories and collision objects appear in a list displayed on the left side of the **World View**. If you click on one of these saved elements, more detailed information about the selected element (e.g. names and values ​​for the joints) appears on the right of the **World View**. When selecting stored joint values, moreover the ghost automatically moves to the corresponding location.
 
 .. note:: To save the stored joint values and poses **permanently**, the **World View** has to be saved by pressing the **Save** button at the top bar. Thereby, the joint values and poses are written to the project folder into **db/worldview.json**.
