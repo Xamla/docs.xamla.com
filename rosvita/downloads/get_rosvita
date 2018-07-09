@@ -2,7 +2,7 @@
 
 echo -e "   _  __                __\n  | |/ /___ _____ ___  / /___ _\n  |   / __ \`/ __ \`__ \/ / __ \`/\n /   / /_/ / / / / / / / /_/ /\n/_/|_\__,_/_/ /_/ /_/_/\__,_/\n\nROSVITA Installer v0.1\n"
 
-echo "In case of any problems with the installation please visit: http://discuss.xamla.com."
+echo "In case of any problems with the installation please visit: https://discuss.xamla.com/"
 echo ""
 
 echo "Step 1:"
@@ -100,12 +100,12 @@ echo "Step 6:"
 echo "======="
 if [[ $(groups | grep docker | wc -l) > 0 ]]; then
    echo "To start ROSVITA simply double click the desktop icon."
-   echo "If you have any trouble or would like to give us feedback, feel free to visit: http://discuss.xamla.com."
+   echo "If you have any trouble or would like to give us feedback, feel free to visit: https://discuss.xamla.com/"
 else
    echo "IMPORTANT:"
    echo "The computer will be restarted now to make the addition to the docker group effective." 
    echo "Afterwards you can start ROSVITA by simply double clicking the desktop icon."
-   echo "If you have any trouble or would like to give us feedback, feel free to visit: http://discuss.xamla.com."
+   echo "If you have any trouble or would like to give us feedback, feel free to visit: https://discuss.xamla.com/"
    read -p "Press ENTER to restart computer"
    sudo reboot
 fi
