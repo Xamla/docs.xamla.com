@@ -2,6 +2,10 @@
 
 echo -e "   _  __                __\n  | |/ /___ _____ ___  / /___ _\n  |   / __ \`/ __ \`__ \/ / __ \`/\n /   / /_/ / / / / / / / /_/ /\n/_/|_\__,_/_/ /_/ /_/_/\__,_/\n\nROSVITA Installer v0.1\n"
 
+echo "Before, installing ROSVITA, please read the ROSVITA license agreement:"
+echo "https://raw.githubusercontent.com/Xamla/docs.xamla.com/gh-pages/rosvita/downloads/LICENSE"
+read -p "Press ENTER to continue or CTRL+C to cancel"
+echo ""
 echo "In case of any problems with the installation please visit: https://discuss.xamla.com/"
 echo ""
 
