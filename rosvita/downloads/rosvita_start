@@ -52,7 +52,7 @@ fi
 echo "Opening ROSVITA in your default web browser..."
 attempt_counter=0
 max_attempts=40
-until $(curl --output /dev/null -silent --fail http://localhost:5000/api/version); do
+until $(curl --output /dev/null --silent --fail http://localhost:5000/api/version); do
     if [[ ${attempt_counter} -eq ${max_attempts} ]]; then
       echo "Maximum number of attempts reached. Please try again."
       exit 1
