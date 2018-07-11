@@ -41,8 +41,14 @@ echo "The ROSVITA image will be downloaded from Docker Hub, press CTRL+C to canc
 read -p "Press ENTER to continue"
 echo "Getting ROSVITA from Docker Hub.."
 sudo docker pull xamla/rosvita:latest
+if [[ $(sudo docker pull xamla/rosvita:latest | grep -c 'exit status 1') > 0 ]]; then
+   echo "Could not download latest ROSVITA image. Please check your internet connection and disk space."
+   echo "If the problem does not go away, we are happy to help you at http://discuss.xamla.com."
+   exit 1
+fi
 if [[ $(sudo docker images | grep -c 'xamla/rosvita') == 0 ]]; then
-   echo "Could not download ROSVITA image. Please check your internet connection. If the problem does not go away, we are happy to help you at http://discuss.xamla.com."
+   echo "Could not download ROSVITA image. Please check your internet connection and disk space." 
+   echo "If the problem does not go away, we are happy to help you at http://discuss.xamla.com."
    exit 1
 else
    echo "ROSVITA image has been downloaded successfully."
