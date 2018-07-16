@@ -239,7 +239,8 @@ li {
   max-height: 97px;
   padding-top: 20px;
   margin-top: 20px;
-  width: 185px;
+  width: 100%;
+  max-width: 360px;
 }
 
 .inline-btn:hover {
