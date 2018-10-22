@@ -1,0 +1,1842 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MoveGroup
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MoveGroup
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.MoveGroup">
+  
+  
+  <h1 id="Xamla_Robotics_Motion_MoveGroup" data-uid="Xamla.Robotics.Motion.MoveGroup" class="text-break">Class MoveGroup
+  </h1>
+  <div class="markdown level0 summary"><p>Encapsulates move functionality for a specific move group.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">MoveGroup</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
+  <h5 id="Xamla_Robotics_Motion_MoveGroup_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MoveGroup : IMoveGroup, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup__ctor_" data-uid="Xamla.Robotics.Motion.MoveGroup.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup__ctor_Xamla_Robotics_Motion_IMotionService_System_String_System_String_" data-uid="Xamla.Robotics.Motion.MoveGroup.#ctor(Xamla.Robotics.Motion.IMotionService,System.String,System.String)">MoveGroup(IMotionService, String, String)</h4>
+  <div class="markdown level1 summary"><p>Create a instance of <code>MoveGroup</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MoveGroup(IMotionService motionService, string moveGroupName = null, string defaultEndEffectorName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMotionService.html">IMotionService</a></td>
+        <td><span class="parametername">motionService</span></td>
+        <td><p>An object implementing <code>IMotionService</code> which is used to communicate with the motion server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">moveGroupName</span></td>
+        <td><p>The name of the move group represented by this instance</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">defaultEndEffectorName</span></td>
+        <td><p>Name of the default end effector</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when current name does not exist.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">motionService</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup__ctor_" data-uid="Xamla.Robotics.Motion.MoveGroup.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup__ctor_Xamla_Robotics_Motion_IMotionService_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Motion.MoveGroup.#ctor(Xamla.Robotics.Motion.IMotionService,Xamla.Robotics.Types.JointSet)">MoveGroup(IMotionService, JointSet)</h4>
+  <div class="markdown level1 summary"><p>Creates a <code>MoveGroup</code> for manually specified joint set. Since the mapping between ROS move-groups
+and the specified joint set is not know nor analysed it is not possible to execute end-effector
+related functions (e.g. inverse kinematics).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MoveGroup(IMotionService motionService, JointSet jointSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMotionService.html">IMotionService</a></td>
+        <td><span class="parametername">motionService</span></td>
+        <td><p>An object implementing <code>IMotionService</code> which is used to communicate with the motion server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td><p>A joint set</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">motionService</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_CollisionCheck_" data-uid="Xamla.Robotics.Motion.MoveGroup.CollisionCheck*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_CollisionCheck" data-uid="Xamla.Robotics.Motion.MoveGroup.CollisionCheck">CollisionCheck</h4>
+  <div class="markdown level1 summary"><p>Sets the collision check
+If true, the trajectory planing tries to plan a collision free trajectory.
+Before executing a trajectory, a collision check is performed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CollisionCheck { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_CurrentJointPositions_" data-uid="Xamla.Robotics.Motion.MoveGroup.CurrentJointPositions*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_CurrentJointPositions" data-uid="Xamla.Robotics.Motion.MoveGroup.CurrentJointPositions">CurrentJointPositions</h4>
+  <div class="markdown level1 summary"><p>Current joint positions of the of the <code>IMoveGroup</code> joints</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues CurrentJointPositions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_CurrentJointStates_" data-uid="Xamla.Robotics.Motion.MoveGroup.CurrentJointStates*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_CurrentJointStates" data-uid="Xamla.Robotics.Motion.MoveGroup.CurrentJointStates">CurrentJointStates</h4>
+  <div class="markdown level1 summary"><p>Current <code>JointStates</code> of the of the <code>IMoveGroup</code> joints</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointStates CurrentJointStates { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointStates.html">JointStates</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_DefaultEndEffector_" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultEndEffector*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_DefaultEndEffector" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultEndEffector">DefaultEndEffector</h4>
+  <div class="markdown level1 summary"><p>Get default end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEndEffector DefaultEndEffector { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IEndEffector.html">IEndEffector</a></td>
+        <td><p>Returns an object implementig <code>IEndEffector</code> representing the default end effector</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_DefaultEndEffectorName_" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultEndEffectorName*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_DefaultEndEffectorName" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultEndEffectorName">DefaultEndEffectorName</h4>
+  <div class="markdown level1 summary"><p>Default end effector name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DefaultEndEffectorName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code>value</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when end efector of name <code>value</code> does not exist in move group.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_DefaultPlanParameters_" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultPlanParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_DefaultPlanParameters" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultPlanParameters">DefaultPlanParameters</h4>
+  <div class="markdown level1 summary"><p>Default instance of <code>PlanParameters</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanParameters DefaultPlanParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_DefaultTaskSpacePlanParameters_" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultTaskSpacePlanParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_DefaultTaskSpacePlanParameters" data-uid="Xamla.Robotics.Motion.MoveGroup.DefaultTaskSpacePlanParameters">DefaultTaskSpacePlanParameters</h4>
+  <div class="markdown level1 summary"><p>Instance of TaskSpacePlanParameters from which the limits and settings are used when no specific user input is given</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskSpacePlanParameters DefaultTaskSpacePlanParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.TaskSpacePlanParameters.html">TaskSpacePlanParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_EndEffectorNames_" data-uid="Xamla.Robotics.Motion.MoveGroup.EndEffectorNames*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_EndEffectorNames" data-uid="Xamla.Robotics.Motion.MoveGroup.EndEffectorNames">EndEffectorNames</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; EndEffectorNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_IkJumpThreshold_" data-uid="Xamla.Robotics.Motion.MoveGroup.IkJumpThreshold*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_IkJumpThreshold" data-uid="Xamla.Robotics.Motion.MoveGroup.IkJumpThreshold">IkJumpThreshold</h4>
+  <div class="markdown level1 summary"><p>Maximal allowed inverse kinematics jump threshold</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double IkJumpThreshold { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_JointSet_" data-uid="Xamla.Robotics.Motion.MoveGroup.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_JointSet" data-uid="Xamla.Robotics.Motion.MoveGroup.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p><code>JointSet</code> of the <code>IMoveGroup</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MaxDeviation_" data-uid="Xamla.Robotics.Motion.MoveGroup.MaxDeviation*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MaxDeviation" data-uid="Xamla.Robotics.Motion.MoveGroup.MaxDeviation">MaxDeviation</h4>
+  <div class="markdown level1 summary"><p>Maximal deviation from the trajectory points</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaxDeviation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MotionService_" data-uid="Xamla.Robotics.Motion.MoveGroup.MotionService*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MotionService" data-uid="Xamla.Robotics.Motion.MoveGroup.MotionService">MotionService</h4>
+  <div class="markdown level1 summary"><p>Reference to an object implementing <code>IMotionService</code>
+Used to communicate with the motion server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMotionService MotionService { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMotionService.html">IMotionService</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_Name_" data-uid="Xamla.Robotics.Motion.MoveGroup.Name*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_Name" data-uid="Xamla.Robotics.Motion.MoveGroup.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Name of the <code>IMoveGroup</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_SampleResolution_" data-uid="Xamla.Robotics.Motion.MoveGroup.SampleResolution*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_SampleResolution" data-uid="Xamla.Robotics.Motion.MoveGroup.SampleResolution">SampleResolution</h4>
+  <div class="markdown level1 summary"><p>Trajectory point sampling frequency</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SampleResolution { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_VelocityScaling_" data-uid="Xamla.Robotics.Motion.MoveGroup.VelocityScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_VelocityScaling" data-uid="Xamla.Robotics.Motion.MoveGroup.VelocityScaling">VelocityScaling</h4>
+  <div class="markdown level1 summary"><p>Current velocity scaling</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double VelocityScaling { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when <code>value</code> not in range (0 - 1).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_BuildPlanParameters_" data-uid="Xamla.Robotics.Motion.MoveGroup.BuildPlanParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_BuildPlanParameters_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__" data-uid="Xamla.Robotics.Motion.MoveGroup.BuildPlanParameters(System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double})">BuildPlanParameters(Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Builds an instance of <code>PlanParameters</code>.
+For parameter == null, the default values in <code>DefaultPlanParameters</code> are used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanParameters BuildPlanParameters(double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities. Must lie in range (0 - 1).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
+        <td><p>Returns a new <code>PlanParameters</code> instance based on <code>DefaultPlanParameters</code> and parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">velocityScaling</code> is not in range (0 - 1).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_BuildTaskSpacePlanParameters_" data-uid="Xamla.Robotics.Motion.MoveGroup.BuildTaskSpacePlanParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_BuildTaskSpacePlanParameters_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_String_" data-uid="Xamla.Robotics.Motion.MoveGroup.BuildTaskSpacePlanParameters(System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double},System.String)">BuildTaskSpacePlanParameters(Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Builds an instance of <code>TaskSpacePlanParameters</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskSpacePlanParameters BuildTaskSpacePlanParameters(double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ), string endEffectorName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities. Must lie in range (0 - 1).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>If true the trajectory planing tries to plan a collision free trajectory and before executing a trajectory a collision check is performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorName</span></td>
+        <td><p>Name of the end effector</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.TaskSpacePlanParameters.html">TaskSpacePlanParameters</a></td>
+        <td><p>Returns a new <code>TaskSpacePlanParameters</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">velocityScaling</code> is not in range (0 - 1).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_Dispose_" data-uid="Xamla.Robotics.Motion.MoveGroup.Dispose*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_Dispose" data-uid="Xamla.Robotics.Motion.MoveGroup.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Clean up</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_GetCurrentPose_" data-uid="Xamla.Robotics.Motion.MoveGroup.GetCurrentPose*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_GetCurrentPose_System_String_" data-uid="Xamla.Robotics.Motion.MoveGroup.GetCurrentPose(System.String)">GetCurrentPose(String)</h4>
+  <div class="markdown level1 summary"><p>Get the current position of an end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose GetCurrentPose(string endEffectorName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorName</span></td>
+        <td><p>Name of the <code>IEndEffector</code> instance. The default end effector is used when null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>Returns the current <code>Pose</code> instance of the end effector associated with <code data-dev-comment-type="paramref" class="paramref">endEffectorName</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_GetEndEffector_" data-uid="Xamla.Robotics.Motion.MoveGroup.GetEndEffector*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_GetEndEffector_System_String_" data-uid="Xamla.Robotics.Motion.MoveGroup.GetEndEffector(System.String)">GetEndEffector(String)</h4>
+  <div class="markdown level1 summary"><p>Get an end effector by name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEndEffector GetEndEffector(string endEffectorName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorName</span></td>
+        <td><p>Name of the end effector. The default end effector is used when null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IEndEffector.html">IEndEffector</a></td>
+        <td><p>Returns an object implementing <code>IEndEffector</code> associated with  <code data-dev-comment-type="paramref" class="paramref">endEffectorName</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathAsync_Xamla_Robotics_Types_IJointPath_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathAsync(Xamla.Robotics.Types.IJointPath,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointPathAsync(IJointPath, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a path object implementing <code>IJointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveJointPathAsync(IJointPath waypoints, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ), CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td><p>Joint path</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>Returns a <code>Task</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathAsync_Xamla_Robotics_Types_IJointPath_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathAsync(Xamla.Robotics.Types.IJointPath,System.Threading.CancellationToken)">MoveJointPathAsync(IJointPath, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a path object implementing <code>IJointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveJointPathAsync(IJointPath waypoints, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td><p>Joint path</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>Returns a <code>Task</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathSupervisedAsync_Xamla_Robotics_Types_IJointPath_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathSupervisedAsync(Xamla.Robotics.Types.IJointPath,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointPathSupervisedAsync(IJointPath, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a path object implementing <code>IJointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointPathSupervisedAsync(IJointPath waypoints, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ), CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td><p>Joint path</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointPathSupervisedAsync_Xamla_Robotics_Types_IJointPath_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointPathSupervisedAsync(Xamla.Robotics.Types.IJointPath,System.Threading.CancellationToken)">MoveJointPathSupervisedAsync(IJointPath, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a path object implementing <code>IJointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointPathSupervisedAsync(IJointPath waypoints, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td><p>Joint path</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsAsync_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsAsync(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointsAsync(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveJointsAsync(JointValues target, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? accelerationScaling = default(double? ), CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint acceleration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>Returns a <code>Task</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsAsync_Xamla_Robotics_Types_JointValues_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsAsync(Xamla.Robotics.Types.JointValues,System.Threading.CancellationToken)">MoveJointsAsync(JointValues, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveJointsAsync(JointValues target, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>Returns a <code>Task</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeAsync_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeAsync(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointsCollisionFreeAsync(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously and collision free based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveJointsCollisionFreeAsync(JointValues target, double? velocityScaling, double? sampleResolution, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">sampleResolution</span></td>
+        <td><p>Trajectory point sampling frequency</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>Returns a <code>Task</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeSupervisedAsync_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeSupervisedAsync(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointsCollisionFreeSupervisedAsync(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously and collision free based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointsCollisionFreeSupervisedAsync(JointValues target, double? velocityScaling, double? sampleResolution, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">sampleResolution</span></td>
+        <td><p>Trajectory point sampling frequency</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsCollisionFreeSupervisedAsync_Xamla_Robotics_Types_JointValues_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsCollisionFreeSupervisedAsync(Xamla.Robotics.Types.JointValues,System.Threading.CancellationToken)">MoveJointsCollisionFreeSupervisedAsync(JointValues, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously and collision free based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointsCollisionFreeSupervisedAsync(JointValues target, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsSupervisedAsync_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsSupervisedAsync(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Threading.CancellationToken)">MoveJointsSupervisedAsync(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointsSupervisedAsync(JointValues target, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? accelerationScaling = default(double? ), CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint acceleration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_MoveJointsSupervisedAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsSupervisedAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_MoveJointsSupervisedAsync_Xamla_Robotics_Types_JointValues_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.MoveJointsSupervisedAsync(Xamla.Robotics.Types.JointValues,System.Threading.CancellationToken)">MoveJointsSupervisedAsync(JointValues, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Moves the joints asynchronously based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISteppedMotionClient MoveJointsSupervisedAsync(JointValues target, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td><p>Returns an object implementing <code>ISteppedMotionClient</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJointPath_" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJointPath*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJointPath_Xamla_Robotics_Types_IJointPath_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJointPath(Xamla.Robotics.Types.IJointPath,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double})">PlanMoveJointPath(IJointPath, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Plans a trajectory based on a path object implementing <code>IJointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (IJointTrajectory, PlanParameters)PlanMoveJointPath(IJointPath waypoints, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td><p>Joint path</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a>, <a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a>&gt;</td>
+        <td><p>Returns a tuple of <code>(IJointTrajectory, PlanParameters)</code> instances.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJoints_" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJoints*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJoints_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJoints(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double})">PlanMoveJoints(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Plans a trajectory based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (IJointTrajectory, PlanParameters)PlanMoveJoints(JointValues target, double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? accelerationScaling = default(double? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>Activates/Deactivates collision check</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a>, <a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a>&gt;</td>
+        <td><p>Returns a tuple of <code>(IJointTrajectory, PlanParameters)</code> instances.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJointsCollisionFreeAsync_" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJointsCollisionFreeAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveGroup_PlanMoveJointsCollisionFreeAsync_Xamla_Robotics_Types_JointValues_System_Nullable_System_Double__System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.MoveGroup.PlanMoveJointsCollisionFreeAsync(Xamla.Robotics.Types.JointValues,System.Nullable{System.Double},System.Nullable{System.Double},System.Threading.CancellationToken)">PlanMoveJointsCollisionFreeAsync(JointValues, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Plans asynchronously a collision free trajectory based on a <code>JointValues</code> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (IJointTrajectory, PlanParameters)PlanMoveJointsCollisionFreeAsync(JointValues target, double? velocityScaling, double? sampleResolution, CancellationToken cancel = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>Target joint positions</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">sampleResolution</span></td>
+        <td><p>Trajectory point sampling frequency</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td><p>CancellationToken</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a>, <a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a>&gt;</td>
+        <td><p>Returns a tuple of <code>(IJointTrajectory, PlanParameters)</code> instances.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

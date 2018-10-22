@@ -1,0 +1,694 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Pose
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Pose
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.Pose">
+  
+  
+  <h1 id="Xamla_Robotics_Types_Pose" data-uid="Xamla.Robotics.Types.Pose" class="text-break">Class Pose
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Pose</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_Pose_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Pose : IEquatable&lt;Pose&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose__ctor_" data-uid="Xamla.Robotics.Types.Pose.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose__ctor" data-uid="Xamla.Robotics.Types.Pose.#ctor">Pose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose__ctor_" data-uid="Xamla.Robotics.Types.Pose.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose__ctor_System_Numerics_Matrix4x4_System_String_" data-uid="Xamla.Robotics.Types.Pose.#ctor(System.Numerics.Matrix4x4,System.String)">Pose(Matrix4x4, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> from a transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose(Matrix4x4 transformMatrix, string frame = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Matrix4x4</span></td>
+        <td><span class="parametername">transformMatrix</span></td>
+        <td><p>4x4 transformation matrix from which translation and rotation is derived.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">frame</span></td>
+        <td><p>Name of the ROS TF parent frame. Default: empty string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose__ctor_" data-uid="Xamla.Robotics.Types.Pose.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose__ctor_System_Numerics_Vector3_System_Numerics_Quaternion_System_String_System_Boolean_" data-uid="Xamla.Robotics.Types.Pose.#ctor(System.Numerics.Vector3,System.Numerics.Quaternion,System.String,System.Boolean)">Pose(Vector3, Quaternion, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> from a translation vector and a rotation quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose(Vector3 translation, Quaternion rotation, string frame = &quot;&quot;, bool normalizeRotation = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Vector3</span></td>
+        <td><span class="parametername">translation</span></td>
+        <td><p>Translation in X, Y and Z axis in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Numerics.Quaternion</span></td>
+        <td><span class="parametername">rotation</span></td>
+        <td><p>Rotation as quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">frame</span></td>
+        <td><p>Name of the ROS TF parent frame. Default: empty string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">normalizeRotation</span></td>
+        <td><p>If true the rotation quaternion gets normalized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_Pose_Identity" data-uid="Xamla.Robotics.Types.Pose.Identity">Identity</h4>
+  <div class="markdown level1 summary"><p>Default <code>Pose</code> with translation set to the zero vector and rotation set to the identity quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Pose Identity</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Frame_" data-uid="Xamla.Robotics.Types.Pose.Frame*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Frame" data-uid="Xamla.Robotics.Types.Pose.Frame">Frame</h4>
+  <div class="markdown level1 summary"><p>The name of the parent ROS TF Frame, which is used as origin for the <code>Pose</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Frame { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Xamla_Robotics_Types_Pose_Frame_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If null or empty the world frame (i.e. identity) is used.</p>
+</div>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Rotation_" data-uid="Xamla.Robotics.Types.Pose.Rotation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Rotation" data-uid="Xamla.Robotics.Types.Pose.Rotation">Rotation</h4>
+  <div class="markdown level1 summary"><p>The rotation as quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion Rotation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Quaternion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_RotationMatrix_" data-uid="Xamla.Robotics.Types.Pose.RotationMatrix*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_RotationMatrix" data-uid="Xamla.Robotics.Types.Pose.RotationMatrix">RotationMatrix</h4>
+  <div class="markdown level1 summary"><p>A 4x4 matrix containing only the rotation component of the transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 RotationMatrix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Matrix4x4</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_TransformMatrix_" data-uid="Xamla.Robotics.Types.Pose.TransformMatrix*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_TransformMatrix" data-uid="Xamla.Robotics.Types.Pose.TransformMatrix">TransformMatrix</h4>
+  <div class="markdown level1 summary"><p>A 4x4 matrix containing rotation and translation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 TransformMatrix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Matrix4x4</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Translation_" data-uid="Xamla.Robotics.Types.Pose.Translation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Translation" data-uid="Xamla.Robotics.Types.Pose.Translation">Translation</h4>
+  <div class="markdown level1 summary"><p>The translation in X, Y and Z axis in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Translation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Equals_" data-uid="Xamla.Robotics.Types.Pose.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Equals_System_Object_" data-uid="Xamla.Robotics.Types.Pose.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Test if the current Pose equals the given other <code>object</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the <code>Poses</code> and the given <code> object</code>are the same object or if their values are equal. False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Equals_" data-uid="Xamla.Robotics.Types.Pose.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Equals_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.Pose.Equals(Xamla.Robotics.Types.Pose)">Equals(Pose)</h4>
+  <div class="markdown level1 summary"><p>Test if the current Pose equals the given other <code>Pose</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Pose other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another <code>Pose</code> that should be tested for similarity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the two <code>Poses</code> are the same object or if their values are equal. False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_GetHashCode_" data-uid="Xamla.Robotics.Types.Pose.GetHashCode*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_GetHashCode" data-uid="Xamla.Robotics.Types.Pose.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Creates a hash code over Frame, Translation and Rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_NormalizeRotation_" data-uid="Xamla.Robotics.Types.Pose.NormalizeRotation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_NormalizeRotation" data-uid="Xamla.Robotics.Types.Pose.NormalizeRotation">NormalizeRotation()</h4>
+  <div class="markdown level1 summary"><p>Create a new <code>Pose</code> with the current rotation quaternion normalized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose NormalizeRotation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>A new <code>Pose</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_ToString_" data-uid="Xamla.Robotics.Types.Pose.ToString*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_ToString" data-uid="Xamla.Robotics.Types.Pose.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Creates a human readable text representation of Translation, Rotation and Frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Translate_" data-uid="Xamla.Robotics.Types.Pose.Translate*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Translate_System_Numerics_Vector3_" data-uid="Xamla.Robotics.Types.Pose.Translate(System.Numerics.Vector3)">Translate(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> translated by the given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose Translate(Vector3 offset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Vector3</span></td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>Translation in X, Y and Z given as <code>Vector3</code> in meters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>A new <code>Pose</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Translate_" data-uid="Xamla.Robotics.Types.Pose.Translate*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Translate_System_Single_System_Single_System_Single_" data-uid="Xamla.Robotics.Types.Pose.Translate(System.Single,System.Single,System.Single)">Translate(Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> translated in the axes x, y and z.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose Translate(float x, float y, float z)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Translation in X in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Translation in Y in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">z</span></td>
+        <td><p>Translation in Z in meters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>A new <code>Pose</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_Pose_">ModelConversionExtensions.ToModel(Pose)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.PoseExtensions.html#Xamla_Robotics_Motion_PoseExtensions_ToPoseMessage_Xamla_Robotics_Types_Pose_">PoseExtensions.ToPoseMessage(Pose)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.PoseExtensions.html#Xamla_Robotics_Motion_PoseExtensions_ToPoseStampedMessage_Xamla_Robotics_Types_Pose_Messages_std_msgs_Time_">PoseExtensions.ToPoseStampedMessage(Pose, std_msgs.Time)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.PoseExtensions.html#Xamla_Robotics_Motion_PoseExtensions_ToTwist_Xamla_Robotics_Types_Pose_">PoseExtensions.ToTwist(Pose)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

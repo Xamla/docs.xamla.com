@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EndEffectorDescription
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EndEffectorDescription
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.EndEffectorDescription">
+  
+  
+  <h1 id="Xamla_Robotics_Types_EndEffectorDescription" data-uid="Xamla.Robotics.Types.EndEffectorDescription" class="text-break">Class EndEffectorDescription
+  </h1>
+  <div class="markdown level0 summary"><p>Holds the properties, which define an end effector.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">EndEffectorDescription</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_EndEffectorDescription_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EndEffectorDescription</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription__ctor_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription__ctor_System_String_System_String___Xamla_Robotics_Types_JointSet_System_String_System_String_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.#ctor(System.String,System.String[],Xamla.Robotics.Types.JointSet,System.String,System.String)">EndEffectorDescription(String, String[], JointSet, String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>EndEffectorDescription</code>, from the given properties that define an end effector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndEffectorDescription(string name, string[] subMoveGroupIds, JointSet jointSet, string moveGroupName, string endEffectorLinkName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the end effector</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">subMoveGroupIds</span></td>
+        <td><p>The IDs of the sub movegroups the end effector uses. (Not supported yet.)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td><p>The <a class="xref" href="Xamla.Robotics.Types.EndEffectorDescription.html#Xamla_Robotics_Types_EndEffectorDescription_JointSet">JointSet</a> holding the joints that are moved when the end effector is moved in Cartesian space./&gt;</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">moveGroupName</span></td>
+        <td><p>The name of the movegroup that is used when the end effector is moved in Cartesian space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorLinkName</span></td>
+        <td><p>The name of the link that is located at the end of the kinematic chain of the end effector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription_JointSet_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription_JointSet" data-uid="Xamla.Robotics.Types.EndEffectorDescription.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p>Gets the <code>JointSet</code> holding the joints that are moved when moving this end effector in Cartesian space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription_LinkName_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.LinkName*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription_LinkName" data-uid="Xamla.Robotics.Types.EndEffectorDescription.LinkName">LinkName</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the link which is at the end of the kinematic chain of this end effector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string LinkName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription_MoveGroupName_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.MoveGroupName*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription_MoveGroupName" data-uid="Xamla.Robotics.Types.EndEffectorDescription.MoveGroupName">MoveGroupName</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the movegroup which is used when this end effector is moved in Cartesian space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string MoveGroupName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription_Name_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.Name*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription_Name" data-uid="Xamla.Robotics.Types.EndEffectorDescription.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_EndEffectorDescription_SubMoveGroupIds_" data-uid="Xamla.Robotics.Types.EndEffectorDescription.SubMoveGroupIds*"></a>
+  <h4 id="Xamla_Robotics_Types_EndEffectorDescription_SubMoveGroupIds" data-uid="Xamla.Robotics.Types.EndEffectorDescription.SubMoveGroupIds">SubMoveGroupIds</h4>
+  <div class="markdown level1 summary"><p>Gets the IDs of the sub movegroups the end effector uses. (Not supported yet.)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] SubMoveGroupIds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

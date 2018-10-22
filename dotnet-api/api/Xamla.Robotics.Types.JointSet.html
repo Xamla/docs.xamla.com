@@ -1,0 +1,894 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JointSet
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JointSet
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.JointSet">
+  
+  
+  <h1 id="Xamla_Robotics_Types_JointSet" data-uid="Xamla.Robotics.Types.JointSet" class="text-break">Class JointSet
+  </h1>
+  <div class="markdown level0 summary"><p>A <code>JointSet</code> is a collection of joint names in a certain order.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JointSet</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<span class="xref">System.String</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<span class="xref">System.String</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_JointSet_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JointSet : IReadOnlyList&lt;string&gt;, IReadOnlyCollection&lt;string&gt;, IEnumerable&lt;string&gt;, IEnumerable, IEquatable&lt;JointSet&gt;</code></pre>
+  </div>
+  <h5 id="Xamla_Robotics_Types_JointSet_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>It provides methods for creating and comparing <code>JointSet</code> instances.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet__ctor_" data-uid="Xamla.Robotics.Types.JointSet.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet__ctor" data-uid="Xamla.Robotics.Types.JointSet.#ctor">JointSet()</h4>
+  <div class="markdown level1 summary"><p>Creates a new empty <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet__ctor_" data-uid="Xamla.Robotics.Types.JointSet.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet__ctor_System_Collections_Generic_IEnumerable_System_String__" data-uid="Xamla.Robotics.Types.JointSet.#ctor(System.Collections.Generic.IEnumerable{System.String})">JointSet(IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointSet</code> containing the given joint names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet(IEnumerable&lt;string&gt; names)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">names</span></td>
+        <td><p>A collection of joint names, that the new <code>JointSet</code> should hold.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet__ctor_" data-uid="Xamla.Robotics.Types.JointSet.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet__ctor_System_String___" data-uid="Xamla.Robotics.Types.JointSet.#ctor(System.String[])">JointSet(String[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointSet</code> containing the given joint names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet(params string[] names)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">names</span></td>
+        <td><p>A list of joint names, that the new <code>JointSet</code> should hold.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">names</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_JointSet_Empty" data-uid="Xamla.Robotics.Types.JointSet.Empty">Empty</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly JointSet Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><p>A new empty <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_Count_" data-uid="Xamla.Robotics.Types.JointSet.Count*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_Count" data-uid="Xamla.Robotics.Types.JointSet.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The number of joint names in the current <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_Item_" data-uid="Xamla.Robotics.Types.JointSet.Item*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_Item_System_Int32_" data-uid="Xamla.Robotics.Types.JointSet.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Accesses the joint name at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_AddPrefix_" data-uid="Xamla.Robotics.Types.JointSet.AddPrefix*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_AddPrefix_System_String_" data-uid="Xamla.Robotics.Types.JointSet.AddPrefix(System.String)">AddPrefix(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointSet</code> where the given prefix is added to each joint name in the current <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet AddPrefix(string prefix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">prefix</span></td>
+        <td><p>The prefix that is added to each joint name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><p>A new <code>JointSet</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_Contains_" data-uid="Xamla.Robotics.Types.JointSet.Contains*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_Contains_System_String_" data-uid="Xamla.Robotics.Types.JointSet.Contains(System.String)">Contains(String)</h4>
+  <div class="markdown level1 summary"><p>Tests whether the given joint name is included in the current <code>JointSet</code> or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>A joint name which presents should be tested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the given joint name is found; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_Equals_" data-uid="Xamla.Robotics.Types.JointSet.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_Equals_System_Object_" data-uid="Xamla.Robotics.Types.JointSet.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Tests whether the given object equals the current <code>JointSet</code>. Two <code>JointSet</code> instances are equal, when they contain the same joint names in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>An object which should be tested for equality.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when the given object equals the current <code>JointSet</code>; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_Equals_" data-uid="Xamla.Robotics.Types.JointSet.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_Equals_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointSet.Equals(Xamla.Robotics.Types.JointSet)">Equals(JointSet)</h4>
+  <div class="markdown level1 summary"><p>Tests whether the given other <code>JointSet</code> equals the current one. Two <code>JointSet</code> instances are equal, when they contain the same joint names in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(JointSet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another <code>JointSet</code> which should be tested for equality.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when the other <code>JointSet</code> equals the current one; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointSet.GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_GetEnumerator" data-uid="Xamla.Robotics.Types.JointSet.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator over the current joint names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;string&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_GetHashCode_" data-uid="Xamla.Robotics.Types.JointSet.GetHashCode*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_GetHashCode" data-uid="Xamla.Robotics.Types.JointSet.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Creates a hash value over the current joint names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_GetIndexOf_" data-uid="Xamla.Robotics.Types.JointSet.GetIndexOf*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_GetIndexOf_System_String_" data-uid="Xamla.Robotics.Types.JointSet.GetIndexOf(System.String)">GetIndexOf(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the position of the given joint name in the current <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetIndexOf(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>A joint name for which the position should be found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The position of the given joint name in the current <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">name</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">name</code> is not found in <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_IsSimilar_" data-uid="Xamla.Robotics.Types.JointSet.IsSimilar*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_IsSimilar_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointSet.IsSimilar(Xamla.Robotics.Types.JointSet)">IsSimilar(JointSet)</h4>
+  <div class="markdown level1 summary"><p>Tests whether the given other <code>JointSet</code> is similar to the current one. Two <code>JointSet</code> instances are similar, when they contain the same number of joint names and are a subset of each other. The order in which they hold the joint names does not matter in this case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSimilar(JointSet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another <code>JointSet</code> which should be tested for similarity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when the other <code>JointSet</code> is similar the current one; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_IsSubset_" data-uid="Xamla.Robotics.Types.JointSet.IsSubset*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_IsSubset_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointSet.IsSubset(Xamla.Robotics.Types.JointSet)">IsSubset(JointSet)</h4>
+  <div class="markdown level1 summary"><p>Tests whether the all joint names of the current <code>JointSet</code> are included in the given other <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSubset(JointSet other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another <code>JointSet</code> which should be tested for being a subset.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when the given other <code>JointSet</code> is a subset of the current one; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_ToArray_" data-uid="Xamla.Robotics.Types.JointSet.ToArray*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_ToArray" data-uid="Xamla.Robotics.Types.JointSet.ToArray">ToArray()</h4>
+  <div class="markdown level1 summary"><p>Creates a new array holding the current joint names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] ToArray()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_ToString_" data-uid="Xamla.Robotics.Types.JointSet.ToString*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_ToString" data-uid="Xamla.Robotics.Types.JointSet.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Creates a human readable representation of the current <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_TryGetIndexOf_" data-uid="Xamla.Robotics.Types.JointSet.TryGetIndexOf*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_TryGetIndexOf_System_String_System_Int32__" data-uid="Xamla.Robotics.Types.JointSet.TryGetIndexOf(System.String,System.Int32@)">TryGetIndexOf(String, out Int32)</h4>
+  <div class="markdown level1 summary"><p>Tries to get the position of the given joint name in the current <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetIndexOf(string name, out int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>A joint name for which the position should be found.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The position number of the joint name in the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when the joint name was found in the current <code>JointSet</code>; False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">name</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointSet_System_Collections_IEnumerable_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointSet.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointSet_System_Collections_IEnumerable_GetEnumerator" data-uid="Xamla.Robotics.Types.JointSet.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

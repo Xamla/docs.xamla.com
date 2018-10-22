@@ -1,0 +1,1099 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JointValues
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JointValues
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.JointValues">
+  
+  
+  <h1 id="Xamla_Robotics_Types_JointValues" data-uid="Xamla.Robotics.Types.JointValues" class="text-break">Class JointValues
+  </h1>
+  <div class="markdown level0 summary"><p><code>JointValues</code> assign a numeric value to each joint name of a <code>JointSet</code>. The meaning of the value depends on the context where the <code>JointValues</code> are used. It could for example be used for joint positions or joint velocity limits. The values of <code>JointValues</code> are interpreted as radians.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JointValues</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<span class="xref">System.Double</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<span class="xref">System.Double</span>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_JointValues_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JointValues : IReadOnlyList&lt;double&gt;, IReadOnlyCollection&lt;double&gt;, IEnumerable&lt;double&gt;, IEnumerable, IEquatable&lt;JointValues&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues__ctor_" data-uid="Xamla.Robotics.Types.JointValues.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues__ctor_Xamla_Robotics_Types_JointSet_System_Collections_Generic_IEnumerable_System_Double__" data-uid="Xamla.Robotics.Types.JointValues.#ctor(Xamla.Robotics.Types.JointSet,System.Collections.Generic.IEnumerable{System.Double})">JointValues(JointSet, IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointValues</code> with the given joint set and the collection of values. The first value is assigned the first name in the joint set, the second value is assigned the second name and so on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues(JointSet jointSet, IEnumerable&lt;double&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td><p>The names of joint that get values assigned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The values (in radians) that should be assigned to the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when the amount of joint names in <code data-dev-comment-type="paramref" class="paramref">jointSet</code> does not match the length of values in <code data-dev-comment-type="paramref" class="paramref">values</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues__ctor_" data-uid="Xamla.Robotics.Types.JointValues.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues__ctor_Xamla_Robotics_Types_JointSet_System_Double_" data-uid="Xamla.Robotics.Types.JointValues.#ctor(Xamla.Robotics.Types.JointSet,System.Double)">JointValues(JointSet, Double)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointValues</code> with the given joint set and fills each value with the given fill value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues(JointSet jointSet, double fillValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td><p>The names of joint that get values assigned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">fillValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues__ctor_" data-uid="Xamla.Robotics.Types.JointValues.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues__ctor_Xamla_Robotics_Types_JointSet_System_Double___" data-uid="Xamla.Robotics.Types.JointValues.#ctor(Xamla.Robotics.Types.JointSet,System.Double[])">JointValues(JointSet, Double[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointValues</code> with the given joint set and the collection of values. The first value is assigned the first name in the joint set, the second value is assigned the second name and so on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues(JointSet jointSet, double[] values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td><p>The names of joint that get values assigned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The values (in radians) that should be assigned to the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when the amount of joint names in <code data-dev-comment-type="paramref" class="paramref">jointSet</code> does not match the length of values in <code data-dev-comment-type="paramref" class="paramref">values</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_JointValues_Empty" data-uid="Xamla.Robotics.Types.JointValues.Empty">Empty</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointValues</code> with an empty <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JointValues Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Count_" data-uid="Xamla.Robotics.Types.JointValues.Count*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Count" data-uid="Xamla.Robotics.Types.JointValues.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Returns the amount of values</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Item_" data-uid="Xamla.Robotics.Types.JointValues.Item*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Item_System_Int32_" data-uid="Xamla.Robotics.Types.JointValues.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Returns the value (in radians) at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Item_" data-uid="Xamla.Robotics.Types.JointValues.Item*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Item_System_String_" data-uid="Xamla.Robotics.Types.JointValues.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"><p>Returns the value (in radians) for the given joint name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[string jointName] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">jointName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">jointName</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">jointName</code> is not part of the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_JointSet_" data-uid="Xamla.Robotics.Types.JointValues.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_JointSet" data-uid="Xamla.Robotics.Types.JointValues.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p>Gets the set of joints of the current <code>JointValues</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Values_" data-uid="Xamla.Robotics.Types.JointValues.Values*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Values" data-uid="Xamla.Robotics.Types.JointValues.Values">Values</h4>
+  <div class="markdown level1 summary"><p>Gets the values array of the current <code>JointValues</code>. The values are in radians.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] Values { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Equals_" data-uid="Xamla.Robotics.Types.JointValues.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Equals_System_Object_" data-uid="Xamla.Robotics.Types.JointValues.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Equals_" data-uid="Xamla.Robotics.Types.JointValues.Equals*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Equals_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointValues.Equals(Xamla.Robotics.Types.JointValues)">Equals(JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(JointValues other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointValues.GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_GetEnumerator" data-uid="Xamla.Robotics.Types.JointValues.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;double&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_GetHashCode_" data-uid="Xamla.Robotics.Types.JointValues.GetHashCode*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_GetHashCode" data-uid="Xamla.Robotics.Types.JointValues.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_GetValue_" data-uid="Xamla.Robotics.Types.JointValues.GetValue*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_GetValue_System_String_" data-uid="Xamla.Robotics.Types.JointValues.GetValue(System.String)">GetValue(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the numeric value assigned to the given joint name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetValue(string jointName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">jointName</span></td>
+        <td><p>The name of the joint for which the value should be returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value (in radians) assigned to the given joint name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">jointName</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">jointName</code> is not part of the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Random_" data-uid="Xamla.Robotics.Types.JointValues.Random*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Random_Xamla_Robotics_Types_JointLimits_" data-uid="Xamla.Robotics.Types.JointValues.Random(Xamla.Robotics.Types.JointLimits)">Random(JointLimits)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointSet</code> with random values assigned that lie within the given joint limits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JointValues Random(JointLimits limits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointLimits.html">JointLimits</a></td>
+        <td><span class="parametername">limits</span></td>
+        <td><p>The limits in which the values of the new <code>JointSet</code> should be. The names of the joints are taken from the <code data-dev-comment-type="paramref" class="paramref">limits</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>A new instance of <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Xamla_Robotics_Types_JointValues_Random_Xamla_Robotics_Types_JointLimits__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointLimits.html">JointLimits</a></div>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Random_" data-uid="Xamla.Robotics.Types.JointValues.Random*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Random_Xamla_Robotics_Types_JointLimits_System_Random_" data-uid="Xamla.Robotics.Types.JointValues.Random(Xamla.Robotics.Types.JointLimits,System.Random)">Random(JointLimits, Random)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointSet</code> with random values assigned that lie within the given joint limits using the given random number generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JointValues Random(JointLimits limits, Random rng)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointLimits.html">JointLimits</a></td>
+        <td><span class="parametername">limits</span></td>
+        <td><p>The limits in which the values of the new <code>JointSet</code> should be. The names of the joints are taken from the <code data-dev-comment-type="paramref" class="paramref">limits</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Random</span></td>
+        <td><span class="parametername">rng</span></td>
+        <td><p>The random number generator that is used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>A new instance of <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when for at least one joint a limit is missing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">limits</code> or <code data-dev-comment-type="paramref" class="paramref">rng</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Xamla_Robotics_Types_JointValues_Random_Xamla_Robotics_Types_JointLimits_System_Random__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointLimits.html">JointLimits</a></div>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Reorder_" data-uid="Xamla.Robotics.Types.JointValues.Reorder*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Reorder_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointValues.Reorder(Xamla.Robotics.Types.JointSet)">Reorder(JointSet)</h4>
+  <div class="markdown level1 summary"><p>Reorders the values to match the order of the given <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues Reorder(JointSet newOrder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">newOrder</span></td>
+        <td><p>A <code>JointSet</code> with the same name of joints, but in a different order than the current <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>A new instance of <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_ToString_" data-uid="Xamla.Robotics.Types.JointValues.ToString*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_ToString" data-uid="Xamla.Robotics.Types.JointValues.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Transform_" data-uid="Xamla.Robotics.Types.JointValues.Transform*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Transform_System_Func_System_Double_System_Int32_System_Double__" data-uid="Xamla.Robotics.Types.JointValues.Transform(System.Func{System.Double,System.Int32,System.Double})">Transform(Func&lt;Double, Int32, Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the given transform function to all joint values in the current <code>JointSet</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues Transform(Func&lt;double, int, double&gt; transform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Double</span>, <span class="xref">System.Int32</span>, <span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">transform</span></td>
+        <td><p>A function that receives each joint value (in radians) with its corresponding index and should return a new joint value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>A new instance of <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_TryGetValue_" data-uid="Xamla.Robotics.Types.JointValues.TryGetValue*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_TryGetValue_System_String_System_Double__" data-uid="Xamla.Robotics.Types.JointValues.TryGetValue(System.String,System.Double@)">TryGetValue(String, out Double)</h4>
+  <div class="markdown level1 summary"><p>Tries to get the numeric value assigned to the given joint name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetValue(string jointName, out double jointValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">jointName</span></td>
+        <td><p>The name of the joint for which the value should be returned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">jointValue</span></td>
+        <td><p>The variable where the value (in radians) of the joint name is stored, if it exists.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True when a value was found for the given joint value, False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Zero_" data-uid="Xamla.Robotics.Types.JointValues.Zero*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Zero_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointValues.Zero(Xamla.Robotics.Types.JointSet)">Zero(JointSet)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointValues</code> with each value set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JointValues Zero(JointSet jointSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">jointSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_System_Collections_IEnumerable_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointValues.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_System_Collections_IEnumerable_GetEnumerator" data-uid="Xamla.Robotics.Types.JointValues.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_JointValues_">ModelConversionExtensions.ToModel(JointValues)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.PoseExtensions.html#Xamla_Robotics_Motion_PoseExtensions_ToJointPathPointMessage_Xamla_Robotics_Types_JointValues_">PoseExtensions.ToJointPathPointMessage(JointValues)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.PoseExtensions.html#Xamla_Robotics_Motion_PoseExtensions_ToJointValuesPointMessage_Xamla_Robotics_Types_JointValues_">PoseExtensions.ToJointValuesPointMessage(JointValues)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointValues.html#Xamla_Robotics_Types_JointValues_JointSet">JointSet</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

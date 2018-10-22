@@ -1,0 +1,728 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CollisionPrimitive
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CollisionPrimitive
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.CollisionPrimitive">
+  
+  
+  <h1 id="Xamla_Robotics_Types_CollisionPrimitive" data-uid="Xamla.Robotics.Types.CollisionPrimitive" class="text-break">Class CollisionPrimitive
+  </h1>
+  <div class="markdown level0 summary"><p><code>CollisionPrimitive</code>s are the basic building blocks for collision objects. They are defined by a primitive type, its size and pose.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">CollisionPrimitive</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Types.ICollisionPrimitive.html">ICollisionPrimitive</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_CollisionPrimitive_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CollisionPrimitive : ICollisionPrimitive</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive__ctor_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive__ctor_Xamla_Robotics_Types_CollisionPrimitiveKind_System_Double___Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.#ctor(Xamla.Robotics.Types.CollisionPrimitiveKind,System.Double[],Xamla.Robotics.Types.Pose)">CollisionPrimitive(CollisionPrimitiveKind, Double[], Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>CollisionPrimitive</code> from the given primitive type and parameters at the given location within the collision object. Note that different types of collision primitives, require different amounts of parameters. See <a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html#Xamla_Robotics_Types_CollisionPrimitive_Parameters">Parameters</a> for details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollisionPrimitive(CollisionPrimitiveKind kind, double[] parameters, Pose pose = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitiveKind.html">CollisionPrimitiveKind</a></td>
+        <td><span class="parametername">kind</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when an unknown <code>CollisionPrimitiveKind</code> is given.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the amount of given parameters does not match the expectation for the given kind.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the null vector is given as parameter for a plane.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when negative parameters are given.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_UnitBox" data-uid="Xamla.Robotics.Types.CollisionPrimitive.UnitBox">UnitBox</h4>
+  <div class="markdown level1 summary"><p>Gets the instance to the unit box, a box which size 1.0 in all directions at the identity pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly CollisionPrimitive UnitBox</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_UnitSphere" data-uid="Xamla.Robotics.Types.CollisionPrimitive.UnitSphere">UnitSphere</h4>
+  <div class="markdown level1 summary"><p>Gets the instance to the unit sphere, a sphere which size 1.0 at the identity pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly CollisionPrimitive UnitSphere</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_Kind_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Kind*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_Kind" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Kind">Kind</h4>
+  <div class="markdown level1 summary"><p>Gets the type of the current <code>CollisionPrimitive</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollisionPrimitiveKind Kind { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitiveKind.html">CollisionPrimitiveKind</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_Parameters_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Parameters*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_Parameters" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"><p>Gets the parameter array of the current <code>CollisionPrimitive</code>
+For the CYLINDER and CONE types, the center line is oriented along the Z axis.  Therefore the CYLINDER_HEIGHT (CONE_HEIGHT) component of dimensions gives the height of the cylinder (cone).  The CYLINDER_RADIUS (CONE_RADIUS) component of dimensions gives the radius of the base of the cylinder (cone).  Cone and cylinder primitives are defined to be circular. The tip of the cone is pointing up, along +Z axis.</p>
+<p>
+The following lists explains the amount of parameters for each collision primitive kind:
+<ul><li>Plane
+Representation of a plane, using the plane equation ax + by + cz + d = 0
+<ul><li></li><li></li><li></li><li></li></ul>
+</li><li>Box
+Representation of a box
+<ul><li></li><li></li><li></li></ul>
+</li><li>Sphere
+Representation of a sphere
+<ul><li></li></ul>
+</li><li>Cylinder
+Representation of a cylinder
+<ul><li></li><li></li></ul>
+</li><li>Cone
+Representation of a cone
+<ul><li></li><li></li></ul>
+</li></ul>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] Parameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Pose*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_Pose" data-uid="Xamla.Robotics.Types.CollisionPrimitive.Pose">Pose</h4>
+  <div class="markdown level1 summary"><p>Gets the pose of the current <code>CollisionPrimitive</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose Pose { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_CreateBox_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateBox*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_CreateBox_System_Double_System_Double_System_Double_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateBox(System.Double,System.Double,System.Double,Xamla.Robotics.Types.Pose)">CreateBox(Double, Double, Double, Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new box shaped <code>CollisionPrimitive</code> with the given size at the given pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CollisionPrimitive CreateBox(double x, double y, double z, Pose pose)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Size in meters in X direction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Size in meters in Y direction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">z</span></td>
+        <td><p>Size in meters in Z direction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The origin of the box within the collision object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_CreateCone_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateCone*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_CreateCone_System_Double_System_Double_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateCone(System.Double,System.Double,Xamla.Robotics.Types.Pose)">CreateCone(Double, Double, Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new cone shaped <code>CollisionPrimitive</code> with the given radius and height at the given pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CollisionPrimitive CreateCone(double height, double radius, Pose pose)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the cone in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td><p>The radius of the base plate of the cone in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The origin of the cone within the collision object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_CreateCylinder_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateCylinder*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_CreateCylinder_System_Double_System_Double_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateCylinder(System.Double,System.Double,Xamla.Robotics.Types.Pose)">CreateCylinder(Double, Double, Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new cylinder shaped <code>CollisionPrimitive</code> with the given radius and height at the given pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CollisionPrimitive CreateCylinder(double height, double radius, Pose pose)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the cylinder in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td><p>The radius of the cylinder in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The origin of the sphere within the collision object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_CreatePlane_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreatePlane*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_CreatePlane_System_Double_System_Double_System_Double_System_Double_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreatePlane(System.Double,System.Double,System.Double,System.Double,Xamla.Robotics.Types.Pose)">CreatePlane(Double, Double, Double, Double, Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>CollisionPrimitive</code> in the shape of a plane, defined by its scalar equation (ax + by + cz + d = 0), originating at the given pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CollisionPrimitive CreatePlane(double a, double b, double c, double d, Pose pose)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">c</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">d</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The origin of the plane within the collision object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_CreateSphere_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateSphere*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_CreateSphere_System_Double_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.CreateSphere(System.Double,Xamla.Robotics.Types.Pose)">CreateSphere(Double, Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new sphere shaped <code>CollisionPrimitive</code> with the given radius at the given pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CollisionPrimitive CreateSphere(double radius, Pose pose)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td><p>The radius of the sphere in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The origin of the sphere within the collision object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_CollisionPrimitive_WithPose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.WithPose*"></a>
+  <h4 id="Xamla_Robotics_Types_CollisionPrimitive_WithPose_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Types.CollisionPrimitive.WithPose(Xamla.Robotics.Types.Pose)">WithPose(Pose)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>CollisionPrimitive</code> located at the given pose within the collision object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollisionPrimitive WithPose(Pose value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The new pose of the collision primitive.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.CollisionPrimitive.html">CollisionPrimitive</a></td>
+        <td><p>A new instance of <code>CollisionPrimitive</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ICollisionPrimitive.html">ICollisionPrimitive</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_ICollisionPrimitive_">ModelConversionExtensions.ToModel(ICollisionPrimitive)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.ICollisionObject.html">ICollisionObject</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

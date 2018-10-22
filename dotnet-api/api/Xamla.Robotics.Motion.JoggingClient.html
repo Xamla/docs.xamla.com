@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JoggingClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JoggingClient
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.JoggingClient">
+  
+  
+  <h1 id="Xamla_Robotics_Motion_JoggingClient" data-uid="Xamla.Robotics.Motion.JoggingClient" class="text-break">Class JoggingClient
+  </h1>
+  <div class="markdown level0 summary"><p>Jogging client offering jogging functionality</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JoggingClient</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IJoggingClient.html">IJoggingClient</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
+  <h5 id="Xamla_Robotics_Motion_JoggingClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JoggingClient : IJoggingClient, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient__ctor_" data-uid="Xamla.Robotics.Motion.JoggingClient.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient__ctor_NodeHandle_" data-uid="Xamla.Robotics.Motion.JoggingClient.#ctor(NodeHandle)">JoggingClient(NodeHandle)</h4>
+  <div class="markdown level1 summary"><p>Creates a jogging client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JoggingClient(NodeHandle nodeHandle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NodeHandle</span></td>
+        <td><span class="parametername">nodeHandle</span></td>
+        <td><p>Handle of a ROS node</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_WhenJoggingFeedback_" data-uid="Xamla.Robotics.Motion.JoggingClient.WhenJoggingFeedback*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_WhenJoggingFeedback" data-uid="Xamla.Robotics.Motion.JoggingClient.WhenJoggingFeedback">WhenJoggingFeedback</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;JoggingControllerStatusModel&gt; WhenJoggingFeedback { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.JoggingControllerStatusModel.html">JoggingControllerStatusModel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_Dispose_" data-uid="Xamla.Robotics.Motion.JoggingClient.Dispose*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_Dispose" data-uid="Xamla.Robotics.Motion.JoggingClient.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Clean up</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_GetEndEffectorName_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetEndEffectorName*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_GetEndEffectorName" data-uid="Xamla.Robotics.Motion.JoggingClient.GetEndEffectorName">GetEndEffectorName()</h4>
+  <div class="markdown level1 summary"><p>Get the name of the endeffector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetEndEffectorName()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns a list of strings containing the names of the endeffector</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_GetFlag_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetFlag*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_GetFlag_System_String_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetFlag(System.String)">GetFlag(String)</h4>
+  <div class="markdown level1 summary"><p>Get flag by name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetFlag(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the flag</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Returns true if flag is set, false otherwise</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_GetMoveGroupName_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetMoveGroupName*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_GetMoveGroupName" data-uid="Xamla.Robotics.Motion.JoggingClient.GetMoveGroupName">GetMoveGroupName()</h4>
+  <div class="markdown level1 summary"><p>Get the name of the move group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetMoveGroupName()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns a list of strings containing the names of move group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_GetStatus_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetStatus*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_GetStatus" data-uid="Xamla.Robotics.Motion.JoggingClient.GetStatus">GetStatus()</h4>
+  <div class="markdown level1 summary"><p>Get the controller status</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ControllerStatusModel GetStatus()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.ControllerStatusModel.html">ControllerStatusModel</a></td>
+        <td><p>Returns the controller status as an instance of <code>ControllerStatusModel</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_GetVelocityScaling_" data-uid="Xamla.Robotics.Motion.JoggingClient.GetVelocityScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_GetVelocityScaling" data-uid="Xamla.Robotics.Motion.JoggingClient.GetVelocityScaling">GetVelocityScaling()</h4>
+  <div class="markdown level1 summary"><p>Get the velocity scaling</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetVelocityScaling()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>Returns the velocity scaling</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_Initialize_" data-uid="Xamla.Robotics.Motion.JoggingClient.Initialize*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_Initialize" data-uid="Xamla.Robotics.Motion.JoggingClient.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"><p>Initialize the jogging client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SendSetpoint_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendSetpoint*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SendSetpoint_Xamla_Robotics_Types_Pose_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendSetpoint(Xamla.Robotics.Types.Pose)">SendSetpoint(Pose)</h4>
+  <div class="markdown level1 summary"><p>Send points to service</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendSetpoint(Pose setpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">setpoint</span></td>
+        <td><p>The setpoint to be sent</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SendTwist_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendTwist*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SendTwist_Xamla_Robotics_Types_Twist_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendTwist(Xamla.Robotics.Types.Twist)">SendTwist(Twist)</h4>
+  <div class="markdown level1 summary"><p>Send twist to service</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendTwist(Twist twist)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Twist.html">Twist</a></td>
+        <td><span class="parametername">twist</span></td>
+        <td><p>The twist to be sent</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SendVelocities_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendVelocities*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SendVelocities_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.JoggingClient.SendVelocities(Xamla.Robotics.Types.JointValues)">SendVelocities(JointValues)</h4>
+  <div class="markdown level1 summary"><p>Send velocities to service</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendVelocities(JointValues velocities)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">velocities</span></td>
+        <td><p>Velocities to sent [m/s]</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SetEndEffectorName_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetEndEffectorName*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SetEndEffectorName_System_String_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetEndEffectorName(System.String)">SetEndEffectorName(String)</h4>
+  <div class="markdown level1 summary"><p>Set the name of the endeffector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEndEffectorName(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The name of the endeffector</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SetFlag_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetFlag*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SetFlag_System_String_System_Boolean_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetFlag(System.String,System.Boolean)">SetFlag(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Set flag of given name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFlag(string name, bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of the flag</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value the flag should be set</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SetMoveGroupName_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetMoveGroupName*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SetMoveGroupName_System_String_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetMoveGroupName(System.String)">SetMoveGroupName(String)</h4>
+  <div class="markdown level1 summary"><p>Set the name of the move group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMoveGroupName(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The name to be set</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_SetVelocityScaling_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetVelocityScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_SetVelocityScaling_System_Double_" data-uid="Xamla.Robotics.Motion.JoggingClient.SetVelocityScaling(System.Double)">SetVelocityScaling(Double)</h4>
+  <div class="markdown level1 summary"><p>Set the velocity scaling factor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVelocityScaling(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Scaling factor to be set</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_Start_" data-uid="Xamla.Robotics.Motion.JoggingClient.Start*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_Start" data-uid="Xamla.Robotics.Motion.JoggingClient.Start">Start()</h4>
+  <div class="markdown level1 summary"><p>Starts tracking</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Motion_JoggingClient_Stop_" data-uid="Xamla.Robotics.Motion.JoggingClient.Stop*"></a>
+  <h4 id="Xamla_Robotics_Motion_JoggingClient_Stop" data-uid="Xamla.Robotics.Motion.JoggingClient.Stop">Stop()</h4>
+  <div class="markdown level1 summary"><p>Stops tracking</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.IJoggingClient.html">IJoggingClient</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
