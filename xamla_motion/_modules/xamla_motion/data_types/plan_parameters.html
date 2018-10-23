@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.data_types.plan_parameters &mdash; xamla_motion 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> xamla_motion
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.data_types.plan_parameters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.data_types.plan_parameters</h1><div class="highlight"><pre>
+<span></span><span class="c1"># plan_parameters.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+
+<span class="kn">from</span> <span class="nn">.joint_limits</span> <span class="k">import</span> <span class="n">JointLimits</span>
+<span class="kn">from</span> <span class="nn">..xamla_motion_exceptions</span> <span class="k">import</span> <span class="n">ArgumentError</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="PlanParameters"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.PlanParameters">[docs]</a><span class="k">class</span> <span class="nc">PlanParameters</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PlanParameter holds all constrains for joint space trajectory planning</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    from_arguments(move_group_name, joint_set, max_velocity,</span>
+<span class="sd">                   max_acceleration, min_position, max_position, **kwargs)</span>
+<span class="sd">        Creates instance of PlanParameters from</span>
+<span class="sd">        limit numpy arrays</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group_name</span><span class="p">,</span> <span class="n">joint_limits</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of PlanParameters class</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        move_group_name : str convertable</span>
+<span class="sd">            name of the move group for which the plan parameters are created</span>
+<span class="sd">        joint_limits : JointLimits</span>
+<span class="sd">            Defines the joint limits of the move group</span>
+<span class="sd">        argv : dict</span>
+<span class="sd">            The argv dict is used to set parameters which have default values</span>
+<span class="sd">            this are sample_resolution (default = 0.008 / 125 hz),</span>
+<span class="sd">            collision_check (default = True), max_deviation (default = 0.2),</span>
+<span class="sd">            velocity_scaling (default = 1.0) and acceleration_scaling (</span>
+<span class="sd">            default = 1.0)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">            Instance of PlanParameters</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">            TypeError : type mismatch</span>
+<span class="sd">                If joint_limits is not of expected type JointLimts</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; joints = [&#39;Joint1&#39;,&#39;Joint2&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; joint_set = JointSet(joints)</span>
+<span class="sd">        &gt;&gt;&gt; max_v = np.array([1.0, 1.5])</span>
+<span class="sd">        &gt;&gt;&gt; max_a = np.array([0.2, 0.4])</span>
+<span class="sd">        &gt;&gt;&gt; min_p = np.array([10, None])</span>
+<span class="sd">        &gt;&gt;&gt; max_p = np.array([None, None])</span>
+<span class="sd">        &gt;&gt;&gt; joint_limits = JointLimits(joint_set, max_v, max_a, min_p, max_p)</span>
+<span class="sd">        &gt;&gt;&gt; p = PlanParameters(&#39;left_arm&#39;, joint_Limits, scale_velocity=0.5)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># if you change defaults here please also edit documentation in</span>
+        <span class="c1"># motion_service.py create_plan_parameters()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__sample_resolution</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sample_resolution&quot;</span><span class="p">,</span>
+                                                        <span class="mf">0.08</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;sample_resolution can not be converted to float&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__collision_check</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;collision_check&quot;</span><span class="p">,</span>
+                                                     <span class="kc">True</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;collision_check can not be converted to bool&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__max_deviation</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_deviation&quot;</span><span class="p">,</span>
+                                                    <span class="mf">0.2</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;max_deviation can not be converted to float&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;velocity_scaling&quot;</span><span class="p">,</span>
+                                                       <span class="mf">1.0</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;velocity_scaling can not be converted to float&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;velocity_scaling is not in expected range&#39;</span>
+                             <span class="s1">&#39;between 0.0 and 1.0&#39;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;acceleration_scaling&quot;</span><span class="p">,</span>
+                <span class="mf">1.0</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;acceleration_scaling can not&#39;</span>
+                            <span class="s1">&#39; be converted to float&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;acceleration_scaling is not in expected range&#39;</span>
+                             <span class="s1">&#39;between 0.0 and 1.0&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_limits</span><span class="p">,</span> <span class="n">JointLimits</span><span class="p">):</span>
+            <span class="n">max_s_velocity</span> <span class="o">=</span> <span class="n">joint_limits</span><span class="o">.</span><span class="n">max_velocity</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span>
+            <span class="n">max_s_acceleration</span> <span class="o">=</span> <span class="p">(</span><span class="n">joint_limits</span><span class="o">.</span><span class="n">max_acceleration</span>
+                                  <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__o_joint_limits</span> <span class="o">=</span> <span class="n">joint_limits</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span> <span class="o">=</span> <span class="n">JointLimits</span><span class="p">(</span><span class="n">joint_limits</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
+                                              <span class="n">max_s_velocity</span><span class="p">,</span>
+                                              <span class="n">max_s_acceleration</span><span class="p">,</span>
+                                              <span class="n">joint_limits</span><span class="o">.</span><span class="n">min_position</span><span class="p">,</span>
+                                              <span class="n">joint_limits</span><span class="o">.</span><span class="n">max_position</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;joint_limits is not&#39;</span>
+                            <span class="s1">&#39; of expected type JointLimits&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">move_group_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__move_group_name</span> <span class="o">=</span> <span class="n">move_group_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;argument 1 (move_group_name) is not &#39;</span>
+                            <span class="s1">&#39;of expected type str&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PlanParameters.from_arguments"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.PlanParameters.from_arguments">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_arguments</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">move_group_name</span><span class="p">,</span> <span class="n">joint_set</span><span class="p">,</span> <span class="n">max_velocity</span><span class="p">,</span>
+                       <span class="n">max_acceleration</span><span class="p">,</span> <span class="n">min_position</span><span class="p">,</span> <span class="n">max_position</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of PlanParameters class limit arrays</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        move_group_name : str convertable</span>
+<span class="sd">            name of the move group for which the plan parameters are created</span>
+<span class="sd">        joint_set : JointSet</span>
+<span class="sd">            Set of joints for which joint limits are required</span>
+<span class="sd">        max_velocity : list of float or numpy.array(dtype=floating)</span>
+<span class="sd">            One dimension array which defines</span>
+<span class="sd">            the maximal velocity for each joint</span>
+<span class="sd">        max_acceleration : list of float or numpy.array(dtype=floating)</span>
+<span class="sd">            One dimension array which defines</span>
+<span class="sd">            the maximal acceleration for each joint</span>
+<span class="sd">        min_position : list of float or numpy.array(dtype=floating)</span>
+<span class="sd">            One dimension array which defines</span>
+<span class="sd">            the mininmal position for each joint</span>
+<span class="sd">        max_position : list of float or numpy.array(dtype=floating)</span>
+<span class="sd">            One dimension array which defines</span>
+<span class="sd">            the maximal position for each joint</span>
+<span class="sd">        kwargs : dict</span>
+<span class="sd">            The argv dict is used to set parameters which have default values</span>
+<span class="sd">            this are sample_resolution (default = 0.008),</span>
+<span class="sd">            collision_check (default = True), max_deviation (default = 0.2),</span>
+<span class="sd">            velocity_scaling (default = 1.0) and acceleration_scaling (</span>
+<span class="sd">            default = 1.0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">joint_limits</span> <span class="o">=</span> <span class="n">JointLimits</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span>
+                                       <span class="n">max_velocity</span><span class="p">,</span> <span class="n">max_acceleration</span><span class="p">,</span>
+                                       <span class="n">min_position</span><span class="p">,</span> <span class="n">max_position</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;It was not possible to create&#39;</span>
+                                <span class="s1">&#39; an instance of JointLimts due to&#39;</span>
+                                <span class="s1">&#39; wrong parameter type or format&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">move_group_name</span><span class="p">,</span> <span class="n">joint_limits</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">move_group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        move_group_name : str (read only)</span>
+<span class="sd">            Name of the move group for which plan parameters are applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__move_group_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">joint_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        joint_limits: JointLimits(read only)</span>
+<span class="sd">            define the joint constraints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">joint_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        joint_set : JointSet (read only)</span>
+<span class="sd">            set of joints for which the limits are defined</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">joint_set</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        max_velocity : numpy.array(dtype=floating) (read only)</span>
+<span class="sd">            maximal velocities</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_velocity</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_acceleration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        max_acceleration : numpy.array(dtype=floating) (read only)</span>
+<span class="sd">            maximal acceleration</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_acceleration</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">min_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        min_position : numpy.array(dtype=floating) (read only)</span>
+<span class="sd">            position limit minimum</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">min_position</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        max_position : numpy.array(dtype=floating) (read only)</span>
+<span class="sd">            position limit maximum</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_position</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sample_resolution: float</span>
+<span class="sd">            sampling resolution in Hz</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sample_resolution</span>
+
+    <span class="nd">@sample_resolution</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__sample_resolution</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        collision_check: bool</span>
+<span class="sd">            defines if collision check should be performed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__collision_check</span>
+
+    <span class="nd">@collision_check</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__collision_check</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        max_deviation: float</span>
+<span class="sd">            defines the maximal deviation from trajectory points</span>
+<span class="sd">            when it is a fly-by-point in joint space</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__max_deviation</span>
+
+    <span class="nd">@max_deviation</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__max_deviation</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        velocity_scaling: float</span>
+<span class="sd">            scaling factor which was applied to input velocity limits</span>
+<span class="sd">            range between 0.0 and 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span>
+
+    <span class="nd">@velocity_scaling</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;velocity_scaling is not between 0.0 and 1.0&#39;</span><span class="p">)</span>
+
+        <span class="n">max_s_velocity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__o_joint_limits</span><span class="o">.</span><span class="n">max_velocity</span> <span class="o">*</span> <span class="n">value</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span> <span class="o">=</span> <span class="n">JointLimits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
+                                          <span class="n">max_s_velocity</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_acceleration</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">min_position</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_position</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        acceleration_scaling: float</span>
+<span class="sd">            scaling factor which was applied to input acceleration limits</span>
+<span class="sd">            range between 0.0 and 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span>
+
+    <span class="nd">@acceleration_scaling</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;acceleration_scaling is not between 0.0 and 1.0&#39;</span><span class="p">)</span>
+
+        <span class="n">max_s_acceleration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__o_joint_limits</span><span class="o">.</span><span class="n">max_acceleration</span> <span class="o">*</span> <span class="n">value</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span> <span class="o">=</span> <span class="n">JointLimits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_velocity</span><span class="p">,</span>
+                                          <span class="n">max_s_acceleration</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">min_position</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="n">max_position</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">j_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;sampling_resolution = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__sample_resolution</span><span class="p">),</span>
+                           <span class="s1">&#39;collision_check = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__collision_check</span><span class="p">),</span>
+                           <span class="s1">&#39;max_devitation = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__max_deviation</span><span class="p">)])</span>
+        <span class="n">joint_limts_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+        <span class="n">joint_limts_str</span> <span class="o">=</span> <span class="n">joint_limts_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">  &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;PlanParameters:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">j_str</span> <span class="o">+</span> <span class="n">joint_limts_str</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">r_tol</span> <span class="o">=</span> <span class="mf">1.0e-13</span>
+        <span class="n">a_tol</span> <span class="o">=</span> <span class="mf">1.0e-14</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">joint_limits</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_limits</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__sample_resolution</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">sampling_resolution</span><span class="p">,</span>
+                          <span class="n">rtol</span><span class="o">=</span><span class="n">r_tol</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">a_tol</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__max_deviation</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">max_deviation</span><span class="p">,</span>
+                          <span class="n">rtol</span><span class="o">=</span><span class="n">r_tol</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">a_tol</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__collision_check</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">collision_check</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

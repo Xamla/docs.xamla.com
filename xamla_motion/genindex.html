@@ -25,13 +25,13 @@
 
   
 
-  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
 
   
-  <script src="static/js/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -77,10 +77,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="source/readme_link.html">Readme File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="source/modules.html">xamla_motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/data_types.html">Data types</a></li>
 </ul>
 
             
@@ -148,7 +152,6 @@
 
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
@@ -177,137 +180,141 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.ABORTED">ABORTED (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.acceleration_scaling">acceleration_scaling (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.acceleration_scaling">acceleration_scaling (xamla_motion.data_types.PlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.acceleration_scaling">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.acceleration_scaling">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.acceleration_scaling">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.acceleration_scaling">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.accelerations">accelerations (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.accelerations">accelerations (xamla_motion.data_types.JointTrajectory attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.accelerations">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.accelerations">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.acknowledge_error">acknowledge_error (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.acknowledge_error">acknowledge_error() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.acknowledge_error">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.acknowledge_error">acknowledge_error() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus">ActionLibGoalStatus (class in xamla_motion.motion_service)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.ACTIVE">ACTIVE (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_cartesian_path">add_cartesian_path() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_cartesian_path">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_cartesian_path">add_cartesian_path() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_cartesian_path">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_collision_object">add_collision_object() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_collision_object">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_collision_object">add_collision_object() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_collision_object">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_folder">add_folder() (xamla_motion.WorldViewClient method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_folder">add_folder() (xamla_motion.world_view_client.WorldViewClient method)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_joint_values">add_joint_values() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_joint_values">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_joint_values">add_joint_values() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_joint_values">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_pose">add_pose() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.add_pose">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_pose">add_pose() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.add_pose">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.add_prefix">add_prefix() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.add_prefix">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.add_prefix">add_prefix() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.add_prefix">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.add_time_offset">add_time_offset() (xamla_motion.data_types.JointTrajectoryPoint method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.add_time_offset">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.add_time_offset">add_time_offset() (xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.add_time_offset">[1]</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.append">append() (xamla_motion.data_types.cartesian_path.CartesianPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.append">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.append">append() (xamla_motion.data_types.CartesianPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.CartesianPath.append">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.append">(xamla_motion.data_types.joint_path.JointPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.append">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.append">(xamla_motion.data_types.JointPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointPath.append">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.xamla_motion_exceptions.html#xamla_motion.xamla_motion_exceptions.exceptions.ArgumentError">ArgumentError</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind.box">box (xamla_motion.data_types.collision_object.CollisionPrimitiveKind attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath">CartesianPath (class in xamla_motion.data_types.cartesian_path)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath">CartesianPath (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.collision_check">collision_check (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.collision_check">collision_check (xamla_motion.data_types.PlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.collision_check">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.collision_check">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.collision_check">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.collision_check">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionObject">CollisionObject (class in xamla_motion.data_types.collision_object)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject">CollisionObject (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive">CollisionPrimitive (class in xamla_motion.data_types.collision_object)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive">CollisionPrimitive (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind">CollisionPrimitiveKind (class in xamla_motion.data_types.collision_object)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.CommonGripperProperties.command_action_name">command_action_name (xamla_motion.CommonGripperProperties attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.CommonGripperProperties.command_action_name">command_action_name (xamla_motion.gripper_client.CommonGripperProperties attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.CommonGripper">CommonGripper (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.CommonGripper">CommonGripper (class in xamla_motion.gripper_client)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.CommonGripperProperties">CommonGripperProperties (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.CommonGripperProperties">CommonGripperProperties (class in xamla_motion.gripper_client)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.compute_pose">compute_pose() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.compute_pose">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.concat">concat() (xamla_motion.data_types.cartesian_path.CartesianPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.concat">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.concat">concat() (xamla_motion.data_types.CartesianPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.CartesianPath.concat">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.concat">(xamla_motion.data_types.joint_path.JointPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.concat">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.concat">(xamla_motion.data_types.JointPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointPath.concat">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind.cone">cone (xamla_motion.data_types.collision_object.CollisionPrimitiveKind attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.contains">contains() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.contains">[1]</a>
 </li>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripperProperties.control_action_name">control_action_name (xamla_motion.WeissWsgGripperProperties attribute)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_box">create_box() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_box">(xamla_motion.data_types.CollisionPrimitive method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.contains">contains() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.contains">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cone">create_cone() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cone">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripperProperties.control_action_name">control_action_name (xamla_motion.gripper_client.WeissWsgGripperProperties attribute)</a>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cylinder">create_cylinder() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cylinder">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_box">create_box() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
+      </ul></li>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.create_plan_parameters">create_plan_parameters() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_cone">create_cone() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_plane">create_plane() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_plane">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_cylinder">create_cylinder() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_sphere">create_sphere() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_sphere">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.create_plan_parameters">create_plan_parameters() (xamla_motion.motion_service.MotionService class method)</a>
+      </ul></li>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.create_task_space_plan_parameters">create_task_space_plan_parameters() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_plane">create_plane() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_box">create_unit_box() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_box">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_sphere">create_sphere() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_sphere">create_unit_sphere() (xamla_motion.data_types.CollisionPrimitive class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_sphere">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.create_task_space_plan_parameters">create_task_space_plan_parameters() (xamla_motion.motion_service.MotionService class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_unit_box">create_unit_box() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.create_unit_sphere">create_unit_sphere() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock.creation_date">creation_date (xamla_motion.utility.ResourceLock attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind.cylinder">cylinder (xamla_motion.data_types.collision_object.CollisionPrimitiveKind attribute)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.default_plan_parameters">default_plan_parameters (xamla_motion.motion_client.MoveGroup attribute)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.default_plan_parameters">default_plan_parameters (xamla_motion.MoveGroup attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.default_task_space_plan_parameters">default_task_space_plan_parameters (xamla_motion.motion_client.MoveGroup attribute)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.default_task_space_plan_parameters">default_task_space_plan_parameters (xamla_motion.MoveGroup attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -315,71 +322,69 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult.effort">effort (xamla_motion.data_types.move_gripper_result.MoveGripperResult attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGripperResult.effort">effort (xamla_motion.data_types.MoveGripperResult attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.efforts">efforts (xamla_motion.data_types.joint_states.JointStates attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.efforts">efforts (xamla_motion.data_types.JointStates attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.efforts">(xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.efforts">(xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.efforts">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.efforts">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.emergency_stop">emergency_stop() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.emergency_stop">emergency_stop() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.empty">empty() (xamla_motion.data_types.joint_set.JointSet method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.empty">empty() (xamla_motion.data_types.JointSet method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.empty">(xamla_motion.data_types.joint_set.JointSet static method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.empty">(xamla_motion.data_types.JointSet static method)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.empty">(xamla_motion.data_types.joint_trajectory.JointTrajectory static method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.empty">(xamla_motion.data_types.JointTrajectory method)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.empty">(xamla_motion.data_types.joint_values.JointValues method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.empty">(xamla_motion.data_types.JointTrajectory static method)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.empty">(xamla_motion.data_types.joint_values.JointValues static method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.empty">(xamla_motion.data_types.JointValues method)</a>
+</li>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.empty">(xamla_motion.data_types.JointValues static method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.end_effector_limits">end_effector_limits (xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.end_effector_limits">end_effector_limits (xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription.end_effector_link_names">end_effector_link_names (xamla_motion.data_types.move_group_description.MoveGroupDescription attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.end_effector_name">end_effector_name (xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription.end_effector_link_names">end_effector_link_names (xamla_motion.data_types.MoveGroupDescription attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription.end_effector_names">end_effector_names (xamla_motion.data_types.move_group_description.MoveGroupDescription attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.end_effector_name">end_effector_name (xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription.end_effector_names">end_effector_names (xamla_motion.data_types.MoveGroupDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.end_effector_names">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.end_effector_names">(xamla_motion.MoveGroup attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector">EndEffector (class in xamla_motion.motion_client)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector">EndEffector (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription">EndEffectorDescription (class in xamla_motion.data_types.end_effector_description)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription">EndEffectorDescription (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_limits.EndEffectorLimits">EndEffectorLimits (class in xamla_motion.data_types.end_effector_limits)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorLimits">EndEffectorLimits (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Error">Error (xamla_motion.data_types.wsg.WsgState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values_collision.JointValuesCollisions.error_code">error_code (xamla_motion.data_types.joint_values_collision.JointValuesCollisions attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValuesCollisions.error_code">error_code (xamla_motion.data_types.JointValuesCollisions attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.stepped_motion_state.SteppedMotionState.error_code">(xamla_motion.data_types.stepped_motion_state.SteppedMotionState attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.SteppedMotionState.error_code">(xamla_motion.data_types.SteppedMotionState attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.ik_results.IkResults.error_codes">error_codes (xamla_motion.data_types.ik_results.IkResults attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.IkResults.error_codes">error_codes (xamla_motion.data_types.IkResults attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values_collision.JointValuesCollisions.error_message">error_message (xamla_motion.data_types.joint_values_collision.JointValuesCollisions attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValuesCollisions.error_message">error_message (xamla_motion.data_types.JointValuesCollisions attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.stepped_motion_state.SteppedMotionState.error_message">(xamla_motion.data_types.stepped_motion_state.SteppedMotionState attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.SteppedMotionState.error_message">(xamla_motion.data_types.SteppedMotionState attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.execute_joint_trajectory">execute_joint_trajectory() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.execute_joint_trajectory">execute_joint_trajectory() (xamla_motion.motion_service.MotionService method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.expected_parameter_count">expected_parameter_count (xamla_motion.data_types.collision_object.CollisionPrimitive attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock.expiration_date">expiration_date (xamla_motion.utility.ResourceLock attribute)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.execute_joint_trajectory_supervised">execute_joint_trajectory_supervised() (xamla_motion.motion_service.MotionService method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -387,127 +392,127 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult.force">force (xamla_motion.data_types.wsg.WsgResult attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.WsgResult.force">force (xamla_motion.data_types.WsgResult attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionObject.frame_id">frame_id (xamla_motion.data_types.collision_object.CollisionObject attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject.frame_id">frame_id (xamla_motion.data_types.CollisionObject attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.frame_id">(xamla_motion.data_types.pose.Pose attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.Pose.frame_id">(xamla_motion.data_types.Pose attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.from_arguments">from_arguments() (xamla_motion.data_types.plan_parameters.PlanParameters class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.from_arguments">from_arguments() (xamla_motion.data_types.PlanParameters class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.from_arguments">(xamla_motion.data_types.plan_parameters.PlanParameters method)</a>
-</li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.from_arguments">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters class method)</a>
-</li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.from_arguments">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.from_arguments">(xamla_motion.data_types.TaskSpacePlanParameters class method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.from_cartesian_path_msg">from_cartesian_path_msg() (xamla_motion.data_types.cartesian_path.CartesianPath class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.from_cartesian_path_msg">from_cartesian_path_msg() (xamla_motion.data_types.CartesianPath class method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionObject.from_collision_object_msg">from_collision_object_msg() (xamla_motion.data_types.collision_object.CollisionObject class method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.from_end_effector_name">from_end_effector_name() (xamla_motion.motion_client.EndEffector static method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult.from_gripper_command_action_result">from_gripper_command_action_result() (xamla_motion.data_types.move_gripper_result.MoveGripperResult class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.from_joint_path_point_msg">from_joint_path_point_msg() (xamla_motion.data_types.joint_values.JointValues class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject.from_collision_object_msg">from_collision_object_msg() (xamla_motion.data_types.CollisionObject class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.from_joint_path_point_msg">(xamla_motion.data_types.joint_values.JointValues method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject.from_collision_object_msg">(xamla_motion.data_types.CollisionObject method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.from_joint_trajectory_point_msg">from_joint_trajectory_point_msg() (xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint class method)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.from_end_effector_name">from_end_effector_name() (xamla_motion.EndEffector method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.from_joint_trajectory_point_msg">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint method)</a>
+        <li><a href="source/motion_client.html#xamla_motion.EndEffector.from_end_effector_name">(xamla_motion.EndEffector static method)</a>
 </li>
       </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.from_joint_path_point_msg">from_joint_path_point_msg() (xamla_motion.data_types.JointValues class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.from_joint_path_point_msg">(xamla_motion.data_types.JointValues method)</a>
+</li>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.from_joint_trajectory_point_msg">from_joint_trajectory_point_msg() (xamla_motion.data_types.JointTrajectoryPoint class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.from_joint_trajectory_point_msg">(xamla_motion.data_types.JointTrajectoryPoint method)</a>
+</li>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.from_joint_values_point_msg">from_joint_values_point_msg() (xamla_motion.data_types.JointValues class method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.from_joint_values_point_msg">from_joint_values_point_msg() (xamla_motion.data_types.joint_values.JointValues class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.from_one_point">from_one_point() (xamla_motion.data_types.cartesian_path.CartesianPath class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.from_one_point">from_one_point() (xamla_motion.data_types.CartesianPath class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.from_one_point">(xamla_motion.data_types.cartesian_path.CartesianPath method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.from_one_point">(xamla_motion.data_types.CartesianPath method)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.from_one_point">(xamla_motion.data_types.joint_path.JointPath class method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.from_one_point">(xamla_motion.data_types.JointPath class method)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.from_one_point">(xamla_motion.data_types.joint_path.JointPath method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.from_one_point">(xamla_motion.data_types.JointPath method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.from_pose_msg">from_pose_msg() (xamla_motion.data_types.pose.Pose class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.from_posestamped_msg">from_posestamped_msg() (xamla_motion.data_types.pose.Pose class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_pose_msg">from_pose_msg() (xamla_motion.data_types.Pose class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.from_posestamped_msg">(xamla_motion.data_types.pose.Pose method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_pose_msg">(xamla_motion.data_types.Pose method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.from_shape_msg">from_shape_msg() (xamla_motion.data_types.collision_object.CollisionPrimitive class method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.from_start_stop_point">from_start_stop_point() (xamla_motion.data_types.cartesian_path.CartesianPath class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_posestamped_msg">from_posestamped_msg() (xamla_motion.data_types.Pose class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.from_start_stop_point">(xamla_motion.data_types.cartesian_path.CartesianPath method)</a>
-</li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.from_start_stop_point">(xamla_motion.data_types.joint_path.JointPath class method)</a>
-</li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.from_start_stop_point">(xamla_motion.data_types.joint_path.JointPath method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_posestamped_msg">(xamla_motion.data_types.Pose method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.from_transformation_matrix">from_transformation_matrix() (xamla_motion.data_types.pose.Pose class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.from_shape_msg">from_shape_msg() (xamla_motion.data_types.CollisionPrimitive class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.from_transformation_matrix">(xamla_motion.data_types.pose.Pose method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.from_shape_msg">(xamla_motion.data_types.CollisionPrimitive method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult.from_wsg_command_action_result">from_wsg_command_action_result() (xamla_motion.data_types.wsg.WsgResult class method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.from_start_stop_point">from_start_stop_point() (xamla_motion.data_types.CartesianPath class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.from_start_stop_point">(xamla_motion.data_types.CartesianPath method)</a>
 </li>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.from_start_stop_point">(xamla_motion.data_types.JointPath class method)</a>
+</li>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.from_start_stop_point">(xamla_motion.data_types.JointPath method)</a>
+</li>
+      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_transformation_matrix">from_transformation_matrix() (xamla_motion.data_types.Pose class method)</a>
+
+      <ul>
+        <li><a href="source/data_types.html#xamla_motion.data_types.Pose.from_transformation_matrix">(xamla_motion.data_types.Pose method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_cartesian_path">get_cartesian_path() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_cartesian_path">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_cartesian_path">get_cartesian_path() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_cartesian_path">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_collision_object">get_collision_object() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_collision_object">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_collision_object">get_collision_object() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_collision_object">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_current_joint_positions">get_current_joint_positions() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_current_joint_positions">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.get_current_joint_positions">get_current_joint_positions() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.get_current_joint_positions">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_current_joint_states">get_current_joint_states() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_current_joint_states">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.get_current_joint_states">get_current_joint_states() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.get_current_joint_states">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.get_current_joint_values">get_current_joint_values() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.get_current_joint_values">get_current_joint_values() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.get_current_pose">get_current_pose() (xamla_motion.motion_client.EndEffector method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.get_current_pose">[1]</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_end_effector">get_end_effector() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.get_end_effector">[1]</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.get_index_of">get_index_of() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.get_index_of">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.get_current_pose">get_current_pose() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.get_current_pose">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_joint_values">get_joint_values() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_joint_values">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.get_end_effector">get_end_effector() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.get_end_effector">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_pose">get_pose() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.get_pose">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.get_index_of">get_index_of() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.get_index_of">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.get_status">get_status() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_joint_values">get_joint_values() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_joint_values">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.stepped_motion_state.SteppedMotionState.goal_id">goal_id (xamla_motion.data_types.stepped_motion_state.SteppedMotionState attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.goal_id">(xamla_motion.motion_service.SteppedMotionClient attribute)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_pose">get_pose() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.get_pose">[1]</a>
 </li>
-      </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.grasp">grasp (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.get_status">get_status() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.get_status">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.grasp">grasp() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.SteppedMotionState.goal_id">goal_id (xamla_motion.data_types.SteppedMotionState attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Grasping">Grasping (xamla_motion.data_types.wsg.WsgState attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.grasp">grasp() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.grasp">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -515,31 +520,15 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.has_acceleration">has_acceleration (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags.has_acceleration">(xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.has_acceleration">has_acceleration (xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.has_effort">has_effort (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags.has_effort">(xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.has_effort">has_effort (xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.has_velocity">has_velocity (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags.has_velocity">(xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.has_velocity">has_velocity (xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Holding">Holding (xamla_motion.data_types.wsg.WsgState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.homing">homing (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.homing">homing() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.homing">homing() (xamla_motion.WeissWsgGripper method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -547,83 +536,81 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Idle">Idle (xamla_motion.data_types.wsg.WsgState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.ik_jump_threshold">ik_jump_threshold (xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.ik_jump_threshold">ik_jump_threshold (xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.ik_jump_threshold">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.ik_jump_threshold">(xamla_motion.MoveGroup attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.ik_results.IkResults">IkResults (class in xamla_motion.data_types.ik_results)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.IkResults">IkResults (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values_collision.JointValuesCollisions.index">index (xamla_motion.data_types.joint_values_collision.JointValuesCollisions attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValuesCollisions.index">index (xamla_motion.data_types.JointValuesCollisions attribute)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.inverse">inverse() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.inverse">[1]</a>
+</li>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics">inverse_kinematics() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.is_roation_normalized">is_roation_normalized() (xamla_motion.data_types.pose.Pose method)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics_many">inverse_kinematics_many() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics_many">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.is_rotation_normalized">is_rotation_normalized() (xamla_motion.data_types.pose.Pose method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.is_rotation_normalized">is_rotation_normalized() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.is_rotation_normalized">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.is_similar">is_similar() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.is_similar">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.is_similar">is_similar() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.is_similar">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.is_subset">is_subset() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.is_subset">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.is_subset">is_subset() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.is_subset">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.is_valid">is_valid (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags.is_valid">(xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.is_superset">is_superset() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.is_superset">[1]</a>
 </li>
-      </ul></li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.is_valid">is_valid (xamla_motion.data_types.JointTrajectory attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.joint_limits">joint_limits (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.joint_limits">joint_limits (xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription.joint_set">joint_set (xamla_motion.data_types.end_effector_description.EndEffectorDescription attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription.joint_set">joint_set (xamla_motion.data_types.EndEffectorDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.joint_set">(xamla_motion.data_types.joint_limits.JointLimits attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.joint_set">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.joint_set">(xamla_motion.data_types.joint_path.JointPath attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.joint_set">(xamla_motion.data_types.JointLimits attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.joint_set">(xamla_motion.data_types.joint_states.JointStates attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.joint_set">(xamla_motion.data_types.JointPath attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.joint_set">(xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.joint_set">(xamla_motion.data_types.JointStates attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.joint_set">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.joint_set">(xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.joint_set">(xamla_motion.data_types.joint_values.JointValues attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.joint_set">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription.joint_set">(xamla_motion.data_types.move_group_description.MoveGroupDescription attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.joint_set">(xamla_motion.data_types.JointValues attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.joint_set">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription.joint_set">(xamla_motion.data_types.MoveGroupDescription attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.joint_set">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.joint_set">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits">JointLimits (class in xamla_motion.data_types.joint_limits)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits">JointLimits (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath">JointPath (class in xamla_motion.data_types.joint_path)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointPath">JointPath (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet">JointSet (class in xamla_motion.data_types.joint_set)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet">JointSet (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates">JointStates (class in xamla_motion.data_types.joint_states)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointStates">JointStates (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory">JointTrajectory (class in xamla_motion.data_types.joint_trajectory)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory">JointTrajectory (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectoryFlags">JointTrajectoryFlags (class in xamla_motion.data_types.joint_trajectory)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint">JointTrajectoryPoint (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint">JointTrajectoryPoint (class in xamla_motion.data_types.joint_trajectory_point)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues">JointValues (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues">JointValues (class in xamla_motion.data_types.joint_values)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values_collision.JointValuesCollisions">JointValuesCollisions (class in xamla_motion.data_types.joint_values_collision)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValuesCollisions">JointValuesCollisions (class in xamla_motion.data_types)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -631,7 +618,7 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.kind">kind (xamla_motion.data_types.collision_object.CollisionPrimitive attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.kind">kind (xamla_motion.data_types.CollisionPrimitive attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -639,143 +626,129 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.LeaseBaseLock">LeaseBaseLock (class in xamla_motion.utility)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription.link_name">link_name (xamla_motion.data_types.end_effector_description.EndEffectorDescription attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription.link_name">link_name (xamla_motion.data_types.EndEffectorDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.link_name">(xamla_motion.motion_client.EndEffector attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.EndEffector.link_name">(xamla_motion.EndEffector attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock.lock_id">lock_id (xamla_motion.utility.ResourceLock attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.LOST">LOST (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.examples.html#xamla_motion.examples.example_motion_services.main">main() (in module xamla_motion.examples.example_motion_services)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.max_acceleration">max_acceleration (xamla_motion.data_types.JointLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.examples.html#xamla_motion.examples.example_ur5_and_wsg25.main">(in module xamla_motion.examples.example_ur5_and_wsg25)</a>
-</li>
-        <li><a href="source/xamla_motion.examples.html#xamla_motion.examples.example_world_view_client.main">(in module xamla_motion.examples.example_world_view_client)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.max_acceleration">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.max_acceleration">max_acceleration (xamla_motion.data_types.joint_limits.JointLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorLimits.max_angular_acceleration">max_angular_acceleration (xamla_motion.data_types.EndEffectorLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.max_acceleration">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.max_angular_acceleration">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_limits.EndEffectorLimits.max_angular_acceleration">max_angular_acceleration (xamla_motion.data_types.end_effector_limits.EndEffectorLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorLimits.max_angular_velocity">max_angular_velocity (xamla_motion.data_types.EndEffectorLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.max_angular_acceleration">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.max_angular_velocity">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_limits.EndEffectorLimits.max_angular_velocity">max_angular_velocity (xamla_motion.data_types.end_effector_limits.EndEffectorLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.max_deviation">max_deviation (xamla_motion.data_types.PlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.max_angular_velocity">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.max_deviation">(xamla_motion.MoveGroup attribute)</a>
+</li>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.max_deviation">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.max_deviation">max_deviation (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.max_position">max_position (xamla_motion.data_types.JointLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.max_deviation">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
-</li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.max_deviation">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.max_position">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.max_position">max_position (xamla_motion.data_types.joint_limits.JointLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.max_velocity">max_velocity (xamla_motion.data_types.JointLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.max_position">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.max_velocity">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.max_velocity">max_velocity (xamla_motion.data_types.joint_limits.JointLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorLimits.max_xyz_acceleration">max_xyz_acceleration (xamla_motion.data_types.EndEffectorLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.max_velocity">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.max_xyz_acceleration">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_limits.EndEffectorLimits.max_xyz_acceleration">max_xyz_acceleration (xamla_motion.data_types.end_effector_limits.EndEffectorLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorLimits.max_xyz_velocity">max_xyz_velocity (xamla_motion.data_types.EndEffectorLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.max_xyz_acceleration">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.max_xyz_velocity">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_limits.EndEffectorLimits.max_xyz_velocity">max_xyz_velocity (xamla_motion.data_types.end_effector_limits.EndEffectorLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.merge">merge() (xamla_motion.data_types.JointTrajectoryPoint method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.merge">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.max_xyz_velocity">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.merge">(xamla_motion.data_types.JointValues method)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.min_position">min_position (xamla_motion.data_types.joint_limits.JointLimits attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.min_position">min_position (xamla_motion.data_types.JointLimits attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.min_position">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.min_position">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.motion_service">motion_service (xamla_motion.motion_client.EndEffector attribute)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.motion_service">motion_service (xamla_motion.EndEffector attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.motion_service">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.motion_service">(xamla_motion.MoveGroup attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService">MotionService (class in xamla_motion.motion_service)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService">MotionService (class in xamla_motion.motion_service)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.move">move (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.CommonGripper.move">move() (xamla_motion.gripper_client.CommonGripper method)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.CommonGripper.move">move() (xamla_motion.CommonGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.CommonGripper.move">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.move">(xamla_motion.gripper_client.WeissWsgGripper method)</a>
+        <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.move">(xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.move">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.move_gripper">move_gripper() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.move_gripper">move_gripper() (xamla_motion.motion_service.MotionService method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_group">move_group (xamla_motion.motion_client.EndEffector attribute)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_group">move_group (xamla_motion.EndEffector attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription.move_group_name">move_group_name (xamla_motion.data_types.end_effector_description.EndEffectorDescription attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription.move_group_name">move_group_name (xamla_motion.data_types.EndEffectorDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.move_group_name">(xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.move_group_name">(xamla_motion.data_types.PlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.move_joints">move_joints() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.move_joints">[1]</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.move_joints">(xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints">move_joints() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints">[1]</a>
 </li>
-      </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.move_joints_collision_free">move_joints_collision_free() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.move_joints_collision_free">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free">move_joints_collision_free() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.move_pose">move_pose() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free_supervised">move_joints_collision_free_supervised() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free_supervised">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.move_pose_linear">move_pose_linear() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_supervised">move_joints_supervised() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.move_joints_supervised">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses">move_poses() (xamla_motion.motion_client.EndEffector method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_poses">move_poses() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.move_poses">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses_collision_free">move_poses_collision_free() (xamla_motion.motion_client.EndEffector method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses_collision_free">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free">move_poses_collision_free() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses_linear">move_poses_linear() (xamla_motion.motion_client.EndEffector method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.move_poses_linear">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free_supervised">move_poses_collision_free_supervised() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free_supervised">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult">MoveGripperResult (class in xamla_motion.data_types.move_gripper_result)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_linear">move_poses_linear() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_linear">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup">MoveGroup (class in xamla_motion.motion_client)</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_supervised">move_poses_supervised() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.move_poses_supervised">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription">MoveGroupDescription (class in xamla_motion.data_types.move_group_description)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGripperResult">MoveGripperResult (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.moveJ_supervised">moveJ_supervised() (xamla_motion.motion_service.SteppedMotionClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.moveJ_supervised">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup">MoveGroup (class in xamla_motion)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription">MoveGroupDescription (class in xamla_motion.data_types)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -783,27 +756,21 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription.name">name (xamla_motion.data_types.end_effector_description.EndEffectorDescription attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription.name">name (xamla_motion.data_types.EndEffectorDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription.name">(xamla_motion.data_types.move_group_description.MoveGroupDescription attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.EndEffector.name">(xamla_motion.EndEffector attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.name">(xamla_motion.motion_client.EndEffector attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.name">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.name">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription.name">(xamla_motion.data_types.MoveGroupDescription attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.names">names (xamla_motion.data_types.joint_set.JointSet attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.names">names (xamla_motion.data_types.JointSet attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.next">next() (xamla_motion.motion_service.SteppedMotionClient method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.NoPartFound">NoPartFound (xamla_motion.data_types.wsg.WsgState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.normalize_roation">normalize_roation() (xamla_motion.data_types.pose.Pose method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.normalize_rotation">normalize_rotation() (xamla_motion.data_types.pose.Pose method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.normalize_rotation">normalize_rotation() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.normalize_rotation">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -811,7 +778,7 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.orientations">orientations (xamla_motion.data_types.cartesian_path.CartesianPath attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.orientations">orientations (xamla_motion.data_types.CartesianPath attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -819,79 +786,65 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.parameters">parameters (xamla_motion.data_types.collision_object.CollisionPrimitive attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.parameters">parameters (xamla_motion.data_types.CollisionPrimitive attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.PartLost">PartLost (xamla_motion.data_types.wsg.WsgState attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.IkResults.path">path (xamla_motion.data_types.IkResults attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.ik_results.IkResults.path">path (xamla_motion.data_types.ik_results.IkResults attribute)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.plan_cartesian_path">plan_cartesian_path() (xamla_motion.motion_service.MotionService method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.PENDING">PENDING (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.plan_collision_free_joint_path">plan_collision_free_joint_path() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.plan_cartesian_path">plan_cartesian_path() (xamla_motion.motion_service.MotionService method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.plan_collision_free_joint_path">plan_collision_free_joint_path() (xamla_motion.motion_service.MotionService class method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.plan_move_joints">plan_move_joints() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.plan_move_joints">[1]</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.plan_move_joints">plan_move_joints() (xamla_motion.motion_service.MotionService class method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.plan_move_joints">(xamla_motion.motion_service.MotionService class method)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints">(xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.plan_move_joints_collision_free">plan_move_joints_collision_free() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.plan_move_joints_collision_free">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints_collision_free">plan_move_joints_collision_free() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints_collision_free">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.plan_move_pose_linear">plan_move_pose_linear() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.plan_move_pose_linear">plan_move_pose_linear() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.plan_poses_linear">plan_poses_linear() (xamla_motion.motion_client.EndEffector method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.EndEffector.plan_poses_linear">[1]</a>
+      <li><a href="source/motion_client.html#xamla_motion.EndEffector.plan_poses_linear">plan_poses_linear() (xamla_motion.EndEffector method)</a>, <a href="source/motion_client.html#xamla_motion.EndEffector.plan_poses_linear">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind.plane">plane (xamla_motion.data_types.collision_object.CollisionPrimitiveKind attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters">PlanParameters (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters">PlanParameters (class in xamla_motion.data_types.plan_parameters)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.points">points (xamla_motion.data_types.cartesian_path.CartesianPath attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.points">points (xamla_motion.data_types.CartesianPath attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.points">(xamla_motion.data_types.joint_path.JointPath attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.points">(xamla_motion.data_types.JointPath attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.points">(xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.points">(xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose">Pose (class in xamla_motion.data_types.pose)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose">Pose (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.pose">pose (xamla_motion.data_types.collision_object.CollisionPrimitive attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.pose">pose (xamla_motion.data_types.CollisionPrimitive attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult.position">position (xamla_motion.data_types.move_gripper_result.MoveGripperResult attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGripperResult.position">position (xamla_motion.data_types.MoveGripperResult attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Positioning">Positioning (xamla_motion.data_types.wsg.WsgState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.positions">positions (xamla_motion.data_types.cartesian_path.CartesianPath attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.positions">positions (xamla_motion.data_types.CartesianPath attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.positions">(xamla_motion.data_types.joint_states.JointStates attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.positions">(xamla_motion.data_types.JointStates attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.positions">(xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.positions">(xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.positions">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.positions">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.PREEMPTED">PREEMPTED (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.PREEMPTING">PREEMPTING (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.prepend">prepend() (xamla_motion.data_types.cartesian_path.CartesianPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.prepend">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.prepend">prepend() (xamla_motion.data_types.CartesianPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.CartesianPath.prepend">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.prepend">(xamla_motion.data_types.joint_path.JointPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.prepend">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.prepend">(xamla_motion.data_types.JointPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointPath.prepend">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.previous">previous() (xamla_motion.motion_service.SteppedMotionClient method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject.primitives">primitives (xamla_motion.data_types.CollisionObject attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionObject.primitives">primitives (xamla_motion.data_types.collision_object.CollisionObject attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.SteppedMotionState.progress">progress (xamla_motion.data_types.SteppedMotionState attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.stepped_motion_state.SteppedMotionState.progress">progress (xamla_motion.data_types.stepped_motion_state.SteppedMotionState attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.properties">properties (xamla_motion.gripper_client.WeissWsgGripper attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.properties">properties (xamla_motion.WeissWsgGripper attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -899,45 +852,45 @@
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.quaternion">quaternion (xamla_motion.data_types.pose.Pose attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.quaternion">quaternion (xamla_motion.data_types.Pose attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_available_end_effectors">query_available_end_effectors() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_available_end_effectors">query_available_end_effectors() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_available_move_groups">query_available_move_groups() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_available_move_groups">query_available_move_groups() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_cartesian_pahts">query_cartesian_pahts() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_cartesian_pahts">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_cartesian_pahts">query_cartesian_pahts() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_cartesian_pahts">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_cartesian_paths">query_cartesian_paths() (xamla_motion.world_view_client.WorldViewClient method)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_cartesian_paths">query_cartesian_paths() (xamla_motion.WorldViewClient method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_collision_free_joint_path">query_collision_free_joint_path() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_collision_free_joint_path">query_collision_free_joint_path() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_collision_objects">query_collision_objects() (xamla_motion.world_view_client.WorldViewClient method)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_collision_objects">query_collision_objects() (xamla_motion.WorldViewClient method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_endeffector_limits">query_endeffector_limits() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_endeffector_limits">query_endeffector_limits() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics">query_inverse_kinematics() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics">query_inverse_kinematics() (xamla_motion.motion_service.MotionService method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics_many">query_inverse_kinematics_many() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics_many">query_inverse_kinematics_many() (xamla_motion.motion_service.MotionService method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_joint_limits">query_joint_limits() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_joint_limits">query_joint_limits() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_joint_path_collisions">query_joint_path_collisions() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_joint_path_collisions">query_joint_path_collisions() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_joint_states">query_joint_states() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_joint_states">query_joint_states() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_joint_trajectory">query_joint_trajectory() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_joint_trajectory">query_joint_trajectory() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_joint_values">query_joint_values() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_joint_values">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_joint_values">query_joint_values() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_joint_values">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_pose">query_pose() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_pose">query_pose() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_pose_many">query_pose_many() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_pose_many">query_pose_many() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_poses">query_poses() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.query_poses">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_poses">query_poses() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.query_poses">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.query_task_space_trajectory">query_task_space_trajectory() (xamla_motion.motion_service.MotionService class method)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.query_task_space_trajectory">query_task_space_trajectory() (xamla_motion.motion_service.MotionService class method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -945,39 +898,23 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult.reached_goal">reached_goal (xamla_motion.data_types.move_gripper_result.MoveGripperResult attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGripperResult.reached_goal">reached_goal (xamla_motion.data_types.MoveGripperResult attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.RECALLED">RECALLED (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.release">release() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.release">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.RECALLING">RECALLING (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.REJECTED">REJECTED (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.release">release (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.release">release() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Releasing">Releasing (xamla_motion.data_types.wsg.WsgState attribute)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.remove_element">remove_element() (xamla_motion.WorldViewClient method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.remove_element">remove_element() (xamla_motion.world_view_client.WorldViewClient method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.reorder">reorder() (xamla_motion.data_types.joint_states.JointStates method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.reorder">reorder() (xamla_motion.data_types.JointStates method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointStates.reorder">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.reorder">(xamla_motion.data_types.joint_values.JointValues method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.reorder">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.reorder">(xamla_motion.data_types.JointValues method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointValues.reorder">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock.resource_ids">resource_ids (xamla_motion.utility.ResourceLock attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.rotate">rotate() (xamla_motion.data_types.Pose method)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.LeaseBaseLock.resource_lock">resource_lock (xamla_motion.utility.LeaseBaseLock attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock">ResourceLock (class in xamla_motion.utility)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ROSNodeSteward">ROSNodeSteward (class in xamla_motion.utility)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.rotation_matrix">rotation_matrix() (xamla_motion.data_types.pose.Pose method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.rotation_matrix">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.rotation_matrix">rotation_matrix() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.rotation_matrix">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -985,117 +922,97 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.sample_resolution">sample_resolution (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.sample_resolution">sample_resolution (xamla_motion.data_types.PlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.sample_resolution">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.sample_resolution">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.sample_resolution">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.sample_resolution">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.select">select() (xamla_motion.data_types.joint_limits.JointLimits method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_limits.JointLimits.select">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointLimits.select">select() (xamla_motion.data_types.JointLimits method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointLimits.select">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.select">(xamla_motion.data_types.joint_states.JointStates method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.select">(xamla_motion.data_types.JointStates method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointStates.select">[1]</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.select">(xamla_motion.data_types.joint_values.JointValues method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.select">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.select">(xamla_motion.data_types.JointValues method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointValues.select">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.selected_end_effector">selected_end_effector (xamla_motion.motion_client.MoveGroup attribute)</a>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.selected_end_effector">selected_end_effector (xamla_motion.MoveGroup attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.xamla_motion_exceptions.html#xamla_motion.xamla_motion_exceptions.exceptions.ServiceException">ServiceException</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripperProperties.set_acc_service_name">set_acc_service_name (xamla_motion.gripper_client.WeissWsgGripperProperties attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.set_accelertation">set_accelertation() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.set_default_end_effector">set_default_end_effector() (xamla_motion.motion_client.MoveGroup method)</a>, <a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.set_default_end_effector">[1]</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitiveKind.sphere">sphere (xamla_motion.data_types.collision_object.CollisionPrimitiveKind attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_gripper_result.MoveGripperResult.stalled">stalled (xamla_motion.data_types.move_gripper_result.MoveGripperResult attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripperProperties.set_acc_service_name">set_acc_service_name (xamla_motion.WeissWsgGripperProperties attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult.state">state (xamla_motion.data_types.wsg.WsgResult attribute)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.set_accelertation">set_accelertation() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.set_accelertation">[1]</a>
+</li>
+      <li><a href="source/motion_client.html#xamla_motion.MoveGroup.set_default_end_effector">set_default_end_effector() (xamla_motion.MoveGroup method)</a>, <a href="source/motion_client.html#xamla_motion.MoveGroup.set_default_end_effector">[1]</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.MoveGripperResult.stalled">stalled (xamla_motion.data_types.MoveGripperResult attribute)</a>
+</li>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripperProperties.status_service_name">status_service_name (xamla_motion.WeissWsgGripperProperties attribute)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.SteppedMotionState">SteppedMotionState (class in xamla_motion.data_types)</a>
+</li>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.stop">stop() (xamla_motion.WeissWsgGripper method)</a>, <a href="source/gripper_client.html#xamla_motion.WeissWsgGripper.stop">[1]</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.EndEffectorDescription.sub_move_group_ids">sub_move_group_ids (xamla_motion.data_types.EndEffectorDescription attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient.state">(xamla_motion.motion_service.SteppedMotionClient attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.MoveGroupDescription.sub_move_group_ids">(xamla_motion.data_types.MoveGroupDescription attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult.status">status (xamla_motion.data_types.wsg.WsgResult attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripperProperties.status_service_name">status_service_name (xamla_motion.gripper_client.WeissWsgGripperProperties attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.SteppedMotionClient">SteppedMotionClient (class in xamla_motion.motion_service)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.stepped_motion_state.SteppedMotionState">SteppedMotionState (class in xamla_motion.data_types.stepped_motion_state)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand.stop">stop (xamla_motion.data_types.wsg.WsgCommand attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper.stop">stop() (xamla_motion.gripper_client.WeissWsgGripper method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.end_effector_description.EndEffectorDescription.sub_move_group_ids">sub_move_group_ids (xamla_motion.data_types.end_effector_description.EndEffectorDescription attribute)</a>
-
-      <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.move_group_description.MoveGroupDescription.sub_move_group_ids">(xamla_motion.data_types.move_group_description.MoveGroupDescription attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.ik_results.IkResults.succeeded">succeeded (xamla_motion.data_types.ik_results.IkResults attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.ActionLibGoalStatus.SUCCEEDED">SUCCEEDED (xamla_motion.motion_service.ActionLibGoalStatus attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.utility.ResourceLock.success">success (xamla_motion.utility.ResourceLock attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters">TaskSpacePlanParameters (class in xamla_motion.data_types.task_space_plan_parameters)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters">TaskSpacePlanParameters (class in xamla_motion.data_types)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.time_from_start">time_from_start (xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.time_from_start">time_from_start (xamla_motion.data_types.JointTrajectory attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.time_from_start">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.time_from_start">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.to_cartesian_path_msg">to_cartesian_path_msg() (xamla_motion.data_types.cartesian_path.CartesianPath method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.to_cartesian_path_msg">to_cartesian_path_msg() (xamla_motion.data_types.CartesianPath method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionObject.to_collision_object_msg">to_collision_object_msg() (xamla_motion.data_types.collision_object.CollisionObject method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionObject.to_collision_object_msg">to_collision_object_msg() (xamla_motion.data_types.CollisionObject method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.to_joint_path_point_msg">to_joint_path_point_msg() (xamla_motion.data_types.joint_values.JointValues method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.to_joint_path_point_msg">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.to_joint_path_point_msg">to_joint_path_point_msg() (xamla_motion.data_types.JointValues method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointValues.to_joint_path_point_msg">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.to_joint_trajectory_msg">to_joint_trajectory_msg() (xamla_motion.data_types.joint_trajectory.JointTrajectory method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.to_joint_trajectory_msg">to_joint_trajectory_msg() (xamla_motion.data_types.JointTrajectory method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.to_joint_trajectory_msg">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.to_joint_trajectory_point_msg">to_joint_trajectory_point_msg() (xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.to_joint_trajectory_point_msg">to_joint_trajectory_point_msg() (xamla_motion.data_types.JointTrajectoryPoint method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.to_joint_trajectory_point_msg">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.to_joint_values_point_msg">to_joint_values_point_msg() (xamla_motion.data_types.joint_values.JointValues method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.to_joint_values_point_msg">to_joint_values_point_msg() (xamla_motion.data_types.JointValues method)</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.to_pose_msg">to_pose_msg() (xamla_motion.data_types.Pose method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.to_pose_msg">to_pose_msg() (xamla_motion.data_types.pose.Pose method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.to_posestamped_msg">to_posestamped_msg() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.to_posestamped_msg">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.to_posestamped_msg">to_posestamped_msg() (xamla_motion.data_types.pose.Pose method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.to_posestamped_msg">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.to_shape_msg">to_shape_msg() (xamla_motion.data_types.CollisionPrimitive method)</a>, <a href="source/data_types.html#xamla_motion.data_types.CollisionPrimitive.to_shape_msg">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.collision_object.CollisionPrimitive.to_shape_msg">to_shape_msg() (xamla_motion.data_types.collision_object.CollisionPrimitive method)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.transform">transform() (xamla_motion.data_types.cartesian_path.CartesianPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.cartesian_path.CartesianPath.transform">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.CartesianPath.transform">transform() (xamla_motion.data_types.CartesianPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.CartesianPath.transform">[1]</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.transform">(xamla_motion.data_types.joint_path.JointPath method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_path.JointPath.transform">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointPath.transform">(xamla_motion.data_types.JointPath method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointPath.transform">[1]</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.transform">(xamla_motion.data_types.joint_values.JointValues method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.transform">[1]</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.transform">(xamla_motion.data_types.JointValues method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointValues.transform">[1]</a>
 </li>
       </ul></li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.transformation_matrix">transformation_matrix() (xamla_motion.data_types.pose.Pose method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.transformation_matrix">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.transformation_matrix">transformation_matrix() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.transformation_matrix">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.pose.Pose.translation">translation (xamla_motion.data_types.pose.Pose attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.translate">translate() (xamla_motion.data_types.Pose method)</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.translate">[1]</a>, <a href="source/data_types.html#xamla_motion.data_types.Pose.translate">[2]</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.try_get_index_of">try_get_index_of() (xamla_motion.data_types.joint_set.JointSet method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_set.JointSet.try_get_index_of">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.Pose.translation">translation (xamla_motion.data_types.Pose attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.try_get_value">try_get_value() (xamla_motion.data_types.joint_values.JointValues method)</a>, <a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.try_get_value">[1]</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.try_get_index_of">try_get_index_of() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.try_get_index_of">[1]</a>
+</li>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.try_get_value">try_get_value() (xamla_motion.data_types.JointValues method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointValues.try_get_value">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1103,17 +1020,17 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState.Unknown">Unknown (xamla_motion.data_types.wsg.WsgState attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointSet.union">union() (xamla_motion.data_types.JointSet method)</a>, <a href="source/data_types.html#xamla_motion.data_types.JointSet.union">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_cartesian_path">update_cartesian_path() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_cartesian_path">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_cartesian_path">update_cartesian_path() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_cartesian_path">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_collision_object">update_collision_object() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_collision_object">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_collision_object">update_collision_object() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_collision_object">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_joint_values">update_joint_values() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_joint_values">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_joint_values">update_joint_values() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_joint_values">[1]</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_pose">update_pose() (xamla_motion.world_view_client.WorldViewClient method)</a>, <a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient.update_pose">[1]</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_pose">update_pose() (xamla_motion.WorldViewClient method)</a>, <a href="source/world_view_client.html#xamla_motion.WorldViewClient.update_pose">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1121,24 +1038,24 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.values">values (xamla_motion.data_types.joint_values.JointValues attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.values">values (xamla_motion.data_types.JointValues attribute)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_states.JointStates.velocities">velocities (xamla_motion.data_types.joint_states.JointStates attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointStates.velocities">velocities (xamla_motion.data_types.JointStates attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory.JointTrajectory.velocities">(xamla_motion.data_types.joint_trajectory.JointTrajectory attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectory.velocities">(xamla_motion.data_types.JointTrajectory attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint.velocities">(xamla_motion.data_types.joint_trajectory_point.JointTrajectoryPoint attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.velocities">(xamla_motion.data_types.JointTrajectoryPoint attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.plan_parameters.PlanParameters.velocity_scaling">velocity_scaling (xamla_motion.data_types.plan_parameters.PlanParameters attribute)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.PlanParameters.velocity_scaling">velocity_scaling (xamla_motion.data_types.PlanParameters attribute)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters.velocity_scaling">(xamla_motion.data_types.task_space_plan_parameters.TaskSpacePlanParameters attribute)</a>
+        <li><a href="source/motion_client.html#xamla_motion.MoveGroup.velocity_scaling">(xamla_motion.MoveGroup attribute)</a>
 </li>
-        <li><a href="source/xamla_motion.html#xamla_motion.motion_client.MoveGroup.velocity_scaling">(xamla_motion.motion_client.MoveGroup attribute)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.TaskSpacePlanParameters.velocity_scaling">(xamla_motion.data_types.TaskSpacePlanParameters attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1147,23 +1064,19 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripper">WeissWsgGripper (class in xamla_motion.gripper_client)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripper">WeissWsgGripper (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.html#xamla_motion.gripper_client.WeissWsgGripperProperties">WeissWsgGripperProperties (class in xamla_motion.gripper_client)</a>
+      <li><a href="source/gripper_client.html#xamla_motion.WeissWsgGripperProperties">WeissWsgGripperProperties (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult.width">width (xamla_motion.data_types.wsg.WsgResult attribute)</a>
-</li>
-      <li><a href="source/xamla_motion.html#xamla_motion.world_view_client.WorldViewClient">WorldViewClient (class in xamla_motion.world_view_client)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.WsgResult.width">width (xamla_motion.data_types.WsgResult attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#xamla_motion.motion_service.MotionService.wsg_gripper_command">wsg_gripper_command() (xamla_motion.motion_service.MotionService method)</a>
+      <li><a href="source/world_view_client.html#xamla_motion.WorldViewClient">WorldViewClient (class in xamla_motion)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgCommand">WsgCommand (class in xamla_motion.data_types.wsg)</a>
+      <li><a href="source/motion_service.html#xamla_motion.motion_service.MotionService.wsg_gripper_command">wsg_gripper_command() (xamla_motion.motion_service.MotionService method)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgResult">WsgResult (class in xamla_motion.data_types.wsg)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.wsg.WsgState">WsgState (class in xamla_motion.data_types.wsg)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.WsgResult">WsgResult (class in xamla_motion.data_types)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1171,75 +1084,13 @@
 <h2 id="X">X</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.html#module-xamla_motion">xamla_motion (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types">xamla_motion.data_types (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.cartesian_path">xamla_motion.data_types.cartesian_path (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.collision_object">xamla_motion.data_types.collision_object (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.end_effector_description">xamla_motion.data_types.end_effector_description (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.end_effector_limits">xamla_motion.data_types.end_effector_limits (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.ik_results">xamla_motion.data_types.ik_results (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_limits">xamla_motion.data_types.joint_limits (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_path">xamla_motion.data_types.joint_path (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_set">xamla_motion.data_types.joint_set (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_states">xamla_motion.data_types.joint_states (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_trajectory">xamla_motion.data_types.joint_trajectory (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_trajectory_point">xamla_motion.data_types.joint_trajectory_point (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_values">xamla_motion.data_types.joint_values (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.joint_values_collision">xamla_motion.data_types.joint_values_collision (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.move_gripper_result">xamla_motion.data_types.move_gripper_result (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.move_group_description">xamla_motion.data_types.move_group_description (module)</a>
+      <li><a href="source/gripper_client.html#module-xamla_motion">xamla_motion (module)</a>, <a href="source/motion_client.html#module-xamla_motion">[1]</a>, <a href="source/world_view_client.html#module-xamla_motion">[2]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.plan_parameters">xamla_motion.data_types.plan_parameters (module)</a>
+      <li><a href="source/data_types.html#module-xamla_motion.data_types">xamla_motion.data_types (module)</a>
 </li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.pose">xamla_motion.data_types.pose (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.stepped_motion_state">xamla_motion.data_types.stepped_motion_state (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.task_space_plan_parameters">xamla_motion.data_types.task_space_plan_parameters (module)</a>
-</li>
-      <li><a href="source/xamla_motion.data_types.html#module-xamla_motion.data_types.wsg">xamla_motion.data_types.wsg (module)</a>
-</li>
-      <li><a href="source/xamla_motion.examples.html#module-xamla_motion.examples">xamla_motion.examples (module)</a>
-</li>
-      <li><a href="source/xamla_motion.examples.html#module-xamla_motion.examples.example_motion_services">xamla_motion.examples.example_motion_services (module)</a>
-</li>
-      <li><a href="source/xamla_motion.examples.html#module-xamla_motion.examples.example_ur5_and_wsg25">xamla_motion.examples.example_ur5_and_wsg25 (module)</a>
-</li>
-      <li><a href="source/xamla_motion.examples.html#module-xamla_motion.examples.example_world_view_client">xamla_motion.examples.example_world_view_client (module)</a>
-</li>
-      <li><a href="source/xamla_motion.html#module-xamla_motion.gripper_client">xamla_motion.gripper_client (module)</a>
-</li>
-      <li><a href="source/xamla_motion.html#module-xamla_motion.motion_client">xamla_motion.motion_client (module)</a>
-</li>
-      <li><a href="source/xamla_motion.html#module-xamla_motion.motion_service">xamla_motion.motion_service (module)</a>
-</li>
-      <li><a href="source/xamla_motion.html#module-xamla_motion.utility">xamla_motion.utility (module)</a>
-</li>
-      <li><a href="source/xamla_motion.html#module-xamla_motion.world_view_client">xamla_motion.world_view_client (module)</a>
-</li>
-      <li><a href="source/xamla_motion.xamla_motion_exceptions.html#module-xamla_motion.xamla_motion_exceptions">xamla_motion.xamla_motion_exceptions (module)</a>
-</li>
-      <li><a href="source/xamla_motion.xamla_motion_exceptions.html#module-xamla_motion.xamla_motion_exceptions.exceptions">xamla_motion.xamla_motion_exceptions.exceptions (module)</a>
-</li>
-      <li><a href="source/xamla_motion.xamla_motion_exceptions.html#xamla_motion.xamla_motion_exceptions.exceptions.XamlaMotionException">XamlaMotionException</a>
+      <li><a href="source/motion_service.html#module-xamla_motion.motion_service">xamla_motion.motion_service (module)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1247,10 +1098,10 @@
 <h2 id="Z">Z</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.zero">zero() (xamla_motion.data_types.joint_values.JointValues method)</a>
+      <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.zero">zero() (xamla_motion.data_types.JointValues method)</a>
 
       <ul>
-        <li><a href="source/xamla_motion.data_types.html#xamla_motion.data_types.joint_values.JointValues.zero">(xamla_motion.data_types.joint_values.JointValues static method)</a>
+        <li><a href="source/data_types.html#xamla_motion.data_types.JointValues.zero">(xamla_motion.data_types.JointValues static method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1298,13 +1149,13 @@
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
 
   
 
-  <script type="text/javascript" src="static/js/theme.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

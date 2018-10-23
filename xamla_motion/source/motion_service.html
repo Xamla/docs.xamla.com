@@ -1,0 +1,1115 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Motion Service &mdash; xamla_motion 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data types" href="data_types.html" />
+    <link rel="prev" title="WorldView client" href="world_view_client.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xamla_motion
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Motion Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/motion_service.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-xamla_motion.motion_service">
+<span id="motion-service"></span><h1>Motion Service<a class="headerlink" href="#module-xamla_motion.motion_service" title="Permalink to this headline">¶</a></h1>
+<p>The class <a class="reference internal" href="#xamla_motion.motion_service.MotionService" title="xamla_motion.motion_service.MotionService"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.motion_service.MotionService</span></code></a> implements the
+low level service and action calls to communicate with the
+xamlamoveit server part.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The class <a class="reference internal" href="#xamla_motion.motion_service.MotionService" title="xamla_motion.motion_service.MotionService"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.motion_service.MotionService</span></code></a> is only documented
+for completeness. The functionalities of this class are wrapped
+by the specific clients to be more user-friendly. Please, only
+use these specific client implementation and not directly the
+motion services.</p>
+</div>
+<dl class="class">
+<dt id="xamla_motion.motion_service.MotionService">
+<em class="property">class </em><code class="descclassname">xamla_motion.motion_service.</code><code class="descname">MotionService</code><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.create_plan_parameters">
+<em class="property">classmethod </em><code class="descname">create_plan_parameters</code><span class="sig-paren">(</span><em>move_group_name=None</em>, <em>joint_set=None</em>, <em>max_velocity=None</em>, <em>max_acceleration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.create_plan_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.create_plan_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create PlanParameters from user defined and/or quried inputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em> (</em><em>optional  default query first</em><em>)</em>) – move group for which plan parameters should be created</li>
+<li><strong>joint_set</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointSet" title="xamla_motion.data_types.JointSet"><em>JointSet</em></a><em> (</em><em>optional default query similar</em><em>)</em>) – joint set for which plan parameters should be created</li>
+<li><strong>max_velocity</strong> (<em>Iterable</em><em>[</em><em>float convertable</em><em>] </em><em>(</em><em>optional default max query</em><em>)</em>) – Defines the maximal velocity for every joint</li>
+<li><strong>max_acceleration</strong> (<em>Iterable</em><em>[</em><em>float convertable</em><em>] </em><em>(</em><em>op default max query</em><em>)</em>) – Defines the maximal acceleration for every joint</li>
+<li><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – <dl class="docutils">
+<dt>sample_resolution <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 0.008/125Hz)</span></dt>
+<dd>sample points frequency
+if value is create as 1.0 the value is interpreted
+as a value in seconds else the value is interpreted
+as a value in Hz</dd>
+<dt>collision_check <span class="classifier-delimiter">:</span> <span class="classifier">bool convertable (optional default True)</span></dt>
+<dd>check for collision if True</dd>
+<dt>max_deviation <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 0.2)</span></dt>
+<dd>max deviation from fly by points</dd>
+<dt>velocity_scaling <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 1.0)</span></dt>
+<dd>scale query or user defined max velocity
+values between 0.0 and 1.0</dd>
+<dt>acceleration_scaling <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 1.0)</span></dt>
+<dd>scale query or user defined max acceleration
+values between 0.0 and 1.0</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of plan parameters with automatically
+queried and/or user defined values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters">PlanParameters</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query services are not reachable or
+not finish successful</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If move group name is not of type None or str convertable
+If joint_set is not of type None or JointSet
+If an other parameter is not convertable</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If scaling parameters are not between 0.0 and 1.0</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ArgumentError</span></code> – If a argument is not set and also could not be
+quired automatically</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.create_task_space_plan_parameters">
+<em class="property">classmethod </em><code class="descname">create_task_space_plan_parameters</code><span class="sig-paren">(</span><em>end_effector_name=None</em>, <em>max_xyz_velocity=None</em>, <em>max_xyz_acceleration=None</em>, <em>max_angular_velocity=None</em>, <em>max_angular_acceleration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.create_task_space_plan_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.create_task_space_plan_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates TakesSpacePlanParameters from user defined or queried inputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em> (</em><em>optional default query first</em><em>)</em>) – move group for which plan parameters should be created</li>
+<li><strong>max_xyz_velocity</strong> (<em>float convertable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – Defines the maximal xyz velocity [m/s]</li>
+<li><strong>max_xyz_acceleration</strong> (<em>float convertable</em>) – Defines the maximal xyz acceleration [m/s^2]</li>
+<li><strong>max_angular_velocity</strong> (<em>float convertable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – Defines the maximal angular velocity [rad/s]</li>
+<li><strong>max_angular_acceleration</strong> (<em>float convertable</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – Defines the maximal angular acceleration [rad/s^2]</li>
+<li><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – <dl class="docutils">
+<dt>sample_resolution <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 0.008/125Hz)</span></dt>
+<dd>sample points frequency
+if value is create as 1.0 the value is interpreted
+as a value in seconds else the value is interpreted
+as a value in Hz</dd>
+<dt>collision_check <span class="classifier-delimiter">:</span> <span class="classifier">bool convertable (optional default True)</span></dt>
+<dd>check for collision if True</dd>
+<dt>ik_jump_threshold <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 1.2)</span></dt>
+<dd>maximal inverse kinematic jump</dd>
+<dt>max_deviation <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 0.2)</span></dt>
+<dd>max deviation from fly by points</dd>
+<dt>velocity_scaling <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 1.0)</span></dt>
+<dd>scale query or user defined max velocity
+values between 0.0 and 1.0</dd>
+<dt>acceleration_scaling <span class="classifier-delimiter">:</span> <span class="classifier">float convertable (optional default 1.0)</span></dt>
+<dd>scale query or user defined max acceleration
+values between 0.0 and 1.0</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of TaskSpacePlanParameters with automatically
+queried and/or user defined values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.TaskSpacePlanParameters" title="xamla_motion.data_types.TaskSpacePlanParameters">TaskSpacePlanParameters</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query services are not reachable or
+not finish successful</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If end_effector_name is not of type None or str convertable
+If an other parameter is not convertable</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If scaling parameters are not between 0.0 and 1.0</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ArgumentError</span></code> – If a argument is not set and also could not be
+quired automatically</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.emergency_stop">
+<em class="property">classmethod </em><code class="descname">emergency_stop</code><span class="sig-paren">(</span><em>enable=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.emergency_stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.emergency_stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets and resets emergency stop</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>enable</strong> (<em>bool convertable</em><em> (</em><em>default True</em><em>)</em>) – If True activate emergency stop
+If False resets the emergency stop</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li><strong>success</strong> (<em>bool</em>) – True if the service call was successful</li>
+<li><strong>message</strong> (<em>str</em>) – Response or error message</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If enable is not convertable to bool</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.execute_joint_trajectory">
+<code class="descname">execute_joint_trajectory</code><span class="sig-paren">(</span><em>trajectory</em>, <em>collision_check</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.execute_joint_trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.execute_joint_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a joint trajectory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trajectory</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory"><em>JointTrajectory</em></a>) – Joint trajectory which should be executed</li>
+<li><strong>collision_check</strong> (<em>bool convertable</em>) – If True check for collision while executing</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> – Result of the trajectory execution</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If trajectory is not of type JointTrajectory
+or if collision_check is not convertable to bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.execute_joint_trajectory_supervised">
+<code class="descname">execute_joint_trajectory_supervised</code><span class="sig-paren">(</span><em>trajectory: xamla_motion.data_types.joint_trajectory.JointTrajectory</em>, <em>velocity_scaling: float</em>, <em>collision_check: bool</em><span class="sig-paren">)</span> &#x2192; xamla_motion.motion_service.SteppedMotionClient<a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.execute_joint_trajectory_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.execute_joint_trajectory_supervised" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance of SteppedMotionClient for supervised trajectory execution
+:param trajectory: Joint trajectory which should be executed
+:type trajectory: JointTrajectory
+:param velocity_scaling: scaling of velocity range 0.0 to 1.0
+:type velocity_scaling: float
+:param collision_check: If True check for collision while executing
+:type collision_check: bool convertable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>result</strong> – Result of the trajectory execution</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)">int</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If trajectory is not of type JointTrajectory
+or if collision_check is not convertable to bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.get_current_joint_values">
+<em class="property">classmethod </em><code class="descname">get_current_joint_values</code><span class="sig-paren">(</span><em>joint_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.get_current_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.get_current_joint_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the current joint positions of all joints in joint_set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>joint_set</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointSet" title="xamla_motion.data_types.JointSet"><em>JointSet</em></a>) – Defines for which joint the positions are requested</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>positions</strong> – Returns a instance of JointValues with the positions
+of the requested joint set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues">JointValues</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If joint_set is not of type JointSet</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.move_gripper">
+<code class="descname">move_gripper</code><span class="sig-paren">(</span><em>action_name</em>, <em>position</em>, <em>max_effort</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.move_gripper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.move_gripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves a gripper via the general ros interface GripperCommandAction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>action_name</strong> (<em>str convertable</em>) – Name of the action to control a specific gripper</li>
+<li><strong>position</strong> (<em>float convertable</em>) – Requested position of the gripper in meter</li>
+<li><strong>max_effort</strong> (<em>float convertable</em>) – Force which should be applied</li>
+<li><strong>Results</strong> – </li>
+<li><strong>-------</strong> – </li>
+<li><strong>action_response</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.MoveGripperResult" title="xamla_motion.data_types.MoveGripperResult"><em>MoveGripperResult</em></a>) – Result of the action execution</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified types</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.plan_cartesian_path">
+<code class="descname">plan_cartesian_path</code><span class="sig-paren">(</span><em>path</em>, <em>parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.plan_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.plan_cartesian_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plan a joint trajectory from a cartesian path and plan parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – Poses the planned trajectory must reach</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – Plan parameters which defines the limits, settings
+and move group name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A joint trajectory which reach defined poses of path
+under the constrains in parameters</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory">JointTrajectory</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If path is not of type CartesianPath or
+parameters is not of type PlanParameters</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If parameters joint set is not equal or sub
+set of the seed joint set and therefore
+reordering was not possible</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query services are not available or
+finish unsuccessfully or inverse kinematics
+ends with error</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.plan_collision_free_joint_path">
+<em class="property">classmethod </em><code class="descname">plan_collision_free_joint_path</code><span class="sig-paren">(</span><em>path</em>, <em>parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.plan_collision_free_joint_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.plan_collision_free_joint_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plans a collision free joint path by query it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – joint path which should be replanned to be
+collision free</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – plan parameters which defines the limits and
+move group</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the replanned collision free joint path</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath">JointPath</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If path is not of type JointPath or
+if parameters is not of type PlanParameters</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If parameters joint set is not equal or sub
+set of the path joint set and therefore
+reordering was not possible</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available or finish
+unsuccessfully</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.plan_move_joints">
+<em class="property">classmethod </em><code class="descname">plan_move_joints</code><span class="sig-paren">(</span><em>path</em>, <em>parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.plan_move_joints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.plan_move_joints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plans trajectory from a joint path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – joint path with positions the trajectory must reach</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – plan parameters which defines the limits, settings
+and move group name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Planned joint trajectory which reach the positions
+defined in path under the constraints of
+parameters</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory">JointTrajectory</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If path is not of type JointPath or
+if parameters is not of type PlanParameters or</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If parameters joint set is not equal or sub
+set of the path joint set and therefore
+reordering was not possible</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available or finish
+unsuccessfully</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.plan_move_pose_linear">
+<em class="property">classmethod </em><code class="descname">plan_move_pose_linear</code><span class="sig-paren">(</span><em>path</em>, <em>seed</em>, <em>parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.plan_move_pose_linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.plan_move_pose_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plans trajectory with linear movements from a cartesian path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – cartesian path with poses the trajectory must reach</li>
+<li><strong>seed</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – numerical seed to control configuration</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.TaskSpacePlanParameters" title="xamla_motion.data_types.TaskSpacePlanParameters"><em>TaskSpacePlanParameters</em></a>) – plan parameters which defines the limits, settings
+and end effector name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Planned joint trajectory which reach the poses
+defined in path under the constraints of
+parameters</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory">JointTrajectory</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If path is not of type CartesianPath or
+if parameters is not of type TaskSpacePlanParameters or
+if seed is not of type JointValues</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available or finish
+unsuccessfully</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_available_end_effectors">
+<em class="property">classmethod </em><code class="descname">query_available_end_effectors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_available_end_effectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_available_end_effectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all currently available end effectors</p>
+<p>To query the available end effectors the ros service with the string
+defined in _query_move_group_service is called an only the relevant
+information about the endeffector is filtered out</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>end_effectors</strong> – Returns a dictionary key is the endeffector name,
+value is an instance of EndEffectorDescription</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a>, <a class="reference internal" href="data_types.html#xamla_motion.data_types.EndEffectorDescription" title="xamla_motion.data_types.EndEffectorDescription">EndEffectorDescription</a>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">xamla_motion.ServiceExeption</span></code> – If Service not exist or is not callable</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If the service response joint_names are not
+of an iterable type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_available_move_groups">
+<em class="property">classmethod </em><code class="descname">query_available_move_groups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_available_move_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_available_move_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all currently available move groups</p>
+<p>To query the move groups the ros service with the string
+defined in query_move_group_service is called</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>groups</strong> – Returns a list with instances of MoveGroupDescription.
+For further details please take a look into the documentation
+of MoveGroupDescription</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">List[<a class="reference internal" href="data_types.html#xamla_motion.data_types.MoveGroupDescription" title="xamla_motion.data_types.MoveGroupDescription">MoveGroupDescription</a>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">xamla_motion.ServiceNotAvailableException</span></code> – If Service not exist or is not callable</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If the service response joint_names are not
+of an iterable type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_collision_free_joint_path">
+<em class="property">classmethod </em><code class="descname">query_collision_free_joint_path</code><span class="sig-paren">(</span><em>move_group_name</em>, <em>joint_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_collision_free_joint_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_collision_free_joint_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a collision free joint path from a user defined joint path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<em>str convertable</em>) – name of the move group for which the collision free joint
+is required</li>
+<li><strong>joint_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – joint path which may contains collisions</li>
+<li><strong>Results</strong> – </li>
+<li><strong>-------</strong> – </li>
+<li><strong>JointPath</strong> – New planned JointPath without collisions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><em>TypeError : type mismatch</em> – If joint_path is not of expectef type JointPath
+or it move_group_name is not convertable to str</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceException</span></code> – If query joint path service is not callable or
+is not successful</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_endeffector_limits">
+<em class="property">classmethod </em><code class="descname">query_endeffector_limits</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_endeffector_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_endeffector_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query end effector limits from ros param</p>
+<p>To query the end effector limits the ros param definied in
+end_effector_limits_param is read out</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<em>str convertable</em>) – Name of the end effector for which the
+limits are queried</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a instance of EndEffectorLimits</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.EndEffectorLimits" title="xamla_motion.data_types.EndEffectorLimits">EndEffectorLimits</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If the the ros parameter or
+the requested end effector name
+no exists</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> – If not all necessary limits exists</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.query_inverse_kinematics">
+<code class="descname">query_inverse_kinematics</code><span class="sig-paren">(</span><em>pose</em>, <em>parameters</em>, <em>seed=[]</em>, <em>end_effector_link=''</em>, <em>timeout=None</em>, <em>attempts=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_inverse_kinematics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_inverse_kinematics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query inverse kinematic solutions one pose</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pose</strong> (<em>pose</em>) – Pose to transform to joint space</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – Plan parameters which defines the limits, settings
+and move group name</li>
+<li><strong>seed</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em> (</em><em>optional</em><em>)</em>) – Numerical seed to control joint configuration</li>
+<li><strong>end_effector_link</strong> (<em>str convertable</em><em> (</em><em>optinal</em><em>)</em>) – necessary if poses are defined for end effector link</li>
+<li><strong>timeout</strong> (<em>datatime.timedelta</em>) – timeout</li>
+<li><strong>attempts</strong> (<em>int convertable</em>) – Attempts to find a solution or each pose</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of JointValues which is the joint space
+equivalent of the task space pose</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues">JointValues</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If pose is not of type Pose or
+parameters is not of type PlanParameters
+or seed is not empty list or type JointValues
+or the other parameters are not convertable
+to defined types</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If parameters joint set is not equal or sub
+set of the seed joint set if defined and therefore
+reordering was not possible</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.query_inverse_kinematics_many">
+<code class="descname">query_inverse_kinematics_many</code><span class="sig-paren">(</span><em>path</em>, <em>parameters</em>, <em>seed=[]</em>, <em>end_effector_link=''</em>, <em>timeout=None</em>, <em>attempts=1</em>, <em>const_seed=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_inverse_kinematics_many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_inverse_kinematics_many" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query inverse kinematic solutions for all point in path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – Path with poses to transform to joint space</li>
+<li><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – Plan parameters which defines the limits, settings
+and move group name</li>
+<li><strong>seed</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em> (</em><em>optional</em><em>)</em>) – Numerical seed to control joint configuration</li>
+<li><strong>end_effector_link</strong> (<em>str convertable</em><em> (</em><em>optinal</em><em>)</em>) – necessary if poses are defined for end effector link</li>
+<li><strong>timeout</strong> (<em>datatime.timedelta</em>) – timeout</li>
+<li><strong>attempts</strong> (<em>int convertable</em>) – Attempts to find a solution or each pose</li>
+<li><strong>const_seed</strong> (<em>bool convertable</em>) – todo</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of IkResult with all found solutions as
+a JointPath and error codes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">IkResult</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If path is not of type CartesianPath or
+parameters is not of type PlanParameters
+or seed is not empty list or type JointValues
+or the other parameters are not convertable
+to defined types</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If parameters joint set is not equal or sub
+set of the seed joint set if defined and therefore
+reordering was not possible</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If query service is not available</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_joint_limits">
+<em class="property">classmethod </em><code class="descname">query_joint_limits</code><span class="sig-paren">(</span><em>joint_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_joint_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_joint_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query end joint limits from ros param</p>
+<p>To query the joint limits the ros param definied in
+joint_limits_param + joint name + limit name is read out</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>join_set</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointSet" title="xamla_motion.data_types.JointSet"><em>JointSet</em></a>) – Set of joints for which the
+limits are queried</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a instance of JointLimits
+invalid limits are of type numpy.nan</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointLimits" title="xamla_motion.data_types.JointLimits">JointLimits</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><em>TypeError : type mismatch</em> – If joint_set is not of expected type JointSet</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> – If ros params not exists</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_joint_path_collisions">
+<em class="property">classmethod </em><code class="descname">query_joint_path_collisions</code><span class="sig-paren">(</span><em>move_group_name</em>, <em>joint_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_joint_path_collisions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_joint_path_collisions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query collisions in joint path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<em>str convertable</em>) – Name of the move group for which a path should be check
+for collisions</li>
+<li><strong>joint_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – The path that should be check for collisions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">If collisions exists returns a list of
+JointValuesCollisions else returns None</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">List[JointValuesCollision] or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)">None</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If move_group_name ist not str convertable or
+if joint_path is not of type JointPath</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_joint_states">
+<em class="property">classmethod </em><code class="descname">query_joint_states</code><span class="sig-paren">(</span><em>joint_set</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_joint_states"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_joint_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query joint states by calling the providing ros service</p>
+<p>To query the joint states the ros service with the name
+defined in quary_joint_states_service is called</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>joint_set</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointSet" title="xamla_motion.data_types.JointSet"><em>JointSet</em></a>) – Set of joints for which the joint states are queried</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a instance of JointStates which contains the joint
+states of all joints defined in joint_set</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointStates" title="xamla_motion.data_types.JointStates">JointStates</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><em>TypeError : type mismatch</em> – If joint_set is not of expected type JointSet</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">xamla_motion.ServiceException</span></code> – If ros service not exists or is not callable</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_joint_trajectory">
+<em class="property">classmethod </em><code class="descname">query_joint_trajectory</code><span class="sig-paren">(</span><em>joint_path</em>, <em>max_velocity</em>, <em>max_acceleration</em>, <em>max_deviation</em>, <em>delta_t</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_joint_trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_joint_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a joint trajectory from joint path / joint positions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>joint_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – Defines the key joint positions the trajectory must reach</li>
+<li><strong>max_velocity</strong> (<em>Iterable</em><em>[</em><em>float convertable</em><em>]</em>) – Defines the maximal velocity for every joint</li>
+<li><strong>max_acceleration</strong> (<em>Iterable</em><em>[</em><em>float convertable</em><em>]</em>) – Defines the maximal acceleration for every joint</li>
+<li><strong>max_deviation</strong> (<em>float convertable</em>) – Defines the maximal deviation of the joints to the
+defined key points while executing the trajectory</li>
+<li><strong>delta_t</strong> (<em>float convertable</em>) – Sampling points frequency or time
+if value is create as 1.0 the value is interpreted
+as a value in seconds else the value is interpreted
+as a value in Hz</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of JointTrajectory with dense JointTrajectoryPoints</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory">JointTrajectory</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If joint_path is not of expected type JointPath or
+max_velocity or max_acceleration is not iterable or
+values of max_velocity, max_acceleration or delta_t
+are not convertable to float</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If max_velocity or max_acceleration have not the same
+number of values has joints are defined in joint_path</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_pose">
+<em class="property">classmethod </em><code class="descname">query_pose</code><span class="sig-paren">(</span><em>move_group_name</em>, <em>joint_positions</em>, <em>end_effector_link=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the pose by applying forward kinematics</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<em>str convertable</em>) – name of the move group from which the pose
+is queried</li>
+<li><strong>joint_positions</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – joint values from which the pose is calculated</li>
+<li><strong>end_effector_link</strong> (<em>str convertable</em><em> (</em><em>optional</em><em>)</em>) – end effector link is necessary if end effector
+is not part of the move group but pose should
+be computed for the end effector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Pose of the kinematic chain defined by the input parameter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose">Pose</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If joint_positions is not of type JointValues</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_pose_many">
+<em class="property">classmethod </em><code class="descname">query_pose_many</code><span class="sig-paren">(</span><em>move_group_name</em>, <em>joint_path</em>, <em>end_effector_link=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_pose_many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_pose_many" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the poses from joint path points by applying forward kinematics</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>move_group_name</strong> (<em>str convertable</em>) – name of the move group from which the poses are queried</li>
+<li><strong>joint_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a>) – joint path from which the poses are calculated</li>
+<li><strong>end_effector_link</strong> (<em>str convertable</em><em> (</em><em>optional</em><em>)</em>) – end effector link is necessary if end effector
+is not part of the move group but pose should
+be computed for the end effector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of Poses</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">List[<a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose">Pose</a>]</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If joint_path is not of type JointPath</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xamla_motion.motion_service.MotionService.query_task_space_trajectory">
+<em class="property">classmethod </em><code class="descname">query_task_space_trajectory</code><span class="sig-paren">(</span><em>end_effector_name</em>, <em>cartesian_path</em>, <em>seed</em>, <em>max_xyz_velocity</em>, <em>max_xyz_acceleration</em>, <em>max_angular_velocity</em>, <em>max_angular_acceleration</em>, <em>ik_jump_threshold</em>, <em>max_deviation</em>, <em>collision_check</em>, <em>delta_t</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.query_task_space_trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.query_task_space_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a joint trajectory from task space poses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>end_effector_name</strong> (<em>str convertable</em>) – Name of the end effector for a trajectory should be quried</li>
+<li><strong>cartesian_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – Define the key poses the trajectory must reach</li>
+<li><strong>seed</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – numerical seed to control configuration of the robot</li>
+<li><strong>max_xyz_velocity</strong> (<em>float convertable</em>) – max velocity for translation in m/s</li>
+<li><strong>max_xyz_acceleration</strong> (<em>float convertable</em>) – max acceleration for translation in m/s^2</li>
+<li><strong>max_angular_velocity</strong> (<em>float convertable</em>) – max angular velocity in rad/s</li>
+<li><strong>max_angular_acceleration</strong> (<em>float convertable</em>) – max angular acceleration in rad/s^2</li>
+<li><strong>ik_jump_threshold</strong> (<em>float convertable</em>) – maximal inverse kinematic jump</li>
+<li><strong>max_deviation</strong> (<em>float convertable</em>) – Defines the maximal deviation of the joints to the
+defined key points while executing the trajectory</li>
+<li><strong>collision_check</strong> (<em>bool convertable</em>) – If true check the trajectory is collision free</li>
+<li><strong>delta_t</strong> (<em>float convertable</em>) – Sampling points frequency or time
+if value is create as 1.0 the value is interpreted
+as a value in seconds else the value is interpreted
+as a value in Hz</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of JointTrajectory with dense JointTrajectoryPoints</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory">JointTrajectory</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If cartesian_path is not of expected type CartesianPath or
+if seed is not of expected type JointValues
+max_* is not iterable or the values are not convertable
+as expected</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> – If max_velocity or max_acceleration have not the same
+number of values has joints are defined in joint_path</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_service.MotionService.wsg_gripper_command">
+<code class="descname">wsg_gripper_command</code><span class="sig-paren">(</span><em>action_name</em>, <em>command</em>, <em>width</em>, <em>speed</em>, <em>max_effort</em>, <em>stop_on_block=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_service.html#MotionService.wsg_gripper_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_service.MotionService.wsg_gripper_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls a WeissWsg gripper via the the specific action WsgCommandAction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>action_name</strong> (<em>str convertable</em>) – Name of the action to control a specific gripper</li>
+<li><strong>command</strong> (<em>WsgCommand</em>) – Specifies which kind of action should be performed</li>
+<li><strong>width</strong> (<em>float convertable</em>) – Requested position of the gripper in meter</li>
+<li><strong>speed</strong> (<em>float convetable</em>) – Requested speed in m/s</li>
+<li><strong>max_effort</strong> (<em>float convertable</em>) – Force which should be applied</li>
+<li><strong>Results</strong> – </li>
+<li><strong>-------</strong> – </li>
+<li><strong>action_response</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.MoveGripperResult" title="xamla_motion.data_types.MoveGripperResult"><em>MoveGripperResult</em></a>) – Result of the action execution</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified types
+or if command is no of type WsgCommand</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data_types.html" class="btn btn-neutral float-right" title="Data types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="world_view_client.html" class="btn btn-neutral" title="WorldView client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

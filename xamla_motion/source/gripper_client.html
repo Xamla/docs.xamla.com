@@ -1,0 +1,771 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gripper client &mdash; xamla_motion 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WorldView client" href="world_view_client.html" />
+    <link rel="prev" title="Motion client" href="motion_client.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xamla_motion
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_client.html">Motion client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gripper client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commongripper">CommonGripper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weisswsggripper">WeissWsgGripper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Gripper client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/gripper_client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-xamla_motion">
+<span id="gripper-client"></span><h1>Gripper client<a class="headerlink" href="#module-xamla_motion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>As the motion client classes represent the interface to plan and
+execute trajectories the gripper client classes are the interface
+to control different kinds of gripper. At the moment two kinds are
+support. The classes <a class="reference internal" href="#xamla_motion.CommonGripperProperties" title="xamla_motion.CommonGripperProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.CommonGripperProperties</span></code></a> and <a class="reference internal" href="#xamla_motion.CommonGripper" title="xamla_motion.CommonGripper"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.CommonGripper</span></code></a>
+represents a common inferface for grippers. Due to this generalization
+the classes only provide methods to control a gripper in a way that many
+gripper have in common. The classes <a class="reference internal" href="#xamla_motion.WeissWsgGripperProperties" title="xamla_motion.WeissWsgGripperProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.WeissWsgGripperProperties</span></code></a> and <a class="reference internal" href="#xamla_motion.WeissWsgGripper" title="xamla_motion.WeissWsgGripper"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.WeissWsgGripper</span></code></a>
+represent a specialized interface for the capabilities of a smart gripper like
+the Weiss WSG series offers.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">MoveGripperResult</span><span class="p">,</span> <span class="n">WsgCommand</span><span class="p">,</span> <span class="n">WsgResult</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.motion_client</span> <span class="k">import</span> <span class="n">MoveGroup</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.gripper_client</span> <span class="k">import</span> <span class="n">WeissWsgGripperProperties</span><span class="p">,</span> <span class="n">CommonGripperProperties</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.gripper_client</span> <span class="k">import</span> <span class="n">WeissWsgGripper</span><span class="p">,</span> <span class="n">CommonGripper</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ioloop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+
+    <span class="c1"># create instance of movegroup to provide motion services</span>
+    <span class="n">move_group</span> <span class="o">=</span> <span class="n">MoveGroup</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------- wsg gripper -------------&#39;</span><span class="p">)</span>
+
+        <span class="c1"># create instance of wsg gripper by name</span>
+        <span class="n">properties</span> <span class="o">=</span> <span class="n">WeissWsgGripperProperties</span><span class="p">(</span><span class="s1">&#39;wsg50&#39;</span><span class="p">)</span>
+
+        <span class="n">wsg_gripper</span> <span class="o">=</span> <span class="n">WeissWsgGripper</span><span class="p">(</span><span class="n">properties</span><span class="p">,</span> <span class="n">move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;homeing&#39;</span><span class="p">)</span>
+        <span class="n">ioloop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">wsg_gripper</span><span class="o">.</span><span class="n">homing</span><span class="p">())</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;move gripper&#39;</span><span class="p">)</span>
+        <span class="n">ioloop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">wsg_gripper</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform grasp&#39;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">ioloop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">wsg_gripper</span><span class="o">.</span><span class="n">grasp</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------- common gripper -------------&#39;</span><span class="p">)</span>
+        <span class="c1"># create instance of common gripper by name and driver rosnode name</span>
+        <span class="n">properties1</span> <span class="o">=</span> <span class="n">CommonGripperProperties</span><span class="p">(</span><span class="s1">&#39;wsg50&#39;</span><span class="p">,</span> <span class="s1">&#39;xamla/wsg_driver&#39;</span><span class="p">)</span>
+
+        <span class="n">gripper</span> <span class="o">=</span> <span class="n">CommonGripper</span><span class="p">(</span><span class="n">properties1</span><span class="p">,</span> <span class="n">move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">)</span>
+        <span class="n">result1</span> <span class="o">=</span> <span class="n">ioloop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">gripper</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">))</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">ioloop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commongripper">
+<h2>CommonGripper<a class="headerlink" href="#commongripper" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.CommonGripperProperties">
+<em class="property">class </em><code class="descclassname">xamla_motion.</code><code class="descname">CommonGripperProperties</code><span class="sig-paren">(</span><em>name</em>, <em>prefix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#CommonGripperProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.CommonGripperProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class with represents the properties of a common gripper</p>
+<p>This class holds the service and action names which are
+necessary to command a specific gripper</p>
+<p>Initialization of CommonGripperProperties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str convertable</em>) – Name of a specific gripper in rosvita (Configuration,
+individual wsg actuator, property Name)</li>
+<li><strong>prefix</strong> (<em>str convertable</em>) – Name of the</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul>
+<li><p class="first"><em>CommonGripperProperties</em> –    Instance of CommonGripperProperties</p>
+<p>Raises</p>
+</li>
+<li><p class="first"><em>——</em></p>
+</li>
+<li><p class="first"><em>TypeError</em> – If name is not str convertable
+If prefix is not str convertable</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="xamla_motion.CommonGripperProperties.command_action_name">
+<code class="descname">command_action_name</code><a class="headerlink" href="#xamla_motion.CommonGripperProperties.command_action_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>command_action_name</em> – str
+Name of the command action</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xamla_motion.CommonGripper">
+<em class="property">class </em><code class="descclassname">xamla_motion.</code><code class="descname">CommonGripper</code><span class="sig-paren">(</span><em>gripper_properties</em>, <em>motion_service</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#CommonGripper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.CommonGripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class which represents a gripper controlled by the moveit gripper interface</p>
+<dl class="method">
+<dt id="xamla_motion.CommonGripper.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>max_effort</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#CommonGripper.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.CommonGripper.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to perform a movement</p>
+</dd></dl>
+
+<p>Initialize common gripper instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>gripper_properties</strong> (<a class="reference internal" href="#xamla_motion.CommonGripperProperties" title="xamla_motion.CommonGripperProperties"><em>CommonGripperProperties</em></a>) – Properties of this gripper instance. Especially
+the ros services and action names to control the gripper</li>
+<li><strong>motion_service</strong> (<a class="reference internal" href="motion_service.html#xamla_motion.motion_service.MotionService" title="xamla_motion.motion_service.MotionService"><em>MotionService</em></a>) – Instance of MotionService to communicate with
+the motion server via ros</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of CommonGripper</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#xamla_motion.CommonGripper" title="xamla_motion.CommonGripper">CommonGripper</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If gripper_properties is not of type CommonGripperProperties
+or if motion_service is not of type MotionService</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt>
+<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>max_effort</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#CommonGripper.move"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous action to perform a movement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>float convertable</em>) – Requested position in meters</li>
+<li><strong>max_effort</strong> (<em>float convertable</em>) – Force which should maximally applied in Newton</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of a common gripper
+after the execution of the move action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.MoveGripperResult" title="xamla_motion.data_types.MoveGripperResult">MoveGripperResult</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified type</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If command action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="weisswsggripper">
+<h2>WeissWsgGripper<a class="headerlink" href="#weisswsggripper" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.WeissWsgGripperProperties">
+<em class="property">class </em><code class="descclassname">xamla_motion.</code><code class="descname">WeissWsgGripperProperties</code><span class="sig-paren">(</span><em>name</em>, <em>prefix='xamla/wsg_driver'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripperProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripperProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property class for Weiss Wsg gripper</p>
+<p>This class holds the action and service names
+for a specific Weiss Wsg gripper</p>
+<p>Initialize WeissWsgProperties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str convertable</em>) – Name of a specific gripper in rosvita (Configuration,
+individual wsg actuator, property Name)</li>
+<li><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em> (</em><em>default = /xamla/wsg_driver/</em><em>)</em>) – Prefix of the ros service and action names
+to control a wsg gripper</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of WeissWsgProperties</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">WeissWsgProperties</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If name is not str convertable
+If prefix is not str convertable</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="xamla_motion.WeissWsgGripperProperties.control_action_name">
+<code class="descname">control_action_name</code><a class="headerlink" href="#xamla_motion.WeissWsgGripperProperties.control_action_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>control_action_name</em> – str
+Name of the control action for specific
+Weiss gripper</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.WeissWsgGripperProperties.set_acc_service_name">
+<code class="descname">set_acc_service_name</code><a class="headerlink" href="#xamla_motion.WeissWsgGripperProperties.set_acc_service_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>set_acc_name</em> – str
+Name of the set acceleration service for specific
+Weiss gripper</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.WeissWsgGripperProperties.status_service_name">
+<code class="descname">status_service_name</code><a class="headerlink" href="#xamla_motion.WeissWsgGripperProperties.status_service_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>status_service_name</em> – str
+Name of the status service for specific
+Weiss gripper</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xamla_motion.WeissWsgGripper">
+<em class="property">class </em><code class="descclassname">xamla_motion.</code><code class="descname">WeissWsgGripper</code><span class="sig-paren">(</span><em>gripper_properties</em>, <em>motion_service</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>WeissWsgGripper class</p>
+<p>Represent a Weiss Wsg gripper and his abilities / properties</p>
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.get_status">
+<code class="descname">get_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.get_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.get_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current status of the gripper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.acknowledge_error">
+<code class="descname">acknowledge_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.acknowledge_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.acknowledge_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous acknowledge an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.grasp">
+<code class="descname">grasp</code><span class="sig-paren">(</span><em>position</em>, <em>speed</em>, <em>force</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.grasp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.grasp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to perform a grasp</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">async def homing()</code></dt>
+<dd><p>Asynchronous action to home the gripper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>speed</em>, <em>force</em>, <em>stop_on_block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to perform a movement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.release">
+<code class="descname">release</code><span class="sig-paren">(</span><em>self</em>, <em>position</em>, <em>speed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.release"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to release the gripper from a grasp</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to perform stop the gripper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.set_accelertation">
+<code class="descname">set_accelertation</code><span class="sig-paren">(</span><em>acceleration</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.set_accelertation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.set_accelertation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set gripper acceleration</p>
+</dd></dl>
+
+<p>Initialize Weiss Wsg Gripper instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>gripper_properties</strong> (<a class="reference internal" href="#xamla_motion.WeissWsgGripperProperties" title="xamla_motion.WeissWsgGripperProperties"><em>WeissWsgGripperProperties</em></a>) – Properties of this gripper instance. Especially
+the ros services names to control the gripper</li>
+<li><strong>motion_service</strong> (<a class="reference internal" href="motion_service.html#xamla_motion.motion_service.MotionService" title="xamla_motion.motion_service.MotionService"><em>MotionService</em></a>) – Instance of MotionService to communicate with
+the motion server via ros</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance of WeissWsgGripper</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#xamla_motion.WeissWsgGripper" title="xamla_motion.WeissWsgGripper">WeissWsgGripper</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If gripper_properties is not of type WeissWsgGripperProperties
+or if motion_service is not of type MotionService</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceExeption</span></code> – If status service or set acceleration service are not
+available</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt>
+<code class="descname">acknowledge_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.acknowledge_error"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous acknowledge an error</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">get_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.get_status"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Get current status of the gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>status</strong> – current status of the gripper</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">wsg_50_common.msg Status</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If current service is not available or failed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">grasp</code><span class="sig-paren">(</span><em>position</em>, <em>speed</em>, <em>force</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.grasp"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous action to perform a grasp</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>float convertable</em>) – Requested position in meters</li>
+<li><strong>speed</strong> (<em>float convertable</em>) – Requested speed in m/s</li>
+<li><strong>force</strong> (<em>float convertable</em>) – Force which should maximally applied in Newton</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified type</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.WeissWsgGripper.homing">
+<code class="descname">homing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.homing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WeissWsgGripper.homing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous action to home the gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>speed</em>, <em>force</em>, <em>stop_on_block</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.move"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous action to perform a movement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>float convertable</em>) – Requested position in meters</li>
+<li><strong>speed</strong> (<em>float convertable</em>) – Requested speed in m/s</li>
+<li><strong>force</strong> (<em>float convertable</em>) – Force which should maximally applied in Newton</li>
+<li><strong>stop_on_block</strong> (<em>bool convertable</em>) – If True stop if maximal force is applied</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified type</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.WeissWsgGripper.properties">
+<code class="descname">properties</code><a class="headerlink" href="#xamla_motion.WeissWsgGripper.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties of this Weiss wsg gripper instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">release</code><span class="sig-paren">(</span><em>position</em>, <em>speed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.release"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous action to release the gripper from a grasp</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>float convertable</em>) – Requested position in meters</li>
+<li><strong>speed</strong> (<em>float convertable</em>) – Requested speed in m/s</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified type</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">set_accelertation</code><span class="sig-paren">(</span><em>acceleration</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.set_accelertation"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Set gripper acceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>acceleration</strong> (<em>float convertable</em>) – Requested acceleration</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>error</strong> – If True service call was not successful</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If inputs are not convertable to specified type</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/gripper_client.html#WeissWsgGripper.stop"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Asynchronous action to perform stop the gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Result status of the Weiss Wsg gripper
+after the execution of the acknowledge action</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="data_types.html#xamla_motion.data_types.WsgResult" title="xamla_motion.data_types.WsgResult">WsgResult</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServiceError</span></code> – If control action server is not available</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> – If action returns with unexpected result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="world_view_client.html" class="btn btn-neutral float-right" title="WorldView client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="motion_client.html" class="btn btn-neutral" title="Motion client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

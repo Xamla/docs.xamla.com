@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.data_types.joint_states &mdash; xamla_motion 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> xamla_motion
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.data_types.joint_states</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.data_types.joint_states</h1><div class="highlight"><pre>
+<span></span><span class="c1"># joint_states.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">.joint_set</span> <span class="k">import</span> <span class="n">JointSet</span>
+<span class="kn">from</span> <span class="nn">.joint_values</span> <span class="k">import</span> <span class="n">JointValues</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="JointStates"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointStates">[docs]</a><span class="k">class</span> <span class="nc">JointStates</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class which can hold a complete JointState (pos, vel, eff)</span>
+
+<span class="sd">    The JointState class can hold the complete information about a</span>
+<span class="sd">    the state of joints of a robot. For this purpose it holds an </span>
+<span class="sd">    instance of JointValues for positions, velocities, and efforts</span>
+<span class="sd">    (velocities and efforts are optional)</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    reorder(new_order)</span>
+<span class="sd">        Creates reordered instance of JointValue by the order of new_order</span>
+<span class="sd">    select(names)</span>
+<span class="sd">        Creates a JointStates instance which only contains selected joints</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">efforts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of JointStates class</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        positions : Joint_Values</span>
+<span class="sd">            A instance of JointValues which represent the positions</span>
+<span class="sd">        velocities : Joint_Values or None (optional)</span>
+<span class="sd">            A instance of JointValues which represent the velocities</span>
+<span class="sd">        efforts : Joint_Values or None (optional)</span>
+<span class="sd">            A instance of JointValues which represent the efforts</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        JointStates</span>
+<span class="sd">            Creates an instance of JointStates</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If arguments are not of type JointValues</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If instances of JointValues does not hold the</span>
+<span class="sd">            same JointSets (joint names and order)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span>
+                                            <span class="s1">&#39;positions&#39;</span><span class="p">,</span>
+                                            <span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">velocities</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">velocities</span><span class="p">,</span>
+                                                 <span class="s1">&#39;velocities&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">efforts</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">efforts</span><span class="p">,</span>
+                                              <span class="s1">&#39;efforts&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_init_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_values</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_values</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39; is not of expected type JointValues&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">joint_values</span><span class="o">.</span><span class="n">joint_set</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;joint names or order do not match.&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">joint_values</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">joint_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        joint_set : JointSet (read only)</span>
+<span class="sd">            Set of joints for which it holds the values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">joint_set</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">positions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        positions : JointValues (read only)</span>
+<span class="sd">            Joint Values which defines the positions of the joints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">velocities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        velocities : JointValues (read only)</span>
+<span class="sd">            Joint Values which defines the velocities of the joints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">efforts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        efforts : JointValues (read only)</span>
+<span class="sd">            Joint Values which defines the efforts / acceleration of the joints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span>
+
+<div class="viewcode-block" id="JointStates.reorder"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointStates.reorder">[docs]</a>    <span class="k">def</span> <span class="nf">reorder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_order</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates reordered instance of JointValue by the order of new_order</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        new_order : JointSet</span>
+<span class="sd">            JointSet which defines the new order</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        JointStates</span>
+<span class="sd">            A new Instance of JointStates containing the</span>
+<span class="sd">            joints in the order definied by new_order</span>
+<span class="sd">            (it is ok when new_order only holds a subset of joints)</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If input parameter new_order is not of type JointSet</span>
+<span class="sd">        ValueError :</span>
+<span class="sd">            If joint name from new_order not exists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">new_order</span><span class="p">)</span>
+        <span class="n">velocities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">new_order</span><span class="p">)</span>
+        <span class="n">efforts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">new_order</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">JointStates</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span><span class="p">,</span> <span class="n">efforts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointStates.select"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointStates.select">[docs]</a>    <span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a JointStates instance which only contains selected joints</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        names : str or list of str or JointSet</span>
+<span class="sd">            Joint names which should be in the new JointValues instance</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        JointValues</span>
+<span class="sd">            New instance of JointValues with selected joints</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If names is not of type str or list of str</span>
+<span class="sd">        ValueError :</span>
+<span class="sd">            If name not exist in joint names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span>
+                    <span class="n">names</span><span class="p">)]</span>
+                <span class="n">velocities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span>
+                    <span class="n">names</span><span class="p">)]</span>
+                <span class="n">efforts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span><span class="n">names</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="n">names</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">names</span><span class="p">):</span>
+                <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="n">velocities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="n">efforts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+                    <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span>
+                        <span class="n">name</span><span class="p">)]</span>
+                    <span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span>
+                        <span class="n">name</span><span class="p">)]</span>
+                    <span class="n">efforts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">get_index_of</span><span class="p">(</span>
+                        <span class="n">name</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;names is not one of the expected types&#39;</span>
+                                <span class="s1">&#39; str or list of strs or JointSet&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span><span class="p">,</span>
+                                  <span class="n">efforts</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;name &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span>
+                             <span class="s1">&#39; not exist in joint names&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span></div>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ss</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39; = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">ss</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">ss</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">  &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;JointStates</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">ss</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()):</span>
+            <span class="k">yield</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">positions</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">velocites</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">efforts</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
