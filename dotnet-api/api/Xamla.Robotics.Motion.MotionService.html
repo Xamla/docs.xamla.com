@@ -908,13 +908,13 @@
   
   
   <a id="Xamla_Robotics_Motion_MotionService_InverseKinematicMany_" data-uid="Xamla.Robotics.Motion.MotionService.InverseKinematicMany*"></a>
-  <h4 id="Xamla_Robotics_Motion_MotionService_InverseKinematicMany_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_EndEffectorPose____Xamla_Robotics_Types_JointSet_Xamla_Robotics_Types_JointValues_System_Boolean_System_Nullable_System_TimeSpan__System_Int32_System_Boolean_" data-uid="Xamla.Robotics.Motion.MotionService.InverseKinematicMany(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.EndEffectorPose[]},Xamla.Robotics.Types.JointSet,Xamla.Robotics.Types.JointValues,System.Boolean,System.Nullable{System.TimeSpan},System.Int32,System.Boolean)">InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt;, JointSet, JointValues, Boolean, Nullable&lt;TimeSpan&gt;, Int32, Boolean)</h4>
+  <h4 id="Xamla_Robotics_Motion_MotionService_InverseKinematicMany_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_EndEffectorPose____System_String_Xamla_Robotics_Types_JointSet_Xamla_Robotics_Types_JointValues_System_Boolean_System_Nullable_System_TimeSpan__System_Int32_System_Boolean_" data-uid="Xamla.Robotics.Motion.MotionService.InverseKinematicMany(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.EndEffectorPose[]},System.String,Xamla.Robotics.Types.JointSet,Xamla.Robotics.Types.JointValues,System.Boolean,System.Nullable{System.TimeSpan},System.Int32,System.Boolean)">InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt;, String, JointSet, JointValues, Boolean, Nullable&lt;TimeSpan&gt;, Int32, Boolean)</h4>
   <div class="markdown level1 summary"><p>Compute inverse kinematic solutions for several points consisting of one or more effector poses.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IKResult InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt; points, JointSet jointSet, JointValues jointPositionSeed = null, bool avoidCollision = true, TimeSpan? timeout = default(TimeSpan? ), int attempts = 1, bool constSeed = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public IKResult InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt; points, string moveGroupName, JointSet solutionJointSet, JointValues jointPositionSeed = null, bool avoidCollision = true, TimeSpan? timeout = default(TimeSpan? ), int attempts = 1, bool constSeed = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -929,26 +929,40 @@
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.EndEffectorPose.html">EndEffectorPose</a>[]&gt;</td>
         <td><span class="parametername">points</span></td>
-        <td><p>Sequence of end effector poses points for which joint space solutions are requested.</p>
+        <td><p>Sequence of cartesian end effector poses configurations for which joint space solutions are
+requested. For robots with more than one end effector (e.g. dual arm robots) multiple poses can be specified for
+a single IK computation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">moveGroupName</span></td>
+        <td><p>Name of the move group on which the IK request is executed (joints associated with
+this move group are modified to find a solution).</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
-        <td><span class="parametername">jointSet</span></td>
-        <td><p><code>JointSet</code> of move group to use for IK computation</p>
+        <td><span class="parametername">solutionJointSet</span></td>
+        <td><p>JointSet defining which values are copied from the robot state for each solution
+to the IK result. It is possible to specify joint names which are not part of the selected move group.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
         <td><span class="parametername">jointPositionSeed</span></td>
-        <td><p>Optional seed joint configuration. If the seed configuration contains more joints
-than specified in the <code>jointSet</code> parameter those additional joints will be copied directly to the solutions.</p>
+        <td><p>Optional seed joint configuration. The seed configuration may contain joints
+which are not part of the selected move group (e.g. a torso joint when only solving an arm). All provided values
+will be used to initialize the robot state before computing the IK solutions. The current robot state is always
+used as default value for joints for which no seed is specified.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">avoidCollision</span></td>
-        <td></td>
+        <td><p>Flag indicating whether to test IK solutions for collisions. If set to true no robot
+configurations are returned that are in collision with the planning scene.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
@@ -959,13 +973,13 @@ than specified in the <code>jointSet</code> parameter those additional joints wi
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">attempts</span></td>
-        <td><p>Maximum number of attempts to find a solution for each pose</p>
+        <td><p>Maximum number of attempts made to find a solution for each pose</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">constSeed</span></td>
-        <td><p>If true, the same seed is used for all poses. Otherwise the last result is used as seed for the next.</p>
+        <td><p>If true, the same initial joint seed is used for all poses. Otherwise the last result is used as seed for the next.</p>
 </td>
       </tr>
     </tbody>
@@ -998,6 +1012,87 @@ than specified in the <code>jointSet</code> parameter those additional joints wi
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
         <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">points</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MotionService_InverseKinematicMany_" data-uid="Xamla.Robotics.Motion.MotionService.InverseKinematicMany*"></a>
+  <h4 id="Xamla_Robotics_Motion_MotionService_InverseKinematicMany_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_EndEffectorPose____Xamla_Robotics_Types_PlanParameters_Xamla_Robotics_Types_JointValues_System_Nullable_System_TimeSpan__System_Int32_System_Boolean_" data-uid="Xamla.Robotics.Motion.MotionService.InverseKinematicMany(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.EndEffectorPose[]},Xamla.Robotics.Types.PlanParameters,Xamla.Robotics.Types.JointValues,System.Nullable{System.TimeSpan},System.Int32,System.Boolean)">InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt;, PlanParameters, JointValues, Nullable&lt;TimeSpan&gt;, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Compute inverse kinematic solutions for several points consisting of one or more effector poses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKResult InverseKinematicMany(IEnumerable&lt;EndEffectorPose[]&gt; points, PlanParameters parameters, JointValues jointPositionSeed = null, TimeSpan? timeout = default(TimeSpan? ), int attempts = 1, bool constSeed = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.EndEffectorPose.html">EndEffectorPose</a>[]&gt;</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>Sequence of cartesian end effector poses configurations for which joint space solutions are
+requested. For robots with more than one end effector (e.g. dual arm robots) multiple poses can be specified for
+a single IK computation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Plan parameters specifying the move group name, joint set and whether to avoid collisions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">jointPositionSeed</span></td>
+        <td><p>Optional seed joint configuration. The seed configuration may contain joints
+which are not part of the selected move group (e.g. a torso joint when only solving an arm). All provided values
+will be used to initialize the robot state before computing the IK solutions. The current robot state is always
+used as default value for joints for which no seed is specified.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">attempts</span></td>
+        <td><p>Maximum number of attempts made to find a solution for each pose</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">constSeed</span></td>
+        <td><p>If true, the same initial joint seed is used for all poses. Otherwise the last result is
+used as seed for the next.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IKResult.html">IKResult</a></td>
+        <td><p>Returns the IK results as an instance of <code>IKResult</code>.</p>
 </td>
       </tr>
     </tbody>

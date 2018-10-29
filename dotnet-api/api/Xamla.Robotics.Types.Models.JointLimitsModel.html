@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SteppedMotionClientExtensions
+    <title>Class JointLimitsModel
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SteppedMotionClientExtensions
+    <meta name="title" content="Class JointLimitsModel
    ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -68,18 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel">
   
   
-  <h1 id="Xamla_Robotics_Motion_SteppedMotionClientExtensions" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions" class="text-break">Class SteppedMotionClientExtensions
+  <h1 id="Xamla_Robotics_Types_Models_JointLimitsModel" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel" class="text-break">Class JointLimitsModel
   </h1>
-  <div class="markdown level0 summary"><p>Extensions of the <code>ISteppedMotionClient</code> interface</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SteppedMotionClientExtensions</span></div>
+    <div class="level1"><span class="xref">JointLimitsModel</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,52 +104,25 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
-  <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
-  <h5 id="Xamla_Robotics_Motion_SteppedMotionClientExtensions_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.Models.html">Xamla.Robotics.Types.Models</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_Models_JointLimitsModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class SteppedMotionClientExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public class JointLimitsModel</code></pre>
   </div>
-  <h3 id="methods">Methods
+  <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_SteppedMotionClientExtensions_HandleStepwiseMotions_" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions.HandleStepwiseMotions*"></a>
-  <h4 id="Xamla_Robotics_Motion_SteppedMotionClientExtensions_HandleStepwiseMotions_Xamla_Robotics_Motion_ISteppedMotionClient_Xamla_Robotics_Motion_IMoveGroup_Rosvita_RosMonitor_IRosClientLibrary_" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions.HandleStepwiseMotions(Xamla.Robotics.Motion.ISteppedMotionClient,Xamla.Robotics.Motion.IMoveGroup,Rosvita.RosMonitor.IRosClientLibrary)">HandleStepwiseMotions(ISteppedMotionClient, IMoveGroup, IRosClientLibrary)</h4>
+  <a id="Xamla_Robotics_Types_Models_JointLimitsModel_JointNames_" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.JointNames*"></a>
+  <h4 id="Xamla_Robotics_Types_Models_JointLimitsModel_JointNames" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.JointNames">JointNames</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task HandleStepwiseMotions(this ISteppedMotionClient client, IMoveGroup group, IRosClientLibrary rosClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public string[] JointNames { get; set; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
-        <td><span class="parametername">client</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rosvita.RosMonitor.IRosClientLibrary</span></td>
-        <td><span class="parametername">rosClient</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -160,41 +132,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><span class="xref">System.String</span>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_SteppedMotionClientExtensions_ToModel_" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions.ToModel*"></a>
-  <h4 id="Xamla_Robotics_Motion_SteppedMotionClientExtensions_ToModel_Xamla_Robotics_Motion_ISteppedMotionClient_" data-uid="Xamla.Robotics.Motion.SteppedMotionClientExtensions.ToModel(Xamla.Robotics.Motion.ISteppedMotionClient)">ToModel(ISteppedMotionClient)</h4>
-  <div class="markdown level1 summary"><p>Extends the interface <code>ISteppedMotionClient</code> with a method <code>ToModel</code>, which creates an instance of <code>SteppedMotionClientModel</code> from a state snapshot.</p>
-</div>
+  <a id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxAcceleration_" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxAcceleration*"></a>
+  <h4 id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxAcceleration" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxAcceleration">MaxAcceleration</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SteppedMotionClientModel ToModel(this ISteppedMotionClient client)</code></pre>
+    <pre><code class="lang-csharp hljs">public double? [] MaxAcceleration { get; set; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
-        <td><span class="parametername">client</span></td>
-        <td><p>The client to be extended</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -204,12 +157,90 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Xamla.Robotics.Types.Models.SteppedMotionClientModel.html">SteppedMotionClientModel</a></td>
-        <td><p>Returns an instance of  <code>SteppedMotionClientModel</code>.</p>
-</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;[]</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxPosition_" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxPosition*"></a>
+  <h4 id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxPosition" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxPosition">MaxPosition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? [] MaxPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxVelocity_" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxVelocity*"></a>
+  <h4 id="Xamla_Robotics_Types_Models_JointLimitsModel_MaxVelocity" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MaxVelocity">MaxVelocity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? [] MaxVelocity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Models_JointLimitsModel_MinPosition_" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MinPosition*"></a>
+  <h4 id="Xamla_Robotics_Types_Models_JointLimitsModel_MinPosition" data-uid="Xamla.Robotics.Types.Models.JointLimitsModel.MinPosition">MinPosition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? [] MinPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToJointLimits_Xamla_Robotics_Types_Models_JointLimitsModel_">ModelConversionExtensions.ToJointLimits(JointLimitsModel)</a>
+  </div>
 </article>
           </div>
           

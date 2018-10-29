@@ -302,6 +302,37 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Previous()</code></pre>
   </div>
+  
+  
+  <a id="Xamla_Robotics_Motion_SteppedMotionClient_Step_" data-uid="Xamla.Robotics.Motion.SteppedMotionClient.Step*"></a>
+  <h4 id="Xamla_Robotics_Motion_SteppedMotionClient_Step_System_Double_" data-uid="Xamla.Robotics.Motion.SteppedMotionClient.Step(System.Double)">Step(Double)</h4>
+  <div class="markdown level1 summary"><p>Requests the supervised executor to perform a step.
+The stepping direction is determined by the sign of the <code>velocityScaling</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Step(double velocityScaling = 0.5)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Specifies the desired velocity and direction of the supervised motion.
+Positive values mean forward and negative values backward stepping. Valid range: [-1, 1]</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a>

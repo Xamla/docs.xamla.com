@@ -105,13 +105,60 @@
   
   
   <a id="Xamla_Robotics_Types_JointTrajectoryPoint__ctor_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint__ctor_System_Double_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.#ctor(System.Double,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues)">JointTrajectoryPoint(Double, JointValues, JointValues, JointValues, JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint(double timeFromStartSeconds, JointValues positions, JointValues velocities = null, JointValues accelerations = null, JointValues efforts = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">timeFromStartSeconds</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">positions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">velocities</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">accelerations</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">efforts</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint__ctor_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.#ctor*"></a>
   <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint__ctor_System_TimeSpan_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.#ctor(System.TimeSpan,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues)">JointTrajectoryPoint(TimeSpan, JointValues, JointValues, JointValues, JointValues)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of <code>JointTrajectoryPoint</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint(TimeSpan timeFromStart, JointValues positions, JointValues velocities = null, JointValues accelerations = null, JointValues effort = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint(TimeSpan timeFromStart, JointValues positions, JointValues velocities = null, JointValues accelerations = null, JointValues efforts = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,7 +196,7 @@
       </tr>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
-        <td><span class="parametername">effort</span></td>
+        <td><span class="parametername">efforts</span></td>
         <td><p>Optional: The target effort that each joint is required to have when the robot reaches the new point. Default: null.</p>
 </td>
       </tr>
@@ -185,14 +232,14 @@
   </table>
   
   
-  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_Effort_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Effort*"></a>
-  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_Effort" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Effort">Effort</h4>
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_Efforts_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Efforts*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_Efforts" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Efforts">Efforts</h4>
   <div class="markdown level1 summary"><p>Gets the effort which each joint defined in the <code>JointSet</code> is required to have, when the robot has reached this point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointValues Effort { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public JointValues Efforts { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -205,6 +252,32 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_JointSet_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_JointSet" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p>The common joint set used by the members Position, Velocities, Accelerations, Efforts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -257,6 +330,31 @@
     <tbody>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_TimeFromStartSeconds_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.TimeFromStartSeconds*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_TimeFromStartSeconds" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.TimeFromStartSeconds">TimeFromStartSeconds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double TimeFromStartSeconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -336,6 +434,51 @@
   </table>
   
   
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_Merge_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_Merge_Xamla_Robotics_Types_JointTrajectoryPoint_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.Merge(Xamla.Robotics.Types.JointTrajectoryPoint)">Merge(JointTrajectoryPoint)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of JointTrajectory as a result of the merge operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint Merge(JointTrajectoryPoint other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>TrajectoryPoints to merge with the current TrajectoryPoint</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td><p>New instance of JointTrajectoryPoint which contains the merged JointTrajectoryPoints</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Xamla_Robotics_Types_JointTrajectoryPoint_ToString_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.ToString*"></a>
   <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_ToString" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.ToString">ToString()</h4>
   <div class="markdown level1 summary"></div>
@@ -361,6 +504,48 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.ValueType.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectoryPoint_WithTimeFromStart_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.WithTimeFromStart*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectoryPoint_WithTimeFromStart_System_TimeSpan_" data-uid="Xamla.Robotics.Types.JointTrajectoryPoint.WithTimeFromStart(System.TimeSpan)">WithTimeFromStart(TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint WithTimeFromStart(TimeSpan timeFromStart)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">timeFromStart</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_JointTrajectoryPoint_">ModelConversionExtensions.ToModel(JointTrajectoryPoint)</a>
