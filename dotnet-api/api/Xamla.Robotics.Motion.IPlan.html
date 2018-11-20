@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ISteppedMotionClient
+    <title>Interface IPlan
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ISteppedMotionClient
+    <meta name="title" content="Interface IPlan
    ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -68,38 +68,30 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.IPlan">
   
   
-  <h1 id="Xamla_Robotics_Motion_ISteppedMotionClient" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient" class="text-break">Interface ISteppedMotionClient
+  <h1 id="Xamla_Robotics_Motion_IPlan" data-uid="Xamla.Robotics.Motion.IPlan" class="text-break">Interface IPlan
   </h1>
-  <div class="markdown level0 summary"><p>Implementations of <code>ISteppedMotionClient</code> perform supervised trajectory execution</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
   <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
-  <h5 id="Xamla_Robotics_Motion_ISteppedMotionClient_syntax">Syntax</h5>
+  <h5 id="Xamla_Robotics_Motion_IPlan_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISteppedMotionClient : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IPlan</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_GoalId_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.GoalId*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_GoalId" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.GoalId">GoalId</h4>
-  <div class="markdown level1 summary"><p>Current ros action goal id</p>
-</div>
+  <a id="Xamla_Robotics_Motion_IPlan_MoveGroup_" data-uid="Xamla.Robotics.Motion.IPlan.MoveGroup*"></a>
+  <h4 id="Xamla_Robotics_Motion_IPlan_MoveGroup" data-uid="Xamla.Robotics.Motion.IPlan.MoveGroup">MoveGroup</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string GoalId { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IMoveGroup MoveGroup { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -111,21 +103,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_GoalTask_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.GoalTask*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_GoalTask" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.GoalTask">GoalTask</h4>
-  <div class="markdown level1 summary"><p>Instance of <code>Task</code> producing an instance of <code>xamlamoveit.StepwiseMoveJResult</code> as result.</p>
-</div>
+  <a id="Xamla_Robotics_Motion_IPlan_Parameters_" data-uid="Xamla.Robotics.Motion.IPlan.Parameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_IPlan_Parameters" data-uid="Xamla.Robotics.Motion.IPlan.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;StepwiseMoveJResult&gt; GoalTask { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">PlanParameters Parameters { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,21 +128,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Messages.xamlamoveit_msgs.StepwiseMoveJResult</span>&gt;</td>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_MotionState_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.MotionState*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_MotionState" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.MotionState">MotionState</h4>
-  <div class="markdown level1 summary"><p>Current state of the supervised trajectory execution</p>
-</div>
+  <a id="Xamla_Robotics_Motion_IPlan_Trajectory_" data-uid="Xamla.Robotics.Motion.IPlan.Trajectory*"></a>
+  <h4 id="Xamla_Robotics_Motion_IPlan_Trajectory" data-uid="Xamla.Robotics.Motion.IPlan.Trajectory">Trajectory</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">SteppedMotionState MotionState { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IJointTrajectory Trajectory { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -163,7 +153,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Xamla.Robotics.Motion.SteppedMotionState.html">SteppedMotionState</a></td>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -172,37 +162,13 @@
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_Next_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Next*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_Next" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Next">Next()</h4>
-  <div class="markdown level1 summary"><p>Request at supervised executor to perform next step</p>
-</div>
+  <a id="Xamla_Robotics_Motion_IPlan_ExecuteAsync_" data-uid="Xamla.Robotics.Motion.IPlan.ExecuteAsync*"></a>
+  <h4 id="Xamla_Robotics_Motion_IPlan_ExecuteAsync_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.IPlan.ExecuteAsync(System.Threading.CancellationToken)">ExecuteAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Next()</code></pre>
-  </div>
-  
-  
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_Previous_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Previous*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_Previous" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Previous">Previous()</h4>
-  <div class="markdown level1 summary"><p>Request at supervised executor to perform previous step</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Previous()</code></pre>
-  </div>
-  
-  
-  <a id="Xamla_Robotics_Motion_ISteppedMotionClient_Step_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Step*"></a>
-  <h4 id="Xamla_Robotics_Motion_ISteppedMotionClient_Step_System_Double_" data-uid="Xamla.Robotics.Motion.ISteppedMotionClient.Step(System.Double)">Step(Double)</h4>
-  <div class="markdown level1 summary"><p>Requests the supervised executor to perform a step.
-The stepping direction is determined by the sign of the <code>velocityScaling</code> parameter.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Step(double velocityScaling = 0.5)</code></pre>
+    <pre><code class="lang-csharp hljs">Task ExecuteAsync(CancellationToken cancel = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -215,21 +181,69 @@ The stepping direction is determined by the sign of the <code>velocityScaling</c
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">velocityScaling</span></td>
-        <td><p>Specifies the desired velocity and direction of the supervised motion.
-Positive values mean forward and negative values backward stepping. Valid range: [-1, 1]</p>
-</td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Xamla.Robotics.Motion.SteppedMotionClientExtensions.html#Xamla_Robotics_Motion_SteppedMotionClientExtensions_ToModel_Xamla_Robotics_Motion_ISteppedMotionClient_">SteppedMotionClientExtensions.ToModel(ISteppedMotionClient)</a>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_IPlan_ExecuteSupervised_" data-uid="Xamla.Robotics.Motion.IPlan.ExecuteSupervised*"></a>
+  <h4 id="Xamla_Robotics_Motion_IPlan_ExecuteSupervised_System_Threading_CancellationToken_" data-uid="Xamla.Robotics.Motion.IPlan.ExecuteSupervised(System.Threading.CancellationToken)">ExecuteSupervised(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISteppedMotionClient ExecuteSupervised(CancellationToken cancel = default(CancellationToken))</code></pre>
   </div>
-  <div>
-      <a class="xref" href="Xamla.Robotics.Motion.SteppedMotionClientExtensions.html#Xamla_Robotics_Motion_SteppedMotionClientExtensions_HandleStepwiseMotions_Xamla_Robotics_Motion_ISteppedMotionClient_Xamla_Robotics_Motion_IMoveGroup_System_Boolean_">SteppedMotionClientExtensions.HandleStepwiseMotions(ISteppedMotionClient, IMoveGroup, Boolean)</a>
-  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.ISteppedMotionClient.html">ISteppedMotionClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

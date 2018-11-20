@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MovePoseOperationBase
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MovePoseOperationBase
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase">
+  
+  
+  <h1 id="Xamla_Robotics_Motion_MovePoseOperationBase" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase" class="text-break">Class MovePoseOperationBase
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">MovePoseOperationBase</span></div>
+      <div class="level2"><a class="xref" href="Xamla.Robotics.Motion.MovePoseCollisionFreeOperation.html">MovePoseCollisionFreeOperation</a></div>
+      <div class="level2"><a class="xref" href="Xamla.Robotics.Motion.MovePoseLinearOperation.html">MovePoseLinearOperation</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></div>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IMoveOperation.html">IMoveOperation</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
+  <h5 id="Xamla_Robotics_Motion_MovePoseOperationBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class MovePoseOperationBase : IMovePoseOperation, IMoveOperation</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase__ctor_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase__ctor_Xamla_Robotics_Motion_MovePoseArgs_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.#ctor(Xamla.Robotics.Motion.MovePoseArgs)">MovePoseOperationBase(MovePoseArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MovePoseOperationBase(MovePoseArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_AccelerationScaling_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.AccelerationScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_AccelerationScaling" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.AccelerationScaling">AccelerationScaling</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? AccelerationScaling { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_EndEffector_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.EndEffector*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_EndEffector" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.EndEffector">EndEffector</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEndEffector EndEffector { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IEndEffector.html">IEndEffector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_MoveGroup_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.MoveGroup*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_MoveGroup" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.MoveGroup">MoveGroup</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMoveGroup MoveGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_Parameters_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Parameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_Parameters" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanParameters Parameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_Seed_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Seed*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_Seed" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Seed">Seed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues Seed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_Start_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Start*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_Start" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Start">Start</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues Start { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_StartPose_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.StartPose*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_StartPose" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.StartPose">StartPose</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose StartPose { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_TargetPose_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.TargetPose*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_TargetPose" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.TargetPose">TargetPose</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose TargetPose { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_TaskSpaceParameters_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.TaskSpaceParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_TaskSpaceParameters" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.TaskSpaceParameters">TaskSpaceParameters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskSpacePlanParameters TaskSpaceParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.TaskSpacePlanParameters.html">TaskSpacePlanParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_VelocityScaling_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.VelocityScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_VelocityScaling" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.VelocityScaling">VelocityScaling</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? VelocityScaling { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_Build_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Build*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_Build_Xamla_Robotics_Motion_MovePoseArgs_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Build(Xamla.Robotics.Motion.MovePoseArgs)">Build(MovePoseArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IMovePoseOperation Build(MovePoseArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_Plan_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Plan*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_Plan" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.Plan">Plan()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IPlan Plan()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IPlan.html">IPlan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_ToArgs_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.ToArgs*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_ToArgs" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.ToArgs">ToArgs()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MovePoseArgs ToArgs()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_With_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.With*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_With_System_Action_Xamla_Robotics_Motion_MovePoseArgs__" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.With(System.Action{Xamla.Robotics.Motion.MovePoseArgs})">With(Action&lt;MovePoseArgs&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMovePoseOperation With(Action&lt;MovePoseArgs&gt; mutator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a>&gt;</td>
+        <td><span class="parametername">mutator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MovePoseOperationBase_With_" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.With*"></a>
+  <h4 id="Xamla_Robotics_Motion_MovePoseOperationBase_With_System_Func_Xamla_Robotics_Motion_MovePoseArgs_Xamla_Robotics_Motion_MovePoseArgs__" data-uid="Xamla.Robotics.Motion.MovePoseOperationBase.With(System.Func{Xamla.Robotics.Motion.MovePoseArgs,Xamla.Robotics.Motion.MovePoseArgs})">With(Func&lt;MovePoseArgs, MovePoseArgs&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMovePoseOperation With(Func&lt;MovePoseArgs, MovePoseArgs&gt; mutator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a>, <a class="xref" href="Xamla.Robotics.Motion.MovePoseArgs.html">MovePoseArgs</a>&gt;</td>
+        <td><span class="parametername">mutator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.IMoveOperation.html">IMoveOperation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MovePoseOperationExtensions.html#Xamla_Robotics_Motion_MovePoseOperationExtensions_WithVelocityScaling_Xamla_Robotics_Motion_IMovePoseOperation_System_Nullable_System_Double__">MovePoseOperationExtensions.WithVelocityScaling(IMovePoseOperation, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MovePoseOperationExtensions.html#Xamla_Robotics_Motion_MovePoseOperationExtensions_WithAccelerationScaling_Xamla_Robotics_Motion_IMovePoseOperation_System_Nullable_System_Double__">MovePoseOperationExtensions.WithAccelerationScaling(IMovePoseOperation, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MovePoseOperationExtensions.html#Xamla_Robotics_Motion_MovePoseOperationExtensions_WithArgs_Xamla_Robotics_Motion_IMovePoseOperation_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_Nullable_System_Double__">MovePoseOperationExtensions.WithArgs(IMovePoseOperation, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MovePoseOperationExtensions.html#Xamla_Robotics_Motion_MovePoseOperationExtensions_With_Xamla_Robotics_Motion_IMovePoseOperation_Xamla_Robotics_Motion_MoveArgs_">MovePoseOperationExtensions.With(IMovePoseOperation, MoveArgs)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

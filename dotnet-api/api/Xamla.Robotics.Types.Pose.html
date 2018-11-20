@@ -111,7 +111,8 @@
   
   <a id="Xamla_Robotics_Types_Pose__ctor_" data-uid="Xamla.Robotics.Types.Pose.#ctor*"></a>
   <h4 id="Xamla_Robotics_Types_Pose__ctor" data-uid="Xamla.Robotics.Types.Pose.#ctor">Pose()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a <code>Pose</code> with zero vector (0, 0, 0) and unit quaternion (0, 0, 0, 1).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -194,7 +195,7 @@
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">normalizeRotation</span></td>
-        <td><p>If true the rotation quaternion gets normalized.</p>
+        <td><p>If true the rotation quaternion is normalized (Length = 1 and W &gt; 0).</p>
 </td>
       </tr>
     </tbody>
@@ -372,7 +373,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool Equals(object other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -386,8 +387,9 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">obj</span></td>
-        <td></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another <code>object</code> that should be tested for similarity.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -709,6 +711,63 @@
   
   
   <a id="Xamla_Robotics_Types_Pose_Translate_" data-uid="Xamla.Robotics.Types.Pose.Translate*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_Translate_System_Double_System_Double_System_Double_" data-uid="Xamla.Robotics.Types.Pose.Translate(System.Double,System.Double,System.Double)">Translate(Double, Double, Double)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> translated in the axes x, y and z.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose Translate(double x = 0, double y = 0, double z = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Translation in X in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Translation in Y in meters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">z</span></td>
+        <td><p>Translation in Z in meters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>A new <code>Pose</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_Translate_" data-uid="Xamla.Robotics.Types.Pose.Translate*"></a>
   <h4 id="Xamla_Robotics_Types_Pose_Translate_System_Numerics_Vector3_" data-uid="Xamla.Robotics.Types.Pose.Translate(System.Numerics.Vector3)">Translate(Vector3)</h4>
   <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> translated by the given vector.</p>
 </div>
@@ -753,14 +812,13 @@
   </table>
   
   
-  <a id="Xamla_Robotics_Types_Pose_Translate_" data-uid="Xamla.Robotics.Types.Pose.Translate*"></a>
-  <h4 id="Xamla_Robotics_Types_Pose_Translate_System_Single_System_Single_System_Single_" data-uid="Xamla.Robotics.Types.Pose.Translate(System.Single,System.Single,System.Single)">Translate(Single, Single, Single)</h4>
-  <div class="markdown level1 summary"><p>Creates a new <code>Pose</code> translated in the axes x, y and z.</p>
-</div>
+  <a id="Xamla_Robotics_Types_Pose_WithFrame_" data-uid="Xamla.Robotics.Types.Pose.WithFrame*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_WithFrame_System_String_" data-uid="Xamla.Robotics.Types.Pose.WithFrame(System.String)">WithFrame(String)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Pose Translate(float x, float y, float z)</code></pre>
+    <pre><code class="lang-csharp hljs">public Pose WithFrame(string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -773,22 +831,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">x</span></td>
-        <td><p>Translation in X in meters.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">y</span></td>
-        <td><p>Translation in Y in meters.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">z</span></td>
-        <td><p>Translation in Z in meters.</p>
-</td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -803,8 +848,148 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
-        <td><p>A new <code>Pose</code></p>
-</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_WithRotation_" data-uid="Xamla.Robotics.Types.Pose.WithRotation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_WithRotation_System_Numerics_Quaternion_System_Boolean_" data-uid="Xamla.Robotics.Types.Pose.WithRotation(System.Numerics.Quaternion,System.Boolean)">WithRotation(Quaternion, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose WithRotation(Quaternion value, bool normalizeRotation = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Quaternion</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">normalizeRotation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_WithTranslation_" data-uid="Xamla.Robotics.Types.Pose.WithTranslation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_WithTranslation_System_Double_System_Double_System_Double_" data-uid="Xamla.Robotics.Types.Pose.WithTranslation(System.Double,System.Double,System.Double)">WithTranslation(Double, Double, Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose WithTranslation(double x = 0, double y = 0, double z = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">z</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_Pose_WithTranslation_" data-uid="Xamla.Robotics.Types.Pose.WithTranslation*"></a>
+  <h4 id="Xamla_Robotics_Types_Pose_WithTranslation_System_Numerics_Vector3_" data-uid="Xamla.Robotics.Types.Pose.WithTranslation(System.Numerics.Vector3)">WithTranslation(Vector3)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose WithTranslation(Vector3 value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Numerics.Vector3</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

@@ -553,6 +553,27 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the <code>JointSet</code> of <code data-dev-comment-type="paramref" class="paramref">jv</code> is not similar to the current <code>JointSet</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">jv</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Xamla_Robotics_Types_JointValues_Divide_" data-uid="Xamla.Robotics.Types.JointValues.Divide*"></a>
@@ -853,6 +874,77 @@
   </table>
   
   
+  <a id="Xamla_Robotics_Types_JointValues_MaxNorm_" data-uid="Xamla.Robotics.Types.JointValues.MaxNorm*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_MaxNorm" data-uid="Xamla.Robotics.Types.JointValues.MaxNorm">MaxNorm()</h4>
+  <div class="markdown level1 summary"><p>Computes max{ |j_0|, |j_1|, ... , |j_n| }, the maximum (or uniform , L-inifinity) norm of the joint values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaxNorm()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The maximum norm</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_MaxNorm_" data-uid="Xamla.Robotics.Types.JointValues.MaxNorm*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_MaxNorm_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointValues.MaxNorm(Xamla.Robotics.Types.JointValues)">MaxNorm(JointValues)</h4>
+  <div class="markdown level1 summary"><p>Computes max{ |j_0|, |j_1|, ... , |j_n| }, the maximum (or uniform , L-inifinity) norm of the joint values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double MaxNorm(JointValues j)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">j</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>Returns the maximum value of the absolute joint values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Xamla_Robotics_Types_JointValues_Merge_" data-uid="Xamla.Robotics.Types.JointValues.Merge*"></a>
   <h4 id="Xamla_Robotics_Types_JointValues_Merge_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointValues.Merge(Xamla.Robotics.Types.JointValues)">Merge(JointValues)</h4>
   <div class="markdown level1 summary"><p>Merge JointValues instance with others <code>JointValues</code>.</p>
@@ -968,6 +1060,102 @@ all Joints defined in this and the other JointValues instance.</p>
   </table>
   
   
+  <a id="Xamla_Robotics_Types_JointValues_Norm_" data-uid="Xamla.Robotics.Types.JointValues.Norm*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Norm_System_Double_" data-uid="Xamla.Robotics.Types.JointValues.Norm(System.Double)">Norm(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the p-norm of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Norm(double p = 2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">p</span></td>
+        <td><p>p-parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>Returns the p-norm of the JointValues.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_Norm_" data-uid="Xamla.Robotics.Types.JointValues.Norm*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_Norm_Xamla_Robotics_Types_JointValues_System_Double_" data-uid="Xamla.Robotics.Types.JointValues.Norm(Xamla.Robotics.Types.JointValues,System.Double)">Norm(JointValues, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the L^p-norm of a JointValues object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Norm(JointValues j, double p = 2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">j</span></td>
+        <td><p>JointValues instance</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">p</span></td>
+        <td><p>p-parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>Returns the p-norm of the JointValues.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Xamla_Robotics_Types_JointValues_Random_" data-uid="Xamla.Robotics.Types.JointValues.Random*"></a>
   <h4 id="Xamla_Robotics_Types_JointValues_Random_Xamla_Robotics_Types_JointLimits_" data-uid="Xamla.Robotics.Types.JointValues.Random(Xamla.Robotics.Types.JointLimits)">Random(JointLimits)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of <code>JointSet</code> with random values assigned that lie within the given joint limits.</p>
@@ -1007,6 +1195,27 @@ all Joints defined in this and the other JointValues instance.</p>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
         <td><p>A new instance of <code>JointValues</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when for at least one joint a limit is missing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">limits</code> is null.</p>
 </td>
       </tr>
     </tbody>
@@ -1136,11 +1345,28 @@ all Joints defined in this and the other JointValues instance.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">newOrder</code> is not a permutation of the names in the <code>JointSet</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Xamla_Robotics_Types_JointValues_Select_" data-uid="Xamla.Robotics.Types.JointValues.Select*"></a>
   <h4 id="Xamla_Robotics_Types_JointValues_Select_Xamla_Robotics_Types_JointSet_" data-uid="Xamla.Robotics.Types.JointValues.Select(Xamla.Robotics.Types.JointSet)">Select(JointSet)</h4>
-  <div class="markdown level1 summary"><p>Creates a new <code>JointValues</code> instance that contains only values for joints of the given <code>JointSet</code>.</p>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointValues</code> instance that contains only values for joints of the given <code>JointSet</code>.
+The <code data-dev-comment-type="paramref" class="paramref">subset</code> parameter defines the new order of the joints in the resulting <code>JointValues</code> object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1177,6 +1403,22 @@ all Joints defined in this and the other JointValues instance.</p>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
         <td><p>A new instance of <code>JointValues</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">subset</code> is not a subset of the names the <code>JointSet</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -1228,6 +1470,27 @@ all Joints defined in this and the other JointValues instance.</p>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
         <td><p>A new instance of <code>JointValues</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">jointSet</code> is not a subset of the names the <code>JointSet</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the number of elements in the <code data-dev-comment-type="paramref" class="paramref">values</code> list does not match the number of joints in the <code data-dev-comment-type="paramref" class="paramref">jointSet</code> argument.</p>
 </td>
       </tr>
     </tbody>
@@ -1365,6 +1628,27 @@ all Joints defined in this and the other JointValues instance.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the <code>JointSet</code> of <code data-dev-comment-type="paramref" class="paramref">jv</code> is not similar to the current <code>JointSet</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">jv</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Xamla_Robotics_Types_JointValues_ToA_" data-uid="Xamla.Robotics.Types.JointValues.ToA*"></a>
@@ -1442,6 +1726,31 @@ all Joints defined in this and the other JointValues instance.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointValues_ToV_" data-uid="Xamla.Robotics.Types.JointValues.ToV*"></a>
+  <h4 id="Xamla_Robotics_Types_JointValues_ToV" data-uid="Xamla.Robotics.Types.JointValues.ToV">ToV()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public V&lt;double&gt; ToV()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Xamla.Types.V</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Xamla_Robotics_Types_JointValues_Transform_" data-uid="Xamla.Robotics.Types.JointValues.Transform*"></a>
@@ -1589,6 +1898,22 @@ all Joints defined in this and the other JointValues instance.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IndexOutOfRangeException</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">index</code> is out of bound.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Xamla_Robotics_Types_JointValues_WithValue_" data-uid="Xamla.Robotics.Types.JointValues.WithValue*"></a>
@@ -1636,6 +1961,22 @@ all Joints defined in this and the other JointValues instance.</p>
       <tr>
         <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
         <td><p>A new instance of <code>JointValues</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><p>Thrown when the given <code data-dev-comment-type="paramref" class="paramref">name</code> is not one of the names in the current <code>JointSet</code>.</p>
 </td>
       </tr>
     </tbody>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class WeissWsgServices
+    <title>Class MoveJointPathOperation
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class WeissWsgServices
+    <meta name="title" content="Class MoveJointPathOperation
    ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -68,22 +68,22 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.WeissWsgServices">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation">
   
   
-  <h1 id="Xamla_Robotics_Motion_WeissWsgServices" data-uid="Xamla.Robotics.Motion.WeissWsgServices" class="text-break">Class WeissWsgServices
+  <h1 id="Xamla_Robotics_Motion_MoveJointPathOperation" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation" class="text-break">Class MoveJointPathOperation
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">WeissWsgServices</span></div>
+    <div class="level1"><span class="xref">MoveJointPathOperation</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="Xamla.Robotics.Motion.IWeissWsgServices.html">IWeissWsgServices</a></div>
-    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IMoveJointPathOperation.html">IMoveJointPathOperation</a></div>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IMoveOperation.html">IMoveOperation</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,21 +111,21 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
   <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
-  <h5 id="Xamla_Robotics_Motion_WeissWsgServices_syntax">Syntax</h5>
+  <h5 id="Xamla_Robotics_Motion_MoveJointPathOperation_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WeissWsgServices : IWeissWsgServices, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class MoveJointPathOperation : IMoveJointPathOperation, IMoveOperation</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices__ctor_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.#ctor*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices__ctor_Rosvita_RosMonitor_IRosClientLibrary_Xamla_Robotics_Motion_WeissWsgPropertiesModel_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.#ctor(Rosvita.RosMonitor.IRosClientLibrary,Xamla.Robotics.Motion.WeissWsgPropertiesModel)">WeissWsgServices(IRosClientLibrary, WeissWsgPropertiesModel)</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation__ctor_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation__ctor_Xamla_Robotics_Motion_MoveJointPathArgs_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.#ctor(Xamla.Robotics.Motion.MoveJointPathArgs)">MoveJointPathOperation(MoveJointPathArgs)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WeissWsgServices(IRosClientLibrary rosClient, WeissWsgPropertiesModel properties)</code></pre>
+    <pre><code class="lang-csharp hljs">public MoveJointPathOperation(MoveJointPathArgs args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -138,13 +138,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Rosvita.RosMonitor.IRosClientLibrary</span></td>
-        <td><span class="parametername">rosClient</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Xamla.Robotics.Motion.WeissWsgPropertiesModel.html">WeissWsgPropertiesModel</a></td>
-        <td><span class="parametername">properties</span></td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.MoveJointPathArgs.html">MoveJointPathArgs</a></td>
+        <td><span class="parametername">args</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -153,13 +148,13 @@
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_IsReady_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.IsReady*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_IsReady" data-uid="Xamla.Robotics.Motion.WeissWsgServices.IsReady">IsReady</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_AccelerationScaling_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.AccelerationScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_AccelerationScaling" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.AccelerationScaling">AccelerationScaling</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsReady { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public double? AccelerationScaling { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -171,7 +166,132 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_MoveGroup_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.MoveGroup*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_MoveGroup" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.MoveGroup">MoveGroup</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMoveGroup MoveGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_Parameters_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Parameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_Parameters" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanParameters Parameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.PlanParameters.html">PlanParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_Start_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Start*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_Start" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Start">Start</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues Start { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_VelocityScaling_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.VelocityScaling*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_VelocityScaling" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.VelocityScaling">VelocityScaling</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? VelocityScaling { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_Waypoints_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Waypoints*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_Waypoints" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Waypoints">Waypoints</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Waypoints { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -180,13 +300,13 @@
   </h3>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_AcknowledgeError_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.AcknowledgeError*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_AcknowledgeError" data-uid="Xamla.Robotics.Motion.WeissWsgServices.AcknowledgeError">AcknowledgeError()</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_Plan_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Plan*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_Plan" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.Plan">Plan()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task AcknowledgeError()</code></pre>
+    <pre><code class="lang-csharp hljs">public IPlan Plan()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,30 +318,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IPlan.html">IPlan</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Dispose_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Dispose*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Dispose" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Dispose">Dispose()</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_ToArgs_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.ToArgs*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_ToArgs" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.ToArgs">ToArgs()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_GetProperties_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.GetProperties*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_GetProperties" data-uid="Xamla.Robotics.Motion.WeissWsgServices.GetProperties">GetProperties()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;WeissWsgPropertiesModel&gt; GetProperties()</code></pre>
+    <pre><code class="lang-csharp hljs">public MoveJointPathArgs ToArgs()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -233,45 +343,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.WeissWsgPropertiesModel.html">WeissWsgPropertiesModel</a>&gt;</td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.MoveJointPathArgs.html">MoveJointPathArgs</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_GetStatus_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.GetStatus*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_GetStatus" data-uid="Xamla.Robotics.Motion.WeissWsgServices.GetStatus">GetStatus()</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_With_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.With*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_With_System_Action_Xamla_Robotics_Motion_MoveJointPathArgs__" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.With(System.Action{Xamla.Robotics.Motion.MoveJointPathArgs})">With(Action&lt;MoveJointPathArgs&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Status&gt; GetStatus()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Messages.wsg_50.Status</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Grasp_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Grasp*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Grasp_System_Double_System_Double_System_Double_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Grasp(System.Double,System.Double,System.Double)">Grasp(Double, Double, Double)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Grasp(double position, double speed, double force)</code></pre>
+    <pre><code class="lang-csharp hljs">public IMoveJointPathOperation With(Action&lt;MoveJointPathArgs&gt; mutator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -284,18 +369,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">position</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">speed</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">force</span></td>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.MoveJointPathArgs.html">MoveJointPathArgs</a>&gt;</td>
+        <td><span class="parametername">mutator</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -310,45 +385,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveJointPathOperation.html">IMoveJointPathOperation</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Homing_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Homing*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Homing" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Homing">Homing()</h4>
+  <a id="Xamla_Robotics_Motion_MoveJointPathOperation_With_" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.With*"></a>
+  <h4 id="Xamla_Robotics_Motion_MoveJointPathOperation_With_System_Func_Xamla_Robotics_Motion_MoveJointPathArgs_Xamla_Robotics_Motion_MoveJointPathArgs__" data-uid="Xamla.Robotics.Motion.MoveJointPathOperation.With(System.Func{Xamla.Robotics.Motion.MoveJointPathArgs,Xamla.Robotics.Motion.MoveJointPathArgs})">With(Func&lt;MoveJointPathArgs, MoveJointPathArgs&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Homing()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Move_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Move*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Move_System_Double_System_Double_System_Double_System_Boolean_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Move(System.Double,System.Double,System.Double,System.Boolean)">Move(Double, Double, Double, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Move(double position, double speed, double force, bool stopOnBlock = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public IMoveJointPathOperation With(Func&lt;MoveJointPathArgs, MoveJointPathArgs&gt; mutator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -361,23 +411,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">position</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">speed</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">force</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">stopOnBlock</span></td>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="Xamla.Robotics.Motion.MoveJointPathArgs.html">MoveJointPathArgs</a>, <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathArgs.html">MoveJointPathArgs</a>&gt;</td>
+        <td><span class="parametername">mutator</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -392,131 +427,36 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Release_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Release*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Release_System_Double_System_Double_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Release(System.Double,System.Double)">Release(Double, Double)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Release(double position, double speed)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">position</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">speed</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_SetAcceleration_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.SetAcceleration*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_SetAcceleration_System_Double_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.SetAcceleration(System.Double)">SetAcceleration(Double)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; SetAcceleration(double acceleration)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">acceleration</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Xamla_Robotics_Motion_WeissWsgServices_Stop_" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Stop*"></a>
-  <h4 id="Xamla_Robotics_Motion_WeissWsgServices_Stop" data-uid="Xamla.Robotics.Motion.WeissWsgServices.Stop">Stop()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Stop()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveJointPathOperation.html">IMoveJointPathOperation</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="Xamla.Robotics.Motion.IWeissWsgServices.html">IWeissWsgServices</a>
+      <a class="xref" href="Xamla.Robotics.Motion.IMoveJointPathOperation.html">IMoveJointPathOperation</a>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="Xamla.Robotics.Motion.IMoveOperation.html">IMoveOperation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_WithStart_Xamla_Robotics_Motion_IMoveJointPathOperation_Xamla_Robotics_Types_JointValues_">MoveJointPathOperationExtensions.WithStart(IMoveJointPathOperation, JointValues)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_WithCollisionCheck_Xamla_Robotics_Motion_IMoveJointPathOperation_System_Boolean_">MoveJointPathOperationExtensions.WithCollisionCheck(IMoveJointPathOperation, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_WithVelocityScaling_Xamla_Robotics_Motion_IMoveJointPathOperation_System_Nullable_System_Double__">MoveJointPathOperationExtensions.WithVelocityScaling(IMoveJointPathOperation, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_WithAccelerationScaling_Xamla_Robotics_Motion_IMoveJointPathOperation_System_Nullable_System_Double__">MoveJointPathOperationExtensions.WithAccelerationScaling(IMoveJointPathOperation, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_WithArgs_Xamla_Robotics_Motion_IMoveJointPathOperation_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_Nullable_System_Double__">MoveJointPathOperationExtensions.WithArgs(IMoveJointPathOperation, Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html#Xamla_Robotics_Motion_MoveJointPathOperationExtensions_With_Xamla_Robotics_Motion_IMoveJointPathOperation_Xamla_Robotics_Motion_MoveArgs_">MoveJointPathOperationExtensions.With(IMoveJointPathOperation, MoveArgs)</a>
   </div>
 </article>
           </div>

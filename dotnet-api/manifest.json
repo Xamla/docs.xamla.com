@@ -17,11 +17,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.DiscontinuityException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.DiscontinuityException.html",
+          "hash": "FdO4Cc98HkToJ5uHkf7ezA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Xamla.Robotics.Motion.EndEffector.yml",
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.EndEffector.html",
-          "hash": "EE9K3oHEiQgQ7v3H5t4YRw=="
+          "hash": "LVTzJBbDJWeMsVE5zNw2dQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.IEndEffector.html",
-          "hash": "U8sZWuqWXbdrkvrmHqDBag=="
+          "hash": "8TWZUsqqcSKMhStu7s82/g=="
         }
       },
       "is_incremental": false,
@@ -69,7 +81,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.IMotionService.html",
-          "hash": "uqL7YlhdxCsfucNLuwk7VA=="
+          "hash": "bVnfV7Jz80rimI2KV3Cs4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveCartesianPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveCartesianPathOperation.html",
+          "hash": "Ljtr0uoKceuOxkV0qF12Jg=="
         }
       },
       "is_incremental": false,
@@ -81,7 +105,67 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.IMoveGroup.html",
-          "hash": "rG3S9Fj8r+SULe0ADLIEcg=="
+          "hash": "mk53hCQhMz5R/veuTQEmtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveJointPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveJointPathOperation.html",
+          "hash": "9qAjHzSWhwqDaCQkSyjRBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveJointsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveJointsOperation.html",
+          "hash": "Wx4PXy4E7wh0NFG7iRbPKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveOperation.html",
+          "hash": "c2BSh58bHdNDYuO+oJ+pYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMovePoseOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMovePoseOperation.html",
+          "hash": "dTM6QuGZPWyAA236EyTMMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IPlan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IPlan.html",
+          "hash": "HOc5DrcM6MKxRpbQCgnG2w=="
         }
       },
       "is_incremental": false,
@@ -93,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.ISteppedMotionClient.html",
-          "hash": "OufIb2ojzLELg/eqUb590w=="
+          "hash": "paXyjad1D8kOkGXuA60LAA=="
         }
       },
       "is_incremental": false,
@@ -165,7 +249,67 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.MotionService.html",
-          "hash": "hLdMcma7beggEAJ30mU4vg=="
+          "hash": "xCLAT4vYXse3s/lU5LX2Hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveArgs.html",
+          "hash": "b1ve6okMY9g+dP38GCR5Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathArgs.html",
+          "hash": "0Fj9eClpplItYuFhBBzjMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathLinearOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathLinearOperation.html",
+          "hash": "tEORP786/R1e55ptHJCpqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperation.html",
+          "hash": "X27kST65q4Z5HJqv0uRRXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperationExtensions.html",
+          "hash": "uYJnSBxorST7JzjtCy0ZVw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +321,175 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.MoveGroup.html",
-          "hash": "XIBrGP0zF+Z2xct82yoxUw=="
+          "hash": "1V8LL18Gl+A+KJ3LAiks0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathArgs.html",
+          "hash": "pNk13QvjJgZpmcHuhhkGMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperation.html",
+          "hash": "5j4s9uOLoBea1RbvBj45ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html",
+          "hash": "/44g7yz6s0PCSaMfIMj2iA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsArgs.html",
+          "hash": "d4uDEvHli1BxNfzC5NftjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsCollisionFreeOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsCollisionFreeOperation.html",
+          "hash": "5gOGO4o7udv3+mXIF40kWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperation.html",
+          "hash": "OuBj2Y8XbY5Lp1fF8QzHDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperationBase.html",
+          "hash": "pSeSJx//C/R6V/1MHnALNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseArgs.html",
+          "hash": "LA2l10QNu7xFL76zjyW3ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseCollisionFreeOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseCollisionFreeOperation.html",
+          "hash": "Sz6Ats/IOjLs18G6/iEyLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseLinearOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseLinearOperation.html",
+          "hash": "jnrQGkm+0HHhZmFNQr5E9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationBase.html",
+          "hash": "hXatI9izvr8DAebEOuJ5dA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationExtensions.html",
+          "hash": "u+z8p6fDA7TSgLrSLfSgIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.OperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.OperationExtensions.html",
+          "hash": "L7ofZhPJNT4sekACe4efRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.Plan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.Plan.html",
+          "hash": "FyKp/yaS+Brl1HcZo02QGw=="
         }
       },
       "is_incremental": false,
@@ -213,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClient.html",
-          "hash": "XRH92EB7SWnQnz3reSxdXg=="
+          "hash": "Ca14BttnoxyXLp48kkGWKw=="
         }
       },
       "is_incremental": false,
@@ -225,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClientExtensions.html",
-          "hash": "6W28LJD7O980ly41l8nxnw=="
+          "hash": "N+uyRujft7d9xPYD/4uoVw=="
         }
       },
       "is_incremental": false,
@@ -273,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.WeissWsgServices.html",
-          "hash": "Qng0WKvb45VwcXBf7+oqhw=="
+          "hash": "Okg0POjEQzpwEyUKtOVb7Q=="
         }
       },
       "is_incremental": false,
@@ -285,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Motion.html",
-          "hash": "pSvZAWmSP/63kpJD/Q1u/w=="
+          "hash": "CteCGZG1GeNCIPGEu0p6jQ=="
         }
       },
       "is_incremental": false,
@@ -333,7 +645,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.CollisionPrimitive.html",
-          "hash": "VM9m4rFixzB7jFISm+tUeg=="
+          "hash": "fTzIcNvQepNj6i4Occv21A=="
         }
       },
       "is_incremental": false,
@@ -441,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.IJointTrajectory.html",
-          "hash": "oSEaeNhgQf+gbIyEJt4drQ=="
+          "hash": "W3G/h78xRNwvQrSW2N21JQ=="
         }
       },
       "is_incremental": false,
@@ -477,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointPath.html",
-          "hash": "xvqE8CSHxSen7X8/Kl0mlA=="
+          "hash": "0SUeMKf2zSJ/OKWtpgn5Cw=="
         }
       },
       "is_incremental": false,
@@ -501,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointSet.html",
-          "hash": "mQlgQZ0yBfoYdIgVVMcuSQ=="
+          "hash": "UnfpqP1LRc7m0Zl3BVVzfA=="
         }
       },
       "is_incremental": false,
@@ -513,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointStates.html",
-          "hash": "8CiZlZqHKo+yVH+6InQQcw=="
+          "hash": "/RTpZUJd8vqy4lYt71PGbg=="
         }
       },
       "is_incremental": false,
@@ -525,7 +837,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointTrajectory.html",
-          "hash": "WKoMcS9ylOO7wbqitY5DUw=="
+          "hash": "vm6/EuP+xu1B+m5Nv1pOJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointTrajectoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointTrajectoryExtensions.html",
+          "hash": "OLVuYDiiGYL4avVCENLD2w=="
         }
       },
       "is_incremental": false,
@@ -549,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointTrajectoryPoint.html",
-          "hash": "jRtm2fyR/A4T0CTsdEyhmA=="
+          "hash": "HB6PDG5DmhWLA+PTgqiq/w=="
         }
       },
       "is_incremental": false,
@@ -561,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.JointValues.html",
-          "hash": "YADstz+jt506wBmyHvsu0A=="
+          "hash": "kVcpj/ShxMKgWy9Sd2vngQ=="
         }
       },
       "is_incremental": false,
@@ -1053,7 +1377,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.PlanParameters.html",
-          "hash": "B0hRFP8APTHBHYaa5AOo6Q=="
+          "hash": "7W4cH3UY0pVbz65qKLfREw=="
         }
       },
       "is_incremental": false,
@@ -1065,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.Pose.html",
-          "hash": "EYnra691sCVCt9UiW1FYDg=="
+          "hash": "ZRJ2Nog0sLOJQo23ETqGwQ=="
         }
       },
       "is_incremental": false,
@@ -1149,7 +1473,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Xamla.Robotics.Types.html",
-          "hash": "jBzcilTdXWj5PC9hipNsrg=="
+          "hash": "fJ3KH7t8J8X1Jqz1090PeA=="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1497,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "fMDMYirvw6BpFk8uX4sJjg=="
+          "hash": "RScL1S+DNQU3fkZO6LDk5g=="
         }
       },
       "is_incremental": false,
@@ -1239,17 +1563,17 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

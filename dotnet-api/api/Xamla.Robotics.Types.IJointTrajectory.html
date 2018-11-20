@@ -124,6 +124,32 @@
   </table>
   
   
+  <a id="Xamla_Robotics_Types_IJointTrajectory_Begin_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Begin*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_Begin" data-uid="Xamla.Robotics.Types.IJointTrajectory.Begin">Begin</h4>
+  <div class="markdown level1 summary"><p>Returns the first point of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">JointTrajectoryPoint Begin { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Xamla_Robotics_Types_IJointTrajectory_Duration_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Duration*"></a>
   <h4 id="Xamla_Robotics_Types_IJointTrajectory_Duration" data-uid="Xamla.Robotics.Types.IJointTrajectory.Duration">Duration</h4>
   <div class="markdown level1 summary"><p>Gets the total duration of the trajectory.</p>
@@ -170,6 +196,32 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_End_" data-uid="Xamla.Robotics.Types.IJointTrajectory.End*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_End" data-uid="Xamla.Robotics.Types.IJointTrajectory.End">End</h4>
+  <div class="markdown level1 summary"><p>Returns the last point of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">JointTrajectoryPoint End { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -502,6 +554,261 @@
   </table>
   
   
+  <a id="Xamla_Robotics_Types_IJointTrajectory_EvaluateAt_" data-uid="Xamla.Robotics.Types.IJointTrajectory.EvaluateAt*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_EvaluateAt_System_TimeSpan_" data-uid="Xamla.Robotics.Types.IJointTrajectory.EvaluateAt(System.TimeSpan)">EvaluateAt(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the trajectory at a given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">JointTrajectoryPoint EvaluateAt(TimeSpan time)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>The time index at which the trajectory should be evaluated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td><p>An instance of <code>JointTrajectoryPoint</code> at the given time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_Merge_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_Merge_Xamla_Robotics_Types_IJointTrajectory_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Merge(Xamla.Robotics.Types.IJointTrajectory)">Merge(IJointTrajectory)</h4>
+  <div class="markdown level1 summary"><p>Merges the current joint trajectory and the given other joint trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IJointTrajectory Merge(IJointTrajectory b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_Merge_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_Merge_Xamla_Robotics_Types_IJointTrajectory_System_TimeSpan_System_TimeSpan_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Merge(Xamla.Robotics.Types.IJointTrajectory,System.TimeSpan,System.TimeSpan)">Merge(IJointTrajectory, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Merges the current joint trajectory and the given other joint trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IJointTrajectory Merge(IJointTrajectory other, TimeSpan delayA, TimeSpan delayB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The joint trajectory that the current joint trajectory should be merged with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayA</span></td>
+        <td><p>The delay of the current <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayB</span></td>
+        <td><p>The delay of the other <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_Reverse_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Reverse*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_Reverse" data-uid="Xamla.Robotics.Types.IJointTrajectory.Reverse">Reverse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IJointTrajectory Reverse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_Sample_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Sample*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_Sample_System_TimeSpan_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Sample(System.TimeSpan)">Sample(TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;JointTrajectoryPoint&gt; Sample(TimeSpan dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_IJointTrajectory_ScaleVelocity_" data-uid="Xamla.Robotics.Types.IJointTrajectory.ScaleVelocity*"></a>
+  <h4 id="Xamla_Robotics_Types_IJointTrajectory_ScaleVelocity_System_Double_" data-uid="Xamla.Robotics.Types.IJointTrajectory.ScaleVelocity(System.Double)">ScaleVelocity(Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IJointTrajectory ScaleVelocity(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Xamla_Robotics_Types_IJointTrajectory_Sub_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Sub*"></a>
   <h4 id="Xamla_Robotics_Types_IJointTrajectory_Sub_System_Int32_System_Int32_" data-uid="Xamla.Robotics.Types.IJointTrajectory.Sub(System.Int32,System.Int32)">Sub(Int32, Int32)</h4>
   <div class="markdown level1 summary"><p>Returns the sub trajectory defined by the given start index and end index.</p>
@@ -597,6 +904,9 @@
     </tbody>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.JointTrajectoryExtensions.html#Xamla_Robotics_Types_JointTrajectoryExtensions_EvaluateAt_Xamla_Robotics_Types_IJointTrajectory_System_Double_">JointTrajectoryExtensions.EvaluateAt(IJointTrajectory, Double)</a>
+  </div>
   <div>
       <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_IJointTrajectory_">ModelConversionExtensions.ToModel(IJointTrajectory)</a>
   </div>
