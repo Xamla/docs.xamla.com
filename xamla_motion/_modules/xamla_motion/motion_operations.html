@@ -1,0 +1,1419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.motion_operations &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.motion_operations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.motion_operations</h1><div class="highlight"><pre>
+<span></span><span class="c1"># motion_operations.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="c1"># later replace with dataclass in python3.6 &gt; available</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.data_types</span> <span class="k">import</span> <span class="p">(</span><span class="n">CartesianPath</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span>
+                         <span class="n">JointValues</span><span class="p">,</span> <span class="n">PlanParameters</span><span class="p">,</span> <span class="n">Pose</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.motion_service</span> <span class="k">import</span> <span class="n">SteppedMotionClient</span>
+<span class="kn">from</span> <span class="nn">.xamla_motion_exceptions</span> <span class="k">import</span> <span class="n">ServiceException</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">xamla_motion.v2.motion_client</span> <span class="k">import</span> <span class="n">EndEffector</span><span class="p">,</span> <span class="n">MoveGroup</span>
+
+
+<span class="k">class</span> <span class="nc">MoveArgs</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base move data class to exchange between client and operation classes</span>
+
+<span class="sd">    All properties are initialized with None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collision_check</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sample_resolution</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_deviation</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">move_group</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;xamla_motion.v2.MoveGroup&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span>
+
+    <span class="nd">@move_group</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">move_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group</span><span class="p">:</span> <span class="s1">&#39;xamla_motion.v2.MoveGroup&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span> <span class="o">=</span> <span class="n">move_group</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span>
+
+    <span class="nd">@velocity_scaling</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span>
+
+    <span class="nd">@acceleration_scaling</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span> <span class="o">=</span> <span class="n">acceleration_scaling</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collision_check</span>
+
+    <span class="nd">@collision_check</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collision_check</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_resolution</span>
+
+    <span class="nd">@sample_resolution</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_resolution</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sample_resolution</span> <span class="o">=</span> <span class="n">sample_resolution</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_deviation</span>
+
+    <span class="nd">@max_deviation</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_deviation</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
+
+
+<span class="k">class</span> <span class="nc">MoveJointsArgs</span><span class="p">(</span><span class="n">MoveArgs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move joints data class to exchange between client and operation classes</span>
+
+<span class="sd">    All properties are initialized with None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsArgs</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span>
+
+    <span class="nd">@start</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">start</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+
+    <span class="nd">@target</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">target</span>
+
+
+<span class="k">class</span> <span class="nc">MoveCartesianArgs</span><span class="p">(</span><span class="n">MoveJointsArgs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move cartesian data class to exchange between client and operation classes</span>
+
+<span class="sd">    All properties are initialized with None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianArgs</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ik_jump_threshold</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">end_effector</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;xamla_motion.v2.EndEffector&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span>
+
+    <span class="nd">@end_effector</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">end_effector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end_effector</span><span class="p">:</span> <span class="s1">&#39;xamla_motion.v2.EndEffector&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span> <span class="o">=</span> <span class="n">end_effector</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span>
+
+    <span class="nd">@start</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">start</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+
+    <span class="nd">@target</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">target</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">seed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JointValues</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span>
+
+    <span class="nd">@seed</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="n">JointValues</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="o">=</span> <span class="n">seed</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ik_jump_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ik_jump_threshold</span>
+
+    <span class="nd">@ik_jump_threshold</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ik_jump_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ik_jump_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ik_jump_threshold</span> <span class="o">=</span> <span class="n">ik_jump_threshold</span>
+
+
+<div class="viewcode-block" id="Plan"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.Plan">[docs]</a><span class="k">class</span> <span class="nc">Plan</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plan holds a planned trajectory and offer methods for path execution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group</span><span class="p">:</span> <span class="s1">&#39;xamla_motion.v2.MoveGroup&#39;</span><span class="p">,</span>
+                 <span class="n">trajectory</span><span class="p">:</span> <span class="n">JointTrajectory</span><span class="p">,</span>
+                 <span class="n">parameters</span><span class="p">:</span> <span class="n">PlanParameters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of Plan</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        move_group : xamla_motion.v2.MoveGroup</span>
+<span class="sd">            Move group which should execute the trajectory</span>
+<span class="sd">        trajectory : JointTrajectory</span>
+<span class="sd">            Planned trajectory which should be executed</span>
+<span class="sd">        parameters : PlanParameters</span>
+<span class="sd">            Defines properties and limits with which the</span>
+<span class="sd">            trajectory is planned</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span> <span class="o">=</span> <span class="n">move_group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trajectory</span> <span class="o">=</span> <span class="n">trajectory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">move_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        move_group : xamla_motion.v2.MoveGroup (read only)</span>
+<span class="sd">            Move group which executes the trajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trajectory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        trajectory : JointTrajectory</span>
+<span class="sd">            Trajectory which is the execution target</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trajectory</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        parameters : PlanParameters</span>
+<span class="sd">            PlanParameters with which the trajectory was planned</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span>
+
+<div class="viewcode-block" id="Plan.execute_async"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.Plan.execute_async">[docs]</a>    <span class="k">def</span> <span class="nf">execute_async</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes trajectory asynchronously</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Task : asyncio.Task</span>
+<span class="sd">            Task which asynchronously execute trajectory</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If trajectory is not of type JointTrajectory</span>
+<span class="sd">            or if collision_check is not convertable to bool</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If execution ends not successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span>
+        <span class="k">return</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">execute_joint_trajectory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trajectory</span><span class="p">,</span>
+                                                                       <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Plan.execute_supervised"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.Plan.execute_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">execute_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates executor for supervised trajectory execution</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        SteppedMotionClient</span>
+<span class="sd">            Executor client for supervised trajectory execution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span>
+        <span class="k">return</span> <span class="n">services</span><span class="o">.</span><span class="n">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trajectory</span><span class="p">,</span>
+                                                            <span class="mf">1.0</span><span class="p">,</span>
+                                                            <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">MoveOperation</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize common move operation args</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">move_group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">velocity_scaling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">acceleration_scaling</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">_build_plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span><span class="p">,</span>
+                                                    <span class="n">args</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                    <span class="n">args</span><span class="o">.</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                    <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span><span class="p">,</span>
+                                                    <span class="n">args</span><span class="o">.</span><span class="n">sample_resolution</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">move_group</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;xamla_motion.v2.MoveGroup&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        move_group : xamla_motion.v2.MoveGroup (read only)</span>
+<span class="sd">            selected move group for move operation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        velocity_scaling : float (read only)</span>
+<span class="sd">            current velocity_scaling</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        acceleration_scaling : float</span>
+<span class="sd">            current acceleration scaling</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PlanParameters</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        plan_parameters : PlanParameters</span>
+<span class="sd">            current plan parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_with_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">to_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="MoveJointsOperation"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation">[docs]</a><span class="k">class</span> <span class="nc">MoveJointsOperation</span><span class="p">(</span><span class="n">MoveOperation</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveJointsArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of MoveJointsOperation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args : MoveJointsArgs</span>
+<span class="sd">            move joint args which define the move operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperation</span>
+<span class="sd">            Instance of MoveJointsOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MoveJointsOperation.plan"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.plan">[docs]</a>    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Planes a trajectory with defined properties</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan which holds the planned</span>
+<span class="sd">            trajectory and methods to creates executors for it</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If trajectory planning service is not available or finish</span>
+<span class="sd">            unsuccessfully</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">JointPath</span><span class="o">.</span><span class="n">from_start_stop_point</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">)</span>
+        <span class="n">joint_path</span> <span class="o">=</span> <span class="n">JointPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">joint_path</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Plan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveJointsArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a new instance of MoveJointsOperations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_with_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_args</span><span class="p">()))</span>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_start"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_start">[docs]</a>    <span class="k">def</span> <span class="nf">with_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified start joint value</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        joint_value : JointValues or None</span>
+<span class="sd">            defines start joint configuration if non</span>
+<span class="sd">            current robot state is used</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified start value</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If joint_value is not of expected type JointValue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_value</span><span class="p">,</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">JointValues</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;value is not of expected type JointValues&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_start</span><span class="p">(</span><span class="n">joint_value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_velocity_scaling"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_velocity_scaling">[docs]</a>    <span class="k">def</span> <span class="nf">with_velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified velocity limits</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        velocity_scaling : float convertable</span>
+<span class="sd">            scale hard velocity limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified velocity limits</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If velocity_scaling is not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If velocity_scaling is not in range 0.0, 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_velocity_scaling</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_acceleration_scaling"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_acceleration_scaling">[docs]</a>    <span class="k">def</span> <span class="nf">with_acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified velocity limits</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        acceleration_scaling : float convertable</span>
+<span class="sd">            scale hard acceleration limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified acceleration limits</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If acceleration_scaling is not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If acceleration_scaling is not in range 0.0, 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_acceleration_scaling</span><span class="p">(</span><span class="n">acceleration_scaling</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_collision_check"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_collision_check">[docs]</a>    <span class="k">def</span> <span class="nf">with_collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collision_check</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified collision check flag</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        collision_check : bool (default True)</span>
+<span class="sd">            If True collisions with collision objects in worldview are check</span>
+<span class="sd">            in the planning stage</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified collision check flag</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If collision check is of expected type bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_collision_check</span><span class="p">(</span><span class="n">collision_check</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_sample_resolution"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_sample_resolution">[docs]</a>    <span class="k">def</span> <span class="nf">with_sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_resolution</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified sample resolution</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample_resolution : float convertable</span>
+<span class="sd">            sampling resolution of trajectory in Hz</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified sample resolution</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If sample_resolution is not float convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_sample_resolution</span><span class="p">(</span><span class="n">sample_resolution</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_max_deviation"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_max_deviation">[docs]</a>    <span class="k">def</span> <span class="nf">with_max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_deviation</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperation with modified max deviation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        max_deviation : float convertable</span>
+<span class="sd">            defines the maximal deviation from trajectory points</span>
+<span class="sd">            when it is a fly-by-point in joint space</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified max deviation</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If max_deviation is not float convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_max_deviation</span><span class="p">(</span><span class="n">max_deviation</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.with_args"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.with_args">[docs]</a>    <span class="k">def</span> <span class="nf">with_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">sample_resolution</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveJointsOperations with multiple modified properties</span>
+
+<span class="sd">        All None assigned arguments take the current property values</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        velocity_scaling : float convertable (default None)</span>
+<span class="sd">            scale hard velocity limits by defined factor</span>
+<span class="sd">        collision_check : bool (default None)</span>
+<span class="sd">            If True collisions with collision objects in worldview are check</span>
+<span class="sd">            in the planning stage</span>
+<span class="sd">        max_deviation : float convertable</span>
+<span class="sd">            defines the maximal deviation from trajectory points</span>
+<span class="sd">            when it is a fly-by-point in joint space</span>
+<span class="sd">        sample_resolution : float convertable</span>
+<span class="sd">            sampling resolution of trajectory in Hz</span>
+<span class="sd">        acceleration_scaling : float convertable</span>
+<span class="sd">            scale hard acceleration limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations or child of it (MoveJointsCollisionFreeOperations)</span>
+<span class="sd">            New instance with modified properties</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If velocity_scaling, max_deviation, sample_resolution and</span>
+<span class="sd">            acceleration_scaling are not None or not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If velocity_scaling or acceleration scaling are not None</span>
+<span class="sd">            and no lie in range 0.0 to 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">velocity_scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
+            <span class="k">if</span> <span class="n">collision_check</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
+            <span class="k">if</span> <span class="n">max_deviation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
+            <span class="k">if</span> <span class="n">sample_resolution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">sample_resolution</span>
+            <span class="k">if</span> <span class="n">acceleration_scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">acceleration_scaling</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveJointsOperation.to_args"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveJointsOperation.to_args">[docs]</a>    <span class="k">def</span> <span class="nf">to_args</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MoveJointsArgs</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an Instance of MoveJointsArgs from this MoveJointsOperation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsArgs</span>
+<span class="sd">            MoveJointsArgs which holds the properties of this MoveJointsOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="n">MoveJointsArgs</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">move_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span>
+
+        <span class="k">return</span> <span class="n">args</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">MoveJointsCollisionFreeOperation</span><span class="p">(</span><span class="n">MoveJointsOperation</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveJointsArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of MoveJointsCollisionFreeOperation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args : MoveJointsArgs</span>
+<span class="sd">            move joint args which define the move operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsCollisionFreeOperation</span>
+<span class="sd">            Instance of MoveJointsCollisionFreeOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveJointsCollisionFreeOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Planes a collision free trajectory with defined properties</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan which holds the planned</span>
+<span class="sd">            trajectory and methods to creates executors for it</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If trajectory planning service is not available or finish</span>
+<span class="sd">            unsuccessfully</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">JointPath</span><span class="o">.</span><span class="n">from_start_stop_point</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">)</span>
+        <span class="n">joint_path</span> <span class="o">=</span> <span class="n">JointPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_collision_free_joint_path</span><span class="p">(</span><span class="n">joint_path</span><span class="p">,</span>
+                                                                           <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">p</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Plan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MoveCartesianOperation"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation">[docs]</a><span class="k">class</span> <span class="nc">MoveCartesianOperation</span><span class="p">(</span><span class="n">MoveOperation</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveCartesianArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of MoveCartesianOperation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args : MoveCartesianArgs</span>
+<span class="sd">            move cartesian args which define the move operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperation</span>
+<span class="sd">            Instance of MoveCartesianOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">end_effector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ik_jump_threshold</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">ik_jump_threshold</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">_build_task_space_plan_parameters</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                                 <span class="n">args</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                                 <span class="n">args</span><span class="o">.</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                                 <span class="n">args</span><span class="o">.</span><span class="n">acceleration_scaling</span><span class="p">,</span>
+                                                                 <span class="n">args</span><span class="o">.</span><span class="n">sample_resolution</span><span class="p">,</span>
+                                                                 <span class="n">args</span><span class="o">.</span><span class="n">ik_jump_threshold</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task_space_plan_parameters</span> <span class="o">=</span> <span class="n">p</span>
+
+<div class="viewcode-block" id="MoveCartesianOperation.plan"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.plan">[docs]</a>    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Planes a trajectory with defined properties</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan which holds the planned</span>
+<span class="sd">            trajectory and methods to creates executors for it</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If trajectory planning service is not available or finish</span>
+<span class="sd">            unsuccessfully</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">start</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                          <span class="n">seed</span><span class="p">)</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                          <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">path</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_space_plan_parameters</span><span class="o">.</span><span class="n">ik_jump_threshold</span>
+        <span class="n">p_p</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">p_p</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="n">ik_jump_threshold</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;The difference </span><span class="si">{}</span><span class="s1"> of two consecutive IK solutions&#39;</span>
+                                   <span class="s1">&#39; for the given cartesian path at index </span><span class="si">{}</span><span class="s1"> exceeds the&#39;</span>
+                                   <span class="s1">&#39; ik jump threshold </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span>
+                                                                  <span class="n">i</span><span class="p">,</span>
+                                                                  <span class="n">ik_jump_threshold</span><span class="p">))</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Plan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveCartesianArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a new instance of MoveCartesianOperations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_with_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_args</span><span class="p">()))</span>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_start"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_start">[docs]</a>    <span class="k">def</span> <span class="nf">with_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified start values</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start : JointValues, Pose or None</span>
+<span class="sd">            defines trajectory start position if None</span>
+<span class="sd">            current robot state is used</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified start value</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If start is not one of expected types JointValue, Pose, None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;start is not one of expected types&#39;</span>
+                            <span class="s1">&#39; None, JointValues&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_start</span><span class="p">(</span><span class="n">start</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_seed"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_seed">[docs]</a>    <span class="k">def</span> <span class="nf">with_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified seed joint values</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        joint_value : JointValues or None</span>
+<span class="sd">            defines start joint configuration if None</span>
+<span class="sd">            current robot state is used</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified seed value</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If joint_value is not one of expected types JointValue, Pose, None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_value</span><span class="p">,</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;value is not one of expected types Pose,&#39;</span>
+                            <span class="s1">&#39; None, JointValues&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">joint_value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">joint_value</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_velocity_scaling"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_velocity_scaling">[docs]</a>    <span class="k">def</span> <span class="nf">with_velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified velocity limits</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        velocity_scaling : float convertable</span>
+<span class="sd">            scale hard velocity limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified velocity limits</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If velocity_scaling is not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If velocity_scaling is not in range 0.0, 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_acceleration_scaling</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_acceleration_scaling"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_acceleration_scaling">[docs]</a>    <span class="k">def</span> <span class="nf">with_acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified velocity limits</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        acceleration_scaling : float convertable</span>
+<span class="sd">            scale hard acceleration limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified acceleration limits</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If acceleration_scaling is not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If acceleration_scaling is not in range 0.0, 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_acceleration_scaling</span><span class="p">(</span><span class="n">acceleration_scaling</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_collision_check"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_collision_check">[docs]</a>    <span class="k">def</span> <span class="nf">with_collision_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collision_check</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified collision check flag</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        collision_check : bool (default True)</span>
+<span class="sd">            If True collisions with collision objects in worldview are check</span>
+<span class="sd">            in the planning stage</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified collision check flag</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If collision check is of expected type bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_collision_check</span><span class="p">(</span><span class="n">collision_check</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_sample_resolution"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_sample_resolution">[docs]</a>    <span class="k">def</span> <span class="nf">with_sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_resolution</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified sample resolution</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample_resolution : float convertable</span>
+<span class="sd">            sampling resolution of trajectory in Hz</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified sample resolution</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If sample_resolution is not float convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_sample_resolution</span><span class="p">(</span><span class="n">sample_resolution</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_max_deviation"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_max_deviation">[docs]</a>    <span class="k">def</span> <span class="nf">with_max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_deviation</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified max deviation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        max_deviation : float convertable</span>
+<span class="sd">            defines the maximal deviation from trajectory points</span>
+<span class="sd">            when it is a fly-by-point in joint space</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified max deviation</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If max_deviation is not float convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">with_max_deviation</span><span class="p">(</span><span class="n">max_deviation</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_ik_jump_threshold"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_ik_jump_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">with_ik_jump_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ik_jump_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperation with modified ik jump threshold</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ik_jump_threshold : float convertable</span>
+<span class="sd">            Maximal joint value jump between two consecutively</span>
+<span class="sd">            following trajectory points</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianOperations</span>
+<span class="sd">            New instance with modified ik jump threshold</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ik_jump_threshold is not float convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">ik_jump_threshold</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_space_plan_parameters</span><span class="o">.</span><span class="n">ik_jump_threshold</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="n">ik_jump_threshold</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.with_args"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.with_args">[docs]</a>    <span class="k">def</span> <span class="nf">with_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">sample_resolution</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">ik_jump_threshold</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new instance of MoveCartesianOperations with multiple modified properties</span>
+
+<span class="sd">        All None assigned arguments take the current property values</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        velocity_scaling : float convertable (default None)</span>
+<span class="sd">            scale hard velocity limits by defined factor</span>
+<span class="sd">        collision_check : bool (default None)</span>
+<span class="sd">            If True collisions with collision objects in worldview are check</span>
+<span class="sd">            in the planning stage</span>
+<span class="sd">        max_deviation : float convertable</span>
+<span class="sd">            defines the maximal deviation from trajectory points</span>
+<span class="sd">            when it is a fly-by-point in joint space</span>
+<span class="sd">        sample_resolution : float convertable</span>
+<span class="sd">            sampling resolution of trajectory in Hz</span>
+<span class="sd">        ik_jump_threshold : None or float</span>
+<span class="sd">            Maximal joint value jump between two consecutively</span>
+<span class="sd">            following trajectory points</span>
+<span class="sd">        acceleration_scaling : float convertable</span>
+<span class="sd">            scale hard acceleration limits by defined factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveJointsOperations</span>
+<span class="sd">            New instance with modified properties</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If velocity_scaling, max_deviation, sample_resolution and</span>
+<span class="sd">            acceleration_scaling are not None or not float convertable</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If velocity_scaling or acceleration scaling are not None</span>
+<span class="sd">            and no lie in range 0.0 to 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">velocity_scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
+            <span class="k">if</span> <span class="n">collision_check</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
+            <span class="k">if</span> <span class="n">max_deviation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
+            <span class="k">if</span> <span class="n">sample_resolution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">sample_resolution</span>
+            <span class="k">if</span> <span class="n">ik_jump_threshold</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="n">ik_jump_threshold</span>
+            <span class="k">if</span> <span class="n">acceleration_scaling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">acceleration_scaling</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_parameters</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MoveCartesianOperation.to_args"><a class="viewcode-back" href="../../source/motion_client_v2.html#xamla_motion.motion_operations.MoveCartesianOperation.to_args">[docs]</a>    <span class="k">def</span> <span class="nf">to_args</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MoveCartesianArgs</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an Instance of MoveCartesianArgs from this MoveCartesianOperation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianArgs</span>
+<span class="sd">            MoveCartesianArgs which holds the properties of this MoveCartesianOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="n">MoveCartesianArgs</span><span class="p">()</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">move_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">end_effector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_velocity_scaling</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acceleration_scaling</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ik_jump_threshold</span>
+
+        <span class="k">return</span> <span class="n">args</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">MoveCartesianCollisionFreeOperation</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveCartesianArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of MoveCartesianCollisionFreeOperation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args : MoveCartesianArgs</span>
+<span class="sd">            move joint args which define the move operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianCollisionFreeOperation</span>
+<span class="sd">            Instance of MoveCartesianCollisionFreeOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianCollisionFreeOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Planes a collision free trajectory with defined properties</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan which holds the planned</span>
+<span class="sd">            trajectory and methods to creates executors for it</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If trajectory planning service is not available or finish</span>
+<span class="sd">            unsuccessfully</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">start</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                          <span class="n">seed</span><span class="p">)</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">,</span>
+                                                          <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">path</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_space_plan_parameters</span><span class="o">.</span><span class="n">ik_jump_threshold</span>
+        <span class="n">p_p</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">p_p</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="n">ik_jump_threshold</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;The difference </span><span class="si">{}</span><span class="s1"> of two consecutive IK solutions&#39;</span>
+                                   <span class="s1">&#39; for the given cartesian path at index </span><span class="si">{}</span><span class="s1"> exceeds the&#39;</span>
+                                   <span class="s1">&#39; ik jump threshold </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span>
+                                                                  <span class="n">i</span><span class="p">,</span>
+                                                                  <span class="n">ik_jump_threshold</span><span class="p">))</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_collision_free_joint_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+                                                                           <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">p</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Plan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MoveCartesianLinearOperation</span><span class="p">(</span><span class="n">MoveCartesianOperation</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">MoveCartesianArgs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of MoveCartesianLinearOperation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args : MoveCartesianArgs</span>
+<span class="sd">            move cartesian args which define the move operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveCartesianLinearOperation</span>
+<span class="sd">            Instance of MoveCartesianLinearOperation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">MoveCartesianLinearOperation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Planes a linear trajectory with defined properties</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Plan</span>
+<span class="sd">            Instance of Plan which holds the planned</span>
+<span class="sd">            trajectory and methods to creates executors for it</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If trajectory planning service is not available or finish</span>
+<span class="sd">            unsuccessfully</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">get_current_joint_positions</span><span class="p">()</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_effector</span><span class="o">.</span><span class="n">get_current_pose</span><span class="p">()</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="o">.</span><span class="n">motion_service</span><span class="o">.</span><span class="n">plan_move_pose_linear</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
+                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">_task_space_plan_parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Plan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_move_group</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan_parameters</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

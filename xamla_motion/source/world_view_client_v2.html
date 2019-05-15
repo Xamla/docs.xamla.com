@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>WorldView client &mdash; xamla_motion 0.0.2 documentation</title>
+  <title>WorldViewClient version 2.0 &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="WorldViewClient version 2.0" href="world_view_client_v2.html" />
-    <link rel="prev" title="Gripper client" href="gripper_client.html" /> 
+    <link rel="next" title="Motion Service" href="motion_service.html" />
+    <link rel="prev" title="WorldView client" href="world_view_client.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,12 +89,12 @@
 <li class="toctree-l1"><a class="reference internal" href="motion_client.html">Motion client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gripper_client.html">Gripper client</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WorldView client</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WorldViewClient version 2.0</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#worldviewclient">WorldViewClient</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
 </ul>
@@ -142,13 +142,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>WorldView client</li>
+      <li>WorldViewClient version 2.0</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/source/world_view_client.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/source/world_view_client_v2.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,7 +162,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-xamla_motion">
-<span id="worldview-client"></span><h1>WorldView client<a class="headerlink" href="#module-xamla_motion" title="Permalink to this headline">¶</a></h1>
+<span id="worldviewclient-version-2-0"></span><h1>WorldViewClient version 2.0<a class="headerlink" href="#module-xamla_motion" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>One of the main features of ROSVITA is the WorldView.
@@ -176,14 +176,24 @@ which should be considered when new trajectories are planned.</p>
 <p class="caption"><span class="caption-text">ROSVITA WorldView example</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>To get access to the stored entities in WorldView or to add new or manipulate
-existing onces the <a class="reference internal" href="#xamla_motion.WorldViewClient" title="xamla_motion.WorldViewClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.WorldViewClient</span></code></a> class can be used.
+existing onces the <a class="reference internal" href="#xamla_motion.v2.WorldViewClient" title="xamla_motion.v2.WorldViewClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.v2.WorldViewClient</span></code></a> class can be used.
 At the moment following functionalities are provided:</p>
 <ul class="simple">
 <li><p>Add and remove folders from WorldView</p></li>
 <li><p>Add, get, update, query and remove poses, joint values/configurations, cartesian paths and collision objects.</p></li>
 </ul>
+<p>The version 2.0 is an update to the now deprecated implementation <a class="reference internal" href="world_view_client.html#xamla_motion.WorldViewClient" title="xamla_motion.WorldViewClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.WorldViewClient</span></code></a>.
+In version 2.0 a lot of API changes are made to improve the usability.</p>
+<p>Major changes are:</p>
+<ul class="simple">
+<li><p>add and update world view elements is now done with help of the add methods</p></li>
+<li><p>update methods are removed</p></li>
+<li><p>all methods now use a full path instead of a split path (folder_path and element_name)</p></li>
+<li><p>add_folder default behavior not raise a exception if folder already exists</p></li>
+<li><p>remove_element default behavior not raise exception if element not exists</p></li>
+</ul>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xamla_motion.world_view_client</span> <span class="k">import</span> <span class="n">WorldViewClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xamla_motion.v2.world_view_client</span> <span class="k">import</span> <span class="n">WorldViewClient</span>
 <span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">,</span> <span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span>
 <span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">CollisionObject</span><span class="p">,</span> <span class="n">CollisionPrimitive</span>
 <span class="kn">from</span> <span class="nn">pyquaternion</span> <span class="k">import</span> <span class="n">Quaternion</span>
@@ -231,123 +241,140 @@ At the moment following functionalities are provided:</p>
     <span class="n">world_view_client</span> <span class="o">=</span> <span class="n">WorldViewClient</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- add folder --------------&#39;</span><span class="p">)</span>
-    <span class="c1"># add folder test at WorldView root</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="c1"># add folder test at WorldView root/test</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;joint_values&#39;</span><span class="p">,</span> <span class="s1">&#39;/test&#39;</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;test/joint_values&#39;</span><span class="p">)</span>
 
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;poses&#39;</span><span class="p">,</span> <span class="s1">&#39;/test&#39;</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;test/poses&#39;</span><span class="p">)</span>
 
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;cartesian_paths&#39;</span><span class="p">,</span> <span class="s1">&#39;/test&#39;</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">)</span>
 
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;collision_objects&#39;</span><span class="p">,</span> <span class="s1">&#39;/test&#39;</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_folder</span><span class="p">(</span><span class="s1">&#39;test/collision_objects&#39;</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- add joint values --------------&#39;</span><span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values1</span><span class="p">)</span>
+        <span class="s1">&#39;test/joint_values/joint_values1&#39;</span><span class="p">,</span>
+        <span class="n">joint_values1</span>
+    <span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values2&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values2</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values3&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values3</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values3</span><span class="p">)</span>
+        <span class="s1">&#39;test/joint_values/test&#39;</span><span class="p">,</span>
+        <span class="n">joint_values2</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- update joint values --------------&#39;</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values2</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values2&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values3</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;joint_values3&#39;</span><span class="p">,</span> <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="n">joint_values1</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_joint_values</span><span class="p">(</span>
+        <span class="s1">&#39;test/joint_values/joint_values1&#39;</span><span class="p">,</span>
+        <span class="n">joint_values2</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- get joint values --------------&#39;</span><span class="p">)</span>
 
-    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_joint_values</span><span class="p">(</span><span class="s1">&#39;joint_values1&#39;</span><span class="p">,</span>
-                                                   <span class="s1">&#39;test/joint_values&#39;</span><span class="p">)</span>
+    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_joint_values</span><span class="p">(</span>
+        <span class="s1">&#39;test/joint_values/joint_values1&#39;</span>
+    <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;joint_values1 is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_value</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- query joint values --------------&#39;</span><span class="p">)</span>
     <span class="c1"># query all values which start with t under test/joint_values</span>
     <span class="n">queried_values</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">query_joint_values</span><span class="p">(</span>
-        <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+        <span class="s1">&#39;test/joint_values&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;t&#39;</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">queried_values</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- add poses --------------&#39;</span><span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose1</span><span class="p">)</span>
+        <span class="s1">&#39;test/poses/pose1&#39;</span><span class="p">,</span>
+        <span class="n">pose1</span>
+    <span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose2&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose2</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose3&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose3</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_pose</span><span class="p">(</span>
-        <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose3</span><span class="p">)</span>
+        <span class="s1">&#39;test/poses/test&#39;</span><span class="p">,</span>
+        <span class="n">pose3</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- update pose --------------&#39;</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose2</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose2&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose3</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_pose</span><span class="p">(</span>
-        <span class="s1">&#39;pose3&#39;</span><span class="p">,</span> <span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="n">pose1</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_pose</span><span class="p">(</span>
+        <span class="s1">&#39;test/poses/pose1&#39;</span><span class="p">,</span>
+        <span class="n">pose2</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- get pose --------------&#39;</span><span class="p">)</span>
 
-    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_pose</span><span class="p">(</span><span class="s1">&#39;pose1&#39;</span><span class="p">,</span>
-                                           <span class="s1">&#39;test/poses&#39;</span><span class="p">)</span>
+    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_pose</span><span class="p">(</span>
+        <span class="s1">&#39;test/poses/pose1&#39;</span>
+    <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pose1 is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_value</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- query poses --------------&#39;</span><span class="p">)</span>
     <span class="c1"># query all poses which start with t under test/pose</span>
     <span class="n">queried_values</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">query_poses</span><span class="p">(</span><span class="s1">&#39;test/poses&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
 
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">queried_values</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- add cartesian path --------------&#39;</span><span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_cartesian_path</span><span class="p">(</span>
-        <span class="s1">&#39;cartesian_path1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">,</span> <span class="n">cartesian_path1</span><span class="p">)</span>
+        <span class="s1">&#39;test/cartesian_paths/cartesian_path1&#39;</span><span class="p">,</span>
+        <span class="n">cartesian_path1</span>
+    <span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_cartesian_path</span><span class="p">(</span>
-        <span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">,</span> <span class="n">cartesian_path1</span><span class="p">)</span>
+        <span class="s1">&#39;test/cartesian_paths/test&#39;</span><span class="p">,</span>
+        <span class="n">cartesian_path1</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- update cartesian path --------------&#39;</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_cartesian_path</span><span class="p">(</span>
-        <span class="s1">&#39;cartesian_path1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">,</span> <span class="n">cartesian_path1</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_cartesian_path</span><span class="p">(</span>
+        <span class="s1">&#39;test/cartesian_paths/cartesian_path1&#39;</span><span class="p">,</span>
+        <span class="n">cartesian_path1</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- get cartesian path --------------&#39;</span><span class="p">)</span>
 
-    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_cartesian_path</span><span class="p">(</span><span class="s1">&#39;cartesian_path1&#39;</span><span class="p">,</span>
-                                                     <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">)</span>
+    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_cartesian_path</span><span class="p">(</span>
+        <span class="s1">&#39;test/cartesian_paths/cartesian_path1&#39;</span>
+    <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cartesian_path1 is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_value</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- query cartesian paths --------------&#39;</span><span class="p">)</span>
     <span class="c1"># query all cartesian_paths which start with t under test/cartesian_path</span>
     <span class="n">queried_values</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">query_cartesian_paths</span><span class="p">(</span>
-        <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+        <span class="s1">&#39;test/cartesian_paths&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;t&#39;</span>
+    <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">queried_values</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- add collision object --------------&#39;</span><span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
-        <span class="s1">&#39;collision_object1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span> <span class="n">collision_object1</span><span class="p">)</span>
+        <span class="s1">&#39;test/collision_objects/collision_object1&#39;</span><span class="p">,</span>
+        <span class="n">collision_object1</span>
+    <span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
-        <span class="s1">&#39;collision_object2&#39;</span><span class="p">,</span> <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span> <span class="n">collision_object2</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
-        <span class="s1">&#39;collision_object3&#39;</span><span class="p">,</span> <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span> <span class="n">collision_object3</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
-        <span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span> <span class="n">collision_object1</span><span class="p">)</span>
+        <span class="s1">&#39;test/collision_objects/test&#39;</span><span class="p">,</span>
+        <span class="n">collision_object1</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- update collision object --------------&#39;</span><span class="p">)</span>
-    <span class="n">world_view_client</span><span class="o">.</span><span class="n">update_collision_object</span><span class="p">(</span><span class="s1">&#39;collision_object1&#39;</span><span class="p">,</span>
-                                              <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span>
-                                              <span class="n">collision_object1</span><span class="p">)</span>
+    <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
+        <span class="s1">&#39;test/collision_objects/collision_object1&#39;</span><span class="p">,</span>
+        <span class="n">collision_object3</span>
+    <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- get collision object --------------&#39;</span><span class="p">)</span>
 
-    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_collision_object</span><span class="p">(</span><span class="s1">&#39;collision_object1&#39;</span><span class="p">,</span>
-                                                       <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">)</span>
+    <span class="n">get_value</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">get_collision_object</span><span class="p">(</span>
+        <span class="s1">&#39;test/collision_objects/collision_object1&#39;</span>
+    <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;collision_object1 is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_value</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- query collision object --------------&#39;</span><span class="p">)</span>
     <span class="c1"># query all collision_objects which start with t under test/collision_object</span>
     <span class="n">queried_values</span> <span class="o">=</span> <span class="n">world_view_client</span><span class="o">.</span><span class="n">query_collision_objects</span><span class="p">(</span>
-        <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+        <span class="s1">&#39;test/collision_objects&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;t&#39;</span>
+    <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">queried_values</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
@@ -366,93 +393,75 @@ At the moment following functionalities are provided:</p>
 <div class="section" id="worldviewclient">
 <h2>WorldViewClient<a class="headerlink" href="#worldviewclient" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="xamla_motion.WorldViewClient">
-<em class="property">class </em><code class="descclassname">xamla_motion.</code><code class="descname">WorldViewClient</code><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient">
+<em class="property">class </em><code class="descclassname">xamla_motion.v2.</code><code class="descname">WorldViewClient</code><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Client to interact and manipulate the Rosvita WorldView</p>
 <p>With help of this client class it is possible to add, get,
 query and remove different kinds of elements to or from
 the Rosvita world view.</p>
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.add_joint_values">
-<code class="descname">add_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.add_joint_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add / store joint values element in world view tree</p>
+<dt id="xamla_motion.v2.WorldViewClient.add_joint_values">
+<code class="descname">add_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.add_joint_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add / update joint values element in world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.get_joint_values">
-<code class="descname">get_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.get_joint_values" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.get_joint_values">
+<code class="descname">get_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.get_joint_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get joint values element from world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.query_joint_values">
-<code class="descname">query_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.query_joint_values" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.query_joint_values">
+<code class="descname">query_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.query_joint_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all joint values under folder_path which start with prefix</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.update_joint_values">
-<code class="descname">update_joint_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_joint_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.update_joint_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update an already existing joint values element in world view tree</p>
+<dt id="xamla_motion.v2.WorldViewClient.add_pose">
+<code class="descname">add_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.add_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add / update pose element in world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.add_pose">
-<code class="descname">add_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.add_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add / store pose element in world view tree</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xamla_motion.WorldViewClient.get_pose">
-<code class="descname">get_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.get_pose" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.get_pose">
+<code class="descname">get_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.get_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get pose element from world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.query_poses">
-<code class="descname">query_poses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_poses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.query_poses" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.query_poses">
+<code class="descname">query_poses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_poses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.query_poses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all existing poses under folder_path which start with prefix</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.update_pose">
-<code class="descname">update_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.update_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update an already existing pose element in world view tree</p>
+<dt id="xamla_motion.v2.WorldViewClient.add_cartesian_path">
+<code class="descname">add_cartesian_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.add_cartesian_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add / update cartesian path element in world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.add_cartesian_path">
-<code class="descname">add_cartesian_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.add_cartesian_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add / store cartesian path element in world view tree</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xamla_motion.WorldViewClient.get_cartesian_path">
-<code class="descname">get_cartesian_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.get_cartesian_path" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.get_cartesian_path">
+<code class="descname">get_cartesian_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.get_cartesian_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get cartesian path element from world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.query_cartesian_pahts">
-<code class="descname">query_cartesian_pahts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xamla_motion.WorldViewClient.query_cartesian_pahts" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.query_cartesian_pahts">
+<code class="descname">query_cartesian_pahts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.query_cartesian_pahts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all existing castesian paths under folder_path which start with prefix</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.update_cartesian_path">
-<code class="descname">update_cartesian_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_cartesian_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.update_cartesian_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update an already existing collision object element in world view tree</p>
+<dt id="xamla_motion.v2.WorldViewClient.add_collision_object">
+<code class="descname">add_collision_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_collision_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.add_collision_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add / update collision object element in world view tree</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.add_collision_object">
-<code class="descname">add_collision_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_collision_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.add_collision_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add / store collision object element in world view tree</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xamla_motion.WorldViewClient.get_collision_object">
-<code class="descname">get_collision_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_collision_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.get_collision_object" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.get_collision_object">
+<code class="descname">get_collision_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_collision_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.get_collision_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get collision object element from world view tree</p>
 </dd></dl>
 
@@ -460,12 +469,6 @@ the Rosvita world view.</p>
 <dt>
 <code class="descname">query_cartesian_pahts</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Query all existing castesian paths under folder_path which start with prefix</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xamla_motion.WorldViewClient.update_collision_object">
-<code class="descname">update_collision_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_collision_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.update_collision_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update an already existing collision object element in world view tree</p>
 </dd></dl>
 
 <p>Initialize WorldViewClient</p>
@@ -483,17 +486,18 @@ the Rosvita world view.</p>
 </dl>
 <dl class="method">
 <dt>
-<code class="descname">add_cartesian_path</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>cartesian_path</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_cartesian_path"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_cartesian_path</code><span class="sig-paren">(</span><em>element_path</em>, <em>cartesian_path</em>, <em>transient=False</em>, <em>update_if_exists=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_cartesian_path"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Add / store cartesian path element in world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the new added cartesian path element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the new cartesian path element
-should be added / stored</p></li>
+<li><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Path in world view tree where the new cartesian path element
+should be created or update a existing one at this location</p></li>
 <li><p><strong>cartesian_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – Instance of cartesian path which is added / stored</p></li>
 <li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the added cartesian path is only valid for this session
 and will not be saved in a rosvita project context</p></li>
+<li><p><strong>update_if_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True update cartesian path if it exists instead
+of raising an exception</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -501,6 +505,9 @@ and will not be saved in a rosvita project context</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to add cartesian path
     due to wrong path or element already exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it
+    If cartesian_path is not of type CartesianPath</p></li>
 </ul>
 </dd>
 </dl>
@@ -508,17 +515,18 @@ and will not be saved in a rosvita project context</p></li>
 
 <dl class="method">
 <dt>
-<code class="descname">add_collision_object</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>collision_object</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_collision_object"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_collision_object</code><span class="sig-paren">(</span><em>element_path</em>, <em>collision_object</em>, <em>transient=False</em>, <em>update_if_exists=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_collision_object"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Add / store collision object element in world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the new added collision object element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the new collision object element
-should be added / stored</p></li>
-<li><p><strong>collision_object</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CollisionObject" title="xamla_motion.data_types.CollisionObject"><em>CollisionObject</em></a>) – Instance of collision object which is added / stored</p></li>
+<li><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Path in world view tree where the new collision object element
+should be created or update a existing one at this location</p></li>
+<li><p><strong>collision_object</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CollisionObject" title="xamla_motion.data_types.CollisionObject"><em>CollisionObject</em></a>) – Instance of collision object which is added or used for update</p></li>
 <li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the added collision object is only valid for this session
 and will not be saved in a rosvita project context</p></li>
+<li><p><strong>update_if_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True update cartesian path if it exists instead
+of raising an exception</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -526,20 +534,25 @@ and will not be saved in a rosvita project context</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to add collision object
     due to wrong path or element already exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it
+    If collision_object is not of type CollisionObject</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.add_folder">
-<code class="descname">add_folder</code><span class="sig-paren">(</span><em>folder_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.add_folder" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.add_folder">
+<code class="descname">add_folder</code><span class="sig-paren">(</span><em>folder_path</em>, <em>raise_exception_if_exists=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.add_folder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a folder to world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>folder_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the folder which should be added</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the folder should be added</p></li>
+<li><p><strong>folder_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Folder path in worldview tree</p></li>
+<li><p><strong>raise_exception_if_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default False</em><em>)</em>) – If True raise ArgumentError is folder already
+exists als no exception is raised and folder
+existing folder presists.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -547,6 +560,8 @@ and will not be saved in a rosvita project context</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to add folder
     input path not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
@@ -554,17 +569,18 @@ and will not be saved in a rosvita project context</p></li>
 
 <dl class="method">
 <dt>
-<code class="descname">add_joint_values</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>joint_values</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_joint_values"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Add / store joint values element in world view tree</p>
+<code class="descname">add_joint_values</code><span class="sig-paren">(</span><em>element_path</em>, <em>joint_values</em>, <em>transient=False</em>, <em>update_if_exists=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_joint_values"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Add / update joint values element in world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the new added joint values element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the new joint values element
-should be added / stored</p></li>
-<li><p><strong>joint_values</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – Instance of joint values which is added / stored</p></li>
-<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the added joint values are only valid for this session
+<li><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Path in world view tree where the new joint values element
+should be created or update a existing one at this location</p></li>
+<li><p><strong>joint_values</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – Contains new joint values</p></li>
+<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default False</em><em>)</em>) – If True the added joint values are only valid for this session
 and will not be saved in a rosvita project context</p></li>
+<li><p><strong>update_if_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True update the values if exists instead
+of raising an exception</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -572,6 +588,9 @@ and will not be saved in a rosvita project context</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to add joint values
     due to wrong path or element already exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it
+    If joint_values is not of type JointValues</p></li>
 </ul>
 </dd>
 </dl>
@@ -579,17 +598,18 @@ and will not be saved in a rosvita project context</p></li>
 
 <dl class="method">
 <dt>
-<code class="descname">add_pose</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>pose</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.add_pose"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_pose</code><span class="sig-paren">(</span><em>element_path</em>, <em>pose</em>, <em>transient=False</em>, <em>update_if_exists=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.add_pose"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Add / store pose element in world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the new added pose element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the new pose element
-should be added / stored</p></li>
+<li><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Path in world view tree where the new pose element
+should be created or update a existing one at this location</p></li>
 <li><p><strong>pose</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a>) – Instance of pose which is added / stored</p></li>
 <li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the added pose is only valid for this session
 and will not be saved in a rosvita project context</p></li>
+<li><p><strong>update_if_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True update pose if it exists instead
+of raising an exception</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -597,6 +617,9 @@ and will not be saved in a rosvita project context</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to add pose
     due to wrong path or element already exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it
+    If pose is not of type Pose</p></li>
 </ul>
 </dd>
 </dl>
@@ -604,15 +627,11 @@ and will not be saved in a rosvita project context</p></li>
 
 <dl class="method">
 <dt>
-<code class="descname">get_cartesian_path</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_cartesian_path"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_cartesian_path</code><span class="sig-paren">(</span><em>element_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_cartesian_path"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Get cartesian path element from world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the requested element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Full path to folder where the requested element is located
-from world view tree root</p></li>
-</ul>
+<dd class="field-odd"><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Full path of requested element in worldview tree</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>cartesian_path</strong> – Instance of CartesianPath with
@@ -627,6 +646,8 @@ requested cartesian path element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to get cartesian path
     due to wrong path or element not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
@@ -634,15 +655,11 @@ requested cartesian path element</p>
 
 <dl class="method">
 <dt>
-<code class="descname">get_collision_object</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_collision_object"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_collision_object</code><span class="sig-paren">(</span><em>element_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_collision_object"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Get collision object element from world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the requested element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Full path to folder where the requested element is located
-from world view tree root</p></li>
-</ul>
+<dd class="field-odd"><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Full path of requested element in worldview tree</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>collision_object</strong> – Instance of CollisionObject with
@@ -657,6 +674,8 @@ requested collision object element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to get collision object
     due to wrong path or element not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
@@ -664,15 +683,11 @@ requested collision object element</p>
 
 <dl class="method">
 <dt>
-<code class="descname">get_joint_values</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_joint_values"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_joint_values</code><span class="sig-paren">(</span><em>element_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_joint_values"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Get joint values element from world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the requested element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Full path to folder where the requested element is located
-from world view tree root</p></li>
-</ul>
+<dd class="field-odd"><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Full path of requested element in worldview tree</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>joint_values</strong> – Instance of JointValues with
@@ -687,6 +702,8 @@ requested joint values element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to get joint values
     due to wrong path or element not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
@@ -694,15 +711,11 @@ requested joint values element</p>
 
 <dl class="method">
 <dt>
-<code class="descname">get_pose</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.get_pose"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pose</code><span class="sig-paren">(</span><em>element_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.get_pose"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Get pose element from world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the requested element</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Full path to folder where the requested element is located
-from world view tree root</p></li>
-</ul>
+<dd class="field-odd"><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Full path of requested element in worldview tree</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>pose</strong> – Instance of Pose with
@@ -717,14 +730,16 @@ requested pose element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to get pose
     due to wrong path or element not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.query_cartesian_paths">
-<code class="descname">query_cartesian_paths</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_cartesian_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.query_cartesian_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.query_cartesian_paths">
+<code class="descname">query_cartesian_paths</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_cartesian_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.query_cartesian_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all existing cartesian path elements under folder_path which start with prefix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -745,14 +760,15 @@ requested pose element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to query cartesian path
     due to not existing path</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If folder_path is not of type str</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.query_collision_objects">
-<code class="descname">query_collision_objects</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_collision_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.query_collision_objects" title="Permalink to this definition">¶</a></dt>
+<dt id="xamla_motion.v2.WorldViewClient.query_collision_objects">
+<code class="descname">query_collision_objects</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_collision_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.query_collision_objects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query all existing collision objet elements under folder_path which start with prefix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -773,6 +789,7 @@ requested pose element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to query collision object
     due to not existing path</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If folder_path is not of type str</p></li>
 </ul>
 </dd>
 </dl>
@@ -780,7 +797,7 @@ requested pose element</p>
 
 <dl class="method">
 <dt>
-<code class="descname">query_joint_values</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_joint_values"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">query_joint_values</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_joint_values"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Query all existing joint values elements under folder_path which start with prefix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -801,6 +818,7 @@ requested pose element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to query joint values
     due to not existing path</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If folder_path is not of type str</p></li>
 </ul>
 </dd>
 </dl>
@@ -808,7 +826,7 @@ requested pose element</p>
 
 <dl class="method">
 <dt>
-<code class="descname">query_poses</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.query_poses"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">query_poses</code><span class="sig-paren">(</span><em>folder_path</em>, <em>prefix=''</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.query_poses"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Query all existing pose elements under folder_path which start with prefix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -829,21 +847,22 @@ requested pose element</p>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to query pose
     due to not existing path</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If folder_path is not of type str</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="xamla_motion.WorldViewClient.remove_element">
-<code class="descname">remove_element</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.remove_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.WorldViewClient.remove_element" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove existing elements from world view tree</p>
+<dt id="xamla_motion.v2.WorldViewClient.remove_element">
+<code class="descname">remove_element</code><span class="sig-paren">(</span><em>element_path</em>, <em>raise_exception_if_not_exists=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/world_view_client.html#WorldViewClient.remove_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.WorldViewClient.remove_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove existing element from world view tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the element which should be removed</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the element
-is located</p></li>
+<li><p><strong>element_path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><em>pathlib.Path</em></a><em>]</em>) – Folder path in worldview tree</p></li>
+<li><p><strong>raise_exception_if_not_exists</strong> (<em>bool default</em><em>(</em><em>False</em><em>)</em>) – If True raise a ArgumentError if element which
+should be removed not exists</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -851,106 +870,8 @@ is located</p></li>
 <li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
 <li><p><strong>ArgumentError</strong> – If it was not possible to update collision object
     due to element not exists</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<code class="descname">update_cartesian_path</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>cartesian_path</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_cartesian_path"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Update already existing cartesian path element in world view tree</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the element which should be updated</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the cartesian path element
-is located</p></li>
-<li><p><strong>cartesian_path</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a>) – Instance of cartesian path which contains the new values</p></li>
-<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the updated cartesian path is only valid for this session
-and will not be saved in a rosvita project context</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
-<li><p><strong>ArgumentError</strong> – If it was not possible to update cartesian path
-    due to element not exists</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<code class="descname">update_collision_object</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>collision_object</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_collision_object"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Update already existing collision object element in world view tree</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the element which should be updated</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the collision object element
-is located</p></li>
-<li><p><strong>collision_object</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.CollisionObject" title="xamla_motion.data_types.CollisionObject"><em>CollisionObject</em></a>) – Instance of collision object which contains the new values</p></li>
-<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the updated collision object is only valid for this session
-and will not be saved in a rosvita project context</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
-<li><p><strong>ArgumentError</strong> – If it was not possible to update collision object
-    due to element not exists</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<code class="descname">update_joint_values</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>joint_values</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_joint_values"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Update already existing joint values element in world view tree</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the element which should be updated</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the joint values element
-is located</p></li>
-<li><p><strong>joint_values</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – Instance of joint values which contains the new values</p></li>
-<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the updated joint values are only valid for this session
-and will not be saved in a rosvita project context</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
-<li><p><strong>ArgumentError</strong> – If it was not possible to update joint values
-    due to element not exists</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt>
-<code class="descname">update_pose</code><span class="sig-paren">(</span><em>element_name</em>, <em>folder_path</em>, <em>pose</em>, <em>transient=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/world_view_client.html#WorldViewClient.update_pose"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Update already existing pose element in world view tree</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Name of the element which should be updated</p></li>
-<li><p><strong>folder_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path in world view tree where the pose element
-is located</p></li>
-<li><p><strong>pose</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a>) – Instance of pose which contains the new values</p></li>
-<li><p><strong>transient</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If True the updated pose is only valid for this session
-and will not be saved in a rosvita project context</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ServiceError</strong> – If necessary service is not available</p></li>
-<li><p><strong>ArgumentError</strong> – If it was not possible to update pose
-    due to element not exists</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If element_path is not of type pathlib.Path
+    and can not be converted to it</p></li>
 </ul>
 </dd>
 </dl>
@@ -969,10 +890,10 @@ and will not be saved in a rosvita project context</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="world_view_client_v2.html" class="btn btn-neutral float-right" title="WorldViewClient version 2.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="motion_service.html" class="btn btn-neutral float-right" title="Motion Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gripper_client.html" class="btn btn-neutral float-left" title="Gripper client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="world_view_client.html" class="btn btn-neutral float-left" title="WorldView client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

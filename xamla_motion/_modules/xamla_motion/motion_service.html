@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>xamla_motion.motion_service &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>xamla_motion.motion_service &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,38 +17,43 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> xamla_motion
+            <a href="../../index.html">
           
 
+          
+            
+            <img src="../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,8 +85,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../source/quick_start.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/data_types.html">Data types</a></li>
 </ul>
@@ -206,6 +213,47 @@
     <span class="n">LOST</span> <span class="o">=</span> <span class="mi">9</span>
 
 
+<span class="k">def</span> <span class="nf">generate_action_executor</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">run_action</span><span class="p">(</span><span class="n">goal</span><span class="p">):</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+        <span class="n">action_done</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">done_callback</span><span class="p">(</span><span class="n">goal_status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">ActionLibGoalStatus</span><span class="p">(</span><span class="n">goal_status</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">loop</span><span class="o">.</span><span class="n">is_closed</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ActionLibGoalStatus</span><span class="o">.</span><span class="n">SUCCEEDED</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">reason</span> <span class="o">=</span> <span class="n">ErrorCodes</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+                        <span class="n">exc</span> <span class="o">=</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
+                                               <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">, reason: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">,</span>
+                                                                               <span class="n">reason</span><span class="p">),</span>
+                                               <span class="n">error_code</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                        <span class="n">exc</span> <span class="o">=</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
+                                               <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+
+                    <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="n">action_done</span><span class="o">.</span><span class="n">set_exception</span><span class="p">,</span>
+                                              <span class="n">exc</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="n">action_done</span><span class="o">.</span><span class="n">set_result</span><span class="p">,</span>
+                                              <span class="n">result</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">action</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span> <span class="n">done_cb</span><span class="o">=</span><span class="n">done_callback</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">action_done</span>
+        <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">exc</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">action</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">action_done</span>
+
+    <span class="k">return</span> <span class="n">run_action</span>
+
+
 <span class="k">class</span> <span class="nc">SteppedMotionClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
@@ -217,10 +265,41 @@
 <span class="sd">        Run supervised trajectory execution</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">__step_topic</span> <span class="o">=</span> <span class="s1">&#39;/xamlaMoveActions/step&#39;</span>
     <span class="n">__next_topic</span> <span class="o">=</span> <span class="s1">&#39;/xamlaMoveActions/next&#39;</span>
     <span class="n">__previous_topic</span> <span class="o">=</span> <span class="s1">&#39;/xamlaMoveActions/prev&#39;</span>
     <span class="n">__feedback_topic</span> <span class="o">=</span> <span class="s1">&#39;/xamlaMoveActions/feedback&#39;</span>
     <span class="n">__movej_action_name</span> <span class="o">=</span> <span class="s1">&#39;moveJ_step_action&#39;</span>
+
+    <span class="k">class</span> <span class="nc">__ShutdownManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">instances</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c1"># print(&#39;stepped shutdown&#39;)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">cancel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># print(&#39;cancel goal_id: {}&#39;.format(key))</span>
+                <span class="n">cancel</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">register_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal_id</span><span class="p">,</span> <span class="n">cancel_func</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="p">[</span><span class="n">goal_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">cancel_func</span>
+                <span class="c1"># keys = [key for key in self.instances]</span>
+                <span class="c1"># print(&#39;instances after add: {}&#39;.format(keys))</span>
+
+        <span class="k">def</span> <span class="nf">unregister_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal_id</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">goal_id</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="c1"># keys = [key for key in self.instances]</span>
+                <span class="c1"># print(&#39;instances after pop: {}&#39;.format(keys))</span>
+
+    <span class="n">__shutdown_manager</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">:</span> <span class="n">JointTrajectory</span><span class="p">,</span>
                  <span class="n">velocity_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">check_collision</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -232,10 +311,10 @@
 <span class="sd">        trajectory : JointTrajectory</span>
 <span class="sd">            Trajectory which should be executed supervised</span>
 <span class="sd">        velocity_scaling : float</span>
-<span class="sd">            Scaling factor to reduce or increase the trajectory </span>
+<span class="sd">            Scaling factor to reduce or increase the trajectory</span>
 <span class="sd">            velocities range [0.0-1.0]</span>
 <span class="sd">        check_collision : bool (default True)</span>
-<span class="sd">            If True collision check is performed </span>
+<span class="sd">            If True collision check is performed</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -243,10 +322,13 @@
 <span class="sd">            If trajectory is not of expected type JointTrajectory</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If velocity_scaling is not in range between 0.0 an 1.0</span>
-<span class="sd">        ServiceException </span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If action goal handle is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__mutex</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__ShutdownManager</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__ros_node_steward</span> <span class="o">=</span> <span class="n">ROSNodeSteward</span><span class="p">()</span>
 
@@ -275,14 +357,30 @@
 
         <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span><span class="o">.</span><span class="n">add_done_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_done_callback</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">done_callback</span><span class="p">(</span><span class="n">goal_status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
             <span class="n">status</span> <span class="o">=</span> <span class="n">ActionLibGoalStatus</span><span class="p">(</span><span class="n">goal_status</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ActionLibGoalStatus</span><span class="o">.</span><span class="n">SUCCEEDED</span><span class="p">:</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="n">ActionResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
-                      <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">, reason: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">reason</span><span class="p">))</span>
-            <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span><span class="o">.</span><span class="n">set_result</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+            <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span><span class="o">.</span><span class="n">unregister_instance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">loop</span><span class="o">.</span><span class="n">is_closed</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ActionLibGoalStatus</span><span class="o">.</span><span class="n">SUCCEEDED</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">reason</span> <span class="o">=</span> <span class="n">ErrorCodes</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+                        <span class="n">exc</span> <span class="o">=</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
+                                               <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">, reason: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">,</span>
+                                                                               <span class="n">reason</span><span class="p">),</span>
+                                               <span class="n">error_code</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="n">exc</span> <span class="o">=</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
+                                               <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+
+                    <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span><span class="o">.</span><span class="n">set_exception</span><span class="p">,</span>
+                                              <span class="n">exc</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span><span class="o">.</span><span class="n">set_result</span><span class="p">,</span>
+                                              <span class="n">result</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span> <span class="n">done_cb</span><span class="o">=</span><span class="n">done_callback</span><span class="p">)</span>
 
@@ -292,6 +390,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;action goal handle is not available&#39;</span><span class="p">)</span>
 
+        <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span><span class="o">.</span><span class="n">register_instance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__state</span> <span class="o">=</span> <span class="n">SteppedMotionState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__step_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__step_topic</span><span class="p">,</span>
+                                          <span class="n">Step</span><span class="p">,</span>
+                                          <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__next_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__next_topic</span><span class="p">,</span>
                                           <span class="n">GoalID</span><span class="p">,</span>
                                           <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -305,7 +411,16 @@
                                                <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
+        <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span><span class="o">.</span><span class="n">unregister_instance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__shutdown_manager</span><span class="o">.</span><span class="n">unregister_instance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">ServiceException</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -314,7 +429,7 @@
 <span class="sd">            Current state of the supervised trajectory execution</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__mutex</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__state</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">goal_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -333,9 +448,38 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__action_done</span>
 
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Requests the supervised executor to perform a step</span>
+
+<span class="sd">        The stepping direction is determined by the sign of the velocity_scaling</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        velocity_scaling : float</span>
+<span class="sd">            Specifies the desired velocity and direction of the supervised motion.</span>
+<span class="sd">            Positive values mean forward and negative values backward stepping.</span>
+<span class="sd">            To stop fast as possible set velocity scaling to 0.0.</span>
+<span class="sd">            Valid range: [-1.0, 1.0]</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If velocity_scaling is not between -1.0 and 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">velocity_scaling</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.00001</span> <span class="ow">or</span> <span class="n">velocity_scaling</span> <span class="o">&gt;</span> <span class="mf">1.00001</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;velocity scaling is not in range [-1.0, 1.0]&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">Step</span><span class="p">()</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">goal_id</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__step_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Request at supervised executor to perform next step </span>
+<span class="sd">        Request at supervised executor to perform next step</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__next_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__goal_id</span><span class="p">)</span>
@@ -355,6 +499,14 @@
                                                   <span class="n">trajectory_progress</span><span class="o">.</span><span class="n">error_msg</span><span class="p">,</span>
                                                   <span class="n">trajectory_progress</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span>
                                                   <span class="n">trajectory_progress</span><span class="o">.</span><span class="n">progress</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_done_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">future</span><span class="p">):</span>
+        <span class="c1"># print(&#39;done callback&#39;)</span>
+        <span class="c1"># type(self).__shutdown_manager.unregister_instance(self.__goal_id.id)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__feedback_sub</span><span class="o">.</span><span class="n">unregister</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__step_pub</span><span class="o">.</span><span class="n">unregister</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__next_pub</span><span class="o">.</span><span class="n">unregister</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__previous_pub</span><span class="o">.</span><span class="n">unregister</span><span class="p">()</span>
 
 
 <div class="viewcode-block" id="MotionService"><a class="viewcode-back" href="../../source/motion_service.html#xamla_motion.motion_service.MotionService">[docs]</a><span class="k">class</span> <span class="nc">MotionService</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -740,7 +892,7 @@
                                    <span class="s1">&#39; forward kinematics&#39;</span>
                                    <span class="s1">&#39; failed, abort&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_codes</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span> <span class="o">==</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_codes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span> <span class="ow">is</span> <span class="kc">None</span>
                 <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_codes</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service call for query forward&#39;</span>
                                    <span class="s1">&#39;kinematics returns with &#39;</span>
@@ -1008,6 +1160,7 @@
         <span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ik_jump_threshold</span><span class="p">)</span>
         <span class="n">max_deviation</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_deviation</span><span class="p">)</span>
         <span class="n">collision_check</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">collision_check</span><span class="p">)</span>
+
         <span class="n">delta_t</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delta_t</span><span class="p">)</span>
 
         <span class="n">delta_t</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">delta_t</span> <span class="k">if</span> <span class="n">delta_t</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="n">delta_t</span>
@@ -1161,7 +1314,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query services are not reachable or</span>
 <span class="sd">            not finish successful</span>
 <span class="sd">        TypeError</span>
@@ -1259,7 +1412,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query services are not reachable or</span>
 <span class="sd">            not finish successful</span>
 <span class="sd">        TypeError</span>
@@ -1334,7 +1487,7 @@
 <span class="sd">            If parameters joint set is not equal or sub</span>
 <span class="sd">            set of the path joint set and therefore</span>
 <span class="sd">            reordering was not possible</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available or finish</span>
 <span class="sd">            unsuccessfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1381,7 +1534,7 @@
 <span class="sd">            If path is not of type CartesianPath or</span>
 <span class="sd">            if parameters is not of type TaskSpacePlanParameters or</span>
 <span class="sd">            if seed is not of type JointValues</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available or finish</span>
 <span class="sd">            unsuccessfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1438,7 +1591,7 @@
 <span class="sd">            If parameters joint set is not equal or sub</span>
 <span class="sd">            set of the path joint set and therefore</span>
 <span class="sd">            reordering was not possible</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available or finish</span>
 <span class="sd">            unsuccessfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1484,21 +1637,18 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        trajectory : JointTrajectory </span>
+<span class="sd">        trajectory : JointTrajectory</span>
 <span class="sd">            Joint trajectory which should be executed</span>
 <span class="sd">        collision_check : bool convertable</span>
 <span class="sd">            If True check for collision while executing</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        result : int</span>
-<span class="sd">            Result of the trajectory execution</span>
-
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        TypeError </span>
+<span class="sd">        TypeError</span>
 <span class="sd">            If trajectory is not of type JointTrajectory</span>
 <span class="sd">            or if collision_check is not convertable to bool</span>
+<span class="sd">        ServiceException</span>
+<span class="sd">            If execution ends not successful</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">):</span>
@@ -1510,17 +1660,11 @@
         <span class="n">goal</span> <span class="o">=</span> <span class="n">moveJGoal</span><span class="p">(</span><span class="n">trajectory</span><span class="o">=</span><span class="n">trajectory</span><span class="o">.</span><span class="n">to_joint_trajectory_msg</span><span class="p">(),</span>
                          <span class="n">check_collision</span><span class="o">=</span><span class="n">collision_check</span><span class="p">)</span>
 
-        <span class="n">run_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_action_executor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="p">)</span>
+        <span class="n">run_action</span> <span class="o">=</span> <span class="n">generate_action_executor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__m_action</span><span class="p">)</span>
 
         <span class="c1"># the server itself lock resources</span>
         <span class="c1"># with LeaseBaseLock(trajectory.joint_set.names) as lock_resources:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_action</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Unexpected result received by&#39;</span>
-                               <span class="s1">&#39; SimpleActionClient for moveJ action&#39;</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">result</span><span class="p">()</span></div>
+        <span class="k">await</span> <span class="n">run_action</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MotionService.execute_joint_trajectory_supervised"><a class="viewcode-back" href="../../source/motion_service.html#xamla_motion.motion_service.MotionService.execute_joint_trajectory_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">:</span> <span class="n">JointTrajectory</span><span class="p">,</span>
                                             <span class="n">velocity_scaling</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -1529,7 +1673,7 @@
 <span class="sd">        Creates a instance of SteppedMotionClient for supervised trajectory execution</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        trajectory : JointTrajectory </span>
+<span class="sd">        trajectory : JointTrajectory</span>
 <span class="sd">            Joint trajectory which should be executed</span>
 <span class="sd">        velocity_scaling : float</span>
 <span class="sd">            scaling of velocity range 0.0 to 1.0</span>
@@ -1543,7 +1687,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        TypeError </span>
+<span class="sd">        TypeError</span>
 <span class="sd">            If trajectory is not of type JointTrajectory</span>
 <span class="sd">            or if collision_check is not convertable to bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1554,7 +1698,8 @@
                                  <span class="n">seed</span><span class="o">=</span><span class="p">[],</span>
                                  <span class="n">end_effector_link</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                                  <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                 <span class="n">attempts</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                                 <span class="n">attempts</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">const_seed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Query inverse kinematic solutions one pose</span>
 
@@ -1569,16 +1714,19 @@
 <span class="sd">            Numerical seed to control joint configuration</span>
 <span class="sd">        end_effector_link : str convertable (optinal)</span>
 <span class="sd">            necessary if poses are defined for end effector link</span>
-<span class="sd">        timeout : datatime.timedelta</span>
+<span class="sd">        timeout : datatime.timedelta (optional)</span>
 <span class="sd">            timeout</span>
-<span class="sd">        attempts : int convertable</span>
+<span class="sd">        attempts : int convertable (optional default 1)</span>
 <span class="sd">            Attempts to find a solution or each pose</span>
+<span class="sd">        const_seed : bool convertable (optional default False)</span>
+<span class="sd">            use constant seed instead of consecutive seeds</span>
+
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        JointValues</span>
 <span class="sd">            Instance of JointValues which is the joint space</span>
-<span class="sd">            equivalent of the task space pose  </span>
+<span class="sd">            equivalent of the task space pose</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -1592,21 +1740,21 @@
 <span class="sd">            If parameters joint set is not equal or sub</span>
 <span class="sd">            set of the seed joint set if defined and therefore</span>
 <span class="sd">            reordering was not possible</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;pose is not of expected type Pose&#39;</span><span class="p">)</span>
 
-        <span class="n">ipath</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">pose</span><span class="p">)</span>
+        <span class="n">end_effector_pose</span> <span class="o">=</span> <span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">end_effector_link</span><span class="p">)</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">ipath</span><span class="p">,</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">([</span><span class="n">end_effector_pose</span><span class="p">],</span>
                                                     <span class="n">parameters</span><span class="p">,</span>
                                                     <span class="n">seed</span><span class="p">,</span>
-                                                    <span class="n">end_effector_link</span><span class="p">,</span>
                                                     <span class="n">timeout</span><span class="p">,</span>
-                                                    <span class="n">attempts</span><span class="p">)</span>
+                                                    <span class="n">attempts</span><span class="p">,</span>
+                                                    <span class="n">const_seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;ik service call failed with error&#39;</span>
@@ -1614,32 +1762,29 @@
 
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="MotionService.query_inverse_kinematics_many"><a class="viewcode-back" href="../../source/motion_service.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics_many">[docs]</a>    <span class="k">def</span> <span class="nf">query_inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span>
+<div class="viewcode-block" id="MotionService.query_inverse_kinematics_many"><a class="viewcode-back" href="../../source/motion_service.html#xamla_motion.motion_service.MotionService.query_inverse_kinematics_many">[docs]</a>    <span class="k">def</span> <span class="nf">query_inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poses</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span>
                                       <span class="n">seed</span><span class="o">=</span><span class="p">[],</span>
-                                      <span class="n">end_effector_link</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                                       <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                       <span class="n">attempts</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                       <span class="n">const_seed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Query inverse kinematic solutions for all point in path</span>
+<span class="sd">        Query inverse kinematic solutions for a Iterable of Poses</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        path : CartesianPath</span>
-<span class="sd">            Path with poses to transform to joint space</span>
+<span class="sd">        poses : Iterable[EndEffectorPose]</span>
+<span class="sd">            Iterable with EndEffectorPoses to transform to joint space</span>
 <span class="sd">        parameters : PlanParameters</span>
 <span class="sd">            Plan parameters which defines the limits, settings</span>
 <span class="sd">            and move group name</span>
 <span class="sd">        seed : JointValues (optional)</span>
 <span class="sd">            Numerical seed to control joint configuration</span>
-<span class="sd">        end_effector_link : str convertable (optinal)</span>
-<span class="sd">            necessary if poses are defined for end effector link</span>
 <span class="sd">        timeout : datatime.timedelta</span>
 <span class="sd">            timeout</span>
-<span class="sd">        attempts : int convertable</span>
-<span class="sd">            Attempts to find a solution or each pose</span>
-<span class="sd">        const_seed : bool convertable</span>
-<span class="sd">            todo</span>
+<span class="sd">        attempts : int convertable (optional default 1)</span>
+<span class="sd">            attempts to find a solution for each pose</span>
+<span class="sd">        const_seed : bool convertable (optional default False)</span>
+<span class="sd">            use constant seed instead of consecutive seeds</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1650,7 +1795,7 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If path is not of type CartesianPath or</span>
+<span class="sd">            If poses is not of type EndEffectorPose or</span>
 <span class="sd">            parameters is not of type PlanParameters</span>
 <span class="sd">            or seed is not empty list or type JointValues</span>
 <span class="sd">            or the other parameters are not convertable</span>
@@ -1659,12 +1804,15 @@
 <span class="sd">            If parameters joint set is not equal or sub</span>
 <span class="sd">            set of the seed joint set if defined and therefore</span>
 <span class="sd">            reordering was not possible</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;path is not of expected type CartesianPath&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">EndEffectorPose</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">poses</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;poses is not of expected type Iterable[EndEffectorPose]&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">PlanParameters</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;parameters is not of expected&#39;</span>
@@ -1677,7 +1825,7 @@
             <span class="k">elif</span> <span class="n">seed</span><span class="o">.</span><span class="n">joint_set</span> <span class="o">==</span> <span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">:</span>
                 <span class="k">pass</span>
             <span class="k">elif</span> <span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">is_subset</span><span class="p">(</span><span class="n">seed</span><span class="o">.</span><span class="n">joint_set</span><span class="p">):</span>
-                <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">)</span>
+                <span class="k">pass</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;joint set of parameters and seed do not&#39;</span>
                                  <span class="s1">&#39; match and reording is not possible&#39;</span><span class="p">)</span>
@@ -1687,7 +1835,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">timeout</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
-        <span class="n">end_effector_link</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_effector_link</span><span class="p">)</span>
         <span class="n">attempts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">attempts</span><span class="p">)</span>
         <span class="n">const_seed</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">const_seed</span><span class="p">)</span>
 
@@ -1695,15 +1842,12 @@
 
         <span class="n">poses_msgs</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
-            <span class="n">poses</span> <span class="o">=</span> <span class="n">EndEffectorPoses</span><span class="p">()</span>
-            <span class="n">poses</span><span class="o">.</span><span class="n">poses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">to_posestamped_msg</span><span class="p">())</span>
-            <span class="n">poses</span><span class="o">.</span><span class="n">link_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_effector_link</span><span class="p">)</span>
-            <span class="n">poses_msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">poses</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">poses</span><span class="p">:</span>
+            <span class="n">poses_msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">to_end_effector_pose_msg</span><span class="p">())</span>
 
         <span class="n">req</span> <span class="o">=</span> <span class="n">GetIKSolution2Request</span><span class="p">()</span>
         <span class="n">req</span><span class="o">.</span><span class="n">group_name</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">move_group_name</span>
-        <span class="n">req</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">names</span>
+        <span class="n">req</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">names</span>
         <span class="n">req</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">to_joint_values_point_msg</span><span class="p">()</span>
         <span class="n">req</span><span class="o">.</span><span class="n">const_seed</span> <span class="o">=</span> <span class="n">const_seed</span>
         <span class="n">req</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">poses_msgs</span>
@@ -1722,7 +1866,7 @@
 
         <span class="n">f</span> <span class="o">=</span> <span class="n">JointValues</span><span class="o">.</span><span class="n">from_joint_path_point_msg</span>
         <span class="n">joint_path</span> <span class="o">=</span> <span class="n">JointPath</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
-                               <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+                               <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">seed</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">)</span>
                                 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">solutions</span><span class="p">])</span>
 
         <span class="k">return</span> <span class="n">IkResults</span><span class="p">(</span><span class="n">joint_path</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_codes</span><span class="p">)</span></div>
@@ -1761,14 +1905,15 @@
 <span class="sd">            If parameters joint set is not equal or sub</span>
 <span class="sd">            set of the seed joint set and therefore</span>
 <span class="sd">            reordering was not possible</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query services are not available or</span>
 <span class="sd">            finish unsuccessfully or inverse kinematics</span>
 <span class="sd">            ends with error</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_joint_states</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">joint_set</span><span class="p">)</span><span class="o">.</span><span class="n">positions</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">path</span><span class="p">,</span>
+        <span class="n">poses</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span>
                                                     <span class="n">parameters</span><span class="p">,</span>
                                                     <span class="n">seed</span><span class="p">)</span>
 
@@ -1801,7 +1946,7 @@
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
 <span class="sd">            If enable is not convertable to bool</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -1867,7 +2012,7 @@
     <span class="c1">#     TypeError</span>
     <span class="c1">#         If target is not of type JointValues or</span>
     <span class="c1">#         if parameters is not of type PlanParameters</span>
-    <span class="c1">#     ServiceError</span>
+    <span class="c1">#     ServiceException</span>
     <span class="c1">#         If query services are not available or finish</span>
     <span class="c1">#         with a fail state</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -1908,7 +2053,7 @@
     <span class="c1">#         If parameters is not of type PlanParameters</span>
     <span class="c1">#         If end_effector_link is not convertable to str</span>
     <span class="c1">#         If seed is not of type JointValues</span>
-    <span class="c1">#     ServiceError</span>
+    <span class="c1">#     ServiceException</span>
     <span class="c1">#         If query services are not available or finish</span>
     <span class="c1">#         with a fail state</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -1948,7 +2093,7 @@
     <span class="c1">#         If parameters is not of type TaskSpacePlanParameters</span>
     <span class="c1">#         If end_effector_link is not convertable to str</span>
     <span class="c1">#         If seed is not of type JointValues or None</span>
-    <span class="c1">#     ServiceError</span>
+    <span class="c1">#     ServiceException</span>
     <span class="c1">#         If query services are not available or finish</span>
     <span class="c1">#         with a fail state</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -1968,7 +2113,7 @@
 
     <span class="c1">#     source = self.query_pose(group.name, seed, end_effector_link)</span>
     <span class="c1">#     path = CartesianPath.from_start_stop_point(source, target)</span>
-    <span class="c1">#     trajectory = self.plan_move_pose_linear(path, seed, parameters)</span>
+    <span class="c1">#     trajectory = self.plan_move_cartesian_linear(path, seed, parameters)</span>
     <span class="c1">#     await self.execute_joint_trajectory(trajectory,</span>
     <span class="c1">#                                         parameters.collision_check)</span>
 
@@ -1994,7 +2139,7 @@
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
 <span class="sd">            If inputs are not convertable to specified types</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If action server is not available</span>
 <span class="sd">        RuntimeError</span>
 <span class="sd">            If action returns unexpected result</span>
@@ -2014,7 +2159,7 @@
                                    <span class="s1">&#39; server with name: &#39;</span> <span class="o">+</span> <span class="n">action_name</span> <span class="o">+</span>
                                    <span class="s1">&#39; could not be established&#39;</span><span class="p">)</span>
 
-        <span class="n">run_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_action_executor</span><span class="p">(</span><span class="n">action_client</span><span class="p">)</span>
+        <span class="n">run_action</span> <span class="o">=</span> <span class="n">generate_action_executor</span><span class="p">(</span><span class="n">action_client</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">LeaseBaseLock</span><span class="p">([</span><span class="n">action_name</span><span class="p">]):</span>
             <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_action</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
@@ -2055,7 +2200,7 @@
 <span class="sd">        TypeError</span>
 <span class="sd">            If inputs are not convertable to specified types</span>
 <span class="sd">            or if command is no of type WsgCommand</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If action server is not available</span>
 <span class="sd">        RuntimeError</span>
 <span class="sd">            If action returns unexpected result</span>
@@ -2083,7 +2228,7 @@
         <span class="n">g</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_effort</span><span class="p">)</span>
         <span class="n">g</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">stop_on_block</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">stop_on_block</span><span class="p">)</span>
 
-        <span class="n">run_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_action_executor</span><span class="p">(</span><span class="n">action_client</span><span class="p">)</span>
+        <span class="n">run_action</span> <span class="o">=</span> <span class="n">generate_action_executor</span><span class="p">(</span><span class="n">action_client</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">LeaseBaseLock</span><span class="p">([</span><span class="n">action_name</span><span class="p">]):</span>
             <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_action</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
@@ -2093,39 +2238,7 @@
                                <span class="s1">&#39; wsg gripper command action: &#39;</span> <span class="o">+</span>
                                <span class="n">action_name</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">WsgResult</span><span class="o">.</span><span class="n">from_wsg_command_action_result</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">result</span><span class="p">())</span></div>
-
-    <span class="k">def</span> <span class="nf">_generate_action_executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
-
-        <span class="k">async</span> <span class="k">def</span> <span class="nf">run_action</span><span class="p">(</span><span class="n">goal</span><span class="p">):</span>
-            <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
-            <span class="n">action_done</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
-
-            <span class="k">def</span> <span class="nf">done_callback</span><span class="p">(</span><span class="n">goal_status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-                <span class="n">status</span> <span class="o">=</span> <span class="n">ActionLibGoalStatus</span><span class="p">(</span><span class="n">goal_status</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ActionLibGoalStatus</span><span class="o">.</span><span class="n">SUCCEEDED</span><span class="p">:</span>
-                    <span class="k">try</span><span class="p">:</span>
-                        <span class="n">reason</span> <span class="o">=</span> <span class="n">ActionResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
-                              <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">, reason: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">reason</span><span class="p">))</span>
-                    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;action end unsuccessfully with&#39;</span>
-                              <span class="s1">&#39; state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
-
-                <span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="n">action_done</span><span class="o">.</span><span class="n">set_result</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">action</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span> <span class="n">done_cb</span><span class="o">=</span><span class="n">done_callback</span><span class="p">)</span>
-                <span class="k">await</span> <span class="n">action_done</span>
-            <span class="k">except</span> <span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">,</span> <span class="n">ServiceException</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cancel goal because of: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
-                <span class="n">action</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
-                <span class="k">await</span> <span class="n">action_done</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done2&#39;</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="n">action_done</span>
-
-        <span class="k">return</span> <span class="n">run_action</span></div>
+        <span class="k">return</span> <span class="n">WsgResult</span><span class="o">.</span><span class="n">from_wsg_command_action_result</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">result</span><span class="p">())</span></div></div>
 </pre></div>
 
            </div>
@@ -2138,7 +2251,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -2155,32 +2268,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

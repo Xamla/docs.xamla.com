@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>xamla_motion.data_types.joint_set &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>xamla_motion.data_types.joint_set &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,38 +17,43 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> xamla_motion
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,8 +85,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
 </ul>
@@ -168,6 +175,7 @@
 <span class="c1">#!/usr/bin/env python3</span>
 
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">total_ordering</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Iterable</span>
 
 
 <div class="viewcode-block" id="JointSet"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet">[docs]</a><span class="nd">@total_ordering</span>
@@ -239,18 +247,18 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__names</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
 
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__names</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span>
 
 <div class="viewcode-block" id="JointSet.empty"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.empty">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">empty</span><span class="p">():</span>
@@ -282,7 +290,7 @@
 <span class="sd">        names : List[str] (readonly)</span>
 <span class="sd">            List of joint names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span>
 
 <div class="viewcode-block" id="JointSet.add_prefix"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.add_prefix">[docs]</a>    <span class="k">def</span> <span class="nf">add_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -318,7 +326,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;prefix expected type is str&#39;</span><span class="p">)</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">))</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointSet.union"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.union">[docs]</a>    <span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">others</span><span class="p">):</span>
@@ -333,8 +341,8 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError : type mismatch</span>
-<span class="sd">            If input parameter prefix is not of type str</span>
-
+<span class="sd">            If others is not one of expected types</span>
+<span class="sd">            JointSet or Iterable of JointSet</span>
 <span class="sd">        Returns</span>
 <span class="sd">        ------</span>
 <span class="sd">        JointSet</span>
@@ -355,12 +363,12 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span>
-        <span class="n">names_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="p">)</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span>
+        <span class="n">names_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">others</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">others</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="p">:</span>
                     <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">others</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">others</span><span class="p">:</span>
@@ -368,6 +376,101 @@
                     <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names_set</span><span class="p">:</span>
                         <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
                         <span class="n">names_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;others is not one of expected types&#39;</span>
+                            <span class="s1">&#39; JointSet or Iterable of JointSet&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointSet.intersection"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.intersection">[docs]</a>    <span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">others</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new JointSet which contains the intersection of self and others joints</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        others : JointSet or Iterable[JointSet]</span>
+<span class="sd">            JointSet with which the union is performed</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If others is not one of expected types</span>
+<span class="sd">            JointSet or Iterable of JointSet</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        JointSet</span>
+<span class="sd">            The created JointSet with intersecting joint names</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Create new JointSet instance which is the intersection of two existing ones</span>
+
+<span class="sd">        &gt;&gt;&gt; from xamla_motion.data_types import JointSet</span>
+<span class="sd">        &gt;&gt;&gt; joint_set1 = JointSet(&#39;joint1, joint2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; joint_set2 = JointSet(&#39;joint2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; joint_set1.intersection(joint_set2)</span>
+<span class="sd">        JointSet:</span>
+<span class="sd">        joint2</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">others</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">):</span>
+            <span class="n">intersection_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+                <span class="n">others</span><span class="o">.</span><span class="n">_names_set</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">others</span><span class="p">):</span>
+            <span class="n">intersection_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+                <span class="n">o</span><span class="o">.</span><span class="n">_names_set</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">others</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;others is not one of expected types&#39;</span>
+                            <span class="s1">&#39; JointSet or Iterable of JointSet&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">intersection_names</span><span class="p">:</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointSet.difference"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.difference">[docs]</a>    <span class="k">def</span> <span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">others</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new JointSet which contains the union of self and others joints</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        others : JointSet</span>
+<span class="sd">            JointSet with which the union is performed</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If others is not one of expected type JointSet</span>
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        JointSet</span>
+<span class="sd">            The created JointSet with union joint names</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Create new JointSet instance which is the union of two existing ones</span>
+
+<span class="sd">        &gt;&gt;&gt; from xamla_motion.data_types import JointSet</span>
+<span class="sd">        &gt;&gt;&gt; joint_set1 = JointSet(&#39;joint1, joint2, joint3&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; joint_set2 = JointSet(&#39;joint1, joint2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; joint_set1.difference(joint_set2)</span>
+<span class="sd">        JointSet:</span>
+<span class="sd">        joint3</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">others</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">):</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">others</span><span class="o">.</span><span class="n">_names_set</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">diff</span><span class="p">:</span>
+                    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;others is not one of expected types&#39;</span>
                             <span class="s1">&#39; JointSet or Iterable of JointSet&#39;</span><span class="p">)</span>
@@ -411,7 +514,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;other has not expected type JointSet&#39;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">__names_set</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">_names_set</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointSet.is_superset"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.is_superset">[docs]</a>    <span class="k">def</span> <span class="nf">is_superset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -450,7 +553,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;other has not expected type JointSet&#39;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">__names_set</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">_names_set</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointSet.is_similar"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.is_similar">[docs]</a>    <span class="k">def</span> <span class="nf">is_similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -492,7 +595,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;other has not expected type JointSet&#39;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_subset</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_subset</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointSet.try_get_index_of"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.try_get_index_of">[docs]</a>    <span class="k">def</span> <span class="nf">try_get_index_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -531,7 +634,7 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;name expected is type str&#39;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span></div>
 
@@ -572,12 +675,12 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;name expected type is str&#39;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;This JointSet not contains a&#39;</span>
                              <span class="s1">&#39; joint with name: &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span></div>
 
-<div class="viewcode-block" id="JointSet.contains"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointSet.contains">[docs]</a>    <span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if this JointSet contains a specific joint names</span>
 
@@ -603,18 +706,17 @@
 
 <span class="sd">        &gt;&gt;&gt; from xamla_motion.data_types import JointSet</span>
 <span class="sd">        &gt;&gt;&gt; joint_set1 = JointSet(&#39;joint0&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; joint_set1.contains(&#39;joint0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; &#39;joint0&#39; in joint_set1</span>
 <span class="sd">        True</span>
-<span class="sd">        &gt;&gt;&gt; joint_set1.contains(&#39;joint1&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; &#39;joint1&#39; in joint_set1</span>
 <span class="sd">        False</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">names</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span>
-        <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">names</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;name expected type is str&#39;</span><span class="p">)</span></div>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;name expected type is str&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -641,19 +743,19 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;index expected type is int&#39;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;index out of range&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;JointSet:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;JointSet:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
@@ -665,8 +767,8 @@
         <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="ow">or</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__names_set</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">names</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="ow">or</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_names_set</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">names</span><span class="p">)):</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="kc">True</span>
@@ -678,7 +780,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_superset</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_superset</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span></div>
@@ -694,7 +796,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -711,32 +813,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

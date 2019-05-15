@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick start guide &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>Quick start guide &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,40 +17,45 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Motion client" href="motion_client.html" />
     <link rel="prev" title="Welcome to xamla_motion’s documentation!" href="../index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> xamla_motion
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,8 +96,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
 </ul>
@@ -185,8 +192,8 @@ do some setup work in <a class="reference external" href="https://xamla.com/en/#
 the <a class="reference external" href="http://docs.xamla.com/rosvita/Getting_Started.html">ROSVITA Documentation</a>.</p>
 <p>After ROSVITA is started, please login and create a new project. A ‘how to’ for this steps is also available:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://docs.xamla.com/rosvita/Main_View.html">login</a></li>
-<li><a class="reference external" href="http://docs.xamla.com/rosvita/New_Project.html">create new project</a></li>
+<li><p><a class="reference external" href="http://docs.xamla.com/rosvita/Main_View.html">login</a></p></li>
+<li><p><a class="reference external" href="http://docs.xamla.com/rosvita/New_Project.html">create new project</a></p></li>
 </ul>
 <p>Then add a ur5 and a WSG-25 gripper as simulated components to the configuration, compile, start ROS and switch to WorldView
 (<a class="reference external" href="http://docs.xamla.com/rosvita/Getting_Started.html">how to</a>).</p>
@@ -207,7 +214,7 @@ the Pose data type.</p>
 which represents the orientation. For quaternion representation xamla_motion use
 <a class="reference external" href="https://kieranwynn.github.io/pyquaternion/">PyQuaternion</a>. Therefore, the creation of
 an instance of xamla_motions Pose data type is possible with this to parameters.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyquaternion</span> <span class="k">import</span> <span class="n">Quaternion</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.502</span><span class="p">,</span> <span class="mf">0.258</span><span class="p">,</span> <span class="mf">0.367</span><span class="p">]</span>
@@ -234,7 +241,7 @@ in which coordinate system the pose is defined. The default value is world.</p>
 <p>Another common representation of poses in robotics is the representation as a 4x4 matrix
 in homogenous coordinates. The xamla_motion pose data type can also be created from this
 representation or vise versa.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pose</span> <span class="o">=</span> <span class="n">Pose</span><span class="o">.</span><span class="n">from_transformation_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pose</span><span class="p">)</span>
@@ -258,7 +265,7 @@ representation or vise versa.</p>
 represent poses with help of this data types. The answer is, because we will do less errors
 with help of them. For example we can do simple transformations like translate 0.5 meter in
 +x and +y direction.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">Pose</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pose</span> <span class="o">=</span> <span class="n">Pose</span><span class="o">.</span><span class="n">from_transformation_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
@@ -287,10 +294,10 @@ with help of them. For example we can do simple transformations like translate 0
 <p>In the future more information about the main data types will be added.
 But for know take a look into the other chapters to learn following:</p>
 <ul class="simple">
-<li>how to move a robot with help of the <a class="reference internal" href="motion_client.html"><span class="doc">motion client classes</span></a></li>
-<li>how to control a gripper with help of the <a class="reference internal" href="gripper_client.html"><span class="doc">gripper client classes</span></a></li>
-<li>how to interact with ROSVITA WorldView with help of the <a class="reference internal" href="world_view_client.html"><span class="doc">world view client</span></a></li>
-<li>more details about the xamla_motion <a class="reference internal" href="data_types.html"><span class="doc">data types</span></a></li>
+<li><p>how to move a robot with help of the <a class="reference internal" href="motion_client.html"><span class="doc">motion client classes</span></a></p></li>
+<li><p>how to control a gripper with help of the <a class="reference internal" href="gripper_client.html"><span class="doc">gripper client classes</span></a></p></li>
+<li><p>how to interact with ROSVITA WorldView with help of the <a class="reference internal" href="world_view_client.html"><span class="doc">world view client</span></a></p></li>
+<li><p>more details about the xamla_motion <a class="reference internal" href="data_types.html"><span class="doc">data types</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -307,7 +314,7 @@ But for know take a look into the other chapters to learn following:</p>
         <a href="motion_client.html" class="btn btn-neutral float-right" title="Motion client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Welcome to xamla_motion’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to xamla_motion’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -316,7 +323,7 @@ But for know take a look into the other chapters to learn following:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -333,32 +340,16 @@ But for know take a look into the other chapters to learn following:</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

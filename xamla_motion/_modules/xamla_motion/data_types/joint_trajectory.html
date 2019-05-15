@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>xamla_motion.data_types.joint_trajectory &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>xamla_motion.data_types.joint_trajectory &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,38 +17,43 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> xamla_motion
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,8 +85,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
 </ul>
@@ -167,15 +174,18 @@
 
 <span class="c1">#!/usr/bin/env python3</span>
 
+<span class="kn">import</span> <span class="nn">bisect</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Iterable</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="k">import</span> <span class="n">Header</span>
 <span class="kn">import</span> <span class="nn">trajectory_msgs</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="k">import</span> <span class="n">Header</span>
 
 <span class="kn">from</span> <span class="nn">.joint_set</span> <span class="k">import</span> <span class="n">JointSet</span>
 <span class="kn">from</span> <span class="nn">.joint_trajectory_point</span> <span class="k">import</span> <span class="n">JointTrajectoryPoint</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Iterable</span>
 
 
 <span class="k">class</span> <span class="nc">JointTrajectoryFlags</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -297,8 +307,8 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If joint_set is not of type JointSet or </span>
-<span class="sd">            if points is not of type iterable of </span>
+<span class="sd">            If joint_set is not of type JointSet or</span>
+<span class="sd">            if points is not of type iterable of</span>
 <span class="sd">            JointTrajectoryPoints or None</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If time from start is no ascending between points or</span>
@@ -321,11 +331,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__joint_set</span> <span class="o">=</span> <span class="n">joint_set</span>
 
-        <span class="k">if</span> <span class="n">points</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">return</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 
         <span class="n">last_time</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microseconds</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
@@ -340,13 +350,13 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Provided trajectory point &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span>
                                  <span class="s1">&#39; has values for different joint set&#39;</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">velocities</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">velocities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__flags</span><span class="o">.</span><span class="n">has_velocity</span> <span class="o">=</span> <span class="kc">False</span>
 
-            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">accelerations</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">accelerations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__flags</span><span class="o">.</span><span class="n">has_acceleration</span> <span class="o">=</span> <span class="kc">False</span>
 
-            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">efforts</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">efforts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__flags</span><span class="o">.</span><span class="n">has_effort</span> <span class="o">=</span> <span class="kc">False</span>
 
 <div class="viewcode-block" id="JointTrajectory.empty"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.empty">[docs]</a>    <span class="nd">@staticmethod</span>
@@ -449,6 +459,199 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">]</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        duration : timedelta</span>
+<span class="sd">            duration of trajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+
+<div class="viewcode-block" id="JointTrajectory.append"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;JointTrajectory&#39;</span><span class="p">,</span> <span class="n">delay</span><span class="p">:</span> <span class="n">timedelta</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Append a JointTrajectory to current trajectory</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : JointTrajectory</span>
+<span class="sd">            joint trajectory to append</span>
+<span class="sd">        delay : timedelta</span>
+<span class="sd">            time between last point of current</span>
+<span class="sd">            trajectory and first point of other trajectory</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">+</span> <span class="n">delay</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_set</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="o">+</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">add_time_offset</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="JointTrajectory.prepend"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.prepend">[docs]</a>    <span class="k">def</span> <span class="nf">prepend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;JointTrajectory&#39;</span><span class="p">,</span> <span class="n">delay</span><span class="p">:</span> <span class="n">timedelta</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prepend a JointTrajectory to current trajectory</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : JointTrajectory</span>
+<span class="sd">            joint trajectory to prepend</span>
+<span class="sd">        delay : timedelta</span>
+<span class="sd">            time between last point of other</span>
+<span class="sd">            trajectory and first point of current trajectory</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">duration</span> <span class="o">+</span> <span class="n">delay</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">other</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
+                          <span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="o">+</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">add_time_offset</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="JointTrajectory.transform"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transform_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">JointTrajectoryPoint</span><span class="p">],</span> <span class="n">JointTrajectoryPoint</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply transformation to trajectory points</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        transform_function : Callable[[JointTrajectoryPoint], JointTrajectoryPoint]</span>
+<span class="sd">            Function which defines the transformation which is applied on each</span>
+<span class="sd">            joint trajectory point</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectory</span>
+<span class="sd">            Joint Trajectory with transformed points</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_set</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">transform_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_valid</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointTrajectory.get_point_before"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.get_point_before">[docs]</a>    <span class="k">def</span> <span class="nf">get_point_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">return_index</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find and return JointTrajectoryPoint nearest and before defined time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time : timedelta</span>
+<span class="sd">            defines time for which the nearest and before point is required</span>
+<span class="sd">        return_index: bool (default False)</span>
+<span class="sd">            If True return index instead of JointTrajectoryPoint</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint or int</span>
+<span class="sd">            If return_index True returns index instead of JointTrajectoryPoint </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">return_index</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">idx</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="JointTrajectory.evaluate_at"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.evaluate_at">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluates the trajectory at a given time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time : timedetla</span>
+<span class="sd">            The time at which the trajectory should be evaluated</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+        <span class="n">end_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">start_t</span> <span class="ow">or</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="n">end_t</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;time: </span><span class="si">{}</span><span class="s1"> is out of bounds (min: </span><span class="si">{}</span><span class="s1">, &#39;</span>
+                             <span class="s1">&#39;max: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">start_t</span><span class="p">,</span> <span class="n">end_t</span><span class="p">))</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_point_before</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">next_idx</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate_cubic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="n">next_idx</span><span class="p">],</span> <span class="n">time</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointTrajectory.merge"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;JointTrajectory&#39;</span><span class="p">,</span> <span class="n">delay_self</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">timedelta</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">delay_other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">timedelta</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge self and other joint trajectory</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other: JointTrajectory</span>
+<span class="sd">            Other trajectory to merge</span>
+<span class="sd">        delay_self: Union[timedelta,None] (default=None)</span>
+<span class="sd">            If defined delay which is applied to self trajectory</span>
+<span class="sd">        delay_other: Union[timedelta,None] (default=None)</span>
+<span class="sd">            If defined delay which is applied to other trajectory</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectory</span>
+<span class="sd">            Merged joint trajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">union_joint_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">joint_set</span><span class="p">)</span>
+
+        <span class="n">num_points_self</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">num_points_other</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+        <span class="n">duration_self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+        <span class="n">duration_other</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+
+        <span class="k">if</span> <span class="n">delay_self</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">duration_self</span> <span class="o">+=</span> <span class="n">delay_self</span>
+
+        <span class="k">if</span> <span class="n">delay_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">duration_other</span> <span class="o">+=</span> <span class="n">delay_other</span>
+
+        <span class="k">if</span> <span class="n">duration_self</span> <span class="o">&gt;</span> <span class="n">duration_other</span><span class="p">:</span>
+            <span class="n">duration</span> <span class="o">=</span> <span class="n">duration_self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">duration</span> <span class="o">=</span> <span class="n">duration_other</span>
+
+        <span class="n">max_points</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num_points_self</span><span class="p">,</span> <span class="n">num_points_other</span><span class="p">)</span>
+
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">duration</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_points</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">target_time</span> <span class="o">=</span> <span class="p">[</span><span class="n">dt</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_points</span><span class="p">)]</span>
+
+        <span class="n">merged_points</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">target_time</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">delay_self</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">time_s</span> <span class="o">=</span> <span class="n">t</span><span class="o">-</span><span class="n">delay_self</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time_s</span> <span class="o">=</span> <span class="n">t</span>
+            <span class="c1"># Guard to clamp time to allowed intervall</span>
+            <span class="n">start_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">end_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">time_s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">time_s</span><span class="p">,</span> <span class="n">start_t</span><span class="p">)</span>
+            <span class="n">time_s</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_s</span><span class="p">,</span> <span class="n">end_t</span><span class="p">)</span>
+            <span class="n">p_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_at</span><span class="p">(</span><span class="n">time_s</span><span class="p">)</span><span class="o">.</span><span class="n">with_time_from_start</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">delay_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">time_o</span> <span class="o">=</span> <span class="n">t</span><span class="o">-</span><span class="n">delay_other</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time_o</span> <span class="o">=</span> <span class="n">t</span>
+            <span class="c1"># Guard to clamp time to allowed intervall</span>
+            <span class="n">start_t</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">end_t</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">time_o</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">time_o</span><span class="p">,</span> <span class="n">start_t</span><span class="p">)</span>
+            <span class="n">time_o</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_o</span><span class="p">,</span> <span class="n">end_t</span><span class="p">)</span>
+            <span class="n">p_o</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">evaluate_at</span><span class="p">(</span><span class="n">time_o</span><span class="p">)</span><span class="o">.</span><span class="n">with_time_from_start</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+            <span class="n">merged_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_s</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">p_o</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">union_joint_set</span><span class="p">,</span> <span class="n">merged_points</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="JointTrajectory.to_joint_trajectory_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectory.to_joint_trajectory_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_joint_trajectory_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts JointTrajectory to JointTrajectory ros message</span>
@@ -457,10 +660,10 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        seq : int (default 0)</span>
+<span class="sd">        seq: int(default 0)</span>
 <span class="sd">            set seq field of message header</span>
-<span class="sd">        frame_id : int (default 0)</span>
-<span class="sd">            set frame_id field of message header </span>
+<span class="sd">        frame_id: int(default 0)</span>
+<span class="sd">            set frame_id field of message header</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -486,30 +689,23 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        key : int  or slice</span>
+<span class="sd">        key: int or slice</span>
 <span class="sd">            index of joint or slice for which the values are requested</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        JointValues or List[JointValues]</span>
-<span class="sd">            Returns a instance of JointValues or list of JointValues </span>
+<span class="sd">            Returns a instance of JointValues or list of JointValues</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">        TypeError: type mismatch</span>
 <span class="sd">            If key is not int or slice</span>
-<span class="sd">        IndexError :</span>
+<span class="sd">        IndexError:</span>
 <span class="sd">            If index is out of range</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;index out of range&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s1">&#39;key is not one of expected types int or slice &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span>
@@ -553,7 +749,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -570,32 +766,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

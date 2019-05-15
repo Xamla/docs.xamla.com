@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>xamla_motion.data_types.joint_path &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>xamla_motion.data_types.joint_path &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,38 +17,43 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> xamla_motion
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,8 +85,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
 </ul>
@@ -170,9 +177,7 @@
 <span class="kn">from</span> <span class="nn">.joint_set</span> <span class="k">import</span> <span class="n">JointSet</span>
 <span class="kn">from</span> <span class="nn">.joint_values</span> <span class="k">import</span> <span class="n">JointValues</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
-<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Iterable</span>
 
 
 <div class="viewcode-block" id="JointPath"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointPath">[docs]</a><span class="k">class</span> <span class="nc">JointPath</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -229,7 +234,7 @@
                             <span class="s1">&#39; type Iterable of JointValues&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__joints</span> <span class="o">=</span> <span class="n">joints</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_align_values</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">points</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_align_values</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">points</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_align_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_values</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">joint_values</span><span class="o">.</span><span class="n">joint_set</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">:</span>
@@ -337,10 +342,8 @@
 <span class="sd">            JointValues or Iterable of JointValues</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">new_points</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">):</span>
-            <span class="n">new_points</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="n">new_points</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="p">(</span><span class="n">points</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">or</span>
                 <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span>
@@ -348,9 +351,7 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;points is not of expected&#39;</span>
                             <span class="s1">&#39; type JointValues or Iterable of JointValues&#39;</span><span class="p">)</span>
 
-        <span class="n">new_points</span><span class="o">.</span><span class="n">extendleft</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span>
-                              <span class="n">new_points</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointPath.append"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointPath.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -373,10 +374,8 @@
 <span class="sd">            JointValues or Iterable of JointValues</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">new_points</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">):</span>
-            <span class="n">new_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="n">new_points</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">+</span> <span class="p">(</span><span class="n">points</span><span class="p">,))</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">or</span>
                 <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span>
@@ -384,8 +383,7 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;points is not of expected&#39;</span>
                             <span class="s1">&#39; type JointValues or Iterable of JointValues&#39;</span><span class="p">)</span>
 
-        <span class="n">new_points</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="n">new_points</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span> <span class="o">+</span> <span class="p">(</span><span class="n">points</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="JointPath.concat"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointPath.concat">[docs]</a>    <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -403,9 +401,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;other is not of expected type JointPath&#39;</span><span class="p">)</span>
 
-        <span class="n">new_points</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="p">)</span>
-        <span class="n">new_points</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="n">new_points</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joints</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__points</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="JointPath.transform"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointPath.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transform_function</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -513,7 +509,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -530,32 +526,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

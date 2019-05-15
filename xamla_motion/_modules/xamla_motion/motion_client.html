@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>xamla_motion.motion_client &mdash; xamla_motion 0.0.1 documentation</title>
+  <title>xamla_motion.motion_client &mdash; xamla_motion 0.0.2 documentation</title>
   
 
   
@@ -17,38 +17,43 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> xamla_motion
+            <a href="../../index.html">
           
 
+          
+            
+            <img src="../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -80,8 +85,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../source/quick_start.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client_v2.html">Motion client version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/gripper_client.html">Gripper client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/motion_service.html">Motion Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../source/data_types.html">Data types</a></li>
 </ul>
@@ -167,50 +174,88 @@
 
 <span class="c1">#!/usr/bin/env python3</span>
 
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
 <span class="kn">from</span> <span class="nn">.motion_service</span> <span class="k">import</span> <span class="n">MotionService</span><span class="p">,</span> <span class="n">SteppedMotionClient</span>
 <span class="kn">from</span> <span class="nn">.xamla_motion_exceptions</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.data_types</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span>
+                                     <span class="n">CartesianPath</span><span class="p">,</span>
+                                     <span class="n">EndEffectorPose</span><span class="p">,</span>
+                                     <span class="n">IkResults</span><span class="p">,</span>
+                                     <span class="n">JointPath</span><span class="p">,</span>
+                                     <span class="n">JointSet</span><span class="p">,</span>
+                                     <span class="n">JointValues</span><span class="p">,</span>
+                                     <span class="n">JointStates</span><span class="p">,</span>
+                                     <span class="n">JointTrajectory</span><span class="p">,</span>
+                                     <span class="n">PlanParameters</span><span class="p">,</span>
+                                     <span class="n">TaskSpacePlanParameters</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">deprecated</span> <span class="k">import</span> <span class="n">deprecated</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
 
 
-<div class="viewcode-block" id="MoveGroup"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup">[docs]</a><span class="k">class</span> <span class="nc">MoveGroup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="MoveGroup"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span><span class="s1">&#39;This version of MoveGroup is deprecated please use &#39;</span>
+            <span class="s1">&#39;instead the xamla_motion.v2 version of it&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">MoveGroup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class with encapsulate move functionality for a specific move group</span>
 
 <span class="sd">    Methods</span>
 <span class="sd">    -------</span>
-<span class="sd">    set_default_end_effector(end_effector_name)</span>
-<span class="sd">        set one of the end effector from the list of available ones as default</span>
-<span class="sd">    get_end_effector(name)</span>
+<span class="sd">    set_default_end_effector(end_effector_name: str)</span>
+<span class="sd">        Set one of the end effector from the list of available ones as default</span>
+<span class="sd">    get_end_effector(name: Union[None, str]) -&gt; EndEffector</span>
 <span class="sd">        Get the end effector specified by name or the default end effector</span>
-<span class="sd">    get_current_joint_states()</span>
+<span class="sd">    get_current_joint_states() -&gt; JointStates</span>
 <span class="sd">        Returns the current joint states of the move group joints</span>
-<span class="sd">    get_current_joint_positions()</span>
+<span class="sd">    get_current_joint_positions() -&gt; JointValues</span>
 <span class="sd">        Returns the current joint positions of the move group joints</span>
-<span class="sd">    plan_move_joints(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    plan_move_joints(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; Tuple[JointTrajectory, PlanParameters]</span>
 <span class="sd">        Plans a trajectory from current state to target joint positions</span>
-<span class="sd">    plan_move_joints_collision_free(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
-<span class="sd">        Plans a collision free trajectory from current to target joint positions</span>
-<span class="sd">    move_joints_collision_free(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
-<span class="sd">        Asynchronous plan and execute collision free joint trajectory</span>
-<span class="sd">    move_joints_collision_free_supervised(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
-<span class="sd">        Plan collision free joint trajectory and creates a supervised executor</span>
-<span class="sd">    move_joints(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    plan_move_joints_collision_free(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; Tuple[JointTrajectory, PlanParameters]</span>
+<span class="sd">        Plans a collision free trajectory from current to target joint positions.</span>
+<span class="sd">    move_joints(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None)</span>
 <span class="sd">        Asynchronous plan and execute joint trajectory</span>
-<span class="sd">    move_joints_supervised(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_joints_supervised(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; SteppedMotionClient</span>
 <span class="sd">        Plan joint trajectory and creates a supervised executor</span>
+<span class="sd">        Create MoveJointsOperation for target joint positions</span>
+<span class="sd">    move_joints_collision_free(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None)</span>
+<span class="sd">        Asynchronous plan and execute collision free joint trajectory</span>
+<span class="sd">    move_joints_collision_free_supervised(</span>
+<span class="sd">            target: Union[JointValues, JointPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; SteppedMotionClient</span>
+<span class="sd">        Plan collision free joint trajectory and creates a supervised executor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">end_effector_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">motion_service</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">end_effector_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">motion_service</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize MoveGroup class</span>
 
-<span class="sd">        The initialization process is possible with diffent settings:</span>
+<span class="sd">        The initialization process is possible with different settings:</span>
 
 <span class="sd">        move_group_name and end_effector_name are None:</span>
 <span class="sd">            In this case the first available move group and its</span>
@@ -238,13 +283,13 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        move_group_name : str convertable or None</span>
+<span class="sd">        move_group_name : Union[None, str]</span>
 <span class="sd">            If defined name of the move group which this</span>
 <span class="sd">            instance should represent</span>
-<span class="sd">        end_effector_name or None</span>
+<span class="sd">        end_effector_name : Union[None, str]</span>
 <span class="sd">            If defined name of the end_effector which should</span>
 <span class="sd">            be used as default end_effector</span>
-<span class="sd">        motion_service : MotionService or None</span>
+<span class="sd">        motion_service : Union[None, MotionService]</span>
 <span class="sd">            An instance of MotionService which is used to</span>
 <span class="sd">            communicate with the motion server if None a</span>
 <span class="sd">            new instance of MotionService is created</span>
@@ -254,7 +299,7 @@
 <span class="sd">        TypeError</span>
 <span class="sd">            If motion_service is not of type MotionService</span>
 <span class="sd">            or If the other inputs are not str convertable</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If necessary services to query available move</span>
 <span class="sd">            groups and end effectors are not available</span>
 <span class="sd">        RuntTimeError</span>
@@ -347,6 +392,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__selected_end_effector</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span> <span class="o">=</span> <span class="kc">None</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">=</span> <span class="mf">1.0</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -435,12 +483,9 @@
 <span class="sd">            activate collision check or deactivate it</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">):</span>
-            <span class="k">return</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">with_collision_check</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">with_collision_check</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">sample_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -463,13 +508,9 @@
 <span class="sd">            If value smaller one interpreted as in</span>
 <span class="sd">            seconds else in Hz</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span><span class="p">):</span>
-            <span class="k">return</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">with_sample_resolution</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">with_sample_resolution</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">max_deviation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -492,12 +533,9 @@
 <span class="sd">            maximal deviation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span><span class="p">):</span>
-            <span class="k">return</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">with_max_deviation</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">with_max_deviation</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">ik_jump_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -522,10 +560,10 @@
 <span class="sd">            new maximal allowed inverse kinematics jump threshold</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-            <span class="k">return</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;task space plan parameters not defined&#39;</span>
+                               <span class="s1">&#39; because move group has no end effector&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">ik_jump_threshold</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">with_ik_jump_threshold</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -539,17 +577,16 @@
 <span class="sd">            The maximal velocities are provided by the motion server</span>
 <span class="sd">            and queried from it during the initialization process.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span>
 
     <span class="nd">@velocity_scaling</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">velocity_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 
-        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;value is not&#39;</span>
+                             <span class="s1">&#39; between 0.0 and 1.0&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">value</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -563,17 +600,16 @@
 <span class="sd">            The maximal accelerations are provided by the motion server</span>
 <span class="sd">            and queried from it during the initialization process.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span>
 
     <span class="nd">@acceleration_scaling</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">acceleration_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 
-        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;value is not&#39;</span>
+                             <span class="s1">&#39; between 0.0 and 1.0&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">acceleration_scaling</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">value</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span> <span class="o">=</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="MoveGroup.set_default_end_effector"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.set_default_end_effector">[docs]</a>    <span class="k">def</span> <span class="nf">set_default_end_effector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end_effector_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -621,7 +657,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        end_effector : EndEffector</span>
+<span class="sd">        end_effector : xamla_motion.EndEffector</span>
 <span class="sd">            Instance of Class EndEffector with requested name</span>
 
 <span class="sd">        Raises</span>
@@ -655,7 +691,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If Service is not available or finish</span>
 <span class="sd">            not successful</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -673,15 +709,19 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If Service is not available or finish</span>
 <span class="sd">            not successful</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_joint_states</span><span class="p">()</span><span class="o">.</span><span class="n">positions</span></div>
 
-    <span class="k">def</span> <span class="nf">_build_plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_build_plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PlanParameters</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build an instance of PlanParameters from input and default values</span>
 
@@ -717,28 +757,34 @@
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">parameters</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="p">)</span>
+        <span class="n">sample_resolution</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">builder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__plan_parameters</span><span class="o">.</span><span class="n">to_builder</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">velocity_scaling</span><span class="p">:</span>
-            <span class="n">parameters</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">scale_velocity</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">collision_check</span><span class="p">:</span>
-            <span class="n">parameters</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
 
         <span class="k">if</span> <span class="n">max_deviation</span><span class="p">:</span>
-            <span class="n">parameters</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
 
         <span class="k">if</span> <span class="n">acceleration_scaling</span><span class="p">:</span>
-            <span class="n">parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">acceleration_scaling</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">scale_acceleration</span><span class="p">(</span><span class="n">acceleration_scaling</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">parameters</span>
+        <span class="k">if</span> <span class="n">sample_resolution</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">sample_resolution</span>
 
-    <span class="k">def</span> <span class="nf">_build_task_space_plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                          <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                          <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                          <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                          <span class="n">end_effector_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_build_task_space_plan_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                          <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                          <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                          <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                          <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                          <span class="n">end_effector_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+                                                                   <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                          <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TaskSpacePlanParameters</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build an instance of TaskSpacePlanParameters from input</span>
 <span class="sd">        and default values</span>
@@ -779,89 +825,80 @@
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">end_effector_name</span><span class="p">:</span>
-            <span class="n">parameters</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">velocity_scaling</span><span class="p">:</span>
-                <span class="n">parameters</span><span class="o">.</span><span class="n">velocity_scaling</span> <span class="o">=</span> <span class="n">velocity_scaling</span>
-
-            <span class="k">if</span> <span class="n">collision_check</span><span class="p">:</span>
-                <span class="n">parameters</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
-
-            <span class="k">if</span> <span class="n">max_deviation</span><span class="p">:</span>
-                <span class="n">parameters</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
-
-            <span class="k">if</span> <span class="n">acceleration_scaling</span><span class="p">:</span>
-                <span class="n">parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="n">acceleration_scaling</span>
-
-            <span class="k">return</span> <span class="n">parameters</span>
-
+        <span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">sample_resolution</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">end_effector_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_effector_name</span><span class="p">)</span>
 
-        <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__end_effectors</span><span class="p">[</span><span class="n">end_effector_name</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;move group&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">+</span>
-                               <span class="s1">&#39; has no end effector with name: &#39;</span> <span class="o">+</span>
-                               <span class="n">end_effector_name</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">end_effector_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span>
+                <span class="n">end_effector_name</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selected_end_effector</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__end_effectors</span><span class="p">[</span><span class="n">end_effector_name</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;move group&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">+</span>
+                                   <span class="s1">&#39; has no end effector with name: &#39;</span> <span class="o">+</span>
+                                   <span class="n">end_effector_name</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">velocity_scaling</span><span class="p">:</span>
-            <span class="n">velocity_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">create_task_space_plan_parameters</span><span class="p">(</span>
+                <span class="n">end_effector_name</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">collision_check</span><span class="p">:</span>
-            <span class="n">collision_check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">collision_check</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">max_deviation</span><span class="p">:</span>
-            <span class="n">max_deviation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_deviation</span>
+        <span class="n">builder</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">to_builder</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">acceleration_scaling</span><span class="p">:</span>
-            <span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">acceleration_scaling</span>
+        <span class="k">if</span> <span class="n">velocity_scaling</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">scale_velocity</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="p">)</span>
 
-        <span class="n">sample_resolution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">sample_resolution</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">create_task_space_plan_parameters</span><span class="p">(</span>
-            <span class="n">end_effector_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_xyz_velocity</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_xyz_acceleration</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_angular_velocity</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__task_space_plan_parameters</span><span class="o">.</span><span class="n">max_angular_acceleration</span><span class="p">,</span>
-            <span class="n">sample_resolution</span><span class="o">=</span><span class="n">sample_resolution</span><span class="p">,</span>
-            <span class="n">collision_check</span><span class="o">=</span><span class="n">collision_check</span><span class="p">,</span>
-            <span class="n">max_deviation</span><span class="o">=</span><span class="n">max_deviation</span><span class="p">,</span>
-            <span class="n">velocity_scaling</span><span class="o">=</span><span class="n">velocity_scaling</span><span class="p">,</span>
-            <span class="n">acceleration_scaling</span><span class="o">=</span><span class="n">acceleration_scaling</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">collision_check</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">collision_check</span> <span class="o">=</span> <span class="n">collision_check</span>
 
-<div class="viewcode-block" id="MoveGroup.plan_move_joints"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints">[docs]</a>    <span class="k">def</span> <span class="nf">plan_move_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">max_deviation</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">max_deviation</span> <span class="o">=</span> <span class="n">max_deviation</span>
+
+        <span class="k">if</span> <span class="n">acceleration_scaling</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">scale_acceleration</span><span class="p">(</span><span class="n">acceleration_scaling</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sample_resolution</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">sample_resolution</span> <span class="o">=</span> <span class="n">sample_resolution</span>
+
+        <span class="k">if</span> <span class="n">ik_jump_threshold</span><span class="p">:</span>
+            <span class="n">builder</span><span class="o">.</span><span class="n">ik_jump_threshold</span> <span class="o">=</span> <span class="n">ik_jump_threshold</span>
+
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MoveGroup.plan_move_joints"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints">[docs]</a>    <span class="k">def</span> <span class="nf">plan_move_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                         <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                         <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">PlanParameters</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plans a trajectory from current state to target joint positions</span>
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or target JointPath</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
-
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        trajectory, parameters : Tuple[JointTrajectory, PlanParameters]</span>
-<span class="sd">            Returns a tuple where the firt argument is the planed</span>
+<span class="sd">            Returns a tuple where the first argument is the planed</span>
 <span class="sd">            trajectory and the second argument the parameters which are</span>
 <span class="sd">            used for it</span>
-
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -870,7 +907,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -893,26 +930,29 @@
 
         <span class="k">return</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span></div>
 
-<div class="viewcode-block" id="MoveGroup.plan_move_joints_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints_collision_free">[docs]</a>    <span class="k">def</span> <span class="nf">plan_move_joints_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                        <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                        <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MoveGroup.plan_move_joints_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.plan_move_joints_collision_free">[docs]</a>    <span class="k">def</span> <span class="nf">plan_move_joints_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                        <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                                        <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+                                                                    <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">PlanParameters</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plans a collision free trajectory from current to target joint positions</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or joint path</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
-
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -921,7 +961,6 @@
 <span class="sd">            trajectory and the second argument the parameters which are</span>
 <span class="sd">            used for it</span>
 
-
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
@@ -929,7 +968,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -943,10 +982,10 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected types&#39;</span>
                             <span class="s1">&#39; JointValues, JointPath&#39;</span><span class="p">)</span>
 
-        <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_plan_parameters</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="p">,</span>
-                                                 <span class="kc">False</span><span class="p">,</span>
-                                                 <span class="n">max_deviation</span><span class="p">,</span>
-                                                 <span class="n">acceleration_scaling</span><span class="p">)</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_plan_parameters</span><span class="p">(</span><span class="n">velocity_scaling</span><span class="o">=</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                 <span class="n">collision_check</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                 <span class="n">max_deviation</span><span class="o">=</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                 <span class="n">acceleration_scaling</span><span class="o">=</span><span class="n">acceleration_scaling</span><span class="p">)</span>
 
         <span class="n">path_cf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">plan_collision_free_joint_path</span><span class="p">(</span><span class="n">joint_path</span><span class="p">,</span>
                                                                   <span class="n">parameters</span><span class="p">)</span>
@@ -954,23 +993,28 @@
 
         <span class="k">return</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span></div>
 
-<div class="viewcode-block" id="MoveGroup.move_joints_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_joints_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                         <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                         <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MoveGroup.move_joints_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_joints_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                         <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                                         <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                         <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                         <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                         <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+                                                                     <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                         <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Asynchronous plan and execute collision free joint trajectory from joint space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or joint path</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
@@ -981,7 +1025,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -989,6 +1033,11 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="p">(</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected types&#39;</span>
                             <span class="s1">&#39; JointValues, JointPath&#39;</span><span class="p">)</span>
+
+        <span class="n">velocity_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">velocity_scaling</span> <span class="ow">or</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span><span class="p">)</span>
+        <span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">acceleration_scaling</span> <span class="ow">or</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span><span class="p">)</span>
 
         <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_move_joints_collision_free</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
                                                                       <span class="n">velocity_scaling</span><span class="p">,</span>
@@ -998,24 +1047,28 @@
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
                                                         <span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MoveGroup.move_joints_collision_free_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_joints_collision_free_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">),</span>
-                                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                              <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
+<div class="viewcode-block" id="MoveGroup.move_joints_collision_free_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_collision_free_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_joints_collision_free_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                              <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                              <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                              <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+                                                                          <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        plan collision free joint trajectory and creates a supervised executor </span>
+<span class="sd">        plan collision free joint trajectory and creates a supervised executor</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or joint path</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
@@ -1031,7 +1084,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1040,37 +1093,45 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected types&#39;</span>
                             <span class="s1">&#39; JointValues, JointPath&#39;</span><span class="p">)</span>
 
-        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_move_joints_collision_free</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
-                                                                      <span class="n">velocity_scaling</span><span class="p">,</span>
-                                                                      <span class="n">max_deviation</span><span class="p">,</span>
-                                                                      <span class="n">acceleration_scaling</span><span class="p">)</span>
+        <span class="n">velocity_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">velocity_scaling</span> <span class="ow">or</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span><span class="p">)</span>
+        <span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">acceleration_scaling</span> <span class="ow">or</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span><span class="p">)</span>
+
+        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_move_joints_collision_free</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                                                                      <span class="n">velocity_scaling</span><span class="o">=</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                                      <span class="n">max_deviation</span><span class="o">=</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                                      <span class="n">acceleration_scaling</span><span class="o">=</span><span class="n">acceleration_scaling</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
-                                                                    <span class="n">parameters</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                                    <span class="mf">1.0</span><span class="p">,</span>
                                                                     <span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MoveGroup.move_joints"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MoveGroup.move_joints"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                          <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                          <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                          <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Asynchronous plan and execute joint trajectory from joint space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or joint path</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
@@ -1081,7 +1142,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1099,29 +1160,31 @@
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
                                                         <span class="n">parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MoveGroup.move_joints_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_joints_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">),</span>
-                               <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">collision_check</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
+<div class="viewcode-block" id="MoveGroup.move_joints_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.MoveGroup.move_joints_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_joints_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">JointValues</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">],</span>
+                               <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plan joint trajectory and creates a supervised executor </span>
+<span class="sd">        Plan joint trajectory and creates a supervised executor</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : JointValues or JointPath</span>
+<span class="sd">        target : Union[JointValues, JointPath]</span>
 <span class="sd">            Target joint positions or joint path</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
@@ -1137,7 +1200,7 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1146,55 +1209,89 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected types&#39;</span>
                             <span class="s1">&#39; JointValues, JointPath&#39;</span><span class="p">)</span>
 
-        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
-                                                       <span class="n">velocity_scaling</span><span class="p">,</span>
-                                                       <span class="n">collision_check</span><span class="p">,</span>
-                                                       <span class="n">max_deviation</span><span class="p">,</span>
-                                                       <span class="n">acceleration_scaling</span><span class="p">)</span>
+        <span class="n">velocity_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">velocity_scaling</span> <span class="ow">or</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">__velocity_scaling</span><span class="p">)</span>
+        <span class="n">acceleration_scaling</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">acceleration_scaling</span> <span class="ow">or</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">__acceleration_scaling</span><span class="p">)</span>
 
+        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_move_joints</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                                                       <span class="n">velocity_scaling</span><span class="o">=</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                       <span class="n">collision_check</span><span class="o">=</span><span class="n">collision_check</span><span class="p">,</span>
+                                                       <span class="n">max_deviation</span><span class="o">=</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                       <span class="n">acceleration_scaling</span><span class="o">=</span><span class="n">acceleration_scaling</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
-                                                                    <span class="n">parameters</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                                    <span class="mf">1.0</span><span class="p">,</span>
                                                                     <span class="n">parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="EndEffector"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector">[docs]</a><span class="k">class</span> <span class="nc">EndEffector</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span><span class="s1">&#39;This version of EndEffector is deprecated please use &#39;</span>
+            <span class="s1">&#39;instead the xamla_motion.v2 version of it&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">EndEffector</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class with encapsulate move functionality for a specific end effector</span>
 
 <span class="sd">    Methods</span>
 <span class="sd">    -------</span>
-<span class="sd">    from_end_effector_name(end_effector_name)</span>
+<span class="sd">    from_end_effector_name(end_effector_name: str) -&gt; EndEffector</span>
 <span class="sd">        Creates an instance of MoveGroup and select the correct instance of EndEffector</span>
-<span class="sd">    get_current_pose()</span>
+<span class="sd">    get_current_pose() -&gt; Pose</span>
 <span class="sd">        Returns the current pose of the end effector</span>
-<span class="sd">    compute_pose(joint_values)</span>
+<span class="sd">    compute_pose(joint_values: JointValues) -&gt; Pose</span>
 <span class="sd">        compute pose from joint values / configuration</span>
-<span class="sd">    inverse_kinematics(pose, collision_check, seed, timeout, const_seed)</span>
+<span class="sd">    inverse_kinematics(</span>
+<span class="sd">            poses: Union[Pose, CartesianPath], collision_check: Union[None, bool], seed: Union[None, JointValues],</span>
+<span class="sd">            timeout:  Union[None, datatime.timedelta], const_seed: bool, attempts: int</span>
+<span class="sd">        ) -&gt; JointValues:</span>
 <span class="sd">        inverse kinematic solutions for one pose</span>
-<span class="sd">    inverse_kinematics_many(cartesian_path, collision_check, seed, timeout, const_seed)</span>
+<span class="sd">    inverse_kinematics_many(</span>
+<span class="sd">            poses: Union[Pose, CartesianPath], collision_check: Union[None, bool], seed: Union[None, JointValues],</span>
+<span class="sd">            timeout:  Union[None, datatime.timedelta], const_seed: bool, attempts: int</span>
+<span class="sd">        ) -&gt; IkResults:</span>
 <span class="sd">        inverse kinematic solutions for many poses</span>
-<span class="sd">    move_poses(target, seed=None, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_poses(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], seed: Union[None, JointValues]=None,</span>
+<span class="sd">            velocity_scaling: Union[None, float]=None, collision_check: Union[None, bool]=None,</span>
+<span class="sd">            max_deviation: Union[None, float]=None, acceleration_scaling: Union[None, float]=None)</span>
 <span class="sd">        Asynchronous plan and execute trajectory from task space input</span>
-<span class="sd">    move_poses_supervised(target, seed=None, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_poses_supervised(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], seed: Union[None, JointValues]=None,</span>
+<span class="sd">            velocity_scaling: Union[None, float]=None, collision_check: Union[None, bool]=None,</span>
+<span class="sd">            max_deviation: Union[None, float]=None, acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; SteppedMotionClient</span>
 <span class="sd">        Plan trajectory from task space input and create executor</span>
-<span class="sd">    move_poses_collision_free(target, seed=None, velocity_scaling=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_poses_collision_free(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], seed: Union[None, JointValues]=None,</span>
+<span class="sd">            velocity_scaling: Union[None, float]=None, collision_check: Union[None, bool]=None,</span>
+<span class="sd">            max_deviation: Union[None, float]=None, acceleration_scaling: Union[None, float]=None)</span>
 <span class="sd">        Asynchronous plan and execute collision free trajectory from task space input</span>
-<span class="sd">    move_poses_collision_free_supervised(target, seed=None, velocity_scaling=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_poses_collision_free_supervised(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], seed: Union[None, JointValues]=None,</span>
+<span class="sd">            velocity_scaling: Union[None, float]=None, collision_check: Union[None, bool]=None,</span>
+<span class="sd">            max_deviation: Union[None, float]=None, acceleration_scaling: Union[None, float]=None</span>
+<span class="sd">        ) -&gt; SteppedMotionClient</span>
 <span class="sd">        Plan collision free trajectory from task space input and create executor</span>
-<span class="sd">    plan_poses_linear(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    plan_poses_linear(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None, seed: Union[None, JointValues]=None</span>
+<span class="sd">        ) -&gt; Tuple[JointTrajectory, PlanParameters]</span>
 <span class="sd">        Plans a trajectory with linear movements from task space input</span>
-<span class="sd">    move_poses_linear(target, velocity_scaling=None, collision_check=None, max_deviation=None, acceleration_scaling=None)</span>
+<span class="sd">    move_poses_linear(</span>
+<span class="sd">            target: Union[Pose, CartesianPath], velocity_scaling: Union[None, float]=None,</span>
+<span class="sd">            collision_check: Union[None, bool]=None, max_deviation: Union[None, float]=None,</span>
+<span class="sd">            acceleration_scaling: Union[None, float]=None)</span>
 <span class="sd">        Plans and executes a trajectory with linear movements from task space input</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group</span><span class="p">,</span> <span class="n">end_effector_name</span><span class="p">,</span>
-                 <span class="n">end_effector_link_name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">move_group</span><span class="p">:</span> <span class="n">MoveGroup</span><span class="p">,</span> <span class="n">end_effector_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">end_effector_link_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize EndEffector class</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        move_group : MoveGroup</span>
+<span class="sd">        move_group : xamla_motion.MoveGroup</span>
 <span class="sd">            Instance of move group where the endeffector belongs</span>
 <span class="sd">            to</span>
 <span class="sd">        end_effector_name : str_convertable</span>
@@ -1210,7 +1307,7 @@
 <span class="sd">        TypeError</span>
 <span class="sd">            If move_group is not of type MoveGroup</span>
 <span class="sd">            or If the other inputs are not str convertable</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If necessary services to query available move</span>
 <span class="sd">            groups and end effectors are not available</span>
 <span class="sd">        RuntTimeError</span>
@@ -1228,7 +1325,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span> <span class="o">=</span> <span class="n">move_group</span><span class="o">.</span><span class="n">motion_service</span>
 
 <div class="viewcode-block" id="EndEffector.from_end_effector_name"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.from_end_effector_name">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_end_effector_name</span><span class="p">(</span><span class="n">end_effector_name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">from_end_effector_name</span><span class="p">(</span><span class="n">end_effector_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;xamla_motion.EndEffector&#39;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates an instance of MoveGroup and select the correct instance of EndEffector</span>
 
@@ -1240,7 +1337,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        EndEffector</span>
+<span class="sd">        xamla_motion.EndEffector</span>
 <span class="sd">            Instance of EndEffector for end effector with the name</span>
 <span class="sd">            specified by end_effector name (instance is also hold</span>
 <span class="sd">            by the created move_group)</span>
@@ -1277,7 +1374,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">move_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        move_group : MoveGroup</span>
+<span class="sd">        move_group : xamla_motion.MoveGroup</span>
 <span class="sd">            Instance of MoveGroup which manages the</span>
 <span class="sd">            move group where the end effector belongs to</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1313,7 +1410,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query services from motion server are not</span>
 <span class="sd">            available or finish unsuccessfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1325,7 +1422,7 @@
 
         <span class="k">return</span> <span class="n">p</span></div>
 
-<div class="viewcode-block" id="EndEffector.compute_pose"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.compute_pose">[docs]</a>    <span class="k">def</span> <span class="nf">compute_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_values</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector.compute_pose"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.compute_pose">[docs]</a>    <span class="k">def</span> <span class="nf">compute_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_values</span><span class="p">:</span> <span class="n">JointValues</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pose</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        compute pose from joint values / configuration</span>
 
@@ -1344,7 +1441,7 @@
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query services from motion server are not</span>
 <span class="sd">            available or finish unsuccessfully</span>
 <span class="sd">        TypeError</span>
@@ -1359,40 +1456,43 @@
 
 <div class="viewcode-block" id="EndEffector.inverse_kinematics"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">,</span>
                            <span class="n">collision_check</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-                           <span class="n">seed</span><span class="p">:</span> <span class="n">JointValues</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                           <span class="n">timeout</span><span class="p">:</span> <span class="n">timedelta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                           <span class="n">const_seed</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IkResults</span><span class="p">:</span>
+                           <span class="n">seed</span><span class="p">:</span> <span class="n">JointValues</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">timeout</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">const_seed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                           <span class="n">attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JointValues</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        inverse kinematic solutions for one pose</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        poses : pose</span>
-<span class="sd">            Pose to transform to joint space</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        poses : Union[Pose, CartesianPath]</span>
+<span class="sd">            Poses to transform to joint space</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        seed : JointValues (optional)</span>
+<span class="sd">        seed : Union[None, JointValues]  (optional)</span>
 <span class="sd">            Numerical seed to control joint configuration</span>
-<span class="sd">        timeout : datatime.timedelta (optional)</span>
+<span class="sd">        timeout : Union[None, datatime.timedelta]  (optional)</span>
 <span class="sd">            timeout</span>
-<span class="sd">        const_seed : boolean (optional)</span>
+<span class="sd">        const_seed : bool (optional default False)</span>
 <span class="sd">            Determines if for each pose in poses the same seed should be used</span>
+<span class="sd">        attempts : int (optional default 1)</span>
+<span class="sd">            number of attempts to find solution</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        IkResult</span>
-<span class="sd">            Instance of IkResult with all found solutions as</span>
-<span class="sd">            a JointPath and error codes</span>
+<span class="sd">        JointValues</span>
+<span class="sd">            Instance of JointValues with a found solution</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
 <span class="sd">            If poses is not of correct type</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose&#39;</span><span class="p">)</span>
@@ -1404,35 +1504,40 @@
                                                               <span class="n">collision_check</span><span class="p">)</span>
 
         <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span>
-                                                       <span class="n">parameters</span><span class="p">,</span>
-                                                       <span class="n">seed</span><span class="p">,</span>
-                                                       <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">,</span>
-                                                       <span class="n">timeout</span><span class="p">)</span>
+                                                         <span class="n">parameters</span><span class="p">,</span>
+                                                         <span class="n">seed</span><span class="p">,</span>
+                                                         <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">,</span>
+                                                         <span class="n">timeout</span><span class="p">,</span>
+                                                         <span class="n">attempts</span><span class="p">,</span>
+                                                         <span class="n">const_seed</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">path</span></div>
 
-<div class="viewcode-block" id="EndEffector.inverse_kinematics_many"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics_many">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poses</span><span class="p">:</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">),</span>
-                                <span class="n">collision_check</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-                                <span class="n">seed</span><span class="p">:</span> <span class="n">JointValues</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                <span class="n">timeout</span><span class="p">:</span> <span class="n">timedelta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                <span class="n">const_seed</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IkResults</span><span class="p">:</span>
+<div class="viewcode-block" id="EndEffector.inverse_kinematics_many"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.inverse_kinematics_many">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_kinematics_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                                <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span>
+                                <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">timeout</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">const_seed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                <span class="n">attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IkResults</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        inverse kinematic solutions for many poses</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        poses : Pose or CartesianPath</span>
+<span class="sd">        poses : Union[Pose, CartesianPath]</span>
 <span class="sd">            Poses to transform to joint space</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        seed : JointValues (optional)</span>
+<span class="sd">        seed : Union[None, JointValues]  (optional)</span>
 <span class="sd">            Numerical seed to control joint configuration</span>
-<span class="sd">        timeout : datatime.timedelta (optional)</span>
+<span class="sd">        timeout : Union[None, datatime.timedelta]  (optional)</span>
 <span class="sd">            timeout</span>
-<span class="sd">        const_seed : boolean (optional)</span>
+<span class="sd">        const_seed : bool (optional default False)</span>
 <span class="sd">            Determines if for each pose in poses the same seed should be used</span>
+<span class="sd">        attempts : int (optional default 1)</span>
+<span class="sd">            number of attempts to find solution</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1444,13 +1549,14 @@
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
 <span class="sd">            If poses is not of correct type</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If query service is not available</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
-            <span class="n">poses</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">poses</span><span class="p">)</span>
+            <span class="n">poses</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
-            <span class="k">pass</span>
+            <span class="n">poses</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">poses</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose or CartesianPath&#39;</span><span class="p">)</span>
@@ -1464,11 +1570,12 @@
         <span class="n">ik</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">poses</span><span class="p">,</span>
                                                             <span class="n">parameters</span><span class="p">,</span>
                                                             <span class="n">seed</span><span class="p">,</span>
-                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">,</span>
-                                                            <span class="n">timeout</span><span class="p">)</span>
+                                                            <span class="n">timeout</span><span class="p">,</span>
+                                                            <span class="n">attempts</span><span class="p">,</span>
+                                                            <span class="n">const_seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ik</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computation of inverse kinematic fails&#39;</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;computation of inverse kinematic fails&#39;</span>
                   <span class="s1">&#39; for one or more request in batch: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ik</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">ik</span></div>
@@ -1510,7 +1617,7 @@
     <span class="c1">#         If all other inputs are not convertable to specified types</span>
     <span class="c1">#     ValueError</span>
     <span class="c1">#         If scaling inputs are not between 0.0 and 1.0</span>
-    <span class="c1">#     ServiceError</span>
+    <span class="c1">#     ServiceException</span>
     <span class="c1">#         If underlying services from motion server are not available</span>
     <span class="c1">#         or finish not successfully</span>
 
@@ -1520,35 +1627,39 @@
     <span class="c1">#         executable joint trajectory from</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="EndEffector.move_poses"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">),</span>
-                         <span class="n">seed</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">collision_check</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                         <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector.move_poses"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                         <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Asynchronous plan and execute trajectory from task space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
-<span class="sd">            Target joint positions</span>
-<span class="sd">        seed : JointValues (optional)</span>
-<span class="sd">            Numerical seed to control joint configuration    </span>
-<span class="sd">        velocity_scaling : float convertable  (optional)</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
+<span class="sd">            Target Pose or target CartesianPath</span>
+<span class="sd">        seed : Union[None, JointValues] (default None)</span>
+<span class="sd">            Numerical seed to control joint configuration</span>
+<span class="sd">        velocity_scaling : Union[None, float] (default None)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
-<span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : bool convertable  (optional)</span>
+<span class="sd">            possible joint and task velocities</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        collision_check : Union[None, bool] (default None)</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : float convertable  (optional)</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        max_deviation : Union[None, float] (default None)</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : float convertable  (optional)</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        acceleration_scaling : Union[None, float] (default None)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
-<span class="sd">            possible joint accelerations</span>
+<span class="sd">            possible joint and task accelerations</span>
+<span class="sd">            If None the MoveGroup default is used</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -1558,16 +1669,17 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">target</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose or CartesianPath&#39;</span><span class="p">)</span>
@@ -1582,8 +1694,7 @@
 
         <span class="n">ik</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
                                                             <span class="n">parameters</span><span class="p">,</span>
-                                                            <span class="n">seed</span><span class="p">,</span>
-                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span>
+                                                            <span class="n">seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ik</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;Ik computation failed&#39;</span><span class="p">)</span>
@@ -1598,33 +1709,38 @@
                                                         <span class="n">plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EndEffector.move_poses_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_poses_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">),</span>
-                              <span class="n">seed</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">collision_check</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                              <span class="n">seed</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plan trajectory from task space input and create executor</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
-<span class="sd">            Target joint positions</span>
-<span class="sd">        seed : JointValues (optional)</span>
-<span class="sd">            Numerical seed to control joint configuration    </span>
-<span class="sd">        velocity_scaling : float convertable  (optional)</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
+<span class="sd">            Target Pose or target CartesianPath</span>
+<span class="sd">        seed : Union[None, JointValues] (default None)</span>
+<span class="sd">            Numerical seed to control joint configuration</span>
+<span class="sd">        velocity_scaling : Union[None, float] (default None)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
-<span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : bool convertable  (optional)</span>
+<span class="sd">            possible joint and task velocities</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        collision_check : Union[None, bool] (default None)</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : float convertable  (optional)</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        max_deviation : Union[None, float] (default None)</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : float convertable  (optional)</span>
+<span class="sd">            If None the MoveGroup default is used</span>
+<span class="sd">        acceleration_scaling : Union[None, float] (default None)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
-<span class="sd">            possible joint accelerations</span>
+<span class="sd">            possible joint and task accelerations</span>
+<span class="sd">            If None the MoveGroup default is used</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1639,16 +1755,17 @@
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">target</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose or CartesianPath&#39;</span><span class="p">)</span>
@@ -1663,8 +1780,7 @@
 
         <span class="n">ik</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
                                                             <span class="n">parameters</span><span class="p">,</span>
-                                                            <span class="n">seed</span><span class="p">,</span>
-                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span>
+                                                            <span class="n">seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ik</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;Ik computation failed&#39;</span><span class="p">)</span>
@@ -1676,56 +1792,57 @@
                                                                          <span class="n">acceleration_scaling</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
-                                                                    <span class="n">plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                                    <span class="mf">1.0</span><span class="p">,</span>
                                                                     <span class="n">plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EndEffector.move_poses_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">),</span>
-                              <span class="n">seed</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">collision_check</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector.move_poses_collision_free"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses_collision_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                                        <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Asynchronous plan and execute collision free trajectory from task space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
 <span class="sd">            Target joint positions</span>
-<span class="sd">        seed : JointValues (optional)</span>
-<span class="sd">            Numerical seed to control joint configuration    </span>
-<span class="sd">        velocity_scaling : float convertable  (optional)</span>
+<span class="sd">        seed : Union[None, JointValues] (optional)</span>
+<span class="sd">            Numerical seed to control joint configuration</span>
+<span class="sd">        velocity_scaling : Union[None, float]  (optional)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : bool convertable  (optional)</span>
+<span class="sd">        collision_check : Union[None, bool] (optional)</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : float convertable  (optional)</span>
+<span class="sd">        max_deviation : Union[None, float] (optional)</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : float convertable  (optional)</span>
+<span class="sd">        acceleration_scaling : Union[None, float]  (optional)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If target is not one of types Pose or CartesianPath</span>
+<span class="sd">            If target is not one of types Union[Pose, CartesianPath]</span>
 <span class="sd">            If seed is defined and not of type JointValues</span>
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">target</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose or CartesianPath&#39;</span><span class="p">)</span>
@@ -1740,8 +1857,7 @@
 
         <span class="n">ik</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
                                                             <span class="n">parameters</span><span class="p">,</span>
-                                                            <span class="n">seed</span><span class="p">,</span>
-                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span>
+                                                            <span class="n">seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ik</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;Ik computation failed&#39;</span><span class="p">)</span>
@@ -1754,32 +1870,34 @@
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
                                                         <span class="n">plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EndEffector.move_poses_collision_free_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_poses_collision_free_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="p">(</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">),</span>
-                              <span class="n">seed</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">velocity_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">collision_check</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">max_deviation</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector.move_poses_collision_free_supervised"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_collision_free_supervised">[docs]</a>    <span class="k">def</span> <span class="nf">move_poses_collision_free_supervised</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                                             <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+                                                                         <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                             <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SteppedMotionClient</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plan collision free trajectory from task space input and create executor</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
 <span class="sd">            Target joint positions</span>
-<span class="sd">        seed : JointValues (optional)</span>
-<span class="sd">            Numerical seed to control joint configuration    </span>
-<span class="sd">        velocity_scaling : float convertable  (optional)</span>
+<span class="sd">        seed : Union[None, JointValues] (optional)</span>
+<span class="sd">            Numerical seed to control joint configuration</span>
+<span class="sd">        velocity_scaling : Union[None, float]  (optional)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : bool convertable  (optional)</span>
+<span class="sd">        collision_check : Union[None, bool] (optional)</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : float convertable  (optional)</span>
+<span class="sd">        max_deviation : Union[None, float] (optional)</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : float convertable  (optional)</span>
+<span class="sd">        acceleration_scaling : Union[None, float]  (optional)</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
@@ -1791,21 +1909,22 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If target is not one of types Pose or CartesianPath</span>
+<span class="sd">            If target is not one of types Union[Pose, CartesianPath]</span>
 <span class="sd">            If seed is defined and not of type JointValues</span>
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_one_point</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="n">EndEffectorPose</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">target</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected &#39;</span>
                             <span class="s1">&#39;types Pose or CartesianPath&#39;</span><span class="p">)</span>
@@ -1820,8 +1939,7 @@
 
         <span class="n">ik</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">query_inverse_kinematics_many</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
                                                             <span class="n">parameters</span><span class="p">,</span>
-                                                            <span class="n">seed</span><span class="p">,</span>
-                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__link_name</span><span class="p">)</span>
+                                                            <span class="n">seed</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ik</span><span class="o">.</span><span class="n">succeeded</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;Ik computation failed&#39;</span><span class="p">)</span>
@@ -1832,41 +1950,53 @@
                                                                                         <span class="n">acceleration_scaling</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory_supervised</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
-                                                                   <span class="n">plan_parameters</span><span class="o">.</span><span class="n">velocity_scaling</span><span class="p">,</span>
-                                                                   <span class="n">plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
+                                                                    <span class="mf">1.0</span><span class="p">,</span>
+                                                                    <span class="n">plan_parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EndEffector.plan_poses_linear"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.plan_poses_linear">[docs]</a>    <span class="k">def</span> <span class="nf">plan_poses_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EndEffector.plan_poses_linear"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.plan_poses_linear">[docs]</a>    <span class="k">def</span> <span class="nf">plan_poses_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                          <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">PlanParameters</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plans a trajectory with linear movements from task space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
 <span class="sd">            Target joint positions</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
+<span class="sd">        seed : Union[None, JointValues]</span>
+<span class="sd">            Numerical seed to control joint configuration</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[JointTrajectory, PlanParameters]</span>
+<span class="sd">            A tuple containing the trajectory and the plan parameters</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If target is not one of types Pose or CartesianPath</span>
+<span class="sd">            If target is not one of types Union[Pose, CartesianPath]</span>
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1894,39 +2024,41 @@
 
         <span class="k">return</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span></div>
 
-<div class="viewcode-block" id="EndEffector.move_poses_linear"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_linear">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">velocity_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                <span class="n">collision_check</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_deviation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                                <span class="n">acceleration_scaling</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
+<div class="viewcode-block" id="EndEffector.move_poses_linear"><a class="viewcode-back" href="../../source/motion_client.html#xamla_motion.EndEffector.move_poses_linear">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move_poses_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Pose</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">],</span>
+                                <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">velocity_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">collision_check</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">max_deviation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">acceleration_scaling</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plans and executes a trajectory with linear movements from task space input</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : Pose or CartesianPath</span>
+<span class="sd">        target : Union[Pose, CartesianPath]</span>
 <span class="sd">            Target joint positions</span>
-<span class="sd">        velocity_scaling : None or float convertable</span>
+<span class="sd">        velocity_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint velocities</span>
-<span class="sd">        collision_check : None or bool convertable</span>
+<span class="sd">        collision_check : Union[None, bool]</span>
 <span class="sd">            If true the trajectory planing try to plan a</span>
 <span class="sd">            collision free trajectory and before executing</span>
 <span class="sd">            a trajectory a collision check is performed</span>
-<span class="sd">        max_deviation : None or float convertable</span>
+<span class="sd">        max_deviation : Union[None, float]</span>
 <span class="sd">            Defines the maximal deviation from trajectory points</span>
 <span class="sd">            when it is a fly-by-point in joint space</span>
-<span class="sd">        acceleration_scaling : None or float convertable</span>
+<span class="sd">        acceleration_scaling : Union[None, float]</span>
 <span class="sd">            Scaling factor which is applied on the maximal</span>
 <span class="sd">            possible joint accelerations</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        TypeError</span>
-<span class="sd">            If target is not one of types Pose or CartesianPath</span>
+<span class="sd">            If target is not one of types Union[Pose, CartesianPath]</span>
 <span class="sd">            If all other inputs are not convertable to specified types</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            If scaling inputs are not between 0.0 and 1.0</span>
-<span class="sd">        ServiceError</span>
+<span class="sd">        ServiceException</span>
 <span class="sd">            If underlying services from motion server are not available</span>
 <span class="sd">            or finish not successfully</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1935,11 +2067,11 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;target is not one of expected types&#39;</span>
                             <span class="s1">&#39; Pose, CartesianPath&#39;</span><span class="p">)</span>
 
-        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_poses_linear</span><span class="p">(</span><span class="n">target</span><span class="p">,</span>
-                                                        <span class="n">velocity_scaling</span><span class="p">,</span>
-                                                        <span class="n">collision_check</span><span class="p">,</span>
-                                                        <span class="n">max_deviation</span><span class="p">,</span>
-                                                        <span class="n">acceleration_scaling</span><span class="p">)</span>
+        <span class="n">trajectory</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_poses_linear</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                                                        <span class="n">velocity_scaling</span><span class="o">=</span><span class="n">velocity_scaling</span><span class="p">,</span>
+                                                        <span class="n">collision_check</span><span class="o">=</span><span class="n">collision_check</span><span class="p">,</span>
+                                                        <span class="n">max_deviation</span><span class="o">=</span><span class="n">max_deviation</span><span class="p">,</span>
+                                                        <span class="n">acceleration_scaling</span><span class="o">=</span><span class="n">acceleration_scaling</span><span class="p">)</span>
 
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">execute_joint_trajectory</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span>
                                                         <span class="n">parameters</span><span class="o">.</span><span class="n">collision_check</span><span class="p">)</span></div></div>
@@ -1955,7 +2087,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.
+        &copy; Copyright 2019, Xamla
 
     </p>
   </div>
@@ -1972,32 +2104,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
