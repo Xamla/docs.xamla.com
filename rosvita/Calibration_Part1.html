@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Calibration Part1 (Camera, Hand-Eye, Endeffector) &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Calibration Part2 (Robot Kinematic)" href="Calibration_Part2.html" />
+    <link rel="prev" title="How to use Stereo Laser Line Client" href="source/How_To_Stereo_Laser_Line_Client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#camera-calibration">Camera calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hand-eye-calibration">Hand-eye calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#end-effector-calibration">End effector calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Calibration Part1 (Camera, Hand-Eye, Endeffector)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Calibration_Part1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calibration-part1-camera-hand-eye-endeffector">
+<span id="calibration-part1-label"></span><h1>Calibration Part1 (Camera, Hand-Eye, Endeffector)<a class="headerlink" href="#calibration-part1-camera-hand-eye-endeffector" title="Permalink to this headline">¶</a></h1>
+<p>The Rosvita package <strong>auto_calibration</strong> (<code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/auto_calibration</span></code>)
+containts scripts for camera and hand-eye calibration, including data acquisition.
+It is almost completely written in LUA, except for the current endeffector calibration
+(subfolder <code class="docutils literal notranslate"><span class="pre">endEffectorCalibration_py</span></code>), which is written in Python.</p>
+<p><strong>Major features are:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#camera-calibration-label"><span class="std std-ref">Camera calibration</span></a> (single and stereo setup) including data acquisition</p></li>
+<li><p><a class="reference internal" href="#hand-eye-calibration-label"><span class="std std-ref">Hand-eye calibration</span></a> Hand-Eye calibration (including evaluation)</p></li>
+<li><p><a class="reference internal" href="#endeffector-calibration-label"><span class="std std-ref">End effector calibration</span></a></p></li>
+</ol>
+<p><strong>Calibration pattern requirements:</strong></p>
+<p>For all camera and hand-eye calibrations one of our <a href="https://github.com/Xamla/auto_calibration/blob/master/Patterns_with_ID.pdf" target="_blank">circle patterns with ids</a>
+(see also <code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/auto_calibration/Patterns_with_ID.pdf</span></code>) has to be used.
+For a high-quality print of one of these patterns contact us (<a class="reference external" href="http://xamla.com">http://xamla.com</a>).</p>
+<div class="section" id="camera-calibration">
+<span id="camera-calibration-label"></span><h2>Camera calibration<a class="headerlink" href="#camera-calibration" title="Permalink to this headline">¶</a></h2>
+<p>Calibration of Ximea cameras or GenICam based cameras as single or stereo camera setup mounted onboard (on the robot) or extern can easily be performed by running the scripts <strong>configureCalibration.lua</strong> and <strong>runCalibration.lua</strong>.</p>
+<p>In more detail, the <strong>calibration pipeline</strong> is as follows:</p>
+<ul class="simple">
+<li><p>In Rosvita load or create a project (e.g. with UR5 or SDA10, cameras and gripper), compile it and start ROS.</p></li>
+<li><p>With the Rosvita terminal go into your project folder and start the configuration script:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_folder&gt;
+th /home/xamla/Rosvita.Control/lua/auto_calibration/configureCalibration.lua
+</pre></div>
+</div>
+<ul>
+<li><p>-&gt; The <strong>configuration main menu</strong> will appear in the terminal.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Now you can select the calibration mode (single or stereo camera setup), the robot move group, the camera type, the circle pattern id and geometry, etc. …</p></li>
+<li><p>Moreover, you can teach base poses, capture poses and optionally evaluation poses for the calibration.</p></li>
+<li><p><strong>Hint</strong>: Base Poses are mainly used for picking a calibration target. If you don’t want to pick a calibration target, only teach a start pose and successively press return afterwards for the remaining base poses.</p></li>
+<li><p>Don’t forget to <strong>save</strong> the configuration by <strong>pressing the ‘s’ button</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Next run the calibration script from your project folder and with the previously saved configuration:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>th /home/xamla/Rosvita.Control/lua/auto_calibration/runCalibration.lua -cfg &lt;name_of_your_saved_configuration_file&gt;.t7
+</pre></div>
+</div>
+<ul>
+<li><p>-&gt; The <strong>calibration main menu</strong> will appear in the terminal.</p>
+<blockquote>
+<div><ul>
+<li><p>Now, simply press:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>f (Full calibraton cycle)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>or press the following sequence:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>c (Capture calibration images)</p></li>
+<li><p>a (Calibrate camera)</p></li>
+<li><p>s (Save calibration)</p></li>
+<li><p>b (Hand-eye calibration)</p></li>
+<li><p>e (Evaluate calibration) (optionally)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The order of this sequence is important, in particular don’t forget to save the camera calibration by pressing ‘s’ before starting the hand-eye calibration.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output directory for your calibration data (image capturing and calibration results) will be <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/</span></code>. Thus, your calibration data will be saved only temporarily. To permanently save calibration results, move them into your project folder!</p>
+</div>
+</div>
+<div class="section" id="hand-eye-calibration">
+<span id="hand-eye-calibration-label"></span><h2>Hand-eye calibration<a class="headerlink" href="#hand-eye-calibration" title="Permalink to this headline">¶</a></h2>
+<p>In case of an <strong>onboard camera setup</strong>, the hand-eye calibration detects the transformation (rotation and translation) between the tool center point (tcp) of the robot and a previously calibrated camera system mounted on the robot.</p>
+<p>In case of an <strong>extern camera setup</strong>, the calibration pattern has to be mounted on the robot (e.g. grasped by the gripper) and the hand-eye calibration detects the transformation between the tcp and the pattern.</p>
+<p>To be able to perform hand-eye calibration, the camera calibration has to be performed and saved first (see above).
+To run the hand-eye calibration, type the following commands into the Rosvita terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_folder&gt;
+th /home/xamla/Rosvita.Control/lua/auto_calibration/runCalibration.lua -cfg &lt;name_of_your_saved_configuration_file&gt;.t7
+</pre></div>
+</div>
+<p>Then press</p>
+<ul class="simple">
+<li><p>b (Hand-eye calibration)</p></li>
+</ul>
+<p>Now, you have to enter the name of the folder (<code class="docutils literal notranslate"><span class="pre">&lt;date&gt;_&lt;time&gt;</span></code>) containing your recorded robot poses and the name of the folder containing the camera calibration (probably the same).</p>
+<p>Moveover you have to choose if you want to use <strong>RANSAC outlier removal</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> with RANSAC outlier removal
+<span class="m">2</span> without RANSAC outlier removal
+</pre></div>
+</div>
+<p>In particular with large datasets (e.g. obtained via sphere sampling) it is highly recommended to use option 1 (with RANSAC outlier removal), because outlier removal considerably stabilizes the underlying hand-eye calibration algorithm, which is the closed-form solution proposed by <a href="https://pdfs.semanticscholar.org/19b3/89a797a55c8b63dca8b6d1889df4cff8bfaa.pdf" target="_blank">R. Y. Tsai and R. K. Lenz</a>.</p>
+<p>Finally, you may want to evaluate your hand-eye calibration by some error metrics to be able to compare it with alternative hand-eye calibrations. Thereto, first you have to teach some tcp poses for evaluation (such that the cameras can capture the pattern from different angles and positions):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>th /home/xamla/Rosvita.Control/lua/auto_calibration/configureCalibration.lua
+* e <span class="o">(</span>Teach poses <span class="k">for</span> evaluation<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>Some notes about the calibration result folder structure:</strong></p>
+<ul class="simple">
+<li><p>Captured images will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/capture/</span></code></p></li>
+<li><p>Robot poses will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/jsposes.t7</span></code></p></li>
+<li><p>Stereo calibration will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/stereo_cams_&lt;serial1&gt;_&lt;serial2&gt;.t7</span></code></p></li>
+<li><p>For a single camera setup, camera calibration will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/cam_&lt;serial&gt;.t7</span></code></p></li>
+<li><p>For an extern stereo setup, hand-pattern calibration will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/HandPattern.t7</span></code>, and moreover the pose of the left camera relative to the robot base will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/LeftCamBase.t7</span></code></p></li>
+<li><p>For an on-board stereo setup, hand-eye (with ‘eye’ = left cam) calibration will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/HandEye.t7</span></code>, and moreover the pose of the pattern relative to the robot base will be stored in <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/&lt;date&gt;_&lt;time&gt;/PatternBase.t7</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to save disk space and to not get confused with too many calibration results, this storage is only a temporary one. That means, all calibration results, image capturings and pose recordings will get lost if the Rosvita image is stopped. To permanently save the best calibration result, move the corresponding folder into your project folder.</p>
+</div>
+</div>
+<div class="section" id="end-effector-calibration">
+<span id="endeffector-calibration-label"></span><h2>End effector calibration<a class="headerlink" href="#end-effector-calibration" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The end effector calibration described here, is tested for the SDA10 robot. For usage with an UR5 or other robots, slight adaptions to the scripts might be necessary. Moreover, note that the end effector calibration is the last step of the calibration pipeline. Thus before calibrating the end effector, you first have to perform the camera calibration, hand-eye calibration and (if necessary) the robot kinematic calibration.</p>
+</div>
+<p><strong>End effector calibration pattern requirements:</strong></p>
+<p>For the end effector (tooltip) calibration our <a href="https://github.com/Xamla/auto_calibration/blob/master/endEffectorCalibration_py/Pattern_for_tooltip_calibration.pdf" target="_blank">pattern arrangement with crosslines</a>
+(see also <code class="docutils literal notranslate"><span class="pre">Pattern_for_tooltip_calibration.pdf</span></code> in subfolder <code class="docutils literal notranslate"><span class="pre">endEffectorCalibration_py</span></code> of
+<code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/auto_calibration</span></code>) has to be used.
+It is recommended to print this pattern in A4 format.
+For a high-quality print of this pattern contact us (<a class="reference external" href="http://xamla.com">http://xamla.com</a>).</p>
+<div class="figure align-center" id="id1">
+<img alt="_images/Tooltipcalib_Pattern.png" src="_images/Tooltipcalib_Pattern.png" />
+<p class="caption"><span class="caption-text">Figure 15.1  Pattern for end effector (tooltip) calibration.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>End effector calibration:</strong></p>
+<p>First, you have to define a good <strong>starting pose</strong> for the robot, such that e.g. a stereo camera setup mounted at the SDA10 torso can capture the whole calibration pattern, which is fixed onto the table (or onto a resilient plate). In particular, <strong>all four circle patterns</strong> must be <strong>completely visible</strong> in the left and right image.
+Save this starting pose of the robot to the Rosvita world view and move the robot to this posture before starting the tooltip calibration.</p>
+<p>Now, with the Rosvita terminal go into your project folder and call the <strong>run_tooltip_calibration.py</strong> script from the auto_calibration package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_folder&gt;
+python3 ../../lua/auto_calibration/endEffectorCalibration_py/run_tooltip_calibration.py
+</pre></div>
+</div>
+<p>The script will ask you to enter the filename (with path) of the stereo camera calibration (here, this is the stereo camera calibration of the SDA10 torso cameras). Next, it will ask you for the exposure time of the cameras, the robot arm with the end effector to be calibrated, and the hand-eye for the torso cameras (i.e. the file containing the transformation between the torso joint and the torso cameras; you may simply press ‘Enter’ here).
+After that, you have to move the robot to the starting pose (if not already done) and again press ‘Enter’.</p>
+<p>With help of the four circle patterns, which have their origin at the elongation of the cross lines, the position of the cross lines can be determined in world coordinates. The pattern poses in camera and world coordinates, as well as the resulting position of the cross lines will be written into the terminal output.</p>
+<p>Finally, you are asked to move the tooltip straight down to the cross lines. Make sure, that the tooltip points straight down, i.e. in direction of the table, and precisely touches the middle of the crosslines (see Fig. 15.2). Then confirm this by pressing ‘Enter’. Now, the pose of the tooltip is the same as the pose of the cross lines. With help of the known flange (TCP) coordinates the tooltip pose is transformed into flange coordinates and the result is written into the terminal output and saved as <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/storage_tooltipcalib/tooltip_pose_in_flange_coordinages.npy</span></code>.</p>
+<div class="figure align-center" id="id2">
+<img alt="_images/Tooltipcalib.png" src="_images/Tooltipcalib.png" />
+<p class="caption"><span class="caption-text">Figure 15.2  End effector (tooltip) calibration.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>To <strong>relocate the tool center point (TCP)</strong> from the flange position to a newly calculated end effector (tooltip) position in Rosvita, add a <strong>tcp_link</strong> to the file <strong>robotModel/main.xacro</strong> of your project folder. As <strong>origin xyz</strong> of your new tcp_link choose the <strong>translation vector of</strong> your calculated <strong>tcp&lt;-&gt;end effector transformation</strong> (i.e. of your tooltip pose in flange coordinates). Then compile the <strong>main.xacro</strong> and adapt your robot configuration (i.e. the <strong>tip link</strong> of the move group and the <strong>parent link</strong> of the end effector). For more details see chapter <a class="reference internal" href="Own_Robot_Models.html#relocation-of-tcp-label"><span class="std std-ref">Relocation of the “Tool Center Point (TCP)”</span></a> or see the last terminal output when running the script.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Calibration_Part2.html" class="btn btn-neutral float-right" title="Calibration Part2 (Robot Kinematic)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="source/How_To_Stereo_Laser_Line_Client.html" class="btn btn-neutral float-left" title="How to use Stereo Laser Line Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 16, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
