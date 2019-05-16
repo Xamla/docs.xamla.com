@@ -894,7 +894,7 @@
 
         <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_codes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span> <span class="ow">is</span> <span class="kc">None</span>
                 <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_codes</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service call for query forward&#39;</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service call for query forward &#39;</span>
                                    <span class="s1">&#39;kinematics returns with &#39;</span>
                                    <span class="s1">&#39;invalid response&#39;</span><span class="p">)</span>
 
@@ -903,10 +903,12 @@
                 <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service call for query forward&#39;</span>
                                        <span class="s1">&#39; kinematics was not&#39;</span>
                                        <span class="s1">&#39; successful for point: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span>
-                                       <span class="s1">&#39;service name:&#39;</span> <span class="o">+</span>
+                                       <span class="s1">&#39; service name: &#39;</span> <span class="o">+</span>
                                        <span class="n">query_forward_kinematics_service</span> <span class="o">+</span>
                                        <span class="s1">&#39; error code: &#39;</span> <span class="o">+</span>
-                                       <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
+                                       <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">val</span><span class="p">)</span> <span class="o">+</span>
+                                       <span class="s1">&#39;, error message: &#39;</span> <span class="o">+</span>
+                                       <span class="n">response</span><span class="o">.</span><span class="n">error_msgs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Pose</span><span class="o">.</span><span class="n">from_posestamped_msg</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
                         <span class="n">response</span><span class="o">.</span><span class="n">solutions</span><span class="p">))</span></div>
@@ -1261,9 +1263,7 @@
             <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service call for query joint&#39;</span>
                                    <span class="s1">&#39; collisions was not successful. &#39;</span>
                                    <span class="s1">&#39;service name:&#39;</span> <span class="o">+</span>
-                                   <span class="n">query_joint_path_collisions</span> <span class="o">+</span>
-                                   <span class="s1">&#39; error code: &#39;</span> <span class="o">+</span>
-                                   <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error_code</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
+                                   <span class="n">query_joint_path_collisions</span><span class="p">)</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">JointValuesCollisions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error_codes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                                         <span class="n">response</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>

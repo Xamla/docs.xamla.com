@@ -234,7 +234,7 @@ In version 2.0 a lot of API changes are made to improve the usability.</p>
     <span class="n">cone</span> <span class="o">=</span> <span class="n">CollisionPrimitive</span><span class="o">.</span><span class="n">create_cone</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">pose3</span><span class="p">)</span>
 
     <span class="n">collision_object1</span> <span class="o">=</span> <span class="n">CollisionObject</span><span class="p">([</span><span class="n">box</span><span class="p">])</span>
-    <span class="n">collision_object2</span> <span class="o">=</span> <span class="n">CollisionObject</span><span class="p">([</span><span class="n">sphere</span><span class="p">,</span> <span class="n">cylinder</span><span class="p">])</span>
+    <span class="n">collision_object2</span> <span class="o">=</span> <span class="n">CollisionObject</span><span class="p">([</span><span class="n">cylinder</span><span class="p">])</span>
     <span class="n">collision_object3</span> <span class="o">=</span> <span class="n">CollisionObject</span><span class="p">([</span><span class="n">plane</span><span class="p">,</span> <span class="n">cone</span><span class="p">])</span>
 
     <span class="c1"># create a instance of WorldViewClient to get access to rosvita world view</span>
@@ -359,7 +359,7 @@ In version 2.0 a lot of API changes are made to improve the usability.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- update collision object --------------&#39;</span><span class="p">)</span>
     <span class="n">world_view_client</span><span class="o">.</span><span class="n">add_collision_object</span><span class="p">(</span>
         <span class="s1">&#39;test/collision_objects/collision_object1&#39;</span><span class="p">,</span>
-        <span class="n">collision_object3</span>
+        <span class="n">collision_object2</span>
     <span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------- get collision object --------------&#39;</span><span class="p">)</span>
