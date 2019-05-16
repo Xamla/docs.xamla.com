@@ -17,48 +17,45 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="Building a Complex Scene" href="Complex_Scene.html"/>
-        <link rel="prev" title="Using Lua Scripts" href="Lua_Scripts.html"/> 
-
-  
-  <script src="static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building a Complex Scene" href="Complex_Scene.html" />
+    <link rel="prev" title="Using Lua Scripts" href="Lua_Scripts.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home">
+            <a href="index.html">
           
 
+          
+            
+            <img src="_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -101,6 +98,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Access to ROSVITA from External ROS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
 </ul>
 
             
@@ -112,7 +113,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +121,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -151,7 +153,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="sources/Combination_with_External_ROS.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Combination_with_External_ROS.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,22 +172,21 @@
 <p>Assume a robot (e.g. a UR5 arm) has been started with ROSVITA on a master machine (“computer1”) via web interface.
 So on the master machine, the steps from the first four tutorials were carried out, i.e.:</p>
 <ul class="simple">
-<li>Download of the ROSVITA docker image</li>
-<li>Running the ROSVITA start script</li>
-<li>Start of a web browser and entering <code class="docutils literal"><span class="pre">localhost:5000</span></code> in the address bar</li>
-<li>Signing in to ROSVITA at the start screen</li>
-<li>Creation of a simple robot configuration consisting of e.g. only the UR5 arm (RobotPart: UR5, Actuator: Robot Arm UR) (see chapter 4)</li>
-<li>Compiling the robot configuration</li>
-<li>Starting ROS</li>
+<li><p>Download of the ROSVITA docker image</p></li>
+<li><p>Running the ROSVITA start script</p></li>
+<li><p>Start of a web browser and entering <code class="docutils literal notranslate"><span class="pre">localhost:5000</span></code> in the address bar</p></li>
+<li><p>Signing in to ROSVITA at the start screen</p></li>
+<li><p>Creation of a simple robot configuration consisting of e.g. only the UR5 arm (RobotPart: UR5, Actuator: Robot Arm UR) (see chapter 4)</p></li>
+<li><p>Compiling the robot configuration</p></li>
+<li><p>Starting ROS</p></li>
 </ul>
 <p>Now, we want to access the roscore process running in the Docker container on the master machine from another computer (“computer2”) with own ROS development environment (see also the ROS tutorial: <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/MultipleMachines">“Running ROS across multiple machines”</a>).
 This requires <strong>ssh access</strong> from computer2 to computer1 (and vice versa).</p>
 <p>Suppose on computer2 we have our own ROS environment, i.e both a running ROS installation and a catkin workspace with various packages, in particular:</p>
 <ul>
-<li><p class="first">a checked out <a class="reference external" href="https://github.com/ros-industrial/universal_robot">“universal_robot”</a> package,</p>
-</li>
-<li><p class="first">and in there a “lesson_move_group” package with a CMakeLists.txt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>cmake_minimum_required(VERSION 2.8.3)
+<li><p>a checked out <a class="reference external" href="https://github.com/ros-industrial/universal_robot">“universal_robot”</a> package,</p></li>
+<li><p>and in there a “lesson_move_group” package with a CMakeLists.txt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cmake_minimum_required(VERSION 2.8.3)
 project(lesson_move_group)
 
 add_compile_options(-std=c++11)
@@ -207,7 +208,7 @@ target_link_libraries(lesson_move_group_1 ${catkin_LIBRARIES})
 </ul>
 <blockquote>
 <div><p>and a package.xml:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot;?&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;package&gt;
   &lt;name&gt;lesson_move_group&lt;/name&gt;
   &lt;version&gt;0.0.0&lt;/version&gt;
@@ -225,7 +226,7 @@ target_link_libraries(lesson_move_group_1 ${catkin_LIBRARIES})
 <p>as well as a source folder “src” with a small C++ program “lesson_move_group_1.cpp”
 (see this <a class="reference external" href="http://aeswiki.datasys.swri.edu/rositraining/Exercises/3.6">“ROS industrial exercise 3.6”</a>
 and this <a class="reference external" href="http://ros-industrial.github.io/industrial_training/_source/session4/Motion-Planning-CPP.html">“ROS industrial exercise 4.0”</a>):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ros/ros.h&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ros/ros.h&gt;</span>
 <span class="c1">#include &lt;moveit/move_group_interface/move_group_interface.h&gt;</span>
 <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
@@ -243,42 +244,39 @@ and this <a class="reference external" href="http://ros-industrial.github.io/ind
 </div></blockquote>
 <p>To start this C++ script from computer2 so that it accesses the roscore process running in Docker on computer1, the following steps must be performed on computer2:</p>
 <ol class="arabic">
-<li><p class="first">Set the ROS environment variable <strong>“ROS_MASTER_URI”</strong> to the IP address of the master machine (computer1):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ROS_MASTER_URI</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">master</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">11311</span>
+<li><p>Set the ROS environment variable <strong>“ROS_MASTER_URI”</strong> to the IP address of the master machine (computer1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ROS_MASTER_URI</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">master</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">11311</span>
 </pre></div>
 </div>
-<p>(You can find out the IP address of the master machine by login to computer1 via ssh and typing <code class="docutils literal"><span class="pre">ifconfig</span></code>.)
-Check the new ROS_MASTER_URI setting on computer2 by typing commands <code class="docutils literal"><span class="pre">echo</span> <span class="pre">$ROS_MASTER_URI</span></code> and <code class="docutils literal"><span class="pre">rostopic</span> <span class="pre">list</span></code>, which should list all processes/nodes, that have been started in ROSVITA on computer1.</p>
+<p>(You can find out the IP address of the master machine by login to computer1 via ssh and typing <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code>.)
+Check the new ROS_MASTER_URI setting on computer2 by typing commands <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$ROS_MASTER_URI</span></code> and <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">list</span></code>, which should list all processes/nodes, that have been started in ROSVITA on computer1.</p>
 </li>
-<li><p class="first">Source your catkin workspace setup file, if not already done automatically (via .bashrc):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<li><p>Source your catkin workspace setup file, if not already done automatically (via .bashrc):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 </pre></div>
 </div>
-<p>Now, the <strong>“ROS_PACKAGE_PATH”</strong> variable should not only point to your ROS installation, but also to your catkin workspace. Check this by looking at this variable: <code class="docutils literal"><span class="pre">echo</span> <span class="pre">$ROS_PACKAGE_PATH</span></code>.</p>
+<p>Now, the <strong>“ROS_PACKAGE_PATH”</strong> variable should not only point to your ROS installation, but also to your catkin workspace. Check this by looking at this variable: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$ROS_PACKAGE_PATH</span></code>.</p>
 </li>
-<li><p class="first"><strong>Download folder “part_ur5”</strong> from your current robot configuration in ROSVITA and <strong>add it to the ROS_PACKAGE_PATH</strong>:</p>
+<li><p><strong>Download folder “part_ur5”</strong> from your current robot configuration in ROSVITA and <strong>add it to the ROS_PACKAGE_PATH</strong>:</p>
 <ul>
-<li><p class="first">Open a web browser (e.g. Chrome) and type <code class="docutils literal"><span class="pre">http://&lt;ip-address-of-master&gt;:5000</span></code> in the address bar. The ROSVITA development environment should appear.</p>
-</li>
-<li><p class="first">Log in to ROSVITA and with the ROSVITA terminal go into your project folder containing the current robot configuration:
-<code class="docutils literal"><span class="pre">cd</span> <span class="pre">/home/xamla/Rosvita.Control/projects/my_project/robotModel/</span></code>.
+<li><p>Open a web browser (e.g. Chrome) and type <code class="docutils literal notranslate"><span class="pre">http://&lt;ip-address-of-master&gt;:5000</span></code> in the address bar. The ROSVITA development environment should appear.</p></li>
+<li><p>Log in to ROSVITA and with the ROSVITA terminal go into your project folder containing the current robot configuration:
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/xamla/Rosvita.Control/projects/my_project/robotModel/</span></code>.
 Then pack and compress the folder “part_ur5”:
-<code class="docutils literal"><span class="pre">tar</span> <span class="pre">cvfz</span> <span class="pre">part_ur5.tgz</span> <span class="pre">part_ur5</span></code>
+<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cvfz</span> <span class="pre">part_ur5.tgz</span> <span class="pre">part_ur5</span></code>
 and finally download it to your computer, i.e. click on “part_ur5.tgz”
-and press the download button of the ROSVITA file browser.</p>
-</li>
-<li><p class="first">Now, on your local computer (computer2) go into your Downloads folder and unpack the part_ur5 folder: <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzvf</span> <span class="pre">part_ur5.tgz</span></code></p>
-</li>
-<li><p class="first">Add the path of the “part_ur5” folder to your ROS_PACKAGE_PATH:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/&lt;username&gt;/Downloads/part_ur5/
+and press the download button of the ROSVITA file browser.</p></li>
+<li><p>Now, on your local computer (computer2) go into your Downloads folder and unpack the part_ur5 folder: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xzvf</span> <span class="pre">part_ur5.tgz</span></code></p></li>
+<li><p>Add the path of the “part_ur5” folder to your ROS_PACKAGE_PATH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/&lt;username&gt;/Downloads/part_ur5/
 </pre></div>
 </div>
-<p>Check this setting by typing <code class="docutils literal"><span class="pre">echo</span> <span class="pre">$ROS_PACKAGE_PATH</span></code> and <code class="docutils literal"><span class="pre">rospack</span> <span class="pre">find</span> <span class="pre">part_ur5</span></code> in your terminal.</p>
+<p>Check this setting by typing <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$ROS_PACKAGE_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">rospack</span> <span class="pre">find</span> <span class="pre">part_ur5</span></code> in your terminal.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">Finally, start your C++ script by typing the following command in a terminal on computer2:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">lesson_move_group</span> <span class="n">lesson_move_group_1</span>
+<li><p>Finally, start your C++ script by typing the following command in a terminal on computer2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">lesson_move_group</span> <span class="n">lesson_move_group_1</span>
 </pre></div>
 </div>
 <p>Now, you should see a movement of your UR5 robot arm in the ROSVITA environment, which previously has been started in Docker on computer1 (see beginning of this chapter).</p>
@@ -288,9 +286,7 @@ and press the download button of the ROSVITA file browser.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -299,7 +295,7 @@ and press the download button of the ROSVITA file browser.</p>
         <a href="Complex_Scene.html" class="btn btn-neutral float-right" title="Building a Complex Scene" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Lua_Scripts.html" class="btn btn-neutral" title="Using Lua Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Lua_Scripts.html" class="btn btn-neutral float-left" title="Using Lua Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -308,12 +304,14 @@ and press the download button of the ROSVITA file browser.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -326,37 +324,15 @@ and press the download button of the ROSVITA file browser.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

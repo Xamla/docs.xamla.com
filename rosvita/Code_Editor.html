@@ -17,48 +17,45 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Rosvita documentation  documentation" href="index.html"/>
-        <link rel="next" title="Creation of Own Robot Models" href="Own_Robot_Models.html"/>
-        <link rel="prev" title="ROSVITA File Browser" href="File_Browser.html"/> 
-
-  
-  <script src="static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creation of Own Robot Models" href="Own_Robot_Models.html" />
+    <link rel="prev" title="ROSVITA File Browser" href="File_Browser.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home">
+            <a href="index.html">
           
 
+          
+            
+            <img src="_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -101,6 +98,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
 </ul>
 
             
@@ -112,7 +113,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Rosvita documentation</a>
@@ -120,9 +121,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -151,7 +153,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="sources/Code_Editor.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Code_Editor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,28 +170,26 @@
 <h1>ROSVITA Code Editor<a class="headerlink" href="#rosvita-code-editor" title="Permalink to this headline">¶</a></h1>
 <p>Double-clicking on a file in the integrated file browser opens it in the ROSVITA code editor, which offers several helpful features:</p>
 <ul class="simple">
-<li>First of all, ROSVITA has a <strong>built-in .xacro compiler</strong> so that when you open a .xacro file, buttons “Save” and “Compile” appear in the top bar of the editor. Moreover, to the right of the .xacro editor, a window opens, where you can switch between a 3D view of the corresponding robot configuration and the URDF output of the xacro compilation (see Fig. 7.1). The results of compiling the .xacro file are directly visible in the 3D view and the URDF output. Possible error messages of the compile process appear at the error output at the bottom of the ROSVITA programming environment.</li>
+<li><p>First of all, ROSVITA has a <strong>built-in .xacro compiler</strong> so that when you open a .xacro file, buttons “Save” and “Compile” appear in the top bar of the editor. Moreover, to the right of the .xacro editor, a window opens, where you can switch between a 3D view of the corresponding robot configuration and the URDF output of the xacro compilation (see Fig. 7.1). The results of compiling the .xacro file are directly visible in the 3D view and the URDF output. Possible error messages of the compile process appear at the error output at the bottom of the ROSVITA programming environment.</p></li>
 </ul>
-<div class="figure" id="id1">
-<img alt="images/Xacro_Editor.png" src="images/Xacro_Editor.png" />
-<p class="caption"><span class="caption-text">Figure 7.1  The ROSVITA xacro editor.</span></p>
+<div class="figure align-center" id="id1">
+<img alt="_images/Xacro_Editor.png" src="_images/Xacro_Editor.png" />
+<p class="caption"><span class="caption-text">Figure 7.1  The ROSVITA xacro editor.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
-<li>For all other file formats, the “Compile” button is replaced by a display of the file type at the top bar.</li>
-<li>The line numbers are displayed on the left edge of the Code Editor. Moreover the bottom bar of the Code Editor also contains a display of the current line and column, in which the cursor is located.</li>
-<li>Pressing the <strong>F1 key</strong> will return all the commands (like “copy”, “find”, “replace”, …) and their shortcuts available in the code editor (see Fig. 7.2). Alternatively, the command overview can be obtained by right-clicking in the code editor and selecting the menu item “<strong>Command Palette</strong>”.</li>
+<li><p>For all other file formats, the “Compile” button is replaced by a display of the file type at the top bar.</p></li>
+<li><p>The line numbers are displayed on the left edge of the Code Editor. Moreover the bottom bar of the Code Editor also contains a display of the current line and column, in which the cursor is located.</p></li>
+<li><p>Pressing the <strong>F1 key</strong> will return all the commands (like “copy”, “find”, “replace”, …) and their shortcuts available in the code editor (see Fig. 7.2). Alternatively, the command overview can be obtained by right-clicking in the code editor and selecting the menu item “<strong>Command Palette</strong>”.</p></li>
 </ul>
-<div class="figure" id="id2">
-<img alt="images/Code_Editor_with_Command_Palette.png" src="images/Code_Editor_with_Command_Palette.png" />
-<p class="caption"><span class="caption-text">Figure 7.2  The ROSVITA code editor with open command palette.</span></p>
+<div class="figure align-center" id="id2">
+<img alt="_images/Code_Editor_with_Command_Palette.png" src="_images/Code_Editor_with_Command_Palette.png" />
+<p class="caption"><span class="caption-text">Figure 7.2  The ROSVITA code editor with open command palette.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -198,7 +198,7 @@
         <a href="Own_Robot_Models.html" class="btn btn-neutral float-right" title="Creation of Own Robot Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="File_Browser.html" class="btn btn-neutral" title="ROSVITA File Browser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="File_Browser.html" class="btn btn-neutral float-left" title="ROSVITA File Browser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -207,12 +207,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.com.
-      Last updated on Feb 20, 2018.
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -225,37 +227,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

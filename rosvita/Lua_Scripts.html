@@ -17,40 +17,45 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Access to ROSVITA from External ROS" href="Combination_with_External_ROS.html" />
     <link rel="prev" title="ROSVITA Graph Concept" href="Graph_Concept.html" /> 
-
-  
-  <script src="static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home">
+            <a href="index.html">
           
 
+          
+            
+            <img src="_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -93,6 +98,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using Lua Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
 </ul>
 
             
@@ -144,7 +153,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="sources/Lua_Scripts.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Lua_Scripts.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,7 +170,7 @@
 <h1>Using Lua Scripts<a class="headerlink" href="#using-lua-scripts" title="Permalink to this headline">¶</a></h1>
 <p>In the following, two simple example LUA scripts are shown.
 The first of these scripts simply prints the current joint positions and end effector pose of a robot “MoveGroup” (kinematic chain):</p>
-<div class="highlight-Lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;ros&#39;</span>
+<div class="highlight-Lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;ros&#39;</span>
 <span class="kd">local</span> <span class="n">motionLibrary</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;xamlamoveit.motionLibrary&#39;</span>
 
 <span class="kd">local</span> <span class="kr">function</span> <span class="nf">main</span><span class="p">()</span>
@@ -192,11 +201,11 @@ The first of these scripts simply prints the current joint positions and end eff
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Elements of type <strong>JointValues</strong> (here: <strong>q</strong>) consist of a vector of values (<strong>q.values</strong>) for each joint and of the <strong>xamlamoveit</strong> datatype <strong>JointSet</strong>, which contains the names of the joints. Hence, <strong>JointValues</strong> always needs a <strong>JointSet</strong>, so it is quite clear which joints the vector of values refers to.</p>
+<p class="admonition-title">Note</p>
+<p>Elements of type <strong>JointValues</strong> (here: <strong>q</strong>) consist of a vector of values (<strong>q.values</strong>) for each joint and of the <strong>xamlamoveit</strong> datatype <strong>JointSet</strong>, which contains the names of the joints. Hence, <strong>JointValues</strong> always needs a <strong>JointSet</strong>, so it is quite clear which joints the vector of values refers to.</p>
 </div>
 <p>Execution of the second script causes the robot (e.g. a UR5 arm) to move to a random joint angle position within joint limits:</p>
-<div class="highlight-Lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;ros&quot;</span>
+<div class="highlight-Lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ros</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;ros&quot;</span>
 <span class="kd">local</span> <span class="n">motionLibrary</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;xamlamoveit.motionLibrary&#39;</span>
 <span class="kd">local</span> <span class="n">datatypes</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;xamlamoveit.datatypes&quot;</span>
 
@@ -240,20 +249,20 @@ The first of these scripts simply prints the current joint positions and end eff
 <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Copy the contents shown above into files <code class="docutils literal"><span class="pre">readPose.lua</span></code> and <code class="docutils literal"><span class="pre">simpleMovement.lua</span></code> and place them into the subfolder <strong>src</strong> of your project folder.
+<p>Copy the contents shown above into files <code class="docutils literal notranslate"><span class="pre">readPose.lua</span></code> and <code class="docutils literal notranslate"><span class="pre">simpleMovement.lua</span></code> and place them into the subfolder <strong>src</strong> of your project folder.
 Then execute the LUA scripts by typing the following commands in the ROSVITA terminal:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_name&gt;/src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_name&gt;/src
 th readPose.lua
 th simpleMovement.lua
 </pre></div>
 </div>
-<p>Now, the current joint angles and end effector pose are printed in the terminal. Moreover, in the <strong>World View</strong> (e.g. opened in a second browser), the random robot movement can be observed.</p>
+<p>Now, the current joint angles and end effector pose are printed in the terminal. Moreover, in the <strong>World View</strong> the random robot movement can be observed.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Before running the scripts, make sure that your current robot configuration has been compiled and ROS has  been started successfully (indicated by a green <strong>GO</strong> with check mark at the top bar of the ROSVITA environment).</p>
+<p class="admonition-title">Note</p>
+<p>Before running the scripts, make sure that your current robot configuration has been compiled and ROS has  been started successfully (indicated by a green <strong>GO</strong> with check mark at the top bar of the ROSVITA environment).</p>
 </div>
-<p>Here we used some sub packages of the package <strong>xamlamoveit</strong>. The package <strong>xamlamoveit</strong> can be found at <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit</span></code>. In particular, we used some functions of the <strong>MotionService</strong> and <strong>MoveGroup</strong> classes, which are implemented in files <strong>MotionService.lua</strong> and <strong>MoveGroup.lua</strong>, respectively, and can be found here: <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit/motionLibrary/</span></code>.</p>
-<p>Further helpful scripts can be found within the subfolders of the higher-level path <code class="docutils literal"><span class="pre">/home/xamla/Rosvita.Control/lua/</span></code>, in particular <code class="docutils literal"><span class="pre">cli/teachWaypoints.lua</span></code> and <code class="docutils literal"><span class="pre">cli/moveRobot.lua</span></code>, as well as <code class="docutils literal"><span class="pre">auto_calibration/configureCalibration.lua</span></code> and <code class="docutils literal"><span class="pre">auto_calibration/runCalibration.lua</span></code> (the latter requires the addition of a camera to the robot configuration).</p>
+<p>Here we used some sub packages of the package <strong>xamlamoveit</strong>. The package <strong>xamlamoveit</strong> can be found at <code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit</span></code>. In particular, we used some functions of the <strong>MotionService</strong> and <strong>MoveGroup</strong> classes, which are implemented in files <strong>MotionService.lua</strong> and <strong>MoveGroup.lua</strong>, respectively, and can be found here: <code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/xamlamoveit/motionLibrary/</span></code>.</p>
+<p>Further helpful scripts can be found within the subfolders of the higher-level path <code class="docutils literal notranslate"><span class="pre">/home/xamla/Rosvita.Control/lua/</span></code>, in particular <code class="docutils literal notranslate"><span class="pre">cli/teachWaypoints.lua</span></code> and <code class="docutils literal notranslate"><span class="pre">cli/moveRobot.lua</span></code>, as well as <code class="docutils literal notranslate"><span class="pre">auto_calibration/configureCalibration.lua</span></code> and <code class="docutils literal notranslate"><span class="pre">auto_calibration/runCalibration.lua</span></code> (the latter requires the addition of a camera to the robot configuration).</p>
 </div>
 
 
@@ -267,7 +276,7 @@ th simpleMovement.lua
         <a href="Combination_with_External_ROS.html" class="btn btn-neutral float-right" title="Access to ROSVITA from External ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Graph_Concept.html" class="btn btn-neutral" title="ROSVITA Graph Concept" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Graph_Concept.html" class="btn btn-neutral float-left" title="ROSVITA Graph Concept" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -276,8 +285,10 @@ th simpleMovement.lua
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.com.
-      Last updated on Jul 03, 2018.
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 16, 2019.
+      </span>
 
     </p>
   </div>
@@ -294,33 +305,16 @@ th simpleMovement.lua
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

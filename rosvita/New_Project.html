@@ -17,40 +17,45 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Creating a Robot Configuration" href="Robot_Configuration.html" />
     <link rel="prev" title="ROSVITA Main View" href="Main_View.html" /> 
-
-  
-  <script src="static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home">
+            <a href="index.html">
           
 
+          
+            
+            <img src="_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -93,6 +98,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
 </ul>
 
             
@@ -144,7 +153,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="sources/New_Project.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/New_Project.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,21 +172,21 @@
 a selection bar appears, in which you select the menu item <strong>New Project</strong>.
 Alternatively, you can also click on <strong>New Project</strong> directly in the middle of the start screen.
 A text box appears in which you can enter the desired name of the project (see Fig. 2.1).</p>
-<div class="figure" id="id1">
-<img alt="images/Project_Creation.png" src="images/Project_Creation.png" />
-<p class="caption"><span class="caption-text">Figure 2.1  Creation of a new project.</span></p>
+<div class="figure align-center" id="id1">
+<img alt="_images/Project_Creation.png" src="_images/Project_Creation.png" />
+<p class="caption"><span class="caption-text">Figure 2.1  Creation of a new project.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Enter a name without a path here, as the path under which the project is saved is already specified in the ROSVITA start script.</p>
+<p class="admonition-title">Note</p>
+<p>Enter a name without a path here, as the path under which the project is saved is already specified in the ROSVITA start script.</p>
 </div>
 <p>After clicking on the <strong>Create</strong> button, the project is created and opened in the <strong>Configuration View</strong> of ROSVITA.
 Moreover, the project folder is opened in the integrated file browser on the left.</p>
-<p>On your local host machine, you will find the project folder you just created under the path <code class="docutils literal"><span class="pre">/home/&lt;username&gt;/Rosvita/projects/</span></code>.
+<p>On your local host machine, you will find the project folder you just created under the path <code class="docutils literal notranslate"><span class="pre">/home/&lt;username&gt;/Rosvita/projects/</span></code>.
 So far it contains only empty folders or files with empty structures that will be filled later on (see Fig. 2.2).</p>
-<div class="figure" id="id2">
-<a class="reference internal image-reference" href="images/Project_folder.png"><img alt="images/Project_folder.png" src="images/Project_folder.png" style="width: 388.8px; height: 370.2px;" /></a>
-<p class="caption"><span class="caption-text">Figure 2.2  Content of the newly created project folder.</span></p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/Project_folder.png"><img alt="_images/Project_folder.png" src="_images/Project_folder.png" style="width: 388.8px; height: 370.2px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2.2  Content of the newly created project folder.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now, we are ready for creating a new robot configuration within our just created project.</p>
 </div>
@@ -193,7 +202,7 @@ So far it contains only empty folders or files with empty structures that will b
         <a href="Robot_Configuration.html" class="btn btn-neutral float-right" title="Creating a Robot Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Main_View.html" class="btn btn-neutral" title="ROSVITA Main View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Main_View.html" class="btn btn-neutral float-left" title="ROSVITA Main View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -202,8 +211,10 @@ So far it contains only empty folders or files with empty structures that will b
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Xamla.com.
-      Last updated on Jul 05, 2018.
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 16, 2019.
+      </span>
 
     </p>
   </div>
@@ -220,33 +231,16 @@ So far it contains only empty folders or files with empty structures that will b
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
