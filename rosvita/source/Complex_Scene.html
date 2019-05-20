@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building a Complex Scene &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python in ROSVITA Graphs" href="Python_In_Rosvita_Graphs.html" />
+    <link rel="prev" title="Access to ROSVITA from External ROS" href="Combination_with_External_ROS.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Complex Scene</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage-of-identical-robot-parts-distinction-via-prefix">Usage of identical robot parts (distinction via prefix):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-a-real-robot">Configuring a real robot:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Building a Complex Scene</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/Complex_Scene.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-a-complex-scene">
+<span id="complex-scene-label"></span><h1>Building a Complex Scene<a class="headerlink" href="#building-a-complex-scene" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>For a better understanding, it is recommended to first read the chapter <a class="reference internal" href="Robot_Configuration.html#robot-config-label"><span class="std std-ref">Creating a Robot Configuration</span></a>.</p>
+</div>
+<p>If several robot parts of a scene shall be linked together (e.g. the right arm of a <strong>Yaskawa Motoman SDA10D</strong> and the <strong>Weiss Robotics WSG-50 Gripper</strong>), you have to adapt the <strong>Parent link</strong> in the <strong>Properties</strong> bar belonging to the corresponding robot part (e.g. the <strong>WSG-50</strong>).</p>
+<p>Example (see Fig. 12.1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Robot</span> <span class="n">part</span><span class="p">:</span> <span class="n">wsg50</span> <span class="n">mount</span>
+<span class="n">Parent</span> <span class="n">link</span><span class="p">:</span> <span class="n">arm_right_link_tool0</span> <span class="p">(</span><span class="n">Motoman</span> <span class="n">SDA10D</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id1">
+<img alt="../_images/ParentLink_Setting.png" src="../_images/ParentLink_Setting.png" />
+<p class="caption"><span class="caption-text">Figure 12.1  Setting of a parent link in the properties list of a robot part.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Overall, the following robot parts with the following parent links are needed to e.g. connect the Weiss Robotics WSG-50 gripper with custom mount and fingers to the right arm of the Yaskawa Motoman SDA10D:</p>
+<ul class="simple">
+<li><p>Yaskawa Motoman SDA10D; <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">world</span></code></p></li>
+<li><p>wsg50 mount; <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">arm_right_link_tool0</span> <span class="pre">(Yaskawa</span> <span class="pre">Motoman</span> <span class="pre">SDA10D)</span></code></p></li>
+<li><p>Weiss Robotics WSG-50; <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">mount_tool0</span> <span class="pre">(wsg50</span> <span class="pre">mount)</span></code></p></li>
+<li><p>Weiss Robotics WSG-50 w1 right finger; <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">gripper_right_tool0</span> <span class="pre">(Weiss</span> <span class="pre">Robotics</span> <span class="pre">WSG-50)</span></code></p></li>
+<li><p>Weiss Robotics WSG-50 w1 left finger; <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">link:</span> <span class="pre">gripper_left_tool0</span> <span class="pre">(Weiss</span> <span class="pre">Robotics</span> <span class="pre">WSG-50)</span></code></p></li>
+</ul>
+<p>In addition, the following actuators are needed:</p>
+<ul class="simple">
+<li><p>Motoman SDA10D (Yaskawa)</p></li>
+<li><p>Gripper WSG-50 (Weiss Robotics)</p></li>
+</ul>
+<p>After pressing the <strong>Compile</strong> button, the robot with gripper should appear in the 3D view of the <strong>Configuration</strong> window.</p>
+<div class="section" id="usage-of-identical-robot-parts-distinction-via-prefix">
+<h2>Usage of identical robot parts (distinction via prefix):<a class="headerlink" href="#usage-of-identical-robot-parts-distinction-via-prefix" title="Permalink to this headline">¶</a></h2>
+<p>If several <strong>same robot parts</strong> shall be added to the scene (for example, <strong>two WSG-50 grippers</strong>), they must be distinguished by <strong>Prefix</strong>. Thereto, simply use the <strong>Prefix field</strong> in the <strong>Properties</strong> list for the corresponding robot part and actuator.</p>
+<div class="figure align-center">
+<img alt="../_images/Prefix_RobotPart.png" src="../_images/Prefix_RobotPart.png" />
+</div>
+<div class="figure align-center" id="id2">
+<img alt="../_images/Prefix_Actuator.png" src="../_images/Prefix_Actuator.png" />
+<p class="caption"><span class="caption-text">Figures 12.2 and 12.3  Prefix usage for e.g. two WSG-50 grippers.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>If two <strong>identical robot arms</strong> shall be added to the scene (e.g. <strong>two UR5 robot arms</strong>), in addition to the distinction by <strong>Prefix</strong>, a <strong>second move group</strong> and a <strong>second end effector</strong> for this move group have to be created. This can be done by using the <strong>+ Add</strong> button in the top bar of the configuration view (see Fig. 12.5).</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/2xUR5_Prefix.png" src="../_images/2xUR5_Prefix.png" />
+<p class="caption"><span class="caption-text">Figure 12.4  Prefix usage for e.g. two UR5 robot arms.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="../_images/2xUR5_MoveGroups.png" src="../_images/2xUR5_MoveGroups.png" />
+<p class="caption"><span class="caption-text">Figure 12.5  Addition of a second move group and end effector for the second UR5 robot arm.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be able to select the renamed links (e.g. <strong>second_base_link</strong>) in the <strong>Properties</strong> list of e.g. the second move group, the <strong>Compile</strong> button has to be pressed after the renaming. Moreover, to be able to select the second move group as group for e.g. the second end effector, again the <strong>Compile</strong> button has to be pressed first. Hence, for creating a configuration with two identical robot parts, the <strong>Compile</strong> button has to be pressed <strong>several times</strong>.</p>
+</div>
+</div>
+<div class="section" id="configuring-a-real-robot">
+<span id="config-real-robot-label"></span><h2>Configuring a real robot:<a class="headerlink" href="#configuring-a-real-robot" title="Permalink to this headline">¶</a></h2>
+<p>To configure a real robot, in the <strong>Actuator</strong>’s <strong>Properties</strong> list the <strong>Simulate</strong> flag has to be set to <strong>Off</strong> and the  IP address of the robot has to be entered (see Fig. 12.6).</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/Real_Robot.png" src="../_images/Real_Robot.png" />
+<p class="caption"><span class="caption-text">Figure 12.6  Configuration of a real robot. (The IP address must be changed to the IP of your robot.)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All USB devices (e.g. cameras) have to be plugged in before starting ROSVITA.</p>
+</div>
+<p>After pressing <strong>Compile</strong> and <strong>Start ROS</strong>, go into the Rosvita World View. If you have a Motoman SDA10 robot configuration, with the corresponding teach pendant go into <strong>remote state</strong>. Then choose your robot in the folder <strong>Plugins</strong> on the left of the Rosvita World View. In the corresponding <strong>Properties</strong> pane at the right sidebar click at the <strong>Enable Robot</strong> button and your robot will be ready to move. All other features like path planning and robot jogging are the same as in the simulation mode.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Python_In_Rosvita_Graphs.html" class="btn btn-neutral float-right" title="Python in ROSVITA Graphs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Combination_with_External_ROS.html" class="btn btn-neutral float-left" title="Access to ROSVITA from External ROS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 20, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

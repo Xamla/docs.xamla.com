@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Robot Jogging &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROSVITA File Browser" href="File_Browser.html" />
+    <link rel="prev" title="Path Planning (“World View”)" href="Path_Planning.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Robot Jogging</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/Robot_Jogging.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robot-jogging">
+<h1>Robot Jogging<a class="headerlink" href="#robot-jogging" title="Permalink to this headline">¶</a></h1>
+<p>In addition to automatic path planning, ROSVITA also offers the possibility of manual, <strong>step-by-step control</strong> of the robot movement (comparable to the robot control via <strong>teach pendant</strong>). In the <strong>World View</strong> click on the <strong>Jogging</strong> pane at the right sidebar. At the bottom of this sidebar pane, you find a display of the current <strong>Tool Position</strong>, which is updated in real-time as the robot moves.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/Robot_jogging_start.png" src="../_images/Robot_jogging_start.png" />
+<p class="caption"><span class="caption-text">Figure 5.1  Start robot jogging.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Above this <strong>Tool Position</strong> display you can set the <strong>Velocity Scaling</strong> and the <strong>Reference Frame</strong> for the driving commands. Moreover, at the top bar of the world view, you can choose the <strong>move group</strong> of the robot and the corresponding <strong>end effector</strong> (e.g. for an SDA10, which has two arms, you can choose between several move groups).</p>
+<p>Press the <strong>Start</strong> button in the jogging pane of the right sidebar, to enable the robot jogging (see Fig. 5.1).</p>
+<p>12 driving command buttons appear in the sidebar, namely translation in +/- x, y, and z direction, as well as rotation around +/- x, y, and z axis of the reference coordinate system (see Fig. 5.2). The robot moves as soon as you click on one of these driving command buttons. When the <strong>Cartesian</strong> robot jogging is selected as <strong>Move Tool</strong> at the top of the sidebar, the interactive marker for moving the robot is also available.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/Robot_jogging_cartesian.png" src="../_images/Robot_jogging_cartesian.png" />
+<p class="caption"><span class="caption-text">Figure 5.2  Cartesian robot jogging.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Alternatively, instead of choosing the Cartesian robot control, one can also select the control of the individual joint angles (<strong>Joints</strong>) as <strong>Move Tool</strong>. The sidebar will then show the joints of the selected <strong>Move Group</strong> along with the current joint angle for each joint and with left/right arrows next to each joint (see Fig. 5.3). Pressing one of these arrows will rotate the corresponding robot axis gradually around the choosen joint.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/Robot_jogging_joints.png" src="../_images/Robot_jogging_joints.png" />
+<p class="caption"><span class="caption-text">Figure 5.3  Robot jogging via joints.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="File_Browser.html" class="btn btn-neutral float-right" title="ROSVITA File Browser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Path_Planning.html" class="btn btn-neutral float-left" title="Path Planning (“World View”)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 20, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

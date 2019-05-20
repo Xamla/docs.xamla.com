@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python in ROSVITA Graphs &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to use Stereo Laser Line Client" href="How_To_Stereo_Laser_Line_Client.html" />
+    <link rel="prev" title="Building a Complex Scene" href="Complex_Scene.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python in ROSVITA Graphs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties-of-python-import-and-how-to-use-them">Properties of python import and how to use them</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rosvita-graph-python-modules-call-input-output">ROSVITA Graph Python Modules (call, input, output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-python-in-rosvita-graphs">ROS (Python) in ROSVITA Graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Python in ROSVITA Graphs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/Python_In_Rosvita_Graphs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-in-rosvita-graphs">
+<span id="python-in-graph-label"></span><h1>Python in ROSVITA Graphs<a class="headerlink" href="#python-in-rosvita-graphs" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we try to explain some inner workings of python and the ROSVITA Graph
+itself to motivate some patterns how to use python and rospy in ROSVITA Graphs.</p>
+<p>First we start with one of the most important aspects of python in ROSVITA Graphs and this is how to use python scripts in them.
+The answer is pretty simple, add a python script to your ROSVITA project.
+Then open a ROSVITA Graph instance and drag and drop the script into it.
+Then just click on Python3.PythonScriptFile and you ready to go.</p>
+<p>If the Python Module within the Graph instance is highlighted in red a problem while loading
+the python module occurs. This could have several reasons, imports of specific modules are not possible, definition of the method which should be called in the graph is not correct or
+just syntactic errors. To get more information just click on th module and read the parserError in the properties window.</p>
+<p>If an import was not possible make sure the necessary library is installed or all necessary file are available in the project.
+We recommend to install all available python libraries with help of <a class="reference external" href="https://docs.python.org/3/installing/index.html">pip</a>.
+If you have created some python files which should be imported, we recommend to place them under lib/python/ in a ROSVITA project.
+This is possible due to the properties of the python runtime instance which runs in a ROSVITA Graph.
+The python instance in a ROSVITA Graph includes the complete project file system to its PYTHONPATH, therefore all files in it can be used and imported in the ROSVITA Graph Python Modules.
+To do so use the path from Project root to file to import it e.g.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lib.python.example_lib</span>
+</pre></div>
+</div>
+<div class="section" id="properties-of-python-import-and-how-to-use-them">
+<h2>Properties of python import and how to use them<a class="headerlink" href="#properties-of-python-import-and-how-to-use-them" title="Permalink to this headline">¶</a></h2>
+<p>Now we know how to use python in ROSVITA Graphs in generell. Next we will explain the inner workings of <a class="reference external" href="https://docs.python.org/3/reference/import.html">imports</a> in python and how we can use same in a ROSVITA Graph.</p>
+<p>In python every file is a module and a module can be interpreted as a singleton. Therefore, if you for example create an instance of an object in a file and assign it to a variable which lives in the module namespace this will only be done once if you import this file.</p>
+<p>Short example:</p>
+<p>Library File (e.g. lib/python/my_lib.py):</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="n">my_class_instance</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="s1">&#39;an instance of MyClass&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run File:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib.python.my_lib</span> <span class="kn">import</span> <span class="n">my_class_instance</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+    <span class="k">return</span> <span class="s1">&#39;my_class_instance object memory adress {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">my_class_instance</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>With help of this property you can create objects which lives longer then a single run of the ROSVITA Graph and also can be shared between multiple python modules in a ROSVITA Graph.
+Python objects which are made availble in this manner lives as long as the python runtime instance lives. In context of a ROSVITA Graph this means as long as the Graph is open and not distroyed with help of the trash bin button this kind of objects are available.</p>
+<p>But wait, many software developer will argument that this kind of using python modules to solve our problem of sharing objects is not a very clean approach and that is correct. Therefore, to do it in a more sophisticated and cleaner why please use the <a class="reference external" href="https://www.oreilly.com/library/view/python-cookbook/0596001673/ch05s23.html">borg pattern</a>.</p>
+<p>As an example we provide the files showcase_graph_instance_and_python_object.py the library
+example_lib.py (lib/python/) and the Graph showcase_graph_instance_and_python_object.xgraph
+If you run the Graph you can see the explained inner python and ROSVITA Graph workings in action.</p>
+</div>
+<div class="section" id="rosvita-graph-python-modules-call-input-output">
+<h2>ROSVITA Graph Python Modules (call, input, output)<a class="headerlink" href="#rosvita-graph-python-modules-call-input-output" title="Permalink to this headline">¶</a></h2>
+<p>So far we only talk about python itself and how to import python modules in a ROSVITA Graph context. This chapter now explains how to transfer data into and out of a ROSVITA Graph Python Module and what pitfalls perhaps exists.</p>
+<p>What a ROSVITA Graph Python Module does is calling a specific function of a python file. If you click on the PythonScriptFile Module in a ROSVITA Graph and take a look at the
+properties the properties of interest in a first glance are path (path to the python file which should be used) and functionName (name of the function which should be called).</p>
+<p>If you add a PythonScriptFile to the Graph via drag and drop the path is already known. But perhaps the function name is not correct. As default main is used. Therefore, if this is not correct change it to the correct function name.</p>
+<p>Perhaps the Module is still highlighted in red. As mentioned a reason for that could be that the function which should be called is not correctly defined to use it in a ROSVITA Graph Python Module even if it is syntactically correct python code.</p>
+<p>The solution is to add <a class="reference external" href="https://docs.python.org/3/library/typing.html">type hints</a> to the python function which should be called by the ROSVITA Graph Module. Why is perhaps now the
+your question. The answer is, because the ROSVITA Graph Runtime needs to know how to convert
+the python types into the inner ROSVITA Graph types. The problem is that python is a dynamic language and every variable could be any type. Therefore, we must help the ROSVITA Graph runtime with the type hints. Thus, please provided full type hints for all inputs and outputs
+of the python function which should be called. As an example please take a look into the already known file showcase_graph_instance_and_python_object.py.</p>
+<p>One of the major pitfalls in the interaction of Python Modules and the Graph is the mentioned type conversion. For example it is not possible to return a custom python type,
+because it is not know by the ROSVITA Graph Runtime. Currently the following data types are supported:</p>
+<ul class="simple">
+<li><p>all standard python data types (int, float, dict, list, tuple, str)</p></li>
+<li><p>numpy ndarray</p></li>
+<li><p>all data types from xamla_motion.data_types (e.g. Pose, JointSet, JointValues, …)</p></li>
+</ul>
+</div>
+<div class="section" id="ros-python-in-rosvita-graphs">
+<h2>ROS (Python) in ROSVITA Graphs<a class="headerlink" href="#ros-python-in-rosvita-graphs" title="Permalink to this headline">¶</a></h2>
+<p>Directly interacting with ROS in ROSVITA Graph Python Modules and in ROSVITA Graphs in general is only necessary if you try to call services, actions or subscribe to topics which are not already supported in a way by ROSVITA itself. For example to interact with the robot or the worldview you can use xamla_motion. To interact with the cameras xamla_vision is provided and so on.</p>
+<p>If you want to provide a service, action or publish a topic python in the graph context is
+not the right place for it. The correct solution is for this kind of purpose to create a
+ROS Node which can be launched by adding it to the custom launch file of your ROSVITA Project.</p>
+<p>But back to how to use ROS / rospy in ROSVITA Graph Python Modules. So, if you need to call ROS service, action or subscribe to topics and ROSVITA not provides a way to do so please take in mind following things:</p>
+<p>As already mentioned in the previous chapters the python runtime lives as long as the Graph
+instance lives. Therefore, if you once initialize rospy in a newly opened ROSVITA Graph it is not necessary to do it again. But you may ask now how to do so when e.g. your python code runs in a Graph for loop or you run the same graph a second time. The answer is check if python is already initialized and only initialize it when this is not the case.
+For this purpose use the following python snipped in your implementations:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span> <span class="o">==</span> <span class="s1">&#39;unnamed&#39;</span><span class="p">):</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;my_node&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a running example please take a look into the showcase_rospy_in_rosvita_graph.py
+and run the graph showcase_rospy_in_rosvita_graph.xgraph</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="How_To_Stereo_Laser_Line_Client.html" class="btn btn-neutral float-right" title="How to use Stereo Laser Line Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Complex_Scene.html" class="btn btn-neutral float-left" title="Building a Complex Scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 20, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
