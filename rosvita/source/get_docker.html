@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>get_docker &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>get_docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/get_docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="get-docker">
+<span id="get-docker-label"></span><h1>get_docker<a class="headerlink" href="#get-docker" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Installing ROSVITA dependencies..&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Step 1:&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;=======&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Docker will be installed if not already there, press CTRL+C to cancel&quot;</span>
+<span class="nb">read</span> -p <span class="s2">&quot;Press ENTER to continue and follow the instructions on screen&quot;</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>docker -v <span class="p">|</span> grep -c <span class="s1">&#39;Docker version&#39;</span><span class="k">)</span> &gt; <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Docker is already installed.&quot;</span>
+<span class="k">else</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Starting installation of Docker..&quot;</span>
+   sudo apt-get remove docker docker-engine docker.io containerd runc
+   sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+   sudo add-apt-repository <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+   sudo apt-get update
+   sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+   <span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>sudo docker -v <span class="p">|</span> grep -c <span class="s1">&#39;Docker version&#39;</span><span class="k">)</span> &gt; <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Docker CE has been installed successfully.&quot;</span>
+   <span class="k">else</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Docker installation failed. Please try again.&quot;</span>
+      <span class="nb">exit</span> <span class="m">1</span>
+   <span class="k">fi</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Adding user to group docker..&quot;</span>
+   sudo usermod -aG docker <span class="nv">$USER</span>
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s2">&quot;&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Step 2:&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;=======&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;NVIDIA-Docker 2.0 will be installed if not already there.&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Make sure you have installed the NVIDIA driver and Docker before.&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Press CTRL+C to cancel&quot;</span>
+<span class="nb">read</span> -p <span class="s2">&quot;Press ENTER to continue&quot;</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>nvidia-docker version <span class="p">|</span> grep -c <span class="s1">&#39;NVIDIA Docker: 2.&#39;</span><span class="k">)</span> &gt; <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;NVIDIA-Docker 2.0 is already installed.&quot;</span>
+<span class="k">else</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Starting installation of NVIDIA-Docker 2.0..&quot;</span>
+   <span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>nvidia-docker version <span class="p">|</span> grep -c <span class="s1">&#39;NVIDIA Docker: 1.&#39;</span><span class="k">)</span> &gt; <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Remove NVIDIA-Docker 1.0 and all existing GPU containers.&quot;</span>
+      sudo docker volume ls -q -f <span class="nv">driver</span><span class="o">=</span>nvidia-docker <span class="p">|</span> xargs -r -I<span class="o">{}</span> -n1 docker ps -q -a -f <span class="nv">volume</span><span class="o">={}</span> <span class="p">|</span> xargs -r docker rm -f
+      sudo apt-get purge -y nvidia-docker
+   <span class="k">fi</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Add the package repositories&quot;</span>
+   curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add -
+   <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
+   curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   sudo apt-get update
+   <span class="nb">echo</span> <span class="s2">&quot;Install nvidia-docker2 and reload the Docker daemon configuration.&quot;</span>
+   sudo apt-get install -y nvidia-docker2
+   sudo pkill -SIGHUP dockerd
+   <span class="nb">echo</span> <span class="s2">&quot;Test nvidia-smi with the latest official CUDA image&quot;</span>
+   sudo docker run --runtime<span class="o">=</span>nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s2">&quot;&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Step 3:&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;=======&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;If you are not already in group docker, the computer will be&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;restarted now to make the addition to the docker group effective.&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Press CTRL+C to cancel&quot;</span>
+<span class="nb">read</span> -p <span class="s2">&quot;Press ENTER to continue&quot;</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>groups <span class="p">|</span> grep docker <span class="p">|</span> wc -l<span class="k">)</span> &gt; <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;You are already in group docker.&quot;</span>
+<span class="k">else</span>
+   <span class="nb">echo</span> <span class="s2">&quot;IMPORTANT:&quot;</span>
+   <span class="nb">echo</span> <span class="s2">&quot;The computer will be restarted now to make the addition to the docker group effective.&quot;</span>
+   sudo reboot
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 21, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

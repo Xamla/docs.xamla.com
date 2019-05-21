@@ -169,9 +169,24 @@
             
   <div class="section" id="getting-started">
 <span id="getting-started-label"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date <a href="https://www.ubuntu.com/download/desktop" target="_blank">Ubuntu</a> operating system (preferentially <strong>Ubuntu 16.04 or higher</strong>) and an up-to-date internet browser (preferentially <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>). Moreover, please read the ROSVITA <a class="reference internal" href="License.html#license-label"><span class="std std-ref">LICENSE</span></a>.</p>
-<p>To <strong>get</strong> the <strong>newest version of ROSVITA</strong>, simply pull the latest ROSVITA docker image:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull xamla-buildserver:5000/devel/rosvita-basf-cuda
+<p>To use ROSVITA, no complex installation process is necessary, because the ROSVITA Docker image already contains all the necessary packages and dependencies. All you need is an up-to-date <a href="https://www.ubuntu.com/download/desktop" target="_blank">Ubuntu</a> operating system (preferentially <strong>Ubuntu 16.04 or higher</strong>), an up-to-date <strong>NVIDIA graphics card driver</strong>, as well as <strong>Docker</strong> and <strong>NVIDIA-Docker 2.0</strong>. Moreover, you should have an up-to-date internet browser (preferentially <a href="https://www.google.com/intl/en-CA/chrome/" target="_blank">Google Chrome</a>).
+Also, please read the ROSVITA <a class="reference internal" href="License.html#license-label"><span class="std std-ref">LICENSE</span></a>.</p>
+<p>To install the latest <strong>NVIDIA driver</strong> you have to add the following package repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+</pre></div>
+</div>
+<p>Then on your Ubuntu system open <strong>Software &amp; Updates</strong>, click on the <strong>Additional Drivers</strong> tab, select the latest NVIDIA driver and click the button <strong>Apply Changes</strong>. After the driver is downloaded and installed, restart your system.</p>
+<p>To install <strong>Docker</strong> and <strong>NVIDIA-Docker 2.0</strong> copy the content of the <a class="reference internal" href="get_docker.html#get-docker-label"><span class="std std-ref">get_docker</span></a> script
+into a file <code class="docutils literal notranslate"><span class="pre">/home/&lt;your-username&gt;/get_docker</span></code>, then open a terminal, change permissions to be able to
+execute the script and run the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/&lt;your-username/
+sudo chmod a+x get_docker
+get_docker
+</pre></div>
+</div>
+<p>After having copied the latest <strong>ROSVITA docker image</strong> (e.g. rosvita-basf-cuda-v0.8.tgz) onto your computer, you can import it by the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat rosvita-basf-cuda-v0.8.tgz <span class="p">|</span> docker import - rosvita-basf-cuda:latest
 </pre></div>
 </div>
 <p>Now you can <strong>start ROSVITA</strong> by using the <a class="reference internal" href="rosvita_start.html#rosvita-start-label"><span class="std std-ref">rosvita_start</span></a> script.
@@ -229,7 +244,7 @@ Use <code class="docutils literal notranslate"><span class="pre">docker</span> <
     <p>
         &copy; Copyright 2018, Xamla.com
       <span class="lastupdated">
-        Last updated on May 20, 2019.
+        Last updated on May 21, 2019.
       </span>
 
     </p>
