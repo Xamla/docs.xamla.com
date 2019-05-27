@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Force Torque Data &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Calibration Part2 (Robot Kinematic)" href="Calibration_Part2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Force Torque Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow">Workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Force Torque Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/Force_Torque_Data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="force-torque-data">
+<h1>Force Torque Data<a class="headerlink" href="#force-torque-data" title="Permalink to this headline">¶</a></h1>
+<p>For collecting force torque data in XGraph workflows Rosvita comes with the so called ForceTorqueToolbox. The toolbox
+consists of a ROS node responsible for collecting data from a force torque sensor, as well as a set of graph modules for
+retrieving the data from the collecting node.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>For using force torque within a Rosvita project at least one force torque sensor has to be added to the project. Open the
+Configuration view from the Xamla Menu and search in the right sidebar for the force torque sensor that you are using.
+Remember to set the Frame ID (default: tool0) to the name of the link at which the sensor is attached to.</p>
+<p>To use the data collection ROS node in a project it needs to be added to the project. To do that open the Configuration
+view from the Xamla Menu and search for ‘Force Torque Toolbox’ in the category ‘Ros Components’ of the sidebar on the
+right side. Click ‘Add to project’ to add the toolbox to the project.</p>
+<div class="figure align-center" id="id1">
+<span id="force-torque-toolbox-config-label"></span><img alt="../_images/Force_Torque_Toolbox.png" src="../_images/Force_Torque_Toolbox.png" />
+<p class="caption"><span class="caption-text">Figure 20.1  Configuration view of Force Torque Toolbox.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The collection node connects to a topic where the force torque sensor is publishing its data. <strong>Therefore it is essential
+to configure the correct topic in the properties of the collection node.</strong></p>
+<p>The topics for the supported force torque sensors are (in their default configuration):</p>
+<ul class="simple">
+<li><p>ATI: /xamla/ati_driver/raw_world</p></li>
+<li><p>Optoforce: /xamla/optoforce_driver/optoforce_ft/ethdaq_data_raw</p></li>
+<li><p>Robotiq: /rq_sensor/robotiq_force_torque_wrench</p></li>
+</ul>
+<p>The <strong>Node Name</strong> (default: ft_sensor_client) needs to be changed when more than one collection node is being used. The
+name will be used workflow to define from which sensor the data should be fetched.</p>
+<p>The <strong>Rate</strong> or idle rate defines the timeout while waiting for a ros callback.</p>
+<p>The <strong>Nullify Buffer Size</strong> defines how many wrench datapoints should be stored and used to nullify the sensor.</p>
+<div class="section" id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
+<p>Example of retrieving force torque data within a workflow:</p>
+<div class="figure align-center" id="id2">
+<span id="force-torque-toolbox-workflow-label"></span><img alt="../_images/Force_Torque_Toolbox_Workflow.png" src="../_images/Force_Torque_Toolbox_Workflow.png" />
+<p class="caption"><span class="caption-text">Figure 20.2  Configuration view of Force Torque Toolbox.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The BeginDataCollection module lets the collection node begin with recording force torque sensor data. It has the
+following properties:</p>
+<ul class="simple">
+<li><p>Frequency: in Hz of the capturing process. If &gt; 0, reads maximum of one datapoint every timeslot defined by frequency and discards further datapoints in the same timeslot. If &lt; 0, passes all datapoints through.</p></li>
+<li><p>Reference Frame: The target reference frame. Both this frame and the frame in the header of the incoming WrenchStamped-datapoints need to exist.</p></li>
+<li><p>Timeout: The maximum time duration the node should capture data. Captures indefinitely when duration is 0.</p></li>
+<li><p>Max Wrench Count: The maximum amount of wrenches to be captured. Captures indefinitely when set to 0.</p></li>
+<li><p>Nullify: When true, uses the average of the buffered datapoints to update the bias of the datapoints captured. Setting this to false can be helpful when doing multiple consecutive readings without wanting to reset the bias. <strong>Even if this is false, the current stored bias is applied to the datapoints. Use the Nullify module with sampleSize set to 0 to reset the bias.</strong></p></li>
+</ul>
+<p>The GetCapturedData module ends the data collection and returns the accumulated amount of data points as an array of ´
+<cite>WrenchStamped</cite> points. The only property it needs is the Node Name of the collection node (defined during configuration) from which it should retrieve the data.</p>
+<p>The CsvWriter module writes the collected force torque data into a CSV file. It needs at least a file path defined to which the data will be written.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Calibration_Part2.html" class="btn btn-neutral float-left" title="Calibration Part2 (Robot Kinematic)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 27, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
