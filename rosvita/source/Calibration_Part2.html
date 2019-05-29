@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Force Torque Data" href="Force_Torque_Data.html" />
     <link rel="prev" title="Calibration Part1 (Camera, Hand-Eye, Endeffector)" href="Calibration_Part1.html" /> 
 </head>
 
@@ -107,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#robot-kinematic-calibration">Robot kinematic calibration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Force_Torque_Data.html">Force Torque Data</a></li>
 </ul>
 
             
@@ -187,21 +189,21 @@ modelled by <a href="https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_pa
 See <a class="reference internal" href="Calibration_Part1.html#calibration-patterns-label"><span class="std std-ref">Figure 15.1  Circle patterns with IDs for calibration.</span></a></p>
 <div class="section" id="capturing-calibration-data-via-automatic-sphere-sampling">
 <span id="sphere-sampling-label"></span><h2>Capturing calibration data via automatic sphere sampling<a class="headerlink" href="#capturing-calibration-data-via-automatic-sphere-sampling" title="Permalink to this headline">¶</a></h2>
-<p>Automatic sphere sampling is performed via the <strong>auto_calibration</strong> package of Rosvita (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1 (Camera, Hand-Eye, Endeffector)</span></a>).</p>
+<p>Automatic sphere sampling is performed via the <strong>auto_calibration</strong> package of Rosvita (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1</span></a>).</p>
 <p>To use the automatic sphere sampling, you first have to define a good <strong>starting pose</strong> for the robot arm that will be calibrated. In the following, let us assume a stereo camera setup with the cameras mounted at the endeffector of the robot arm and looking in the direction of the z-axis of the endeffector. With this setup the calibration target has to be fixed onto the table and the robot has to be moved to a pose where the cameras look down at the target approximately straight from above and such that all target points are in the field of view (FOV) of the cameras (see Fig. 16.1). Save this starting pose of the robot (or better the joint values) to the Rosvita world view and move the robot to this posture before starting the sphere sampling.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/SphereSampling_Start.png" src="../_images/SphereSampling_Start.png" />
 <p class="caption"><span class="caption-text">Figure 16.1  Starting pose for sphere sampling with left arm.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>Moveover, an initial guess hand-eye and stereo camera calibration is needed, which can be received e.g. by running the <strong>auto_calibration</strong> scripts <strong>configureCalibration.lua</strong> and <strong>runCalibration.lua</strong> (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1 (Camera, Hand-Eye, Endeffector)</span></a>).</p>
-<p>Now, to start the sphere sampling, with the Rosvita terminal go into your project folder and run the configuration script from the <strong>auto_calibration</strong> package:</p>
+<p>Moveover, an initial guess hand-eye and stereo camera calibration is needed, which can be received e.g. by running the <strong>auto_calibration</strong> scripts <strong>configureCalibration.lua</strong> and <strong>runCalibration.lua</strong> (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1</span></a>).</p>
+<p>Now, to start the sphere sampling, with the Rosvita terminal go into your project folder and run the calibration script from the <strong>auto_calibration</strong> package:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your_project_folder&gt;
-th ../../lua/auto_calibration/configureCalibration.lua -cfg &lt;name_of_your_configuration_file&gt;.t7
+th ../../lua/auto_calibration/runCalibration.lua -cfg &lt;name_of_your_configuration_file&gt;.t7
 </pre></div>
 </div>
 <p>Here, the configuration file is the one you created before to get an initial hand-eye and stereo camera calibration (see previous chapter).</p>
 <p>Then press</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>a <span class="o">(</span>Generate capture poses via sphere sampling<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>d <span class="o">(</span>Capture sphere sampling<span class="o">)</span>
 </pre></div>
 </div>
 <p>You’ll have to choose the camera setup. Currently, two possibilities are implemented:</p>
@@ -215,11 +217,15 @@ In order to obtain good calibration results, you should choose a rather large nu
 <p>Next you have to enter the paths to the previously generated intial guesses for the hand-eye calibration and stereo camera calibration (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;path-to-your-project-folder&gt;/calibration/&lt;date&gt;_&lt;time&gt;/HandEye.t7</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;path-to-your-project-folder&gt;/calibration/&lt;date&gt;_&lt;time&gt;/stereo_cams_&lt;serial1&gt;_&lt;serial2&gt;.t7</span></code>). Then after accepting the <strong>identified target point</strong> by pressing <strong>enter</strong> the sphere sampling will begin, i.e. the robot will start moving and recording images and poses.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>In rare cases it may happen that the <strong>identified target point</strong> contains unrealistic large values. In such cases, the planner will not find a valid joint configuration, which will result in an endless loop with “nan” outputs. If you notice such a case, simply interrupt the current capturing process by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>, restart the calibration script and repeat the steps from before.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Make sure, that all <strong>collision objects</strong> in your robot’s work space are <strong>modeled carefully</strong> (with safety margin), before starting the sphere sampling. The <strong>robot will move relatively fast</strong> using MoveIt! and collision check. However, collisions can only be avoided for correctly modeled collision objects.</p>
 </div>
 </div>
 <div class="section" id="further-preparation-of-the-calibration-input-data">
-<h2>Further preparation of the calibration input data<a class="headerlink" href="#further-preparation-of-the-calibration-input-data" title="Permalink to this headline">¶</a></h2>
+<span id="further-preparation-label"></span><h2>Further preparation of the calibration input data<a class="headerlink" href="#further-preparation-of-the-calibration-input-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>Sphere sampling output folder structure</strong></p>
 <p>Now, you have to prepare your data obtained from the sphere sampling for the robot kinematic calibration task.</p>
 <p>After the sphere sampling is finished the data lies in the folder <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/capture_sphere_sampling/</span></code>.
@@ -235,7 +241,7 @@ This folder contains the following files:</p>
 <p>The <strong>/tmp</strong> location is a <strong>temporary</strong> one. If you want to save your sphere sampling data permanently, you have to move it e.g. into your project folder!</p>
 </div>
 <p><strong>Improvement of stereo camera and hand-eye input data</strong></p>
-<p>Now, with the 200 sampled images and robot poses, you first should determine an improved stereo calibration, as well as an improved initial hand-eye matrix. Thereto, simply copy the captured images into a folder <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/capture/</span></code> and run the camera and hand-eye calibration of the package <strong>auto_calibration</strong> (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1 (Camera, Hand-Eye, Endeffector)</span></a>):</p>
+<p>Now, with the 200 sampled images and robot poses, you first should determine an improved stereo calibration, as well as an improved initial hand-eye matrix. Thereto, simply copy the captured images into a folder <code class="docutils literal notranslate"><span class="pre">/tmp/calibration/capture/</span></code> and run the camera and hand-eye calibration of the package <strong>auto_calibration</strong> (see <a class="reference internal" href="Calibration_Part1.html#calibration-part1-label"><span class="std std-ref">Calibration Part1</span></a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp/calibration/<span class="p">;</span> mkdir capture
 cp -r capture_sphere_sampling/*.png capture/
 <span class="nb">cd</span> /home/xamla/Rosvita.Control/projects/&lt;your-project-folder&gt;/
@@ -317,6 +323,8 @@ the optimal torso joint offset often seems to be quite large.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="Force_Torque_Data.html" class="btn btn-neutral float-right" title="Force Torque Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="Calibration_Part1.html" class="btn btn-neutral float-left" title="Calibration Part1 (Camera, Hand-Eye, Endeffector)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -329,7 +337,7 @@ the optimal torso joint offset often seems to be quite large.</p>
     <p>
         &copy; Copyright 2018, Xamla.com
       <span class="lastupdated">
-        Last updated on May 27, 2019.
+        Last updated on May 29, 2019.
       </span>
 
     </p>
