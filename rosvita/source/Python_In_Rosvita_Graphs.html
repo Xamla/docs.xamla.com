@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to use Stereo Laser Line Client" href="How_To_Stereo_Laser_Line_Client.html" />
+    <link rel="next" title="ROSVITA and roslauch" href="ROSVITA_and_roslaunch.html" />
     <link rel="prev" title="Building a Complex Scene" href="Complex_Scene.html" /> 
 </head>
 
@@ -103,8 +103,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#properties-of-python-import-and-how-to-use-them">Properties of python import and how to use them</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rosvita-graph-python-modules-call-input-output">ROSVITA Graph Python Modules (call, input, output)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-python-in-rosvita-graphs">ROS (Python) in ROSVITA Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-packages-and-usage-in-rosvita-graphs-via-python">ROS packages and usage in ROSVITA Graphs via Python</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ROSVITA_and_roslaunch.html">ROSVITA and roslauch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
@@ -219,8 +221,8 @@ To do so use the path from Project root to file to import it e.g.</p>
 </pre></div>
 </div>
 <p>With help of this property you can create objects which lives longer then a single run of the ROSVITA Graph and also can be shared between multiple python modules in a ROSVITA Graph.
-Python objects which are made availble in this manner lives as long as the python runtime instance lives. In context of a ROSVITA Graph this means as long as the Graph is open and not distroyed with help of the trash bin button this kind of objects are available.</p>
-<p>But wait, many software developer will argument that this kind of using python modules to solve our problem of sharing objects is not a very clean approach and that is correct. Therefore, to do it in a more sophisticated and cleaner why please use the <a class="reference external" href="https://www.oreilly.com/library/view/python-cookbook/0596001673/ch05s23.html">borg pattern</a>.</p>
+Python objects which are made available in this manner lives as long as the python runtime instance lives. In context of a ROSVITA Graph this means as long as the Graph is open and not distroyed with help of the trash bin button this kind of objects are available.</p>
+<p>But wait, many software developer will argue that this kind of using python modules to solve our problem of sharing objects is not a very clean approach and that is correct. Therefore, to do it in a more sophisticated and cleaner why please use the <a class="reference external" href="https://www.oreilly.com/library/view/python-cookbook/0596001673/ch05s23.html">borg pattern</a>.</p>
 <p>As an example we provide the files showcase_graph_instance_and_python_object.py the library
 example_lib.py (lib/python/) and the Graph showcase_graph_instance_and_python_object.xgraph
 If you run the Graph you can see the explained inner python and ROSVITA Graph workings in action.</p>
@@ -264,6 +266,24 @@ For this purpose use the following python snipped in your implementations:</p>
 <p>For a running example please take a look into the showcase_rospy_in_rosvita_graph.py
 and run the graph showcase_rospy_in_rosvita_graph.xgraph</p>
 </div>
+<div class="section" id="ros-packages-and-usage-in-rosvita-graphs-via-python">
+<h2>ROS packages and usage in ROSVITA Graphs via Python<a class="headerlink" href="#ros-packages-and-usage-in-rosvita-graphs-via-python" title="Permalink to this headline">¶</a></h2>
+<p>Every ROSVITA project has it own already initialized <a class="reference external" href="http://wiki.ros.org/catkin/workspaces">catkin</a>.
+This workspace is the place where all project specific ROS packages should be places which are not
+already available by the ROS installation which is the backbone of ROSVITA.</p>
+<p>To perform actions in the project catkin workspace please use <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/index.html">catkin_tools</a>
+which are already installed and can be used from terminal when you browse to the project catkin workspace.</p>
+<p>After building the catkin workspace with help of the command <strong>catkin build</strong> the package content should be ready to use in ROSVITA Graphs.
+If you want access to those packages from the terminal please first source the catkin workspace (source devel/setup.bash –extend in catkin workspace).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you get erros which claim that a ROS package is not available e.g. a ROS message of a package, please consider first to clean the catkin workspace with the command <strong>catkin clean</strong> and then rebuild the catkin workspace. Reopen Graphs or resource the catkin workspace in terminals where this kind of error were stated.</p>
+</div>
+<p>Also please take in mind that a ROSVITA Graph is not a good place for long running or always on task. In practise this means that e.g. subscribing to a ROS topic and handle these messages for
+a long time is not a good graph application. The idea is that heavy and long running computations are implemented in ROS packages and you can access and collect the results via ROS services or
+ROS actions.</p>
+<p>To start your custom ROS packages every ROSVITA project provides a custom launch file. An introduction on how to use custom launch files can be found <a class="reference internal" href="ROSVITA_and_roslaunch.html"><span class="doc">here</span></a>.</p>
+</div>
 </div>
 
 
@@ -274,7 +294,7 @@ and run the graph showcase_rospy_in_rosvita_graph.xgraph</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="How_To_Stereo_Laser_Line_Client.html" class="btn btn-neutral float-right" title="How to use Stereo Laser Line Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ROSVITA_and_roslaunch.html" class="btn btn-neutral float-right" title="ROSVITA and roslauch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Complex_Scene.html" class="btn btn-neutral float-left" title="Building a Complex Scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -288,7 +308,7 @@ and run the graph showcase_rospy_in_rosvita_graph.xgraph</p>
     <p>
         &copy; Copyright 2018, Xamla.com
       <span class="lastupdated">
-        Last updated on May 28, 2019.
+        Last updated on May 29, 2019.
       </span>
 
     </p>

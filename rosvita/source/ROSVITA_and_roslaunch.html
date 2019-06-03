@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ROSVITA and roslauch &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to use Stereo Laser Line Client" href="How_To_Stereo_Laser_Line_Client.html" />
+    <link rel="prev" title="Python in ROSVITA Graphs" href="Python_In_Rosvita_Graphs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROSVITA and roslauch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rosvita-custom-launch-file">ROSVITA Custom Launch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial-custom-launch-file-ros-node-and-rosvita-graph">Tutorial: Custom Launch File, ROS node and ROSVITA Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Force_Torque_Data.html">Force Torque Data</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ROSVITA and roslauch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/ROSVITA_and_roslaunch.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rosvita-and-roslauch">
+<h1>ROSVITA and roslauch<a class="headerlink" href="#rosvita-and-roslauch" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you not already read the <a class="reference external" href="Python_in_Rosvita_Graphs">Python in ROSVITA Graphs</a> chapter, please read it first, it provides many insides which are prerequisite to understand the example we build up here to explain roslaunch.</p>
+</div>
+<p><a class="reference external" href="https://wiki.ros.org/roslaunch">roslaunch</a> is a set of tools which are shipped with ROS to easly launching multiple <a class="reference external" href="https://wiki.ros.org/rosnode">ROS nodes</a>.
+In ROSVITA the roslaunch tools are heavly in use and ROSVITA even extend the capabilities of the roslaunch which comes with ROS. Therefore, in many cases we have
+not to interact with roslaunch directly and can use <a class="reference internal" href="Robot_Configuration.html"><span class="doc">ROSVITA`s Configuration View</span></a> to build up our robot configuration and environment for a
+specific project.</p>
+<div class="section" id="rosvita-custom-launch-file">
+<h2>ROSVITA Custom Launch File<a class="headerlink" href="#rosvita-custom-launch-file" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+<span id="custom-launch-file-figure-label"></span><img alt="../_images/Custom_launch_file.png" src="../_images/Custom_launch_file.png" />
+<p class="caption"><span class="caption-text">Figure 1  Configuration View custom launch file</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>But if you want to use some ROS packages which are provided by the large ROS ecosystem or you wrote your own ROS packages to meet your needs it is necessary to
+write a roslaunch file to launch the needed nodes from these packages. But again the most of the word is already abstracted by ROSVITA. In every ROSVITA project
+a roslaunch file is already provided. It can be accessed over the Configuration View -&gt; ROS -&gt; Custom Launch File and then click on open (see <a class="reference internal" href="#custom-launch-file-figure-label"><span class="std std-ref">Figure 1</span></a>).
+If you correctly define your custom launch file ROSVITA will automatically launch all defined ROS nodes if you start ROS in ROSVITA.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="nt">&lt;launch&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">Created by Rosvita</span>
+
+<span class="c">Here you can add your custom launch file content.</span>
+
+<span class="c">Minimal example:</span>
+<span class="c">&lt;node name=&quot;talker&quot; pkg=&quot;rospy_tutorials&quot; type=&quot;talker&quot; /&gt;</span>
+
+<span class="c">Extended example:</span>
+<span class="c">&lt;group ns=&quot;wg2&quot;&gt;</span>
+<span class="c">    &lt;node pkg=&quot;rospy_tutorials&quot; type=&quot;talker&quot; name=&quot;talker&quot; args=&quot;- -test&quot; respawn=&quot;true&quot; &gt;</span>
+<span class="c">    &lt;remap from=&quot;chatter&quot; to=&quot;hello&quot; /&gt;</span>
+<span class="c">    &lt;param name=&quot;talker_1_param&quot; value=&quot;a value&quot; /&gt;</span>
+<span class="c">    &lt;/node&gt;</span>
+<span class="c">&lt;/group&gt;</span>
+<span class="c">--&gt;</span>
+</pre></div>
+</div>
+<p>When open a custom launch file of a fresh ROSVITA project you will see a file with the content shown above. It contains already a realy brief tutorial
+how to write a launch file. A full documentation about ROS launch files can be found here: <a class="reference external" href="https://wiki.ros.org/roslaunch/XML">https://wiki.ros.org/roslaunch/XML</a>.</p>
+</div>
+<div class="section" id="tutorial-custom-launch-file-ros-node-and-rosvita-graph">
+<h2>Tutorial: Custom Launch File, ROS node and ROSVITA Graph<a class="headerlink" href="#tutorial-custom-launch-file-ros-node-and-rosvita-graph" title="Permalink to this headline">¶</a></h2>
+<div class="admonition hint" id="project-hint-label">
+<p class="admonition-title">Hint</p>
+<p>The in the following shown resources are available in a ROSVITA project which can be downloaded here: <a class="reference external" href="/examples/ROSVITA_and_roslaunch_tutorial.tar">Link</a>. After that, untar it in your ROSVITA projects folder and open the project in ROSVITA.</p>
+</div>
+<p>In this tutorial we want to build a system which constists of following components:</p>
+<ul class="simple">
+<li><p>a ROS node which is launched via the custom launch file and provides a ROS service</p></li>
+<li><p>a python client implementation to call this service which complies all prerequisites to use it in a ROSVITA Graph context</p></li>
+<li><p>a ROSVITA Graph which uses the client implementation to interact with the ROS node</p></li>
+</ul>
+<p>For the ROS node we will not write our own one but rather use a minimalistic example which is provided by the ROS tutorials.
+The ROS tutorial packages we use in this tutorial can be found here: <a class="reference external" href="https://github.com/ros/ros_tutorials">https://github.com/ros/ros_tutorials</a>. In the provided <a class="reference external" href="/examples/ROSVITA_and_roslaunch_tutorial.tar">tutorial project</a>
+we already clone these repository to the project catkin workspace. Therefore, the first thing we have to do building the catkin workspace. To do so please run following commands from in
+a the ROSVITA terminal starting at the tutorial project root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> catkin
+catkin build
+<span class="nb">source</span> devel/setup.bash
+</pre></div>
+</div>
+<p>The ROS node we want to use in this tutorial is the add_two_ints_server. Two check if the build and source process was successful we can
+use some ros command line magic. First we want to check is the ROS package we want to use is available. This is possible with the <strong>rospack</strong>
+command. In our case we want to know if the package rospy_tutorials is available. The command <strong>rospack find rospy_tutorials</strong> does the trick.
+If it returns a path the package is available else a error is returned. The node from these package we want to launch is the <strong>add_two_ints_server</strong>.
+Therefore, the next step is to edit the custom launch file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="nt">&lt;launch&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">Created by Rosvita</span>
+
+<span class="c">Here you can add your custom launch file content.</span>
+
+<span class="c">Minimal example:</span>
+<span class="c">&lt;node name=&quot;talker&quot; pkg=&quot;rospy_tutorials&quot; type=&quot;talker&quot; /&gt;</span>
+
+<span class="c">Extended example:</span>
+<span class="c">&lt;group ns=&quot;wg2&quot;&gt;</span>
+<span class="c">    &lt;node pkg=&quot;rospy_tutorials&quot; type=&quot;talker&quot; name=&quot;talker&quot; args=&quot;- -test&quot; respawn=&quot;true&quot; &gt;</span>
+<span class="c">    &lt;remap from=&quot;chatter&quot; to=&quot;hello&quot; /&gt;</span>
+<span class="c">    &lt;param name=&quot;talker_1_param&quot; value=&quot;a value&quot; /&gt;</span>
+<span class="c">    &lt;/node&gt;</span>
+<span class="c">&lt;/group&gt;</span>
+
+<span class="c">For more information see: http://wiki.ros.org/roslaunch/XML</span>
+<span class="c">--&gt;</span>
+<span class="c">&lt;!-- add a group namespace --&gt;</span>
+<span class="nt">&lt;group</span> <span class="na">ns=</span><span class="s">&quot;roslaunch_tutorial&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- from package rospy_tutorials launch the node add_two_ints_server as add_two_ints_server --&gt;</span>
+    <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;rospy_tutorials&quot;</span> <span class="na">type=</span><span class="s">&quot;add_two_ints_server&quot;</span> <span class="na">name=</span><span class="s">&quot;add_two_ints_server&quot;</span> <span class="na">respawn=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/group&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
+<p>After editing and save the custom launch file as shown we can start ROS in ROSVITA.
+To check if the nodes which should be launched by the custom launch file are up and running you can
+use the ROSVITA System Status View which can be accessed by double clicking on the ROS status symbol.
+You should see the something simular to this:</p>
+<div class="figure align-center" id="id2">
+<span id="rosvita-monitor-view-figure-label"></span><img alt="../_images/ROS_node_up_and_running.png" src="../_images/ROS_node_up_and_running.png" />
+<p class="caption"><span class="caption-text">Figure 2  ROSVITA System Status View: running add_two_ints_server</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the node not show up in the System Status View or the symbol in front of the node name indicate an error you have
+to further investigate the problem. Add good start is oftentimes the node output. To see the node output just double
+click on the node name in the name column or click on the output switch in the last column.
+Next we can start implementing our python client (already provided in tutorial project <strong>add_two_ints_client.py</strong>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+
+<span class="c1"># imports the AddTwoInts service</span>
+<span class="kn">from</span> <span class="nn">rospy_tutorials.srv</span> <span class="kn">import</span> <span class="n">AddTwoInts</span><span class="p">,</span> <span class="n">AddTwoIntsRequest</span>
+
+<span class="c1"># full service name: group namespace, node service name</span>
+<span class="n">service_name</span> <span class="o">=</span> <span class="s1">&#39;roslaunch_tutorial/add_two_ints&#39;</span>
+
+<span class="c1"># define function with type hint, thus it is possible to use it in ROSVITA Graphs</span>
+<span class="k">def</span> <span class="nf">add_two_ints_client</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span> <span class="o">==</span> <span class="s1">&#39;unnamed&#39;</span><span class="p">):</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;rospy_node&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># block until the add_two_ints service is available</span>
+    <span class="c1"># or time out is exceeded</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+
+    <span class="c1"># create a handle to the add_two_ints service</span>
+    <span class="n">add_two_ints</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">AddTwoInts</span><span class="p">)</span>
+
+    <span class="c1"># call the ros service and wait until response</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">add_two_ints</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">AddTwoIntsRequest</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">sum</span>
+</pre></div>
+</div>
+<p>Then just drag and drop the python file into a new ROSVITA Graph (graph already provided in the tutorial project <strong>add_two_ints_graph.xgraph</strong> just open it).
+After running the graph you should see something simular to this:</p>
+<div class="figure align-center" id="id3">
+<span id="add-two-ints-graph-figure-label"></span><img alt="../_images/Add_two_ints_graph.png" src="../_images/Add_two_ints_graph.png" />
+<p class="caption"><span class="caption-text">Figure 3  ROSVITA Graph: add_two_ints_graph</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>You can play a little bit with the inputs. What is now actually happen when you run the graph is that the graph execute the python client implementation
+in the ROSVITA Graph python runtime, this is then calling the ROS services which is provided by the ROS node add_two_inits_server. After finishing the
+computation the service result is return back via ROS to the ROSVITA Graph python runtime. In a last step the result and before that also the input
+is transformed from a python type to a ROSVITA Graph type and vise versa.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="How_To_Stereo_Laser_Line_Client.html" class="btn btn-neutral float-right" title="How to use Stereo Laser Line Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Python_In_Rosvita_Graphs.html" class="btn btn-neutral float-left" title="Python in ROSVITA Graphs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on May 29, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
