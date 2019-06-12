@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gamepad Teaching &mdash; Rosvita documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Force Torque Data" href="Force_Torque_Data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Main_View.html">ROSVITA Main View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="New_Project.html">Creating a New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Configuration.html">Creating a Robot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Path_Planning.html">Path Planning (“World View”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Robot_Jogging.html">Robot Jogging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File_Browser.html">ROSVITA File Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code_Editor.html">ROSVITA Code Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Own_Robot_Models.html">Creation of Own Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graph_Concept.html">ROSVITA Graph Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module_Debugging.html">Module Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lua_Scripts.html">Using Lua Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Combination_with_External_ROS.html">Access to ROSVITA from External ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Complex_Scene.html">Building a Complex Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_In_Rosvita_Graphs.html">Python in ROSVITA Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ROSVITA_and_roslaunch.html">ROSVITA and roslauch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_To_Stereo_Laser_Line_Client.html">How to use Stereo Laser Line Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part1.html">Calibration Part1 (Camera, Hand-Eye, Endeffector)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calibration_Part2.html">Calibration Part2 (Robot Kinematic)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Force_Torque_Data.html">Force Torque Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gamepad Teaching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-controls">The Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-jogging">Joint Jogging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#incremental-jogging">Incremental Jogging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select-folder">Select Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#store-poses-postures">Store Poses / Postures</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rosvita documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Gamepad Teaching</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/Gamepad_Teaching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gamepad-teaching">
+<h1>Gamepad Teaching<a class="headerlink" href="#gamepad-teaching" title="Permalink to this headline">¶</a></h1>
+<p>Rosvita comes with a special user interface for mobile devices to ease the teaching of poses and postures. By using a
+mobile device in combination with a Gamepad one is able to move around the robot while still being able to use the robot
+jogging function.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To use the mobile interface the following components are needed:</p>
+<ul class="simple">
+<li><p>a Tablet or a Smartphone</p></li>
+<li><p>a Gamepad which can be connected to the Tablet / Smartphone via cable or Bluetooth</p></li>
+</ul>
+<p>For Tablets we recommend a Windows Surface with the an i7 CPU. For Smartphones any recent upper-middleclass 6 inch Android
+device can be used. When a Smartphone is used we recommend a Gamepad that can hold the Smartphone, so that it is not required
+to carry around two devices. The <cite>Raiju Mobile &lt;https://www.razer.com/gaming-controllers/razer-raiju-mobile&gt;</cite> Gamepad has
+been used during development and has proven itself as a solid Gamepad.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Open Chrome on your mobile device and enter the URL <a class="reference external" href="http:/">http:/</a>/&lt;your Rosvita computer name&gt;:5000/teach into the address bar.
+You are welcomed by the Rosvita login screen:</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/rosvita_teach_login.png" src="../_images/rosvita_teach_login.png" />
+<p class="caption"><span class="caption-text">Figure 22.1  Rosvita mobile login screen</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Enter your regular login credentials and press Sign In.</p>
+<p>In the following screen you will notice that the Gamepad is not connected yet.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/rosvita_teach_no_gamepad.png" src="../_images/rosvita_teach_no_gamepad.png" />
+<p class="caption"><span class="caption-text">Figure 22.2  No Gamepad connected</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The browser cannot detect the Gamepad until a button pressed. Connect your Gamepad via Bluetooth or cable and press a button.
+The screen changes to this:</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/rosvita_teach_idle.png" src="../_images/rosvita_teach_idle.png" />
+<p class="caption"><span class="caption-text">Figure 22.3  Idle</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Now is a good time to press the Fullscreen button to have more space for the numerous controls. On Android the full screen view
+can be left by pressing the back button.</p>
+</div>
+<div class="section" id="the-controls">
+<h2>The Controls<a class="headerlink" href="#the-controls" title="Permalink to this headline">¶</a></h2>
+<p>The screen is separated into three areas. On the very left you see the current WorldView folder and which Poses or
+Postures it contains. The view shows Poses when cartesian jogging is active and postures when joint jogging is active.</p>
+<p>On the very right you see the current positions of the joints of the selected movegroup as well as the position of the
+current end effector in world coordinates.</p>
+<p>In the middle you can activate jogging and change the jogging configuration. The Start button activates the
+Rosvita Jogging Node, which allows the robot to move. This can also be activate by pressing both trigger buttons
+(usually named RT and LT or R2 and L2) simultaneously and hold them for two seconds. When the jogging is active the ‘B’
+button can be used to stop the jogging node.</p>
+<p>The three drop down boxes allow changing the jogging speed (velocity scaling), the end effector that is used for
+jogging and in which reference frame the jogging is taking place.</p>
+<p>The actual robot movement is controlled with the joystick (analog sticks) of the Gamepad. The more the joystick is pressed
+into one direction the faster the robot moves into that direction. In cartesian mode the left stick controls the
+translation and the right stick controls the rotational movement. On the bottom it is indicated which
+axis of the end effector is controlled by pressing the joystick into a direction. For example in figure 22.3 the end
+effector is moved along the positive X-axis by pressing the left joystick upwards. By pressing the right joystick left
+the robot is rotated around the Y-axis in negative direction. To switch between the X/Y-axis and the Z-axis press onto
+the joystick.</p>
+</div>
+<div class="section" id="joint-jogging">
+<h2>Joint Jogging<a class="headerlink" href="#joint-jogging" title="Permalink to this headline">¶</a></h2>
+<p>Pressing the Joint button in the middle activates joint jogging. To switch back to cartesian jogging press Cartesian.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/rosvita_teach_joint.png" src="../_images/rosvita_teach_joint.png" />
+<p class="caption"><span class="caption-text">Figure 22.4  Joint jogging</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this mode the left joystick is used to control the movement of a single joint. Pressing the left joystick up moves
+the joint into the positive direction and pressing it down moves the joint into the negative direction. Which joint is
+controlled can be changed with the Up and Down key of the D-Pad (the cross).</p>
+</div>
+<div class="section" id="incremental-jogging">
+<h2>Incremental Jogging<a class="headerlink" href="#incremental-jogging" title="Permalink to this headline">¶</a></h2>
+<p>Incremental jogging can be activated by pressing the Incremental mode button while being in cartesian mode. To switch back
+to continuous mode press the Continuous mode button.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/rosvita_teach_incremental.png" src="../_images/rosvita_teach_incremental.png" />
+<p class="caption"><span class="caption-text">Figure 22.5  Incremental joint jogging</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Incremental jogging means that the end effector is only moved a certain amount (e.g. 1 mm or 0.1°) when the joystick is
+pressed into a direction. The robot keeps moving as long as the joystick is pressed but stops when reaching the configured
+distance. Only when the joystick is released, i.e. moved back to its zero position in the middle, the next step can be
+performed.</p>
+<p>What this does is moving a target position for the end effector while the robot is trying to reach the target position.
+This means that if the robot should move 3mm into one direction it is possible to fast press and release the joystick 2
+times into that direction and then press and hold the joystick during the third push.</p>
+</div>
+<div class="section" id="select-folder">
+<h2>Select Folder<a class="headerlink" href="#select-folder" title="Permalink to this headline">¶</a></h2>
+<p>Press Select Folder on the left side of the screen. The following dialog opens:</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/rosvita_teach_folder.png" src="../_images/rosvita_teach_folder.png" />
+<p class="caption"><span class="caption-text">Figure 22.5  Select folder</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>The dialog allows to navigate through the WorldView folders. By selecting a folder on the very right sight of the dialog
+another panel appears with the subfolders of the selected folder, if it has any. Press Select once you have found the
+desired folder or Cancel if you do not want to change the current folder.</p>
+</div>
+<div class="section" id="store-poses-postures">
+<h2>Store Poses / Postures<a class="headerlink" href="#store-poses-postures" title="Permalink to this headline">¶</a></h2>
+<p>To store the current pose of the end effector and simultaneously also the current posture of the current movegroup press
+the ‘A’ button. This opens the dialog as seen in figure 22.6.</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/rosvita_teach_store.png" src="../_images/rosvita_teach_store.png" />
+<p class="caption"><span class="caption-text">Figure 22.6  Store pose/posture dialog</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>The store dialog stores or updates poses and postures in the currently selected folder. The name for the pose / posture
+can be changed in the name textbox. When the ‘Update corresponding Pose / JointValues’ toggle is turned of only a pose
+or a posture is stored depending in which mode the jogging is. For example if joint jogging is active and the toggle is
+turned of only a posture is saved into the current folder. Pressing Update Selected will overwrite the selected pose / posture
+which the current values from the robot.</p>
+<p>It is possible to control this dialog via the Gamepad buttons. Use A to store, X to update or B to close the dialog.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Force_Torque_Data.html" class="btn btn-neutral float-left" title="Force Torque Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Xamla.com
+      <span class="lastupdated">
+        Last updated on Jun 12, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
