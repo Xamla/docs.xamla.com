@@ -227,3 +227,50 @@ li {
 .topic-box ul li a:hover {
   text-decoration: underline;
 }
+
+.inline-btn{
+  cursor: pointer;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex: 1 1 100%;
+  align-items: center;
+  background-color: #64709e;
+  max-height: 97px;
+  padding-top: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.inline-btn:hover {
+  opacity: 0.6;
+}
+
+.inline-btn h2{
+  height: 24px;
+  font-size: 32px;
+  margin-bottom: 14px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.inline-btn p{
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.2em;
+  color: #fff;
+  padding-bottom: 12px;
+}
+
+.inline-btn p > svg{
+  display: inline;
+  width: 24px;
+  height: 19px;
+  margin-right: 7px;
+  margin-bottom: -3px;
+}

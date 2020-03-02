@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.gripper_client &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.gripper_client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.gripper_client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># gripper_client.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">.data_types</span> <span class="k">import</span> <span class="n">MoveGripperResult</span><span class="p">,</span> <span class="n">WsgCommand</span><span class="p">,</span> <span class="n">WsgResult</span>
+<span class="kn">from</span> <span class="nn">.motion_service</span> <span class="k">import</span> <span class="n">MotionService</span>
+<span class="kn">from</span> <span class="nn">.xamla_motion_exceptions</span> <span class="k">import</span> <span class="n">ServiceException</span>
+
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+
+
+<div class="viewcode-block" id="WeissWsgGripperProperties"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripperProperties">[docs]</a><span class="k">class</span> <span class="nc">WeissWsgGripperProperties</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Property class for Weiss Wsg gripper </span>
+
+<span class="sd">    This class holds the action and service names </span>
+<span class="sd">    for a specific Weiss Wsg gripper</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;xamla/wsg_driver&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize WeissWsgProperties</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str convertable</span>
+<span class="sd">            Name of a specific gripper in rosvita (Configuration,</span>
+<span class="sd">            individual wsg actuator, property Name)</span>
+<span class="sd">        prefix : str (default = /xamla/wsg_driver/)</span>
+<span class="sd">            Prefix of the ros service and action names</span>
+<span class="sd">            to control a wsg gripper</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WeissWsgProperties</span>
+<span class="sd">            Instance of WeissWsgProperties</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If name is not str convertable</span>
+<span class="sd">            If prefix is not str convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">prefix</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">prefix</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">prefix</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__status_service_name</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/get_gripper_status&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__set_acc_service_name</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/set_acceleration&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__control_action_name</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/gripper_control&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">status_service_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        status_service_name : str</span>
+<span class="sd">            Name of the status service for specific </span>
+<span class="sd">            Weiss gripper</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__status_service_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">set_acc_service_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        set_acc_name : str</span>
+<span class="sd">            Name of the set acceleration service for specific </span>
+<span class="sd">            Weiss gripper</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__set_acc_service_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">control_action_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        control_action_name : str</span>
+<span class="sd">            Name of the control action for specific </span>
+<span class="sd">            Weiss gripper</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__control_action_name</span></div>
+
+
+<div class="viewcode-block" id="WeissWsgGripper"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper">[docs]</a><span class="k">class</span> <span class="nc">WeissWsgGripper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WeissWsgGripper class</span>
+
+<span class="sd">    Represent a Weiss Wsg gripper and his abilities / properties</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    get_status()</span>
+<span class="sd">        Get current status of the gripper</span>
+<span class="sd">    acknowledge_error()</span>
+<span class="sd">        Asynchronous acknowledge an error</span>
+<span class="sd">    grasp(position, speed, force)</span>
+<span class="sd">        Asynchronous action to perform a grasp</span>
+<span class="sd">    async def homing()</span>
+<span class="sd">        Asynchronous action to home the gripper</span>
+<span class="sd">    move(position, speed, force, stop_on_block)</span>
+<span class="sd">        Asynchronous action to perform a movement</span>
+<span class="sd">    release(self, position, speed)</span>
+<span class="sd">        Asynchronous action to release the gripper from a grasp</span>
+<span class="sd">    stop()</span>
+<span class="sd">        Asynchronous action to perform stop the gripper</span>
+<span class="sd">    set_acceleration(acceleration)</span>
+<span class="sd">        Set gripper acceleration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gripper_properties</span><span class="p">,</span> <span class="n">motion_service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize Weiss Wsg Gripper instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gripper_properties : WeissWsgGripperProperties</span>
+<span class="sd">            Properties of this gripper instance. Especially </span>
+<span class="sd">            the ros services names to control the gripper</span>
+<span class="sd">        motion_service : MotionService</span>
+<span class="sd">            Instance of MotionService to communicate with</span>
+<span class="sd">            the motion server via ros</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WeissWsgGripper</span>
+<span class="sd">            Instance of WeissWsgGripper</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If gripper_properties is not of type WeissWsgGripperProperties</span>
+<span class="sd">            or if motion_service is not of type MotionService</span>
+<span class="sd">        ServiceExeption</span>
+<span class="sd">            If status service or set acceleration service are not </span>
+<span class="sd">            available            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">wsg_50_common.srv</span> <span class="k">import</span> <span class="n">GetGripperStatus</span><span class="p">,</span> <span class="n">SetValue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gripper_properties</span><span class="p">,</span> <span class="n">WeissWsgGripperProperties</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;gripper_properties is not of expected&#39;</span>
+                            <span class="s1">&#39; type WeissWsgProperties&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">motion_service</span><span class="p">,</span> <span class="n">MotionService</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;motion_service is not of expected&#39;</span>
+                            <span class="s1">&#39; type MotionService&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="n">gripper_properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span> <span class="o">=</span> <span class="n">motion_service</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__status_service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">status_service_name</span><span class="p">,</span>
+                <span class="n">GetGripperStatus</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;connection for service with name: &#39;</span> <span class="o">+</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">status_service_name</span> <span class="o">+</span>
+                                   <span class="s1">&#39; could not be established&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__set_acc_service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">set_acc_service_name</span><span class="p">,</span>
+                <span class="n">SetValue</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;connection for service with name: &#39;</span> <span class="o">+</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">set_acc_service_name</span> <span class="o">+</span>
+                                   <span class="s1">&#39; could not be established&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Properties of this Weiss wsg gripper instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
+
+<div class="viewcode-block" id="WeissWsgGripper.get_status"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.get_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get current status of the gripper</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        status : wsg_50_common.msg Status</span>
+<span class="sd">            current status of the gripper</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If current service is not available or failed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__status_service</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service with name &#39;</span> <span class="o">+</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">status_service_name</span> <span class="o">+</span>
+                                   <span class="s1">&#39; is not available or failed&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.acknowledge_error"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.acknowledge_error">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">acknowledge_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous acknowledge an error</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">acknowledge_error</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.grasp"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.grasp">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">grasp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to perform a grasp</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : float convertable</span>
+<span class="sd">            Requested position in meters</span>
+<span class="sd">        speed : float convertable</span>
+<span class="sd">            Requested speed in m/s</span>
+<span class="sd">        force : float convertable</span>
+<span class="sd">            Force which should maximally applied in Newton</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If inputs are not convertable to specified type</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">grasp</span><span class="p">,</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">),</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">force</span><span class="p">),</span>
+                                                       <span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.homing"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.homing">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">homing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to home the gripper</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">homing</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.move"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.move">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">force</span><span class="p">,</span> <span class="n">stop_on_block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to perform a movement</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : float convertable</span>
+<span class="sd">            Requested position in meters</span>
+<span class="sd">        speed : float convertable</span>
+<span class="sd">            Requested speed in m/s</span>
+<span class="sd">        force : float convertable</span>
+<span class="sd">            Force which should maximally applied in Newton</span>
+<span class="sd">        stop_on_block : bool convertable</span>
+<span class="sd">            If True stop if maximal force is applied</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If inputs are not convertable to specified type</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">move</span><span class="p">,</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">),</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">force</span><span class="p">),</span>
+                                                       <span class="nb">bool</span><span class="p">(</span><span class="n">stop_on_block</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.release"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.release">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to release the gripper from a grasp</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : float convertable</span>
+<span class="sd">            Requested position in meters</span>
+<span class="sd">        speed : float convertable</span>
+<span class="sd">            Requested speed in m/s</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If inputs are not convertable to specified type</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">release</span><span class="p">,</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+                                                       <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">),</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.stop"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.stop">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to perform stop the gripper</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        WsgResult</span>
+<span class="sd">            Result status of the Weiss Wsg gripper </span>
+<span class="sd">            after the execution of the acknowledge action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">wsg_gripper_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">control_action_name</span><span class="p">,</span>
+                                                       <span class="n">WsgCommand</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="mf">0.0</span><span class="p">,</span>
+                                                       <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="WeissWsgGripper.set_acceleration"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.WeissWsgGripper.set_acceleration">[docs]</a>    <span class="k">def</span> <span class="nf">set_acceleration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set gripper acceleration</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        acceleration : float convertable</span>
+<span class="sd">            Requested acceleration</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        error : bool</span>
+<span class="sd">            If True service call was not successful </span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If inputs are not convertable to specified type</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If control action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__set_acc_service</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">acceleration</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service with name &#39;</span> <span class="o">+</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">set_acc_service_name</span> <span class="o">+</span>
+                                   <span class="s1">&#39; is not available or failed&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CommonGripperProperties"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.CommonGripperProperties">[docs]</a><span class="k">class</span> <span class="nc">CommonGripperProperties</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class with represents the properties of a common gripper</span>
+
+<span class="sd">    This class holds the service and action names which are</span>
+<span class="sd">    necessary to command a specific gripper</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of CommonGripperProperties</span>
+
+<span class="sd">        Parameters </span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str convertable</span>
+<span class="sd">            Name of a specific gripper in rosvita (Configuration,</span>
+<span class="sd">            individual wsg actuator, property Name)</span>
+<span class="sd">        prefix : str convertable</span>
+<span class="sd">            Name of the</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CommonGripperProperties</span>
+<span class="sd">            Instance of CommonGripperProperties</span>
+
+<span class="sd">         Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If name is not str convertable</span>
+<span class="sd">            If prefix is not str convertable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">prefix</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">prefix</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">prefix</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__command_action_name</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/gripper_command&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">command_action_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        command_action_name : str</span>
+<span class="sd">            Name of the command action</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__command_action_name</span></div>
+
+
+<div class="viewcode-block" id="CommonGripper"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.CommonGripper">[docs]</a><span class="k">class</span> <span class="nc">CommonGripper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class which represents a gripper controlled by the moveit gripper interface</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">     move(position, max_effort)</span>
+<span class="sd">        Asynchronous action to perform a movement</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gripper_properties</span><span class="p">,</span> <span class="n">motion_service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize common gripper instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gripper_properties : CommonGripperProperties</span>
+<span class="sd">            Properties of this gripper instance. Especially </span>
+<span class="sd">            the ros services and action names to control the gripper</span>
+<span class="sd">        motion_service : MotionService</span>
+<span class="sd">            Instance of MotionService to communicate with</span>
+<span class="sd">            the motion server via ros</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CommonGripper</span>
+<span class="sd">            Instance of CommonGripper</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If gripper_properties is not of type CommonGripperProperties</span>
+<span class="sd">            or if motion_service is not of type MotionService           </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="n">gripper_properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span> <span class="o">=</span> <span class="n">motion_service</span>
+
+<div class="viewcode-block" id="CommonGripper.move"><a class="viewcode-back" href="../../source/gripper_client.html#xamla_motion.CommonGripper.move">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">max_effort</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Asynchronous action to perform a movement</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : float convertable</span>
+<span class="sd">            Requested position in meters</span>
+<span class="sd">        max_effort : float convertable</span>
+<span class="sd">            Force which should maximally applied in Newton</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        MoveGripperResult</span>
+<span class="sd">            Result status of a common gripper </span>
+<span class="sd">            after the execution of the move action</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If inputs are not convertable to specified type</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If command action server is not available</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If action returns with unexpected result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__m_service</span><span class="o">.</span><span class="n">move_gripper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="o">.</span><span class="n">command_action_name</span><span class="p">,</span>
+                                                <span class="nb">float</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+                                                <span class="nb">float</span><span class="p">(</span><span class="n">max_effort</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">r</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.v2.world_view_client &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.v2.world_view_client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.v2.world_view_client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># world_view_client.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">moveit_msgs.msg</span> <span class="k">as</span> <span class="nn">moveit_msgs</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">xamlamoveit_msgs.srv</span> <span class="k">import</span> <span class="p">(</span><span class="n">CreateFolderWorldView</span><span class="p">,</span>
+                                  <span class="n">CreateFolderWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">GetCartesianPathWorldView</span><span class="p">,</span>
+                                  <span class="n">GetCartesianPathWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">GetCollisionObjectWorldView</span><span class="p">,</span>
+                                  <span class="n">GetCollisionObjectWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">GetJointPostureWorldView</span><span class="p">,</span>
+                                  <span class="n">GetJointPostureWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">GetPoseWorldView</span><span class="p">,</span> <span class="n">GetPoseWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">QueryCartesianPathWorldView</span><span class="p">,</span>
+                                  <span class="n">QueryCartesianPathWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">QueryCollisionObjectWorldView</span><span class="p">,</span>
+                                  <span class="n">QueryCollisionObjectWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">QueryJointValuesWorldView</span><span class="p">,</span>
+                                  <span class="n">QueryJointValuesWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">QueryPosesWorldView</span><span class="p">,</span>
+                                  <span class="n">QueryPosesWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">RemoveElementWorldView</span><span class="p">,</span>
+                                  <span class="n">RemoveElementWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">SetCartesianPathWorldView</span><span class="p">,</span>
+                                  <span class="n">SetCartesianPathWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">SetCollisionObjectWorldView</span><span class="p">,</span>
+                                  <span class="n">SetCollisionObjectWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">SetJointPostureWorldView</span><span class="p">,</span>
+                                  <span class="n">SetJointPostureWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">SetPoseWorldView</span><span class="p">,</span> <span class="n">SetPoseWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">UpdateJointPostureWorldView</span><span class="p">,</span>
+                                  <span class="n">UpdateJointPostureWorldViewRequest</span><span class="p">,</span>
+                                  <span class="n">UpdatePoseWorldView</span><span class="p">,</span>
+                                  <span class="n">UpdatePoseWorldViewRequest</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">..data_types</span> <span class="k">import</span> <span class="n">CartesianPath</span><span class="p">,</span> <span class="n">CollisionObject</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">,</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">..xamla_motion_exceptions</span> <span class="k">import</span> <span class="n">ArgumentError</span><span class="p">,</span> <span class="n">ServiceException</span>
+
+<span class="n">add_joint_values_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/add_joint_posture&#39;</span>
+<span class="n">get_joint_values_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/get_joint_posture&#39;</span>
+<span class="n">query_joint_values_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/query_joint_postures&#39;</span>
+<span class="n">update_joint_values_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/update_joint_posture&#39;</span>
+
+<span class="n">add_pose_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/add_pose&#39;</span>
+<span class="n">get_pose_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/get_pose&#39;</span>
+<span class="n">query_poses_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/query_poses&#39;</span>
+<span class="n">update_pose_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/update_pose&#39;</span>
+
+<span class="n">add_cartesian_path_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/set_cartesianpath&#39;</span>
+<span class="n">get_cartesian_path_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/get_cartesianpath&#39;</span>
+<span class="n">query_cartesian_paths_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/query_cartesianpath&#39;</span>
+<span class="n">update_cartesian_path_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/update_cartesianpath&#39;</span>
+
+<span class="n">add_collision_object_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/set_collisionobject&#39;</span>
+<span class="n">get_collision_object_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/get_collisionobject&#39;</span>
+<span class="n">query_collision_objects_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/query_collisionobject&#39;</span>
+<span class="n">update_collision_object_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/update_collisionobject&#39;</span>
+
+<span class="n">remove_element_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/remove_element&#39;</span>
+<span class="n">add_folder_srv_name</span> <span class="o">=</span> <span class="s1">&#39;/rosvita/world_view/add_folder&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element_path</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">element_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;element_path is not of expected type &#39;</span>
+                            <span class="s1">&#39;pathlib.Path and can not beconverted&#39;</span>
+                            <span class="s1">&#39; to it&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+    <span class="k">return</span> <span class="s1">&#39;/&#39;</span> <span class="o">/</span> <span class="n">element_path</span>
+
+
+<div class="viewcode-block" id="WorldViewClient"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient">[docs]</a><span class="k">class</span> <span class="nc">WorldViewClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Client to interact and manipulate the Rosvita WorldView</span>
+
+<span class="sd">    With help of this client class it is possible to add, get,</span>
+<span class="sd">    query and remove different kinds of elements to or from</span>
+<span class="sd">    the Rosvita world view.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    add_joint_values</span>
+<span class="sd">        Add / update joint values element in world view tree</span>
+<span class="sd">    get_joint_values</span>
+<span class="sd">        Get joint values element from world view tree</span>
+<span class="sd">    query_joint_values</span>
+<span class="sd">        Query all joint values under folder_path which start with prefix</span>
+<span class="sd">    add_pose</span>
+<span class="sd">        Add / update pose element in world view tree</span>
+<span class="sd">    get_pose</span>
+<span class="sd">        Get pose element from world view tree</span>
+<span class="sd">    query_poses</span>
+<span class="sd">        Query all existing poses under folder_path which start with prefix</span>
+<span class="sd">    add_cartesian_path</span>
+<span class="sd">        Add / update cartesian path element in world view tree</span>
+<span class="sd">    get_cartesian_path</span>
+<span class="sd">        Get cartesian path element from world view tree</span>
+<span class="sd">    query_cartesian_pahts</span>
+<span class="sd">        Query all existing castesian paths under folder_path which start with prefix</span>
+<span class="sd">    add_collision_object</span>
+<span class="sd">        Add / update collision object element in world view tree</span>
+<span class="sd">    get_collision_object</span>
+<span class="sd">        Get collision object element from world view tree</span>
+<span class="sd">    query_cartesian_pahts</span>
+<span class="sd">        Query all existing castesian paths under folder_path which start with prefix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize WorldViewClient</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Instance of WorldViewClient</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If connection to world view services</span>
+<span class="sd">            could not be established</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># initialize all service to handle joint values in world view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_joint_values_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">add_joint_values_srv_name</span><span class="p">,</span>
+            <span class="n">SetJointPostureWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__get_joint_values_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">get_joint_values_srv_name</span><span class="p">,</span>
+            <span class="n">GetJointPostureWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__query_joint_values_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">query_joint_values_srv_name</span><span class="p">,</span>
+            <span class="n">QueryJointValuesWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update_joint_values_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">update_joint_values_srv_name</span><span class="p">,</span>
+            <span class="n">UpdateJointPostureWorldView</span><span class="p">)</span>
+
+        <span class="c1"># initialize all service to handle poses in world view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_pose_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">add_pose_srv_name</span><span class="p">,</span>
+            <span class="n">SetPoseWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__get_pose_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">get_pose_srv_name</span><span class="p">,</span>
+            <span class="n">GetPoseWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__query_poses_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">query_poses_srv_name</span><span class="p">,</span>
+            <span class="n">QueryPosesWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update_pose_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">update_pose_srv_name</span><span class="p">,</span>
+            <span class="n">UpdatePoseWorldView</span><span class="p">)</span>
+
+        <span class="c1"># initialize all service to handle cartesian path in world view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_cartesian_path_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">add_cartesian_path_srv_name</span><span class="p">,</span>
+            <span class="n">SetCartesianPathWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__get_cartesian_path_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">get_cartesian_path_srv_name</span><span class="p">,</span>
+            <span class="n">GetCartesianPathWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__query_cartesian_paths_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">query_cartesian_paths_srv_name</span><span class="p">,</span>
+            <span class="n">QueryCartesianPathWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update_cartesian_path_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">update_cartesian_path_srv_name</span><span class="p">,</span>
+            <span class="n">SetCartesianPathWorldView</span><span class="p">)</span>
+
+        <span class="c1"># initialize all service to handle collision objects in world view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_collision_object_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">add_collision_object_srv_name</span><span class="p">,</span>
+            <span class="n">SetCollisionObjectWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__get_collision_object_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">get_collision_object_srv_name</span><span class="p">,</span>
+            <span class="n">GetCollisionObjectWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__query_collision_objects_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">query_collision_objects_srv_name</span><span class="p">,</span>
+            <span class="n">QueryCollisionObjectWorldView</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__update_collision_objects_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">update_collision_object_srv_name</span><span class="p">,</span>
+            <span class="n">SetCollisionObjectWorldView</span><span class="p">)</span>
+
+        <span class="c1"># add folder service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__add_folder_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">add_folder_srv_name</span><span class="p">,</span>
+            <span class="n">CreateFolderWorldView</span><span class="p">)</span>
+
+        <span class="c1"># remove element service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__remove_element_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+            <span class="n">remove_element_srv_name</span><span class="p">,</span>
+            <span class="n">RemoveElementWorldView</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_call_update_joint_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                  <span class="n">element_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                                  <span class="n">joint_values</span><span class="p">:</span> <span class="n">JointValues</span><span class="p">,</span>
+                                  <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">UpdateJointPostureWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="n">joint_values</span><span class="o">.</span><span class="n">to_joint_values_point_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_joint_values_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">update_joint_values_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">_call_update_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                          <span class="n">element_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                          <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">,</span>
+                          <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">UpdatePoseWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="n">pose</span><span class="o">.</span><span class="n">to_posestamped_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_pose_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">update_pose_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">_call_update_cartesian_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                    <span class="n">element_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                                    <span class="n">cartesian_path</span><span class="p">:</span> <span class="n">CartesianPath</span><span class="p">,</span>
+                                    <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetCartesianPathWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">cartesian_path</span><span class="o">.</span><span class="n">to_cartesian_path_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_cartesian_path_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">update_cartesian_path_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">_call_update_collision_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                      <span class="n">element_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+                                      <span class="n">collision_object</span><span class="p">:</span> <span class="n">CollisionObject</span><span class="p">,</span>
+                                      <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetCollisionObjectWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">collision_object</span> <span class="o">=</span> <span class="n">collision_object</span><span class="o">.</span><span class="n">to_collision_object_msg</span><span class="p">(</span>
+            <span class="n">moveit_msgs</span><span class="o">.</span><span class="n">CollisionObject</span><span class="o">.</span><span class="n">ADD</span>
+        <span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_collision_objects_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">update_collision_object_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<div class="viewcode-block" id="WorldViewClient.add_joint_values"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.add_joint_values">[docs]</a>    <span class="k">def</span> <span class="nf">add_joint_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                         <span class="n">joint_values</span><span class="p">:</span> <span class="n">JointValues</span><span class="p">,</span>
+                         <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">update_if_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add / update joint values element in world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Path in world view tree where the new joint values element</span>
+<span class="sd">            should be created or update a existing one at this location</span>
+<span class="sd">        joint_values : JointValues</span>
+<span class="sd">            Contains new joint values</span>
+<span class="sd">        transient : bool (default False)</span>
+<span class="sd">            If True the added joint values are only valid for this session</span>
+<span class="sd">            and will not be saved in a rosvita project context</span>
+<span class="sd">        update_if_exists: bool (default True)</span>
+<span class="sd">            If True update the values if exists instead</span>
+<span class="sd">            of raising an exception</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to add joint values</span>
+<span class="sd">            due to wrong path or element already exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">            If joint_values is not of type JointValues</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_values</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;joint_values is not of expected type JointValues&#39;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">update_if_exists</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_update_joint_values</span><span class="p">(</span>
+                <span class="n">element_path</span><span class="p">,</span>
+                <span class="n">joint_values</span><span class="p">,</span>
+                <span class="n">transient</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetJointPostureWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="n">joint_values</span><span class="o">.</span><span class="n">to_joint_values_point_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_joint_values_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_joint_values_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_joint_values_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.get_joint_values"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.get_joint_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_joint_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">JointValues</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get joint values element from world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Full path of requested element in worldview tree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        joint_values : JointValues</span>
+<span class="sd">            Instance of JointValues with</span>
+<span class="sd">            the values which are defined in the</span>
+<span class="sd">            requested joint values element</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to get joint values</span>
+<span class="sd">            due to wrong path or element not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">GetJointPostureWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_joint_values_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_joint_values_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_joint_values_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">JointValues</span><span class="o">.</span><span class="n">from_joint_values_point_msg</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">point</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.query_joint_values"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.query_joint_values">[docs]</a>    <span class="k">def</span> <span class="nf">query_joint_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                           <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">pathlib</span><span class="o">.</span><span class="n">PurePath</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Query all existing joint values elements under folder_path which start with prefix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder_path : str</span>
+<span class="sd">            Path to folder in which the search should be performed</span>
+<span class="sd">        prefix : str (default empty string)</span>
+<span class="sd">            Query elements which start with this prefix</span>
+<span class="sd">        recursive : bool (default False)</span>
+<span class="sd">            If True query from folder path recursively</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : List[JointValues]</span>
+<span class="sd">            List of JointValues in alphanumeric order see world view</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to query joint values</span>
+<span class="sd">            due to not existing path</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If folder_path is not of type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;folder_path is not of expected type str or is empty&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;path is not of expected type str&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recursive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;recursive is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">QueryJointValuesWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_path</span> <span class="o">=</span> <span class="n">folder_path</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">recursive</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__query_joint_values_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_joint_values_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_joint_values_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">points</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">element_paths</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">points</span><span class="p">):</span>
+
+                <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">PurePath</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">JointValues</span><span class="o">.</span><span class="n">from_joint_values_point_msg</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.add_pose"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.add_pose">[docs]</a>    <span class="k">def</span> <span class="nf">add_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                 <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">,</span> <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">update_if_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add / store pose element in world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Path in world view tree where the new pose element</span>
+<span class="sd">            should be created or update a existing one at this location</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Instance of pose which is added / stored</span>
+<span class="sd">        transient : bool</span>
+<span class="sd">            If True the added pose is only valid for this session</span>
+<span class="sd">            and will not be saved in a rosvita project context</span>
+<span class="sd">        update_if_exists: bool (default True)</span>
+<span class="sd">            If True update pose if it exists instead </span>
+<span class="sd">            of raising an exception</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to add pose</span>
+<span class="sd">            due to wrong path or element already exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;pose is not of expected type Pose&#39;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">update_if_exists</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_update_pose</span><span class="p">(</span>
+                <span class="n">element_path</span><span class="p">,</span>
+                <span class="n">pose</span><span class="p">,</span>
+                <span class="n">transient</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetPoseWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="n">pose</span><span class="o">.</span><span class="n">to_posestamped_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_pose_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_pose_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_pose_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.get_pose"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.get_pose">[docs]</a>    <span class="k">def</span> <span class="nf">get_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Pose</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get pose element from world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Full path of requested element in worldview tree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Instance of Pose with</span>
+<span class="sd">            the values which are defined in the</span>
+<span class="sd">            requested pose element</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to get pose</span>
+<span class="sd">            due to wrong path or element not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">GetPoseWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_pose_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_pose_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_pose_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">Pose</span><span class="o">.</span><span class="n">from_posestamped_msg</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">point</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.query_poses"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.query_poses">[docs]</a>    <span class="k">def</span> <span class="nf">query_poses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Pose</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Query all existing pose elements under folder_path which start with prefix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder_path : str</span>
+<span class="sd">            Path to folder in which the search should be performed</span>
+<span class="sd">        prefix : str (default empty string)</span>
+<span class="sd">            Query elements which start with this prefix</span>
+<span class="sd">        recursive : bool (default False)</span>
+<span class="sd">            If True query from folder path recursively</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : List[Pose]</span>
+<span class="sd">            List of Pose in alphanumeric order see world view</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to query pose</span>
+<span class="sd">            due to not existing path</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If folder_path is not of type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;folder_path is not of expected type str or is empty&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;path is not of expected type str&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recursive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;recursive is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">QueryPosesWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_path</span> <span class="o">=</span> <span class="n">folder_path</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">recursive</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__query_poses_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_poses_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_poses_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">points</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">element_paths</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">points</span><span class="p">):</span>
+
+                <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">PurePath</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pose</span><span class="o">.</span><span class="n">from_posestamped_msg</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.add_cartesian_path"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.add_cartesian_path">[docs]</a>    <span class="k">def</span> <span class="nf">add_cartesian_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                           <span class="n">cartesian_path</span><span class="p">:</span> <span class="n">CartesianPath</span><span class="p">,</span> <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                           <span class="n">update_if_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add / store cartesian path element in world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Path in world view tree where the new cartesian path element</span>
+<span class="sd">            should be created or update a existing one at this location</span>
+<span class="sd">        cartesian_path : CartesianPath</span>
+<span class="sd">            Instance of cartesian path which is added / stored</span>
+<span class="sd">        transient : bool</span>
+<span class="sd">            If True the added cartesian path is only valid for this session</span>
+<span class="sd">            and will not be saved in a rosvita project context</span>
+<span class="sd">        update_if_exists: bool (default True)</span>
+<span class="sd">            If True update cartesian path if it exists instead </span>
+<span class="sd">            of raising an exception</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to add cartesian path</span>
+<span class="sd">            due to wrong path or element already exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">            If cartesian_path is not of type CartesianPath</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cartesian_path</span><span class="p">,</span> <span class="n">CartesianPath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;cartesian path is not of expected type CartesianPath&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">transient</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;transient is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">update_if_exists</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_update_cartesian_path</span><span class="p">(</span>
+                <span class="n">element_path</span><span class="p">,</span>
+                <span class="n">cartesian_path</span><span class="p">,</span>
+                <span class="n">transient</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetCartesianPathWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">cartesian_path</span><span class="o">.</span><span class="n">to_cartesian_path_msg</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_cartesian_path_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_cartesian_path_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_cartesian_path_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.get_cartesian_path"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.get_cartesian_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_cartesian_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">CartesianPath</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get cartesian path element from world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Full path of requested element in worldview tree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cartesian_path : CartesianPath</span>
+<span class="sd">            Instance of CartesianPath with</span>
+<span class="sd">            the values which are defined in the</span>
+<span class="sd">            requested cartesian path element</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to get cartesian path</span>
+<span class="sd">            due to wrong path or element not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">GetCartesianPathWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_cartesian_path_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_cartesian_path_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_cartesian_path_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_cartesian_path_msg</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.query_cartesian_paths"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.query_cartesian_paths">[docs]</a>    <span class="k">def</span> <span class="nf">query_cartesian_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                              <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">CartesianPath</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Query all existing cartesian path elements under folder_path which start with prefix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder_path : str</span>
+<span class="sd">            Path to folder in which the search should be performed</span>
+<span class="sd">        prefix : str (default empty string)</span>
+<span class="sd">            Query elements which start with this prefix</span>
+<span class="sd">        recursive : bool (default False)</span>
+<span class="sd">            If True query from folder path recursively</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : List[CartesianPath]</span>
+<span class="sd">            List of CartesianPath in alphanumeric order see world view</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to query cartesian path</span>
+<span class="sd">            due to not existing path</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If folder_path is not of type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;folder_path is not of expected type str or is empty&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;path is not of expected type str&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recursive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;recursive is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">QueryCartesianPathWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_path</span> <span class="o">=</span> <span class="n">folder_path</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">recursive</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__query_cartesian_paths_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_cartesian_paths_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_cartesian_paths_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">element_paths</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">paths</span><span class="p">):</span>
+
+                <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">PurePath</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="o">.</span><span class="n">from_cartesian_path_msg</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.add_collision_object"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.add_collision_object">[docs]</a>    <span class="k">def</span> <span class="nf">add_collision_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                             <span class="n">collision_object</span><span class="p">:</span> <span class="n">CollisionObject</span><span class="p">,</span> <span class="n">transient</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                             <span class="n">update_if_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add / store collision object element in world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Path in world view tree where the new collision object element</span>
+<span class="sd">            should be created or update a existing one at this location</span>
+<span class="sd">        collision_object : CollisionObject</span>
+<span class="sd">            Instance of collision object which is added or used for update</span>
+<span class="sd">        transient : bool</span>
+<span class="sd">            If True the added collision object is only valid for this session</span>
+<span class="sd">            and will not be saved in a rosvita project context</span>
+<span class="sd">        update_if_exists: bool (default True)</span>
+<span class="sd">            If True update cartesian path if it exists instead </span>
+<span class="sd">            of raising an exception</span>
+
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to add collision object</span>
+<span class="sd">            due to wrong path or element already exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">            If collision_object is not of type CollisionObject</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">collision_object</span><span class="p">,</span> <span class="n">CollisionObject</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;collision object is not of expected type CollisionObject&#39;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">update_if_exists</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_update_collision_object</span><span class="p">(</span>
+                <span class="n">element_path</span><span class="p">,</span>
+                <span class="n">collision_object</span><span class="p">,</span>
+                <span class="n">transient</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetCollisionObjectWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">collision_object</span> <span class="o">=</span> <span class="n">collision_object</span><span class="o">.</span><span class="n">to_collision_object_msg</span><span class="p">(</span>
+            <span class="n">moveit_msgs</span><span class="o">.</span><span class="n">CollisionObject</span><span class="o">.</span><span class="n">ADD</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">element_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">transient</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">transient</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_collision_object_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_collision_object_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_collision_object_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.get_collision_object"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.get_collision_object">[docs]</a>    <span class="k">def</span> <span class="nf">get_collision_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">CollisionObject</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get collision object element from world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Full path of requested element in worldview tree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        collision_object : CollisionObject</span>
+<span class="sd">            Instance of CollisionObject with</span>
+<span class="sd">            the values which are defined in the</span>
+<span class="sd">            requested collision object element</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to get collision object</span>
+<span class="sd">            due to wrong path or element not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">GetCollisionObjectWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_collision_object_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_collision_object_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_collision_object_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">collision_object</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CollisionObject</span><span class="o">.</span><span class="n">from_collision_object_msg</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">collision_object</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.query_collision_objects"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.query_collision_objects">[docs]</a>    <span class="k">def</span> <span class="nf">query_collision_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">CollisionObject</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Query all existing collision objet elements under folder_path which start with prefix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder_path : str</span>
+<span class="sd">            Path to folder in which the search should be performed</span>
+<span class="sd">        prefix : str (default empty string)</span>
+<span class="sd">            Query elements which start with this prefix</span>
+<span class="sd">        recursive : bool (default False)</span>
+<span class="sd">            If True query from folder path recursively</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : List[CollisionObject]</span>
+<span class="sd">            List of CollisionObject in alphanumeric order see world view</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to query collision object</span>
+<span class="sd">            due to not existing path</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If folder_path is not of type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;folder_path is not of expected type str or is empty&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;path is not of expected type str&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recursive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;recursive is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">QueryCollisionObjectWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_path</span> <span class="o">=</span> <span class="n">folder_path</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">recursive</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__query_collision_objects_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_collision_objects_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query_collision_objects_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">collision_objects</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">element_paths</span><span class="p">,</span>
+                               <span class="n">response</span><span class="o">.</span><span class="n">collision_objects</span><span class="p">):</span>
+
+                <span class="n">path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">PurePath</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">CollisionObject</span><span class="o">.</span><span class="n">from_collision_object_msg</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.add_folder"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.add_folder">[docs]</a>    <span class="k">def</span> <span class="nf">add_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                   <span class="n">raise_exception_if_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a folder to world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        folder_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Folder path in worldview tree</span>
+
+<span class="sd">        raise_exception_if_exists: bool (default False)</span>
+<span class="sd">            If True raise ArgumentError is folder already</span>
+<span class="sd">            exists als no exception is raised and folder</span>
+<span class="sd">            existing folder presists. </span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to add folder</span>
+<span class="sd">            input path not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">folder_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">CreateFolderWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">folder_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">folder_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">folder_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_folder_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_folder_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">raise_exception_if_exists</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_folder_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="WorldViewClient.remove_element"><a class="viewcode-back" href="../../../source/world_view_client_v2.html#xamla_motion.v2.WorldViewClient.remove_element">[docs]</a>    <span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span>
+                       <span class="n">raise_exception_if_not_exists</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove existing element from world view tree</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_path : Union[str, pathlib.Path]</span>
+<span class="sd">            Folder path in worldview tree</span>
+<span class="sd">        raise_exception_if_not_exists: bool default(False)</span>
+<span class="sd">            If True raise a ArgumentError if element which</span>
+<span class="sd">            should be removed not exists</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ServiceError</span>
+<span class="sd">            If necessary service is not available</span>
+<span class="sd">        ArgumentError</span>
+<span class="sd">            If it was not possible to update collision object</span>
+<span class="sd">            due to element not exists</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If element_path is not of type pathlib.Path</span>
+<span class="sd">            and can not be converted to it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">element_path</span> <span class="o">=</span> <span class="n">_check_and_convert_element_path</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">RemoveElementWorldViewRequest</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">element_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__remove_element_srv</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ServiceException</span><span class="p">(</span><span class="s1">&#39;service: </span><span class="si">{}</span><span class="s1"> is not available&#39;</span>
+                                   <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remove_element_srv_name</span><span class="p">)</span>
+                                   <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span> <span class="ow">and</span> <span class="nb">bool</span><span class="p">(</span><span class="n">raise_exception_if_not_exists</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="s1">&#39;service call of service: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                                <span class="s1">&#39; was not successful,response with&#39;</span>
+                                <span class="s1">&#39; error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remove_element_srv_name</span><span class="p">,</span>
+                                                    <span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

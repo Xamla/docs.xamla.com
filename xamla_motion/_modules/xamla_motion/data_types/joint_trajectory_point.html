@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.data_types.joint_trajectory_point &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.data_types.joint_trajectory_point</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.data_types.joint_trajectory_point</h1><div class="highlight"><pre>
+<span></span><span class="c1"># joint_trajectory_points.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Iterable</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+
+<span class="kn">from</span> <span class="nn">.joint_set</span> <span class="k">import</span> <span class="n">JointSet</span>
+<span class="kn">from</span> <span class="nn">.joint_values</span> <span class="k">import</span> <span class="n">JointValues</span>
+<span class="kn">import</span> <span class="nn">trajectory_msgs.msg</span>
+
+
+<div class="viewcode-block" id="JointTrajectoryPoint"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint">[docs]</a><span class="k">class</span> <span class="nc">JointTrajectoryPoint</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class JointTrajectoryPoint</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    from_joint_trajectory_point_msg(joint_set, msg)</span>
+<span class="sd">        Creates an instance of JointTrajectoryPoint from ros message</span>
+<span class="sd">    add_time_offset(offset)</span>
+<span class="sd">        Creates a new instance of this JointTrajectoryPoint with same</span>
+<span class="sd">        position, vel, acc, eff but with a modified time_from_start</span>
+<span class="sd">    merge(others)</span>
+<span class="sd">        Creates a new instance of JointTrajectory as a result of the merge operation</span>
+<span class="sd">    to_joint_trajectory_point_msg()</span>
+<span class="sd">        Converts JointTrajectoryPoint to JointTrajectoryPoint ros message</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_from_start</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">accelertations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">efforts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize JointTrajectoryPoint class</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time_from_start : datatime.timedelta</span>
+<span class="sd">            duration between start of trajectory and this point</span>
+<span class="sd">        positions : JointValues</span>
+<span class="sd">            joint positions</span>
+<span class="sd">        velocities : JointValues or None</span>
+<span class="sd">            joint velocities</span>
+<span class="sd">        accelerations : JointValues</span>
+<span class="sd">            joint accelerations</span>
+<span class="sd">        efforts : JointValues</span>
+<span class="sd">            joint force for a prismatic joint or torque</span>
+<span class="sd">            for a rotational joint</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint</span>
+<span class="sd">            Instance of JointTrajectoryPoint</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If time_from_start is not of expected type datatime.timedelta</span>
+<span class="sd">            or if positions is not of expected type JointValues</span>
+<span class="sd">            or if velocities, accelerations or efforts ist not one</span>
+<span class="sd">            of the expected types None or JointValues</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the joint set of positions and if not None</span>
+<span class="sd">            velocities, accelerations and efforts is not equal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_from_start</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;time_from_start is not of&#39;</span>
+                            <span class="s1">&#39; expected type timedelta&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span> <span class="o">=</span> <span class="n">time_from_start</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="s1">&#39;positions&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">velocities</span><span class="p">,</span> <span class="s1">&#39;velocities&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">accelertations</span><span class="p">,</span>
+                                                <span class="s1">&#39;accelerations&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_check</span><span class="p">(</span><span class="n">efforts</span><span class="p">,</span> <span class="s1">&#39;efforts&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_init_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joint_values</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">joint_values</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_values</span><span class="p">,</span> <span class="n">JointValues</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39; is not of expected type JointValues&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">joint_values</span><span class="o">.</span><span class="n">joint_set</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;joint names or order do not match.&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">joint_values</span>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.from_joint_trajectory_point_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.from_joint_trajectory_point_msg">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_joint_trajectory_point_msg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">joint_set</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of JointTrajectoryPoint from ros message</span>
+
+<span class="sd">        Creates an instance of JointTrajectoryPoint from the ros message</span>
+<span class="sd">        trajectory_msgs/JointTrajectoryPoint</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        joint_set : JointSet</span>
+<span class="sd">            Set of joints for which the trajectroy point is defined</span>
+<span class="sd">        msg : trajectory_msgs/JointTrajectoryPoint</span>
+<span class="sd">            Instance of ros message that should be converted to</span>
+<span class="sd">            JointTrajectoryPoint</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint</span>
+<span class="sd">            New instance of JointTrajectoryPoint with the values</span>
+<span class="sd">            of the ros message</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If values from msg are not convertable to numpy</span>
+<span class="sd">            array of type floating or if joint_set is not of</span>
+<span class="sd">            expected type JointSet</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">JointSet</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;joint_set is not of expected type JointSet&#39;</span><span class="p">)</span>
+
+        <span class="n">j_positions</span> <span class="o">=</span> <span class="n">JointValues</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+        <span class="n">j_velocity</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_init_from_msg_helper</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">velocities</span><span class="p">)</span>
+        <span class="n">j_accelerations</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_init_from_msg_helper</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span>
+                                                    <span class="n">msg</span><span class="o">.</span><span class="n">accelerations</span><span class="p">)</span>
+        <span class="n">j_effort</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_init_from_msg_helper</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">effort</span><span class="p">)</span>
+
+        <span class="n">days</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">time_from_start</span><span class="o">.</span><span class="n">secs</span> <span class="o">//</span> <span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">)</span>
+        <span class="n">seconds</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">time_from_start</span><span class="o">.</span><span class="n">secs</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">)</span>
+        <span class="n">microseconds</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">time_from_start</span><span class="o">.</span><span class="n">nsecs</span> <span class="o">//</span> <span class="mi">1000</span>
+
+        <span class="n">time_from_start</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">days</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="n">seconds</span><span class="p">,</span>
+                                    <span class="n">microseconds</span><span class="o">=</span><span class="n">microseconds</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">time_from_start</span><span class="p">,</span> <span class="n">j_positions</span><span class="p">,</span> <span class="n">j_velocity</span><span class="p">,</span>
+                   <span class="n">j_accelerations</span><span class="p">,</span> <span class="n">j_effort</span><span class="p">)</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_init_from_msg_helper</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">JointValues</span><span class="p">(</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">joint_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        joint_set : JointSet</span>
+<span class="sd">            Set of joints for which the trajectory point contains values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">joint_set</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time_from_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        time_from_start : datetime.timedelta (readonly)</span>
+<span class="sd">            Time span between trajectory start and this trajectory</span>
+<span class="sd">            point as a instance of datetime.timedelta</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">positions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        positions : JointValues (readonly)</span>
+<span class="sd">            Joint positions of this trajectory point</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">velocities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        velocities : JointValues (readonly)</span>
+<span class="sd">            If defined available joint velocites of this trajectory point</span>
+<span class="sd">            else None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">accelerations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        accelerations : JointValues (readonly)</span>
+<span class="sd">            If defined available joint accelerations of this trajectory point</span>
+<span class="sd">            else None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">efforts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        efforts : JointValues (readonly)</span>
+<span class="sd">            If defined available joint efforts of this trajectory point</span>
+<span class="sd">            else None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.add_time_offset"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.add_time_offset">[docs]</a>    <span class="k">def</span> <span class="nf">add_time_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new instance of JointTrajectoryPoint with applied time offset</span>
+
+<span class="sd">        adds a time offset to time_from_start</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        offset : datatime.timedelta</span>
+<span class="sd">            time offset as datatime timedelta</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            Instance of JointTrajectoryPoint with modified time_from_start</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If offset ist not of expected type datatime.timedelta</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;offset is not of expected&#39;</span>
+                            <span class="s1">&#39; type datatime.timedelta&#39;</span><span class="p">)</span>
+
+        <span class="n">time_from_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span> <span class="o">+</span> <span class="n">offset</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">time_from_start</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.with_time_from_start"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.with_time_from_start">[docs]</a>    <span class="k">def</span> <span class="nf">with_time_from_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set time from start</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time : timedelta</span>
+<span class="sd">            time form start to set</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">time</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">,</span>
+                          <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.merge"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">others</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new instance of JointTrajectoryPoint as a result of the merge operation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        others: JointTrajectoryPoint or Iterable[JointTrajectoryPoint]</span>
+<span class="sd">            TrajectoryPoints to merge with the current TrajectoryPoint</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint:</span>
+<span class="sd">            New instance of JointTrajectoryPoint which contains the merged</span>
+<span class="sd">            JointTrajectoryPoints</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If other not one of excpeted types JointTrajectoryPoint or</span>
+<span class="sd">            Iterable[JointTrajectoryPoint]</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If time_from_start in self and others dont match</span>
+<span class="sd">            If JointSets of self and others are not mergeable</span>
+<span class="sd">            If self and others define more or less properties</span>
+<span class="sd">            of JointTrajectoryPoint</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">check_values</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">b</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;merge conflict, &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; are defined&#39;</span>
+                                     <span class="s1">&#39; in others but not in self&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">b</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;merge conflict, &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; are defined&#39;</span>
+                                     <span class="s1">&#39;in self but not in others&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">velocites</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">accelerations</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">efforts</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">others</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span> <span class="o">!=</span> <span class="n">others</span><span class="o">.</span><span class="n">time_from_start</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;merge conflict, time_from_start in others&#39;</span>
+                                 <span class="s1">&#39; is not equal to self time_from_start&#39;</span><span class="p">)</span>
+
+            <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">others</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">,</span> <span class="n">others</span><span class="o">.</span><span class="n">velocities</span><span class="p">,</span> <span class="s1">&#39;velocities&#39;</span><span class="p">):</span>
+                <span class="n">velocites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">others</span><span class="o">.</span><span class="n">velocities</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">,</span> <span class="n">others</span><span class="o">.</span><span class="n">accelerations</span><span class="p">,</span> <span class="s1">&#39;accelerations&#39;</span><span class="p">):</span>
+                <span class="n">velocites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">others</span><span class="o">.</span><span class="n">accelerations</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">,</span> <span class="n">others</span><span class="o">.</span><span class="n">efforts</span><span class="p">,</span> <span class="s1">&#39;efforts&#39;</span><span class="p">):</span>
+                <span class="n">velocites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">efforts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">others</span><span class="o">.</span><span class="n">efforts</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">others</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span>
+              <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">others</span><span class="p">)):</span>
+            <span class="n">time_not_equal</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">!=</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="p">,</span> <span class="n">others</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">time_not_equal</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;time_from_start of others: </span><span class="si">{}</span><span class="s1"> is not&#39;</span>
+                                 <span class="s1">&#39; equal to self &#39;</span>
+                                 <span class="s1">&#39;time_from_start&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_not_equal</span><span class="p">))</span>
+
+            <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">others</span><span class="p">)))</span>
+
+            <span class="n">check_velocities</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">check_values</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">velocities</span><span class="p">,</span> <span class="s1">&#39;velocities&#39;</span><span class="p">),</span> <span class="n">others</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">check_velocities</span><span class="p">):</span>
+                <span class="n">velocites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">velocities</span><span class="p">,</span> <span class="n">others</span><span class="p">)))</span>
+
+            <span class="n">check_accelerations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">check_values</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">accelerations</span><span class="p">,</span> <span class="s1">&#39;accelerations&#39;</span><span class="p">),</span> <span class="n">others</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">check_accelerations</span><span class="p">):</span>
+                <span class="n">accelerations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">accelerations</span><span class="p">,</span> <span class="n">others</span><span class="p">)))</span>
+
+            <span class="n">check_efforts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">check_values</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">efforts</span><span class="p">,</span> <span class="s1">&#39;efforts&#39;</span><span class="p">),</span> <span class="n">others</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">check_efforts</span><span class="p">):</span>
+                <span class="n">efforts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">efforts</span><span class="p">,</span> <span class="n">others</span><span class="p">)))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;others is not one of expected types &#39;</span>
+                            <span class="s1">&#39;JointTrajectoryPoint or &#39;</span>
+                            <span class="s1">&#39;Iterable[JointTrajectoryPoint]&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span>
+                              <span class="n">velocites</span><span class="p">,</span> <span class="n">accelerations</span><span class="p">,</span> <span class="n">efforts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.interpolate_cubic"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.interpolate_cubic">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate_cubic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;JointTrajectoryPoint&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Interpolate cubic between self and other trajectory point</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other: JointTrajectoryPoint</span>
+<span class="sd">            Second trajectory point for interpolation</span>
+<span class="sd">        time: timedelta</span>
+<span class="sd">            time for which interpolation is performed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If time from start of point is smaller than time from start of self</span>
+<span class="sd">            If joint sets of point and self are not equal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">joint_set</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;joint set of self: </span><span class="si">{}</span><span class="s1"> and other: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                             <span class="s1">&#39; are not equal&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span>
+                                                     <span class="n">other</span><span class="o">.</span><span class="n">joint_set</span><span class="p">))</span>
+
+        <span class="n">t0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_from_start</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">time_from_start</span>
+
+        <span class="k">if</span> <span class="n">t1</span> <span class="o">&lt;=</span> <span class="n">t0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;interpolation error: other time from start </span><span class="si">{}</span><span class="s1"> is&#39;</span>
+                             <span class="s1">&#39; smaller than self time from start </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span>
+                                                                            <span class="n">t0</span><span class="p">))</span>
+
+        <span class="n">delta_t</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span>
+
+        <span class="k">if</span> <span class="n">delta_t</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">t0</span><span class="o">+</span><span class="n">delta_t</span><span class="p">,</span>
+                              <span class="n">other</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>
+                              <span class="n">other</span><span class="o">.</span><span class="n">velocities</span><span class="p">,</span>
+                              <span class="n">other</span><span class="o">.</span><span class="n">accelerations</span><span class="p">,</span>
+                              <span class="n">other</span><span class="o">.</span><span class="n">efforts</span><span class="p">)</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">time</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">delta_t</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="n">t</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">velocities</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">other</span><span class="o">.</span><span class="n">velocities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">delta_t</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">positions</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocities</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>
+                     <span class="n">other</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">velocities</span><span class="p">,</span>
+                     <span class="n">other</span><span class="o">.</span><span class="n">velocities</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="o">*</span><span class="n">p0</span> <span class="o">+</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">p1</span> <span class="o">-</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">v0</span> <span class="o">-</span> <span class="n">dt</span><span class="o">*</span><span class="n">v1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="o">**</span><span class="mf">2.0</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">p0</span> <span class="o">-</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">p1</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">v0</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">v1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="o">**</span><span class="mf">3.0</span>
+            <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mf">2.0</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mf">3.0</span>
+            <span class="n">vel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mf">2.0</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">time</span><span class="p">,</span>
+                          <span class="n">JointValues</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">pos</span><span class="p">),</span>
+                          <span class="n">JointValues</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_set</span><span class="p">,</span> <span class="n">vel</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="JointTrajectoryPoint.to_joint_trajectory_point_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.JointTrajectoryPoint.to_joint_trajectory_point_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_joint_trajectory_point_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts JointTrajectoryPoint to JointTrajectoryPoint ros message</span>
+
+<span class="sd">        trajectory_msgs/JointTrajectoryPoint.msg</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        JointTrajectoryPoint msg</span>
+<span class="sd">            New instance of JointTrajectoryPoint with the values</span>
+<span class="sd">            of the ros message</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">trajectory_msgs</span><span class="o">.</span><span class="n">msg</span><span class="o">.</span><span class="n">JointTrajectoryPoint</span><span class="p">()</span>
+
+        <span class="n">msg</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">:</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">velocities</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">:</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">accelerations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">:</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">effort</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">secs</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="o">.</span><span class="n">days</span> <span class="o">*</span> <span class="mi">24</span><span class="o">*</span><span class="mi">3600</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span>
+        <span class="n">nsecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="o">.</span><span class="n">microseconds</span> <span class="o">*</span> <span class="mi">1000</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">secs</span><span class="p">,</span> <span class="n">nsecs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                       <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">s</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_from_start</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">positions</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__positions</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">velocites</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__velocities</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">accelerations</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accelerations</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">efforts</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__efforts</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

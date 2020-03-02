@@ -1,0 +1,1596 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/noertemann/github/Rosvita.Control/src/Rosvita.Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.ActionFailedExeption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.ActionFailedExeption.html",
+          "hash": "EqGIZx0S4uyrKZhc/EZWew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.DiscontinuityException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.DiscontinuityException.html",
+          "hash": "FdO4Cc98HkToJ5uHkf7ezA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.EndEffector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.EndEffector.html",
+          "hash": "LVTzJBbDJWeMsVE5zNw2dQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.GoalStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.GoalStatus.html",
+          "hash": "yzanmn432sr2LqwSfZe6Sg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IEndEffector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IEndEffector.html",
+          "hash": "8TWZUsqqcSKMhStu7s82/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IJoggingClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IJoggingClient.html",
+          "hash": "RAAUwiVHjyC76G3E/Sh0VA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMotionService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMotionService.html",
+          "hash": "bVnfV7Jz80rimI2KV3Cs4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveCartesianPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveCartesianPathOperation.html",
+          "hash": "Ljtr0uoKceuOxkV0qF12Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveGroup.html",
+          "hash": "mk53hCQhMz5R/veuTQEmtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveJointPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveJointPathOperation.html",
+          "hash": "9qAjHzSWhwqDaCQkSyjRBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveJointsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveJointsOperation.html",
+          "hash": "Wx4PXy4E7wh0NFG7iRbPKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMoveOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMoveOperation.html",
+          "hash": "c2BSh58bHdNDYuO+oJ+pYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IMovePoseOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IMovePoseOperation.html",
+          "hash": "dTM6QuGZPWyAA236EyTMMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IPlan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IPlan.html",
+          "hash": "HOc5DrcM6MKxRpbQCgnG2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.ISteppedMotionClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.ISteppedMotionClient.html",
+          "hash": "paXyjad1D8kOkGXuA60LAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.IWeissWsgServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.IWeissWsgServices.html",
+          "hash": "LD6u5MxmZ/sKtHFca/W6AQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.JoggingClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.JoggingClient.html",
+          "hash": "O3LWw8NQVhT1BR1azJUMLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.JoggingControllerStatusModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.JoggingControllerStatusModel.html",
+          "hash": "Oeog7cgHbyy7wdAjoQDcAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.JoggingErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.JoggingErrorCode.html",
+          "hash": "KYcyJftR/bngAb9JcMV7zA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.JoggingFlagName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.JoggingFlagName.html",
+          "hash": "YU8Fwt2WbdH9+m44mRV+kA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MotionService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MotionService.html",
+          "hash": "xCLAT4vYXse3s/lU5LX2Hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveArgs.html",
+          "hash": "b1ve6okMY9g+dP38GCR5Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathArgs.html",
+          "hash": "0Fj9eClpplItYuFhBBzjMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathLinearOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathLinearOperation.html",
+          "hash": "tEORP786/R1e55ptHJCpqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperation.html",
+          "hash": "X27kST65q4Z5HJqv0uRRXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveCartesianPathOperationExtensions.html",
+          "hash": "uYJnSBxorST7JzjtCy0ZVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveGroup.html",
+          "hash": "1V8LL18Gl+A+KJ3LAiks0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathArgs.html",
+          "hash": "pNk13QvjJgZpmcHuhhkGMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperation.html",
+          "hash": "5j4s9uOLoBea1RbvBj45ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointPathOperationExtensions.html",
+          "hash": "/44g7yz6s0PCSaMfIMj2iA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsArgs.html",
+          "hash": "d4uDEvHli1BxNfzC5NftjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsCollisionFreeOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsCollisionFreeOperation.html",
+          "hash": "5gOGO4o7udv3+mXIF40kWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperation.html",
+          "hash": "OuBj2Y8XbY5Lp1fF8QzHDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MoveJointsOperationBase.html",
+          "hash": "pSeSJx//C/R6V/1MHnALNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseArgs.html",
+          "hash": "LA2l10QNu7xFL76zjyW3ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseCollisionFreeOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseCollisionFreeOperation.html",
+          "hash": "Sz6Ats/IOjLs18G6/iEyLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseLinearOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseLinearOperation.html",
+          "hash": "jnrQGkm+0HHhZmFNQr5E9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationBase.html",
+          "hash": "hXatI9izvr8DAebEOuJ5dA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.MovePoseOperationExtensions.html",
+          "hash": "u+z8p6fDA7TSgLrSLfSgIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.OperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.OperationExtensions.html",
+          "hash": "L7ofZhPJNT4sekACe4efRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.Plan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.Plan.html",
+          "hash": "FyKp/yaS+Brl1HcZo02QGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.PoseExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.PoseExtensions.html",
+          "hash": "YZBmSInfLjNHyeju61hlwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.RosRoboChatActionClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.RosRoboChatActionClient.html",
+          "hash": "egt5SC0CIwkmTtFTJXkqzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClient.html",
+          "hash": "Ca14BttnoxyXLp48kkGWKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.SteppedMotionClientExtensions.html",
+          "hash": "N+uyRujft7d9xPYD/4uoVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.SteppedMotionState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.SteppedMotionState.html",
+          "hash": "xMqdWj7yjrP2q0qYiHj82Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.TwistExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.TwistExtensions.html",
+          "hash": "JwzTNUnNuZKn3ZkANaxbhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.WeissWsgPropertiesModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.WeissWsgPropertiesModel.html",
+          "hash": "aSr70PTAMZmSgWsV9mibhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.WeissWsgServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.WeissWsgServices.html",
+          "hash": "Okg0POjEQzpwEyUKtOVb7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Motion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Motion.html",
+          "hash": "CteCGZG1GeNCIPGEu0p6jQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.CartesianPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.CartesianPath.html",
+          "hash": "MqyYraD9mdYJwOXMqaaHBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.CartesianPathExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.CartesianPathExtensions.html",
+          "hash": "e3FDKOXDWgsUq87XmATBFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.CollisionObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.CollisionObject.html",
+          "hash": "SPCQy2UDR8NUi+7BwTZ4zA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.CollisionPrimitive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.CollisionPrimitive.html",
+          "hash": "fTzIcNvQepNj6i4Occv21A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.CollisionPrimitiveKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.CollisionPrimitiveKind.html",
+          "hash": "yia5JhzraeGmJwqMNyRSAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.EndEffectorDescription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.EndEffectorDescription.html",
+          "hash": "2LNfiwwWNhaKg6zxBkaVhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.EndEffectorLimits.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.EndEffectorLimits.html",
+          "hash": "K2MmexplUdUEeaKpclR9+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.EndEffectorPose.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.EndEffectorPose.html",
+          "hash": "0U3OJqN4yF4fm1TO5kggxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.ICartesianPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.ICartesianPath.html",
+          "hash": "K3S+B3nTPzhQ3MJbiKU7Ww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.ICollisionObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.ICollisionObject.html",
+          "hash": "IAh3C53f1ldt+K9iLCUxvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.ICollisionPrimitive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.ICollisionPrimitive.html",
+          "hash": "4A1agfqCBK5kxWJgVH4kww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.IJointPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.IJointPath.html",
+          "hash": "CnTSVJMUj0S8MifgwwAPDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.IJointTrajectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.IJointTrajectory.html",
+          "hash": "W3G/h78xRNwvQrSW2N21JQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.IKResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.IKResult.html",
+          "hash": "/wObQlXUaBMT2jADhhQaZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointLimits.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointLimits.html",
+          "hash": "xf/UWLPrY4CZWzsNwyFZQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointPath.html",
+          "hash": "0SUeMKf2zSJ/OKWtpgn5Cw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointPathExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointPathExtensions.html",
+          "hash": "Z0384VGT8BNYOHYZ5PYLcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointSet.html",
+          "hash": "UnfpqP1LRc7m0Zl3BVVzfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointStates.html",
+          "hash": "/RTpZUJd8vqy4lYt71PGbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointTrajectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointTrajectory.html",
+          "hash": "vm6/EuP+xu1B+m5Nv1pOJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointTrajectoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointTrajectoryExtensions.html",
+          "hash": "OLVuYDiiGYL4avVCENLD2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointTrajectoryFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointTrajectoryFlags.html",
+          "hash": "vonULTqhec8PTs4yTWND/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointTrajectoryPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointTrajectoryPoint.html",
+          "hash": "HB6PDG5DmhWLA+PTgqiq/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointValues.html",
+          "hash": "kVcpj/ShxMKgWy9Sd2vngQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JointValuesCollision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JointValuesCollision.html",
+          "hash": "rAHv1fJxAec+Q4lQfTecKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.CartesianPathJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.CartesianPathJsonConverter.html",
+          "hash": "dv+cM3sRwc8h2HLObXXDAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.CollisionPrimitiveJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.CollisionPrimitiveJsonConverter.html",
+          "hash": "78U9+rsUxAXHbal44FdJ3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointLimitsJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointLimitsJsonConverter.html",
+          "hash": "8GDr46vvgSv2YNwNVVoQMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointPathJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointPathJsonConverter.html",
+          "hash": "Lwii00ZAn+dXi+871/ZKMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointSetJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointSetJsonConverter.html",
+          "hash": "nt/FdNXK8TFD8IIPCBOvTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointStatesJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointStatesJsonConverter.html",
+          "hash": "pYwWx94fiLZhhx8/moiKqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointTrajectorysJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointTrajectorysJsonConverter.html",
+          "hash": "S3aZt1Uhy6ZieQh3tpx/mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointValuesJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.JointValuesJsonConverter.html",
+          "hash": "P+SADm2K2XY5s4L6/Lu38g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.PlanParametersJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.PlanParametersJsonConverter.html",
+          "hash": "rYOL1voLWiXrsol+SAoADw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.PoseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.PoseJsonConverter.html",
+          "hash": "+uasORrjUsTwgMEVOfkSwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.RoboticsJsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.RoboticsJsonConverters.html",
+          "hash": "ILQ1l32gCng70gXta3NYQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.TwistJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.TwistJsonConverter.html",
+          "hash": "+jnjUmA55+hzk9DZPpaY0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.JsonConverters.html",
+          "hash": "GiEOykzZB4EPgHxfYGwjog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.ModelConversionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.ModelConversionExtensions.html",
+          "hash": "rMY7MfXoR2FZoop5nQPKRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.CartesianPathModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.CartesianPathModel.html",
+          "hash": "HykkSXUfs7HdbwhOykFNjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.CollisionObjectModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.CollisionObjectModel.html",
+          "hash": "niWTTVhhoFTOzgJdBQQSSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.CollisionPrimitiveModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.CollisionPrimitiveModel.html",
+          "hash": "F/mXnkCfsXN6XpshCC745w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.ControllerStatusModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.ControllerStatusModel.html",
+          "hash": "j8AfSYqYdJPWdDaIXboBgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.EndEffectorPoseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.EndEffectorPoseModel.html",
+          "hash": "2NMFgE8LZSeM5Popt1RVjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.IKResultModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.IKResultModel.html",
+          "hash": "AqCd/EbcC0QdMmehAoiXDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointLimitsModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointLimitsModel.html",
+          "hash": "IQcmdPyZPEbKsCvhv11vlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointPathModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointPathModel.html",
+          "hash": "JZAeRhych454xy/I3FILqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointStatesModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointStatesModel.html",
+          "hash": "k8+dprCW4nT6yenok4IXIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointTrajectoryModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointTrajectoryModel.html",
+          "hash": "RLVtBaTo+ND51PrtSk8VWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointTrajectoryPointModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointTrajectoryPointModel.html",
+          "hash": "gieGEd5IVJwLcJp0nSOCXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointValuesCollisionModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointValuesCollisionModel.html",
+          "hash": "V9YAexR/DTMTs30tZ3GICw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.JointValuesModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.JointValuesModel.html",
+          "hash": "8FaKMvNP7Ec8hz0oAAonWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.MoveGripperResultModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.MoveGripperResultModel.html",
+          "hash": "IPxNevSB7jt1Y4dwHzN28g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.MoveGroupDescriptionModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.MoveGroupDescriptionModel.html",
+          "hash": "un62q2TIAS4/NEUijPCOWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.PlanParametersModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.PlanParametersModel.html",
+          "hash": "rh3NdlovgTnFxtQY9kNUqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.PoseModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.PoseModel.html",
+          "hash": "05xf8LDS2S7o3BX9J4f/hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.SteppedMotionClientModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.SteppedMotionClientModel.html",
+          "hash": "BNm5F+UnTU8auwCAEKtQmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.TwistModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.TwistModel.html",
+          "hash": "KZXKbmEM/jjWEtpjf7JMUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.WsgResultModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.WsgResultModel.html",
+          "hash": "YsptWK4LaqPNts5PiZYRFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Models.html",
+          "hash": "eK+qOpr5Je79E7GPBbBT7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.MoveGripperResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.MoveGripperResult.html",
+          "hash": "xFuZFRVpj0DM5yVf3efoHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.MoveGroupDescription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.MoveGroupDescription.html",
+          "hash": "TDbKET4RxKDL40I1w2UvqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.MoveItErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.MoveItErrorCode.html",
+          "hash": "iApf/Uc1yetL5QIprWMqkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.PlanParameters.Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.PlanParameters.Builder.html",
+          "hash": "8mLVkVBSTqBA6K0hGgk5ZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.PlanParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.PlanParameters.html",
+          "hash": "7W4cH3UY0pVbz65qKLfREw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Pose.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Pose.html",
+          "hash": "ZRJ2Nog0sLOJQo23ETqGwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.TaskSpacePlanParameters.Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.TaskSpacePlanParameters.Builder.html",
+          "hash": "E4Y3Eg8TTTAtbGANQLfihA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.TaskSpacePlanParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.TaskSpacePlanParameters.html",
+          "hash": "p5f7NXuqslbmLXPhascHOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.Twist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.Twist.html",
+          "hash": "FN2PHKTOIG8Bu1FdoPFKQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.WsgCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.WsgCommand.html",
+          "hash": "pooSy0XDZgJLrJdUYSy+ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.WsgResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.WsgResult.html",
+          "hash": "l5QYh8Q6t4ymcwjmC0G8yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.WsgState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.WsgState.html",
+          "hash": "+AiqMZg7Z7Dm07PCXYVTUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Xamla.Robotics.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Xamla.Robotics.Types.html",
+          "hash": "fJ3KH7t8J8X1Jqz1090PeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "8lRbrA0VaNG193JpCUu5lw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "RScL1S+DNQU3fkZO6LDk5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "DFRjM+Tj0udONUjikdKSeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "rxdMGHmGa5MxC30u1JK/Eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "k+/dkjFuwAVS32HduMpmBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

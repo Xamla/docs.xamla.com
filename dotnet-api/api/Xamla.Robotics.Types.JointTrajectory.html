@@ -1,0 +1,1372 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JointTrajectory
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JointTrajectory
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.JointTrajectory">
+  
+  
+  <h1 id="Xamla_Robotics_Types_JointTrajectory" data-uid="Xamla.Robotics.Types.JointTrajectory" class="text-break">Class JointTrajectory
+  </h1>
+  <div class="markdown level0 summary"><p>A <code>JointTrajectory</code> holds a list of joint trajectory points and provide methods to modify the list of points.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JointTrajectory</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_JointTrajectory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JointTrajectory : IJointTrajectory, IReadOnlyList&lt;JointTrajectoryPoint&gt;, IReadOnlyCollection&lt;JointTrajectoryPoint&gt;, IEnumerable&lt;JointTrajectoryPoint&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory__ctor_" data-uid="Xamla.Robotics.Types.JointTrajectory.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory__ctor_Xamla_Robotics_Types_JointSet_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointTrajectoryPoint__System_Boolean_" data-uid="Xamla.Robotics.Types.JointTrajectory.#ctor(Xamla.Robotics.Types.JointSet,System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointTrajectoryPoint},System.Boolean)">JointTrajectory(JointSet, IEnumerable&lt;JointTrajectoryPoint&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <code>JointTrajectory</code> from the given <code>JointSet</code> and the collection of <code>JointTrajectoryPoint</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectory(JointSet joints, IEnumerable&lt;JointTrajectoryPoint&gt; points, bool valid = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">joints</span></td>
+        <td><p>The set of joints that is used for the new trajectory.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The collection of points which should form the trajectory. The points need to meed the following requirements:</p>
+<ol><li></li><li></li><li></li></ol>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">valid</span></td>
+        <td><p>Indicates if the new trajectory is valid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">joints</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when the criteria for the points defined in <code data-dev-comment-type="paramref" class="paramref">points</code> are not fulfilled.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Empty" data-uid="Xamla.Robotics.Types.JointTrajectory.Empty">Empty</h4>
+  <div class="markdown level1 summary"><p>Creates a new empty instance of <code>JointTrajectory</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly JointTrajectory Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectory.html">JointTrajectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Accelerations_" data-uid="Xamla.Robotics.Types.JointTrajectory.Accelerations*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Accelerations" data-uid="Xamla.Robotics.Types.JointTrajectory.Accelerations">Accelerations</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of joint acceleration values in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JointValues&gt; Accelerations { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Begin_" data-uid="Xamla.Robotics.Types.JointTrajectory.Begin*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Begin" data-uid="Xamla.Robotics.Types.JointTrajectory.Begin">Begin</h4>
+  <div class="markdown level1 summary"><p>Access the first point of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint Begin { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Count_" data-uid="Xamla.Robotics.Types.JointTrajectory.Count*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Count" data-uid="Xamla.Robotics.Types.JointTrajectory.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of points included in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Duration_" data-uid="Xamla.Robotics.Types.JointTrajectory.Duration*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Duration" data-uid="Xamla.Robotics.Types.JointTrajectory.Duration">Duration</h4>
+  <div class="markdown level1 summary"><p>Gets the total duration of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Duration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Efforts_" data-uid="Xamla.Robotics.Types.JointTrajectory.Efforts*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Efforts" data-uid="Xamla.Robotics.Types.JointTrajectory.Efforts">Efforts</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of joint effort values in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JointValues&gt; Efforts { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_End_" data-uid="Xamla.Robotics.Types.JointTrajectory.End*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_End" data-uid="Xamla.Robotics.Types.JointTrajectory.End">End</h4>
+  <div class="markdown level1 summary"><p>Access the last point of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint End { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_HasAccelaration_" data-uid="Xamla.Robotics.Types.JointTrajectory.HasAccelaration*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_HasAccelaration" data-uid="Xamla.Robotics.Types.JointTrajectory.HasAccelaration">HasAccelaration</h4>
+  <div class="markdown level1 summary"><p>Tests if the current trajectory contains acceleration values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAccelaration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_HasEffort_" data-uid="Xamla.Robotics.Types.JointTrajectory.HasEffort*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_HasEffort" data-uid="Xamla.Robotics.Types.JointTrajectory.HasEffort">HasEffort</h4>
+  <div class="markdown level1 summary"><p>Tests if the current trajectory contains effort values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasEffort { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_HasVelocity_" data-uid="Xamla.Robotics.Types.JointTrajectory.HasVelocity*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_HasVelocity" data-uid="Xamla.Robotics.Types.JointTrajectory.HasVelocity">HasVelocity</h4>
+  <div class="markdown level1 summary"><p>Tests if the current trajectory contains velocity values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasVelocity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_IsValid_" data-uid="Xamla.Robotics.Types.JointTrajectory.IsValid*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_IsValid" data-uid="Xamla.Robotics.Types.JointTrajectory.IsValid">IsValid</h4>
+  <div class="markdown level1 summary"><p>Gets the flag indicating whether the trajectory is valid. The meaning of this flag depends on the context where the <code>IJointTrajectory</code> object is used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Item_" data-uid="Xamla.Robotics.Types.JointTrajectory.Item*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Item_System_Int32_" data-uid="Xamla.Robotics.Types.JointTrajectory.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Accesses the <code>JointTrajectoryPoint</code> at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_JointSet_" data-uid="Xamla.Robotics.Types.JointTrajectory.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_JointSet" data-uid="Xamla.Robotics.Types.JointTrajectory.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p>Gets the set of joints which is used in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Path_" data-uid="Xamla.Robotics.Types.JointTrajectory.Path*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Path" data-uid="Xamla.Robotics.Types.JointTrajectory.Path">Path</h4>
+  <div class="markdown level1 summary"><p>Gets the <code>IJointPath</code> representation of the trajectory, i.e. the time information as well as speed, velocity and a acceleration information is striped from the trajectory, leaving a collection of joint positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Path { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Positions_" data-uid="Xamla.Robotics.Types.JointTrajectory.Positions*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Positions" data-uid="Xamla.Robotics.Types.JointTrajectory.Positions">Positions</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of joint positions in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JointValues&gt; Positions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_TimesFromStart_" data-uid="Xamla.Robotics.Types.JointTrajectory.TimesFromStart*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_TimesFromStart" data-uid="Xamla.Robotics.Types.JointTrajectory.TimesFromStart">TimesFromStart</h4>
+  <div class="markdown level1 summary"><p>Gets the collection which holds the time by when the robot needs to reach the corresponding point of the trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;TimeSpan&gt; TimesFromStart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Velocities_" data-uid="Xamla.Robotics.Types.JointTrajectory.Velocities*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Velocities" data-uid="Xamla.Robotics.Types.JointTrajectory.Velocities">Velocities</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of joint velocity values in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JointValues&gt; Velocities { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Append_" data-uid="Xamla.Robotics.Types.JointTrajectory.Append*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Append_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointTrajectoryPoint__" data-uid="Xamla.Robotics.Types.JointTrajectory.Append(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointTrajectoryPoint})">Append(IEnumerable&lt;JointTrajectoryPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Appends the given collection of <code>JointTrajectoryPoint</code>s to the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Append(IEnumerable&lt;JointTrajectoryPoint&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The collection of points that should be appended to the current trajectory. The points need to fulfill the same criteria as described in the constructor of <a class="xref" href="Xamla.Robotics.Types.JointTrajectory.html">JointTrajectory</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Concat_" data-uid="Xamla.Robotics.Types.JointTrajectory.Concat*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Concat_Xamla_Robotics_Types_IJointTrajectory_" data-uid="Xamla.Robotics.Types.JointTrajectory.Concat(Xamla.Robotics.Types.IJointTrajectory)">Concat(IJointTrajectory)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the current joint trajectory and the given other joint trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Concat(IJointTrajectory other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The joint trajectory that the current joint trajectory should be concatenated with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_EvaluateAt_" data-uid="Xamla.Robotics.Types.JointTrajectory.EvaluateAt*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_EvaluateAt_System_TimeSpan_" data-uid="Xamla.Robotics.Types.JointTrajectory.EvaluateAt(System.TimeSpan)">EvaluateAt(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the trajectory at a given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointTrajectoryPoint EvaluateAt(TimeSpan time)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>The time index at which the trajectory should be evaluated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></td>
+        <td><p>An instance of <code>JointTrajectoryPoint</code> at the given time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when  <code data-dev-comment-type="paramref" class="paramref">time</code> is not represented by this trajectory.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointTrajectory.GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_GetEnumerator" data-uid="Xamla.Robotics.Types.JointTrajectory.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator over the points of the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;JointTrajectoryPoint&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Merge_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Merge_Xamla_Robotics_Types_IJointTrajectory_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge(Xamla.Robotics.Types.IJointTrajectory)">Merge(IJointTrajectory)</h4>
+  <div class="markdown level1 summary"><p>Merges the current joint trajectory and the given other joint trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Merge(IJointTrajectory other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The joint trajectory that the current joint trajectory should be merged with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Merge_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Merge_Xamla_Robotics_Types_IJointTrajectory_System_TimeSpan_System_TimeSpan_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge(Xamla.Robotics.Types.IJointTrajectory,System.TimeSpan,System.TimeSpan)">Merge(IJointTrajectory, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Merges the current joint trajectory and the given other joint trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Merge(IJointTrajectory other, TimeSpan delayA, TimeSpan delayB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The joint trajectory that the current joint trajectory should be merged with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayA</span></td>
+        <td><p>The delay of the current <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayB</span></td>
+        <td><p>The delay of the other <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Merge_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Merge_Xamla_Robotics_Types_IJointTrajectory_Xamla_Robotics_Types_IJointTrajectory_System_TimeSpan_System_TimeSpan_" data-uid="Xamla.Robotics.Types.JointTrajectory.Merge(Xamla.Robotics.Types.IJointTrajectory,Xamla.Robotics.Types.IJointTrajectory,System.TimeSpan,System.TimeSpan)">Merge(IJointTrajectory, IJointTrajectory, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Merges two joint trajectories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IJointTrajectory Merge(IJointTrajectory a, IJointTrajectory b, TimeSpan delayA, TimeSpan delayB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><p>The first joint trajectory.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>The second joint trajectory.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayA</span></td>
+        <td><p>The delay of the first <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delayB</span></td>
+        <td><p>The delay of the second <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Prepend_" data-uid="Xamla.Robotics.Types.JointTrajectory.Prepend*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Prepend_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointTrajectoryPoint__" data-uid="Xamla.Robotics.Types.JointTrajectory.Prepend(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointTrajectoryPoint})">Prepend(IEnumerable&lt;JointTrajectoryPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Prepends the given collection of <code>JointTrajectoryPoint</code>s to the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Prepend(IEnumerable&lt;JointTrajectoryPoint&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The collection of points that should be prepended to the current trajectory. The points need to fulfill the same criteria as described in the constructor of <a class="xref" href="Xamla.Robotics.Types.JointTrajectory.html">JointTrajectory</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Reverse_" data-uid="Xamla.Robotics.Types.JointTrajectory.Reverse*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Reverse" data-uid="Xamla.Robotics.Types.JointTrajectory.Reverse">Reverse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Reverse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Sample_" data-uid="Xamla.Robotics.Types.JointTrajectory.Sample*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Sample_System_TimeSpan_" data-uid="Xamla.Robotics.Types.JointTrajectory.Sample(System.TimeSpan)">Sample(TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JointTrajectoryPoint&gt; Sample(TimeSpan dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_ScaleVelocity_" data-uid="Xamla.Robotics.Types.JointTrajectory.ScaleVelocity*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_ScaleVelocity_System_Double_" data-uid="Xamla.Robotics.Types.JointTrajectory.ScaleVelocity(System.Double)">ScaleVelocity(Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory ScaleVelocity(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Sub_" data-uid="Xamla.Robotics.Types.JointTrajectory.Sub*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Sub_System_Int32_System_Int32_" data-uid="Xamla.Robotics.Types.JointTrajectory.Sub(System.Int32,System.Int32)">Sub(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the sub trajectory in the range [startIndex, endIndex].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Sub(int startIndex, int endIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The index where the sub trajectory should begin.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">endIndex</span></td>
+        <td><p>The index where the sub trajectory should end.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when either the <code data-dev-comment-type="paramref" class="paramref">startIndex</code> or <code data-dev-comment-type="paramref" class="paramref">endIndex</code> is not within the range of the available points.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_ToString_" data-uid="Xamla.Robotics.Types.JointTrajectory.ToString*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_ToString" data-uid="Xamla.Robotics.Types.JointTrajectory.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_Transform_" data-uid="Xamla.Robotics.Types.JointTrajectory.Transform*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_Transform_System_Func_Xamla_Robotics_Types_JointTrajectoryPoint_System_Int32_Xamla_Robotics_Types_JointTrajectoryPoint__" data-uid="Xamla.Robotics.Types.JointTrajectory.Transform(System.Func{Xamla.Robotics.Types.JointTrajectoryPoint,System.Int32,Xamla.Robotics.Types.JointTrajectoryPoint})">Transform(Func&lt;JointTrajectoryPoint, Int32, JointTrajectoryPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the given transform function to all poses in the current trajectory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointTrajectory Transform(Func&lt;JointTrajectoryPoint, int, JointTrajectoryPoint&gt; transform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>, <span class="xref">System.Int32</span>, <a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a>&gt;</td>
+        <td><span class="parametername">transform</span></td>
+        <td><p>A function that receives each point on the trajectory together with its index and that should return a new <code>JointTrajectoryPoint</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a></td>
+        <td><p>A new instance of <code>JointTrajectory</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointTrajectory_System_Collections_IEnumerable_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointTrajectory.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointTrajectory_System_Collections_IEnumerable_GetEnumerator" data-uid="Xamla.Robotics.Types.JointTrajectory.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.IJointTrajectory.html">IJointTrajectory</a>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.JointTrajectoryExtensions.html#Xamla_Robotics_Types_JointTrajectoryExtensions_EvaluateAt_Xamla_Robotics_Types_IJointTrajectory_System_Double_">JointTrajectoryExtensions.EvaluateAt(IJointTrajectory, Double)</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_IJointTrajectory_">ModelConversionExtensions.ToModel(IJointTrajectory)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointTrajectoryPoint.html">JointTrajectoryPoint</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1618 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Motion client version 2.0 &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gripper client" href="gripper_client.html" />
+    <link rel="prev" title="Motion client" href="motion_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_client.html">Motion client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion client version 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#movegroup">MoveGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#endeffector">EndEffector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#movejointsoperation">MoveJointsOperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#movecartesianoperation">MoveCartesianOperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plan">Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Motion client version 2.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/motion_client_v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-xamla_motion">
+<span id="motion-client-version-2-0"></span><h1>Motion client version 2.0<a class="headerlink" href="#module-xamla_motion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The main classes to plan and execute trajectories with xamla_motion
+are <a class="reference internal" href="#xamla_motion.v2.MoveGroup" title="xamla_motion.v2.MoveGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.v2.MoveGroup</span></code></a> and <a class="reference internal" href="#xamla_motion.v2.EndEffector" title="xamla_motion.v2.EndEffector"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.v2.EndEffector</span></code></a>. The difference between both classes
+is the space in which they operate. The <a class="reference internal" href="motion_client.html#xamla_motion.MoveGroup" title="xamla_motion.MoveGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.MoveGroup</span></code></a> class plans and
+executes trajectories where the input is defined in joint space. Whereas
+the <a class="reference internal" href="#xamla_motion.v2.EndEffector" title="xamla_motion.v2.EndEffector"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.v2.EndEffector</span></code></a> class plans and executes trajectories where the input
+is defined in cartesian/task space.</p>
+<p>The version 2.0 is an update to the now deprecated implementation <a class="reference internal" href="motion_client.html#xamla_motion.MoveGroup" title="xamla_motion.MoveGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.MoveGroup</span></code></a>
+and <a class="reference internal" href="motion_client.html#xamla_motion.EndEffector" title="xamla_motion.EndEffector"><code class="xref py py-class docutils literal notranslate"><span class="pre">xamla_motion.EndEffector</span></code></a>.
+In version 2.0 a lot of API changes are made to improve the usability.</p>
+<p>The major change between version 1.0 and 2.0 is that all move methods not directly execute
+a trajectory or return a stepped motion client but rather return a move operation.
+This move operations are property containers. It is possible to hand them over and change
+the properties if needed.</p>
+<p>With help of the plan method a operation can be transformed to a executable trajectory.
+Here again we get the advantage that it is possible to hand this plan over to other functions.
+Furthermore, we now have the freedom to decide on demand if the trajectory should be
+executed supervised or unsupervised.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">from</span> <span class="nn">pyquaternion</span> <span class="k">import</span> <span class="n">Quaternion</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.data_types</span> <span class="k">import</span> <span class="n">CartesianPath</span><span class="p">,</span> <span class="n">JointPath</span><span class="p">,</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.v2</span> <span class="k">import</span> <span class="n">EndEffector</span><span class="p">,</span> <span class="n">MoveGroup</span>
+<span class="kn">from</span> <span class="nn">xamla_motion.utility</span> <span class="k">import</span> <span class="n">register_asyncio_shutdown_handler</span>
+<span class="kn">from</span> <span class="nn">xamla_motion</span> <span class="k">import</span> <span class="n">MoveJointsCollisionFreeOperation</span><span class="p">,</span> <span class="n">MoveCartesianCollisionFreeOperation</span>
+
+<span class="c1"># functions for supervised executation</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="n">stepped_motion_client</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">stepped_motion_client</span><span class="o">.</span><span class="n">state</span><span class="p">:</span>
+            <span class="n">stepped_motion_client</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;progress </span><span class="si">{:5.2f}</span><span class="s1"> percent&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">stepped_motion_client</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">progress</span><span class="p">))</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">run_supervised</span><span class="p">(</span><span class="n">stepped_motion_client</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;start supervised execution&#39;</span><span class="p">)</span>
+
+    <span class="n">task_next</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">stepped_motion_client</span><span class="p">))</span>
+
+    <span class="k">await</span> <span class="n">stepped_motion_client</span><span class="o">.</span><span class="n">action_done_future</span>
+    <span class="n">task_next</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;finished supervised execution&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># create move group instance</span>
+    <span class="n">move_group</span> <span class="o">=</span> <span class="n">MoveGroup</span><span class="p">()</span>
+    <span class="c1"># get default endeffector of the movegroup</span>
+    <span class="n">end_effector</span> <span class="o">=</span> <span class="n">move_group</span><span class="o">.</span><span class="n">get_end_effector</span><span class="p">()</span>
+
+    <span class="c1"># create cartesian path and equivalent joint path</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.502522</span><span class="p">,</span> <span class="mf">0.2580</span><span class="p">,</span> <span class="mf">0.3670</span><span class="p">]</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">0.304389</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5272</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.68704</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.39666</span><span class="p">)</span>
+
+    <span class="n">t2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.23795</span><span class="p">,</span> <span class="mf">0.46845</span><span class="p">,</span> <span class="mf">0.44505</span><span class="p">]</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">0.212097</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.470916</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.720915</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.462096</span><span class="p">)</span>
+
+    <span class="n">t3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6089578</span><span class="p">,</span> <span class="mf">0.3406782</span><span class="p">,</span> <span class="mf">0.208865</span><span class="p">]</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">0.231852</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.33222</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.746109</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.528387</span><span class="p">)</span>
+
+    <span class="n">pose_1</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">q1</span><span class="p">)</span>
+    <span class="n">pose_2</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">q2</span><span class="p">)</span>
+    <span class="n">pose_3</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">q3</span><span class="p">)</span>
+
+    <span class="n">cartesian_path</span> <span class="o">=</span> <span class="n">CartesianPath</span><span class="p">([</span><span class="n">pose_1</span><span class="p">,</span> <span class="n">pose_2</span><span class="p">,</span> <span class="n">pose_3</span><span class="p">])</span>
+
+    <span class="n">joint_path</span> <span class="o">=</span> <span class="n">end_effector</span><span class="o">.</span><span class="n">inverse_kinematics_many</span><span class="p">(</span><span class="n">cartesian_path</span><span class="p">,</span>
+                                                      <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">path</span>
+
+    <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+    <span class="n">register_asyncio_shutdown_handler</span><span class="p">(</span><span class="n">loop</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">example_moves</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test MoveGroup class&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------          move joints                 -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_joints</span> <span class="o">=</span> <span class="n">move_group</span><span class="o">.</span><span class="n">move_joints</span><span class="p">(</span><span class="n">joint_path</span><span class="p">)</span>
+        <span class="n">move_joints</span> <span class="o">=</span> <span class="n">move_joints</span><span class="o">.</span><span class="n">with_velocity_scaling</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="n">move_joints_plan</span> <span class="o">=</span> <span class="n">move_joints</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+        <span class="k">await</span> <span class="n">move_joints_plan</span><span class="o">.</span><span class="n">execute_async</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------        move joints supervised        -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_joints</span> <span class="o">=</span> <span class="n">move_joints</span><span class="o">.</span><span class="n">with_velocity_scaling</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">stepped_motion_client</span> <span class="o">=</span> <span class="n">move_joints</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span><span class="o">.</span><span class="n">execute_supervised</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">run_supervised</span><span class="p">(</span><span class="n">stepped_motion_client</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------      move joints collision free      -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_joints_cf</span> <span class="o">=</span> <span class="n">MoveJointsCollisionFreeOperation</span><span class="p">(</span>
+            <span class="n">move_joints</span><span class="o">.</span><span class="n">to_args</span><span class="p">())</span>
+
+        <span class="k">await</span> <span class="n">move_joints_cf</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span><span class="o">.</span><span class="n">execute_async</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test EndEffector class&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------          move cartesian               -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_cartesian</span> <span class="o">=</span> <span class="n">end_effector</span><span class="o">.</span><span class="n">move_cartesian</span><span class="p">(</span><span class="n">cartesian_path</span><span class="p">)</span>
+        <span class="n">move_cartesian</span> <span class="o">=</span> <span class="n">move_cartesian</span><span class="o">.</span><span class="n">with_velocity_scaling</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+
+        <span class="n">move_cartesian_plan</span> <span class="o">=</span> <span class="n">move_cartesian</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span>
+
+        <span class="k">await</span> <span class="n">move_cartesian_plan</span><span class="o">.</span><span class="n">execute_async</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------      move cartesian supervised        -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_cartesian</span> <span class="o">=</span> <span class="n">move_cartesian</span><span class="o">.</span><span class="n">with_velocity_scaling</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">stepped_motion_client</span> <span class="o">=</span> <span class="n">move_cartesian</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span><span class="o">.</span><span class="n">execute_supervised</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">run_supervised</span><span class="p">(</span><span class="n">stepped_motion_client</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------    move cartesian collision free      -------------------&#39;</span><span class="p">)</span>
+        <span class="n">move_cartesian_cf</span> <span class="o">=</span> <span class="n">MoveCartesianCollisionFreeOperation</span><span class="p">(</span>
+            <span class="n">move_cartesian</span><span class="o">.</span><span class="n">to_args</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="k">await</span> <span class="n">move_cartesian_cf</span><span class="o">.</span><span class="n">plan</span><span class="p">()</span><span class="o">.</span><span class="n">execute_async</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">example_moves</span><span class="p">())</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="movegroup">
+<h2>MoveGroup<a class="headerlink" href="#movegroup" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.v2.MoveGroup">
+<em class="property">class </em><code class="descclassname">xamla_motion.v2.</code><code class="descname">MoveGroup</code><span class="sig-paren">(</span><em>move_group_name=None</em>, <em>end_effector_name=None</em>, <em>motion_service=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class with encapsulate move functionality for a specific move group</p>
+<p>Initialize MoveGroup class</p>
+<p>The initialization process is possible with different settings:</p>
+<dl class="simple">
+<dt>move_group_name and end_effector_name are None:</dt><dd><p>In this case the first available move group and its
+first end effector is selected automatically. If no
+move group or end_effector is available exception is
+raised.</p>
+</dd>
+<dt>move_group_name is defined and end_effector_name is none:</dt><dd><p>In this case the initialization routine tries to find
+the move group with requested name. If it is available
+create a instance for this move group and the first
+available end effector as default end effector. Else
+an exceptions is raised.</p>
+</dd>
+<dt>move_group is None and end_effector_name is defined:</dt><dd><p>In this case the initialization routine tries to find
+the move group with requested end effector. If it is
+available create a instance for this move group and the
+requested end effector as default end effector. Else
+an exceptions is raised.</p>
+</dd>
+<dt>move_group is defined and also end_effector_name is defined:</dt><dd><p>In this case the initialization routine tries to find
+the requested move group with requested end effector.
+If it is available create a instance for this move group
+and the requested end effector as default end effector. Else
+an exceptions is raised.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>move_group_name</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – If defined name of the move group which this
+instance should represent</p></li>
+<li><p><strong>end_effector_name</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – If defined name of the end_effector which should
+be used as default end_effector</p></li>
+<li><p><strong>motion_service</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="motion_service.html#xamla_motion.motion_service.MotionService" title="xamla_motion.motion_service.MotionService"><em>MotionService</em></a><em>]</em>) – An instance of MotionService which is used to
+communicate with the motion server if None a
+new instance of MotionService is created</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If motion_service is not of type MotionService
+    or If the other inputs are not str convertable</p></li>
+<li><p><strong>ServiceException</strong> – If necessary services to query available move
+    groups and end effectors are not available</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – If requested move group or end effector not
+    exist or are not available</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.acceleration_scaling">
+<code class="descname">acceleration_scaling</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.acceleration_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default acceleration scaling which is applied if no custom value is provided</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.collision_check">
+<code class="descname">collision_check</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.collision_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>bool
+If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>collision_check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.default_plan_parameters">
+<code class="descname">default_plan_parameters</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.default_plan_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>PlanParameters (read only)
+Instance of PlanParameters from which the
+limits and settings are used when no specific
+user input is given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>plan_parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.default_task_space_plan_parameters">
+<code class="descname">default_task_space_plan_parameters</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.default_task_space_plan_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>TaskSpacePlanParameters (read only)
+Instance of TaskSpacePlanParameters from which the
+limits and settings are used when no specific
+user input is given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>task_space_plan_parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.end_effector_names">
+<code class="descname">end_effector_names</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.end_effector_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>List[str] (read only)
+List of end effectors the move groups contains</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>end_effector_names</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.get_current_joint_positions">
+<code class="descname">get_current_joint_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.get_current_joint_positions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.get_current_joint_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current joint positions of the move group joints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>joint_positions</strong> – current joint position of the move group joints</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues">JointValues</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ServiceException</strong> – If Service is not available or finish
+    not successful</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.get_current_joint_states">
+<code class="descname">get_current_joint_states</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.get_current_joint_states"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.get_current_joint_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current joint states of the move group joints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>joint_states</strong> – current joint states of the move group joints</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointStates" title="xamla_motion.data_types.JointStates">JointStates</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ServiceException</strong> – If Service is not available or finish
+    not successful</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.get_end_effector">
+<code class="descname">get_end_effector</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.get_end_effector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.get_end_effector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the end effector specified by name or
+the default end effector if name is not provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – Name of the end effector which should be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>end_effector</strong> – Instance of Class EndEffector with requested name</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.v2.EndEffector" title="xamla_motion.v2.EndEffector">xamla_motion.v2.EndEffector</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – If no end effector exist with the requested name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.ik_jump_threshold">
+<code class="descname">ik_jump_threshold</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.ik_jump_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>float
+maximal allowed inverse kinematics jump threshold</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ik_jump_threshold</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.joint_set">
+<code class="descname">joint_set</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.joint_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>JointSet (read only)
+joint set of the move group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>joint_set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.max_deviation">
+<code class="descname">max_deviation</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.max_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Union[None, float]Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>max_deviation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.motion_service">
+<code class="descname">motion_service</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.motion_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>MotionService (read only)
+return the instance of motion service which is used
+to communicate via ros which the motion server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>motion_service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.move_joints">
+<code class="descname">move_joints</code><span class="sig-paren">(</span><em>target</em>, <em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.move_joints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.move_joints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MoveJointsOperation for target joint positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a><em>]</em>) – Target joint positions or target JointPath</p></li>
+<li><p><strong>velocity_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint velocities
+If None the MoveGroup default is used</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed
+If None the MoveGroup default is used</p></li>
+<li><p><strong>max_deviation</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space
+If None the MoveGroup default is used</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint accelerations
+If None the MoveGroup default is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>move_joint_operations</strong> – Instance of MoveJointsOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.motion_operations.MoveJointsOperation" title="xamla_motion.motion_operations.MoveJointsOperation">MoveJointsOperation</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If target is not one of types JointValues, JointPath
+    If all other inputs are not convertable to specified types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.move_joints_collision_free">
+<code class="descname">move_joints_collision_free</code><span class="sig-paren">(</span><em>target</em>, <em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.move_joints_collision_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.move_joints_collision_free" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MoveJointsCollisionFreeOperation for target joint positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointPath" title="xamla_motion.data_types.JointPath"><em>JointPath</em></a><em>]</em>) – Target joint positions or target JointPath</p></li>
+<li><p><strong>velocity_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint velocities
+If None the MoveGroup default is used</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed
+If None the MoveGroup default is used</p></li>
+<li><p><strong>max_deviation</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space
+If None the MoveGroup default is used</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint accelerations
+If None the MoveGroup default is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of MoveJointsCollisionFreeOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsCollisionFreeOperation</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If target is not one of types JointValues, JointPath
+    If all other inputs are not convertable to specified types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.name">
+<code class="descname">name</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>str (read only)
+move group name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.sample_resolution">
+<code class="descname">sample_resolution</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.sample_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>float
+Trajectory point sampling frequency
+If value smaller one in seconds else in Hz</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>sample_resolution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.selected_end_effector">
+<code class="descname">selected_end_effector</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.selected_end_effector" title="Permalink to this definition">¶</a></dt>
+<dd><p>str (read only)
+Name of the currently selected end effector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>selected_end_effector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.MoveGroup.set_default_end_effector">
+<code class="descname">set_default_end_effector</code><span class="sig-paren">(</span><em>end_effector_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#MoveGroup.set_default_end_effector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.MoveGroup.set_default_end_effector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one of the end effector from the list of available ones as default</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>end_effector_name</strong> (<em>str convertable</em>) – Name of the end effector which should be now the
+default end effector of this move group</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If end_effector_name is not str convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – If the input end effector name is not available</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.MoveGroup.velocity_scaling">
+<code class="descname">velocity_scaling</code><a class="headerlink" href="#xamla_motion.v2.MoveGroup.velocity_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default velocity scaling which is applied if no custom value is provided</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="endeffector">
+<h2>EndEffector<a class="headerlink" href="#endeffector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.v2.EndEffector">
+<em class="property">class </em><code class="descclassname">xamla_motion.v2.</code><code class="descname">EndEffector</code><span class="sig-paren">(</span><em>move_group</em>, <em>end_effector_name</em>, <em>end_effector_link_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class with encapsulate move functionality for a specific end effector</p>
+<p>Initialize EndEffector class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>move_group</strong> (<a class="reference internal" href="#xamla_motion.v2.MoveGroup" title="xamla_motion.v2.MoveGroup"><em>xamla_motion.v2.MoveGroup</em></a>) – Instance of move group where the endeffector belongs
+to</p></li>
+<li><p><strong>end_effector_name</strong> (<em>str_convertable</em>) – If defined name of the end_effector which should
+for which a instance of EndEffector is created
+and which is selected as default for the move
+group</p></li>
+<li><p><strong>end_effector_link_name</strong> (<em>str convertable</em>) – name of the end effector link</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If move_group is not of type MoveGroup
+    or If the other inputs are not str convertable</p></li>
+<li><p><strong>ServiceException</strong> – If necessary services to query available move
+    groups and end effectors are not available</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – If requested move group or end effector not
+    exist or are not available</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.compute_pose">
+<code class="descname">compute_pose</code><span class="sig-paren">(</span><em>joint_values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.compute_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.compute_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute pose from joint values / configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joint_values</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a>) – Joint configuration of the robot which should be
+transformed to a cartesian pose</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pose</strong> – An instance of Pose which represents the joint
+configuration of joint_values as a pose in
+cartesian space</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose">Pose</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ServiceException</strong> – If query services from motion server are not
+    available or finish unsuccessfully</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If joint_values is not of expected type JointValues</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xamla_motion.v2.EndEffector.from_end_effector_name">
+<em class="property">static </em><code class="descname">from_end_effector_name</code><span class="sig-paren">(</span><em>end_effector_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.from_end_effector_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.from_end_effector_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance of MoveGroup and select the correct instance of EndEffector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>end_effector_name</strong> (<em>str convertable</em>) – Name of the end_effector for which a instance of EndEffector
+should be created</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of EndEffector for end effector with the name
+specified by end_effector name (instance is also hold
+by the created move_group)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.v2.EndEffector" title="xamla_motion.v2.EndEffector">xamla_motion.v2.EndEffector</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If end_effector_name ist not convertable to str</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><strong>RuntimeError</strong></a> – If it is not possible to create an instance of
+    EndEffector because the end effector specified
+    by end_effector_name is not available</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.get_current_pose">
+<code class="descname">get_current_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.get_current_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.get_current_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current pose of the end effector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>pose</strong> – An instance of Pose which represents the current
+end effector pose</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose">Pose</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ServiceException</strong> – If query services from motion server are not
+    available or finish unsuccessfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.inverse_kinematics">
+<code class="descname">inverse_kinematics</code><span class="sig-paren">(</span><em>pose</em>, <em>collision_check</em>, <em>seed=None</em>, <em>timeout=None</em>, <em>const_seed=False</em>, <em>attempts=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.inverse_kinematics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.inverse_kinematics" title="Permalink to this definition">¶</a></dt>
+<dd><p>inverse kinematic solutions for one pose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>poses</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a><em>]</em>) – Poses to transform to joint space</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>]</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed</p></li>
+<li><p><strong>seed</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>]  </em><em>(</em><em>optional</em><em>)</em>) – Numerical seed to control joint configuration</p></li>
+<li><p><strong>timeout</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>datatime.timedelta</em><em>]  </em><em>(</em><em>optional</em><em>)</em>) – timeout</p></li>
+<li><p><strong>const_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>optional default False</em><em>)</em>) – Determines if for each pose in poses the same seed should be used</p></li>
+<li><p><strong>attempts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> (</em><em>optional default 1</em><em>)</em>) – number of attempts to find solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of JointValues with a found solution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues">JointValues</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If poses is not of correct type</p></li>
+<li><p><strong>ServiceException</strong> – If query service is not available</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.inverse_kinematics_many">
+<code class="descname">inverse_kinematics_many</code><span class="sig-paren">(</span><em>poses</em>, <em>collision_check</em>, <em>seed=None</em>, <em>timeout=None</em>, <em>const_seed=False</em>, <em>attempts=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.inverse_kinematics_many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.inverse_kinematics_many" title="Permalink to this definition">¶</a></dt>
+<dd><p>inverse kinematic solutions for many poses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>poses</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a><em>]</em>) – Poses to transform to joint space</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>]</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed</p></li>
+<li><p><strong>seed</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>]  </em><em>(</em><em>optional</em><em>)</em>) – Numerical seed to control joint configuration</p></li>
+<li><p><strong>timeout</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><em>datatime.timedelta</em><em>]  </em><em>(</em><em>optional</em><em>)</em>) – timeout</p></li>
+<li><p><strong>const_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>optional default False</em><em>)</em>) – Determines if for each pose in poses the same seed should be used</p></li>
+<li><p><strong>attempts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> (</em><em>optional default 1</em><em>)</em>) – number of attempts to find solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of IkResult with all found solutions as
+a JointPath and error codes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>IkResult</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If poses is not of correct type</p></li>
+<li><p><strong>ServiceException</strong> – If query service is not available</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.EndEffector.link_name">
+<code class="descname">link_name</code><a class="headerlink" href="#xamla_motion.v2.EndEffector.link_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>str
+end effector link name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>link_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.EndEffector.motion_service">
+<code class="descname">motion_service</code><a class="headerlink" href="#xamla_motion.v2.EndEffector.motion_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>MotionService
+Instance of MotionService which the move group
+and all end effectors use to communicate with
+the motion server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>motion_service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.move_cartesian">
+<code class="descname">move_cartesian</code><span class="sig-paren">(</span><em>target</em>, <em>seed=None</em>, <em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.move_cartesian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.move_cartesian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MoveCartesianOperation for target joint positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a><em>]</em>) – Target Pose or target CartesianPath</p></li>
+<li><p><strong>seed</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Numerical seed to control joint configuration</p></li>
+<li><p><strong>velocity_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task velocities
+If None the MoveGroup default is used</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed
+If None the MoveGroup default is used</p></li>
+<li><p><strong>max_deviation</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space
+If None the MoveGroup default is used</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task accelerations
+If None the MoveGroup default is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>move_joint_operations</strong> – Instance of MoveCartesianOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.motion_operations.MoveCartesianOperation" title="xamla_motion.motion_operations.MoveCartesianOperation">MoveCartesianOperation</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If target is not one of types Pose, CartesianPath
+    If all other inputs are not convertable to specified types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.move_cartesian_collision_free">
+<code class="descname">move_cartesian_collision_free</code><span class="sig-paren">(</span><em>target</em>, <em>seed=None</em>, <em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.move_cartesian_collision_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.move_cartesian_collision_free" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MoveCartesianCollisionFreeOperation for target joint positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a><em>]</em>) – Target Pose or target CartesianPath</p></li>
+<li><p><strong>seed</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Numerical seed to control joint configuration</p></li>
+<li><p><strong>velocity_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task velocities
+If None the MoveGroup default is used</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed
+If None the MoveGroup default is used</p></li>
+<li><p><strong>max_deviation</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space
+If None the MoveGroup default is used</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task accelerations
+If None the MoveGroup default is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>move_joint_operations</strong> – Instance of MoveCartesianCollisionFreeOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianCollisionFreeOperation</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If target is not one of types Pose, CartesianPath
+    If all other inputs are not convertable to specified types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.v2.EndEffector.move_cartesian_linear">
+<code class="descname">move_cartesian_linear</code><span class="sig-paren">(</span><em>target</em>, <em>seed=None</em>, <em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/v2/motion_client.html#EndEffector.move_cartesian_linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.v2.EndEffector.move_cartesian_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MoveCartesianLinearOperation for target joint positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Union</em><em>[</em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.CartesianPath" title="xamla_motion.data_types.CartesianPath"><em>CartesianPath</em></a><em>]</em>) – Target Pose or target CartesianPath</p></li>
+<li><p><strong>seed</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Numerical seed to control joint configuration</p></li>
+<li><p><strong>velocity_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task velocities
+If None the MoveGroup default is used</p></li>
+<li><p><strong>collision_check</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – If true the trajectory planing try to plan a
+collision free trajectory and before executing
+a trajectory a collision check is performed
+If None the MoveGroup default is used</p></li>
+<li><p><strong>max_deviation</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space
+If None the MoveGroup default is used</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>] </em><em>(</em><em>default None</em><em>)</em>) – Scaling factor which is applied on the maximal
+possible joint and task accelerations
+If None the MoveGroup default is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>move_joint_operations</strong> – Instance of MoveCartesianLinearOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianLinearOperation</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If target is not one of types Pose, CartesianPath
+    If all other inputs are not convertable to specified types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.EndEffector.move_group">
+<code class="descname">move_group</code><a class="headerlink" href="#xamla_motion.v2.EndEffector.move_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>xamla_motion.v2.MoveGroup
+Instance of MoveGroup which manages the
+move group where the end effector belongs to</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>move_group</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.v2.EndEffector.name">
+<code class="descname">name</code><a class="headerlink" href="#xamla_motion.v2.EndEffector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>str (read only)
+end effector name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="movejointsoperation">
+<h2>MoveJointsOperation<a class="headerlink" href="#movejointsoperation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation">
+<em class="property">class </em><code class="descclassname">xamla_motion.motion_operations.</code><code class="descname">MoveJointsOperation</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of MoveJointsOperation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>MoveJointsArgs</em>) – move joint args which define the move operation</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of MoveJointsOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.motion_operations.MoveJointsOperation" title="xamla_motion.motion_operations.MoveJointsOperation">MoveJointsOperation</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.plan">
+<code class="descname">plan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.plan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Planes a trajectory with defined properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of Plan which holds the planned
+trajectory and methods to creates executors for it</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#xamla_motion.motion_operations.Plan" title="xamla_motion.motion_operations.Plan">Plan</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ServiceException</strong> – If trajectory planning service is not available or finish
+    unsuccessfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.to_args">
+<code class="descname">to_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.to_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.to_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an Instance of MoveJointsArgs from this MoveJointsOperation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>MoveJointsArgs which holds the properties of this MoveJointsOperation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>MoveJointsArgs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_acceleration_scaling">
+<code class="descname">with_acceleration_scaling</code><span class="sig-paren">(</span><em>acceleration_scaling</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_acceleration_scaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_acceleration_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified velocity limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>acceleration_scaling</strong> (<em>float convertable</em>) – scale hard acceleration limits by defined factor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified acceleration limits</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If acceleration_scaling is not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If acceleration_scaling is not in range 0.0, 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_args">
+<code class="descname">with_args</code><span class="sig-paren">(</span><em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>sample_resolution=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperations with multiple modified properties</p>
+<p>All None assigned arguments take the current property values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>velocity_scaling</strong> (<em>float convertable</em><em> (</em><em>default None</em><em>)</em>) – scale hard velocity limits by defined factor</p></li>
+<li><p><strong>collision_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default None</em><em>)</em>) – If True collisions with collision objects in worldview are check
+in the planning stage</p></li>
+<li><p><strong>max_deviation</strong> (<em>float convertable</em>) – defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space</p></li>
+<li><p><strong>sample_resolution</strong> (<em>float convertable</em>) – sampling resolution of trajectory in Hz</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>float convertable</em>) – scale hard acceleration limits by defined factor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations or child of it (MoveJointsCollisionFreeOperations)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If velocity_scaling, max_deviation, sample_resolution and
+    acceleration_scaling are not None or not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If velocity_scaling or acceleration scaling are not None
+    and no lie in range 0.0 to 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_collision_check">
+<code class="descname">with_collision_check</code><span class="sig-paren">(</span><em>collision_check=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_collision_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_collision_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified collision check flag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>collision_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True collisions with collision objects in worldview are check
+in the planning stage</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified collision check flag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If collision check is of expected type bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_max_deviation">
+<code class="descname">with_max_deviation</code><span class="sig-paren">(</span><em>max_deviation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_max_deviation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_max_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified max deviation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>max_deviation</strong> (<em>float convertable</em>) – defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified max deviation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If max_deviation is not float convertable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_sample_resolution">
+<code class="descname">with_sample_resolution</code><span class="sig-paren">(</span><em>sample_resolution</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_sample_resolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_sample_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified sample resolution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_resolution</strong> (<em>float convertable</em>) – sampling resolution of trajectory in Hz</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified sample resolution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If sample_resolution is not float convertable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_start">
+<code class="descname">with_start</code><span class="sig-paren">(</span><em>joint_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified start joint value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joint_value</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – defines start joint configuration if non
+current robot state is used</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified start value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If joint_value is not of expected type JointValue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveJointsOperation.with_velocity_scaling">
+<code class="descname">with_velocity_scaling</code><span class="sig-paren">(</span><em>velocity_scaling</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveJointsOperation.with_velocity_scaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveJointsOperation.with_velocity_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveJointsOperation with modified velocity limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>velocity_scaling</strong> (<em>float convertable</em>) – scale hard velocity limits by defined factor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified velocity limits</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If velocity_scaling is not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If velocity_scaling is not in range 0.0, 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="movecartesianoperation">
+<h2>MoveCartesianOperation<a class="headerlink" href="#movecartesianoperation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation">
+<em class="property">class </em><code class="descclassname">xamla_motion.motion_operations.</code><code class="descname">MoveCartesianOperation</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of MoveCartesianOperation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>MoveCartesianArgs</em>) – move cartesian args which define the move operation</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of MoveCartesianOperation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.motion_operations.MoveCartesianOperation" title="xamla_motion.motion_operations.MoveCartesianOperation">MoveCartesianOperation</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.plan">
+<code class="descname">plan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.plan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Planes a trajectory with defined properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of Plan which holds the planned
+trajectory and methods to creates executors for it</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#xamla_motion.motion_operations.Plan" title="xamla_motion.motion_operations.Plan">Plan</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ServiceException</strong> – If trajectory planning service is not available or finish
+    unsuccessfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.to_args">
+<code class="descname">to_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.to_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.to_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an Instance of MoveCartesianArgs from this MoveCartesianOperation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>MoveCartesianArgs which holds the properties of this MoveCartesianOperation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>MoveCartesianArgs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_acceleration_scaling">
+<code class="descname">with_acceleration_scaling</code><span class="sig-paren">(</span><em>acceleration_scaling</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_acceleration_scaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_acceleration_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified velocity limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>acceleration_scaling</strong> (<em>float convertable</em>) – scale hard acceleration limits by defined factor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified acceleration limits</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If acceleration_scaling is not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If acceleration_scaling is not in range 0.0, 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_args">
+<code class="descname">with_args</code><span class="sig-paren">(</span><em>velocity_scaling=None</em>, <em>collision_check=None</em>, <em>max_deviation=None</em>, <em>sample_resolution=None</em>, <em>ik_jump_threshold=None</em>, <em>acceleration_scaling=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperations with multiple modified properties</p>
+<p>All None assigned arguments take the current property values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>velocity_scaling</strong> (<em>float convertable</em><em> (</em><em>default None</em><em>)</em>) – scale hard velocity limits by defined factor</p></li>
+<li><p><strong>collision_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default None</em><em>)</em>) – If True collisions with collision objects in worldview are check
+in the planning stage</p></li>
+<li><p><strong>max_deviation</strong> (<em>float convertable</em>) – defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space</p></li>
+<li><p><strong>sample_resolution</strong> (<em>float convertable</em>) – sampling resolution of trajectory in Hz</p></li>
+<li><p><strong>ik_jump_threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Maximal joint value jump between two consecutively
+following trajectory points</p></li>
+<li><p><strong>acceleration_scaling</strong> (<em>float convertable</em>) – scale hard acceleration limits by defined factor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveJointsOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If velocity_scaling, max_deviation, sample_resolution and
+    acceleration_scaling are not None or not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If velocity_scaling or acceleration scaling are not None
+    and no lie in range 0.0 to 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_collision_check">
+<code class="descname">with_collision_check</code><span class="sig-paren">(</span><em>collision_check=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_collision_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_collision_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified collision check flag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>collision_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em> (</em><em>default True</em><em>)</em>) – If True collisions with collision objects in worldview are check
+in the planning stage</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified collision check flag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If collision check is of expected type bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_ik_jump_threshold">
+<code class="descname">with_ik_jump_threshold</code><span class="sig-paren">(</span><em>ik_jump_threshold</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_ik_jump_threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_ik_jump_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified ik jump threshold</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ik_jump_threshold</strong> (<em>float convertable</em>) – Maximal joint value jump between two consecutively
+following trajectory points</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified ik jump threshold</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If ik_jump_threshold is not float convertable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_max_deviation">
+<code class="descname">with_max_deviation</code><span class="sig-paren">(</span><em>max_deviation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_max_deviation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_max_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified max deviation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>max_deviation</strong> (<em>float convertable</em>) – defines the maximal deviation from trajectory points
+when it is a fly-by-point in joint space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified max deviation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If max_deviation is not float convertable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_sample_resolution">
+<code class="descname">with_sample_resolution</code><span class="sig-paren">(</span><em>sample_resolution</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_sample_resolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_sample_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified sample resolution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_resolution</strong> (<em>float convertable</em>) – sampling resolution of trajectory in Hz</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified sample resolution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If sample_resolution is not float convertable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_seed">
+<code class="descname">with_seed</code><span class="sig-paren">(</span><em>joint_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_seed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified seed joint values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joint_value</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – defines start joint configuration if None
+current robot state is used</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified seed value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If joint_value is not one of expected types JointValue, Pose, None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_start">
+<code class="descname">with_start</code><span class="sig-paren">(</span><em>start</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified start values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>start</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointValues" title="xamla_motion.data_types.JointValues"><em>JointValues</em></a><em>, </em><a class="reference internal" href="data_types.html#xamla_motion.data_types.Pose" title="xamla_motion.data_types.Pose"><em>Pose</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – defines trajectory start position if None
+current robot state is used</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified start value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If start is not one of expected types JointValue, Pose, None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.MoveCartesianOperation.with_velocity_scaling">
+<code class="descname">with_velocity_scaling</code><span class="sig-paren">(</span><em>velocity_scaling</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#MoveCartesianOperation.with_velocity_scaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.MoveCartesianOperation.with_velocity_scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new instance of MoveCartesianOperation with modified velocity limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>velocity_scaling</strong> (<em>float convertable</em>) – scale hard velocity limits by defined factor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New instance with modified velocity limits</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveCartesianOperations</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If velocity_scaling is not float convertable</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><strong>ValueError</strong></a> – If velocity_scaling is not in range 0.0, 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="plan">
+<h2>Plan<a class="headerlink" href="#plan" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xamla_motion.motion_operations.Plan">
+<em class="property">class </em><code class="descclassname">xamla_motion.motion_operations.</code><code class="descname">Plan</code><span class="sig-paren">(</span><em>move_group</em>, <em>trajectory</em>, <em>parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#Plan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.Plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plan holds a planned trajectory and offer methods for path execution</p>
+<p>Initialization of Plan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>move_group</strong> (<a class="reference internal" href="#xamla_motion.v2.MoveGroup" title="xamla_motion.v2.MoveGroup"><em>xamla_motion.v2.MoveGroup</em></a>) – Move group which should execute the trajectory</p></li>
+<li><p><strong>trajectory</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.JointTrajectory" title="xamla_motion.data_types.JointTrajectory"><em>JointTrajectory</em></a>) – Planned trajectory which should be executed</p></li>
+<li><p><strong>parameters</strong> (<a class="reference internal" href="data_types.html#xamla_motion.data_types.PlanParameters" title="xamla_motion.data_types.PlanParameters"><em>PlanParameters</em></a>) – Defines properties and limits with which the
+trajectory is planned</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of Plan</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xamla_motion.motion_operations.Plan" title="xamla_motion.motion_operations.Plan">Plan</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="xamla_motion.motion_operations.Plan.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#Plan.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.Plan.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes trajectory asynchronously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Task which asynchronously execute trajectory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.7)">asyncio.Task</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.7)"><strong>TypeError</strong></a> – If trajectory is not of type JointTrajectory
+    or if collision_check is not convertable to bool</p></li>
+<li><p><strong>ServiceException</strong> – If execution ends not successful</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xamla_motion.motion_operations.Plan.execute_supervised">
+<code class="descname">execute_supervised</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xamla_motion/motion_operations.html#Plan.execute_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xamla_motion.motion_operations.Plan.execute_supervised" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates executor for supervised trajectory execution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Executor client for supervised trajectory execution</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SteppedMotionClient</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.motion_operations.Plan.move_group">
+<code class="descname">move_group</code><a class="headerlink" href="#xamla_motion.motion_operations.Plan.move_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>xamla_motion.v2.MoveGroup (read only)
+Move group which executes the trajectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>move_group</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.motion_operations.Plan.parameters">
+<code class="descname">parameters</code><a class="headerlink" href="#xamla_motion.motion_operations.Plan.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>PlanParameters
+PlanParameters with which the trajectory was planned</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xamla_motion.motion_operations.Plan.trajectory">
+<code class="descname">trajectory</code><a class="headerlink" href="#xamla_motion.motion_operations.Plan.trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>JointTrajectory
+Trajectory which is the execution target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>trajectory</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gripper_client.html" class="btn btn-neutral float-right" title="Gripper client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="motion_client.html" class="btn btn-neutral float-left" title="Motion client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

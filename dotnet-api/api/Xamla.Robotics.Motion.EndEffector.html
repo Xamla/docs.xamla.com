@@ -1,0 +1,793 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EndEffector
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EndEffector
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Motion.EndEffector">
+  
+  
+  <h1 id="Xamla_Robotics_Motion_EndEffector" data-uid="Xamla.Robotics.Motion.EndEffector" class="text-break">Class EndEffector
+  </h1>
+  <div class="markdown level0 summary"><p>Class with encapsulate move functionality for a specific end effector</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">EndEffector</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Motion.IEndEffector.html">IEndEffector</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Motion.html">Xamla.Robotics.Motion</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Motion.dll</h6>
+  <h5 id="Xamla_Robotics_Motion_EndEffector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EndEffector : IEndEffector</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector__ctor_" data-uid="Xamla.Robotics.Motion.EndEffector.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector__ctor_Xamla_Robotics_Motion_IMoveGroup_System_String_System_String_" data-uid="Xamla.Robotics.Motion.EndEffector.#ctor(Xamla.Robotics.Motion.IMoveGroup,System.String,System.String)">EndEffector(IMoveGroup, String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates an <code>EndEffector</code> instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndEffector(IMoveGroup moveGroup, string endEffectorName, string endEffectorLinkName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
+        <td><span class="parametername">moveGroup</span></td>
+        <td><p>Instance of move group where the endeffector belongs to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorName</span></td>
+        <td><p>Name of the end effector</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endEffectorLinkName</span></td>
+        <td><p>Name of the end effector link</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_CurrentPose_" data-uid="Xamla.Robotics.Motion.EndEffector.CurrentPose*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_CurrentPose" data-uid="Xamla.Robotics.Motion.EndEffector.CurrentPose">CurrentPose</h4>
+  <div class="markdown level1 summary"><p>Current <code>Pose</code> instance of the end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose CurrentPose { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_LinkName_" data-uid="Xamla.Robotics.Motion.EndEffector.LinkName*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_LinkName" data-uid="Xamla.Robotics.Motion.EndEffector.LinkName">LinkName</h4>
+  <div class="markdown level1 summary"><p>The link name of the end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string LinkName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_MoveGroup_" data-uid="Xamla.Robotics.Motion.EndEffector.MoveGroup*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_MoveGroup" data-uid="Xamla.Robotics.Motion.EndEffector.MoveGroup">MoveGroup</h4>
+  <div class="markdown level1 summary"><p>Instance of an object implementing <code>IMoveGroup</code>, to which the end effector belongs to</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMoveGroup MoveGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveGroup.html">IMoveGroup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_Name_" data-uid="Xamla.Robotics.Motion.EndEffector.Name*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_Name" data-uid="Xamla.Robotics.Motion.EndEffector.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The name of the end effector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_BuildTaskSpacePlanParameters_" data-uid="Xamla.Robotics.Motion.EndEffector.BuildTaskSpacePlanParameters*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_BuildTaskSpacePlanParameters_System_Nullable_System_Double__System_Nullable_System_Boolean__System_Nullable_System_Double__System_Nullable_System_Double__System_Nullable_System_Double__" data-uid="Xamla.Robotics.Motion.EndEffector.BuildTaskSpacePlanParameters(System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">BuildTaskSpacePlanParameters(Nullable&lt;Double&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;, Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Builds an instance of <code>TaskSpacePlanParameters</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskSpacePlanParameters BuildTaskSpacePlanParameters(double? velocityScaling = default(double? ), bool? collisionCheck = default(bool? ), double? maxDeviation = default(double? ), double? accelerationScaling = default(double? ), double? ikJumpThreshold = default(double? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">velocityScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint velocities</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">collisionCheck</span></td>
+        <td><p>If true the trajectory planing tries to plan a collision free trajectory and before executing a trajectory a collision check is performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">maxDeviation</span></td>
+        <td><p>Maximal deviation from trajectory points when it is a fly-by-point in joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">accelerationScaling</span></td>
+        <td><p>Scaling factor which is applied on the maximal possible joint accelerations</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">ikJumpThreshold</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.TaskSpacePlanParameters.html">TaskSpacePlanParameters</a></td>
+        <td><p>Returns a new <code>TaskSpacePlanParameters</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_ComputePose_" data-uid="Xamla.Robotics.Motion.EndEffector.ComputePose*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_ComputePose_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.EndEffector.ComputePose(Xamla.Robotics.Types.JointValues)">ComputePose(JointValues)</h4>
+  <div class="markdown level1 summary"><p>Computes the pose based on an instance of <code>JointValues</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pose ComputePose(JointValues jointValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">jointValues</span></td>
+        <td><p>Joint configuration of the robot</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><p>Returns a <code>Pose</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">jointValues</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_InverseKinematic_" data-uid="Xamla.Robotics.Motion.EndEffector.InverseKinematic*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_InverseKinematic_Xamla_Robotics_Types_Pose_System_Boolean_Xamla_Robotics_Types_JointValues_System_Nullable_System_TimeSpan__System_Int32_" data-uid="Xamla.Robotics.Motion.EndEffector.InverseKinematic(Xamla.Robotics.Types.Pose,System.Boolean,Xamla.Robotics.Types.JointValues,System.Nullable{System.TimeSpan},System.Int32)">InverseKinematic(Pose, Boolean, JointValues, Nullable&lt;TimeSpan&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Get inverse kinematic solution for one pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues InverseKinematic(Pose pose, bool avoidCollision, JointValues jointPositionSeed = null, TimeSpan? timeout = default(TimeSpan? ), int attempts = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">pose</span></td>
+        <td><p>The pose to be transformmed to joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">avoidCollision</span></td>
+        <td><p>If true the trajectory planing tries to plan collision free trajectory and before executing a trajectory a collision check is performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">jointPositionSeed</span></td>
+        <td><p>Optional seed joint configuration</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">attempts</span></td>
+        <td><p>Attempts</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>Returns the joint configuration as a <code>JointValues</code> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_InverseKinematicMany_" data-uid="Xamla.Robotics.Motion.EndEffector.InverseKinematicMany*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_InverseKinematicMany_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_Pose__System_Boolean_Xamla_Robotics_Types_JointValues_System_Nullable_System_TimeSpan__System_Int32_System_Boolean_" data-uid="Xamla.Robotics.Motion.EndEffector.InverseKinematicMany(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.Pose},System.Boolean,Xamla.Robotics.Types.JointValues,System.Nullable{System.TimeSpan},System.Int32,System.Boolean)">InverseKinematicMany(IEnumerable&lt;Pose&gt;, Boolean, JointValues, Nullable&lt;TimeSpan&gt;, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Get inverse kinematic solutions for multiple poses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKResult InverseKinematicMany(IEnumerable&lt;Pose&gt; poses, bool avoidCollision, JointValues jointPositionSeed = null, TimeSpan? timeout = default(TimeSpan? ), int attempts = 1, bool constSeed = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a>&gt;</td>
+        <td><span class="parametername">poses</span></td>
+        <td><p>The poses to be transformmed to joint space</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">avoidCollision</span></td>
+        <td><p>If true the trajectory planing tries to plan collision free trajectory and before executing a trajectory a collision check is performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">jointPositionSeed</span></td>
+        <td><p>Optional seed joint configuration</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Timeout</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">attempts</span></td>
+        <td><p>The amount of attempts</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">constSeed</span></td>
+        <td><p>Determines if for each pose in poses the same seed should be used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IKResult.html">IKResult</a></td>
+        <td><p>Returns the results as an instance of <code>IKResult</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_MoveCartesianPath_" data-uid="Xamla.Robotics.Motion.EndEffector.MoveCartesianPath*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_MoveCartesianPath_Xamla_Robotics_Types_ICartesianPath_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.EndEffector.MoveCartesianPath(Xamla.Robotics.Types.ICartesianPath,Xamla.Robotics.Types.JointValues)">MoveCartesianPath(ICartesianPath, JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMoveCartesianPathOperation MoveCartesianPath(ICartesianPath waypoints, JointValues seed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.ICartesianPath.html">ICartesianPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">seed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveCartesianPathOperation.html">IMoveCartesianPathOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_MoveCartesianPathLinear_" data-uid="Xamla.Robotics.Motion.EndEffector.MoveCartesianPathLinear*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_MoveCartesianPathLinear_Xamla_Robotics_Types_ICartesianPath_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.EndEffector.MoveCartesianPathLinear(Xamla.Robotics.Types.ICartesianPath,Xamla.Robotics.Types.JointValues)">MoveCartesianPathLinear(ICartesianPath, JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMoveCartesianPathOperation MoveCartesianPathLinear(ICartesianPath waypoints, JointValues seed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.ICartesianPath.html">ICartesianPath</a></td>
+        <td><span class="parametername">waypoints</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">seed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMoveCartesianPathOperation.html">IMoveCartesianPathOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_MovePoseCollisionFree_" data-uid="Xamla.Robotics.Motion.EndEffector.MovePoseCollisionFree*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_MovePoseCollisionFree_Xamla_Robotics_Types_Pose_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.EndEffector.MovePoseCollisionFree(Xamla.Robotics.Types.Pose,Xamla.Robotics.Types.JointValues)">MovePoseCollisionFree(Pose, JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMovePoseOperation MovePoseCollisionFree(Pose target, JointValues seed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">seed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_MovePoseLinear_" data-uid="Xamla.Robotics.Motion.EndEffector.MovePoseLinear*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_MovePoseLinear_Xamla_Robotics_Types_Pose_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Motion.EndEffector.MovePoseLinear(Xamla.Robotics.Types.Pose,Xamla.Robotics.Types.JointValues)">MovePoseLinear(Pose, JointValues)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMovePoseOperation MovePoseLinear(Pose target, JointValues seed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.Pose.html">Pose</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">seed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Motion.IMovePoseOperation.html">IMovePoseOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Motion_EndEffector_ToString_" data-uid="Xamla.Robotics.Motion.EndEffector.ToString*"></a>
+  <h4 id="Xamla_Robotics_Motion_EndEffector_ToString" data-uid="Xamla.Robotics.Motion.EndEffector.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Motion.IEndEffector.html">IEndEffector</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

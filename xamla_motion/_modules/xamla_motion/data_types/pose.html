@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.data_types.pose &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.data_types.pose</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.data_types.pose</h1><div class="highlight"><pre>
+<span></span><span class="c1"># pose.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">pyquaternion</span> <span class="k">import</span> <span class="n">Quaternion</span>
+<span class="kn">import</span> <span class="nn">geometry_msgs.msg</span> <span class="k">as</span> <span class="nn">geometry_msgs</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="Pose"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose">[docs]</a><span class="k">class</span> <span class="nc">Pose</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pose defined by three dimensional translation and rotation</span>
+
+<span class="sd">    The translation is representated by a three dimensional</span>
+<span class="sd">    row vector. The rotation is represented by a</span>
+<span class="sd">    quaternion. The pose itself is defined in coordinate system</span>
+<span class="sd">    which is defined in frame_id (default world)</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    from_transformation_matrix(matrix, frame_id=&#39;&#39;,normalize_rotation=False)</span>
+<span class="sd">        Creates an instance of Pose from a transformation matrix</span>
+<span class="sd">    from_posestamped_msg(msg)</span>
+<span class="sd">        Initialize Pose from ROS posestamped message</span>
+<span class="sd">    from_pose_msg(msg, frame_id=&#39;&#39;)</span>
+<span class="sd">        Initialize Pose from ROS pose message</span>
+<span class="sd">    normalize_rotation()</span>
+<span class="sd">        Creates an instance of Pose with normalized quaternion</span>
+<span class="sd">    is_rotation_normalized()</span>
+<span class="sd">        Return True if quaternion is normalized</span>
+<span class="sd">    rotation_matrix()</span>
+<span class="sd">        Returns the rotation matrix(3x3 numpy array)</span>
+<span class="sd">    transformation_matrix()</span>
+<span class="sd">        Returns the transformation matrix in homogenous coordinates (4x4 numpy array)</span>
+<span class="sd">    inverse(new_frame_id)</span>
+<span class="sd">        Creates an instance which contains the inverse of this pose</span>
+<span class="sd">    translate(translation)</span>
+<span class="sd">        Translate pose</span>
+<span class="sd">    rotate(rotation)</span>
+<span class="sd">        Rotate pose</span>
+<span class="sd">    to_posestamped_msg()</span>
+<span class="sd">        Creates an instance of the ROS message PoseStamped from Pose</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">,</span>
+                 <span class="n">normalize_rotation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of the pose class</span>
+
+<span class="sd">        For the internal quaternion representation and also to initialize the</span>
+<span class="sd">        the class the library pyquaternion is used :</span>
+<span class="sd">        https://kieranwynn.github.io/pyquaternion/</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        translation : convertable to numpy array of shape (3,)</span>
+<span class="sd">            translation or position the pose describes</span>
+<span class="sd">        rotation : pyquaternion.Quaternion</span>
+<span class="sd">            rotation the pose describes as Quaternion</span>
+<span class="sd">        frame_id : str (optinal defaul = &#39;world&#39;)</span>
+<span class="sd">            name of the coordinate system the pose is defined</span>
+<span class="sd">        normalize_rotation : bool (optinal default = False)</span>
+<span class="sd">            If true quaternion normalization is performed in the</span>
+<span class="sd">            initialization process</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            An instance of class Pose</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If tranlation vector could not converted to a numpy </span>
+<span class="sd">            array of shape (3,) with d type floating and the </span>
+<span class="sd">            quaternion is not of type Quaternion.</span>
+<span class="sd">            If frame_id is not of type str</span>
+<span class="sd">            If normalize_rotation is not of type bool</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the quaternion initalization from </span>
+<span class="sd">            translation matrix went wrong</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Create a Pose by translation and quaternion and</span>
+<span class="sd">        perform normalization</span>
+<span class="sd">        &gt;&gt;&gt; quaternion = Quaternion(matrix=np.eye(3))</span>
+<span class="sd">        &gt;&gt;&gt; translation = np.array([1.0,1.0,1.0])</span>
+<span class="sd">        &gt;&gt;&gt; p1 = Pose(translation, quaternion, _, True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># translation</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;provided translation is not&#39;</span>
+                                 <span class="s1">&#39; convertabel to a numpy vector of size (3,)&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exc</span>
+
+        <span class="c1"># rotation</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">rotation</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;rotation is not of the expected&#39;</span>
+                            <span class="s1">&#39; type Quaternion&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">frame_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;frame_id is not of expected type str&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span> <span class="o">=</span> <span class="n">frame_id</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">normalize_rotation</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;normalize_rotation is not of expected type bool&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">normalize_rotation</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_rotation</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="Pose.identity"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.identity">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a instance of Pose from idenity matrix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        frame_id : str (optional defaul = &#39;world&#39;)</span>
+<span class="sd">            name of the coordinate system the pose is defined</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            An instance of class Pose</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">translation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+        <span class="n">quaternion</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">quaternion</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.from_transformation_matrix"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.from_transformation_matrix">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_transformation_matrix</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">,</span>
+                                   <span class="n">normalize_rotation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of the pose class from transformation matrix</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        matrix : numpy.ndarray((4,4),np.dtype=floating)</span>
+<span class="sd">            A transformation matrix in homogenous coordinates</span>
+<span class="sd">        frame_id : str (defaul = &#39;world&#39;)</span>
+<span class="sd">            name of the coordinate system the pose is defined</span>
+<span class="sd">        normalize_rotation : bool (optional default = False)</span>
+<span class="sd">            If true quaternion normalization is performed in the</span>
+<span class="sd">            initialization process</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            An instance of class Pose</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If tranformation matrix is not a 4x4 numpy array </span>
+<span class="sd">            with dtype floating</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Create a Pose instance from transformation matrix and</span>
+<span class="sd">        set frame_id</span>
+<span class="sd">        &gt;&gt;&gt; transformation_matrix = np.eye(4)</span>
+<span class="sd">        &gt;&gt;&gt; p0 = Pose.from_transformation_matrix(transformation_matrix, &quot;global&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span>
+                    <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span> <span class="ow">or</span>
+                    <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;matrix is not a 4x4 numpy array&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;matrix is not a&#39;</span>
+                                <span class="s1">&#39;dtype is no floating type&#39;</span><span class="p">)</span>
+
+            <span class="n">transformation_matrix</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">translation</span> <span class="o">=</span> <span class="n">transformation_matrix</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">quaternion</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span>
+                    <span class="n">matrix</span><span class="o">=</span><span class="n">transformation_matrix</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;quaternion initialization went wrong&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;matrix is not of type numpy array&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">quaternion</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">normalize_rotation</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.from_posestamped_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.from_posestamped_msg">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_posestamped_msg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize Pose from ROS posestamped message</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        msg : PoseStamped from ROS geometry_msgs</span>
+<span class="sd">            posestamped message </span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Instance of Pose generated from PoseStamped message</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If msg is not of type PoseStamped</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">geometry_msgs</span><span class="o">.</span><span class="n">PoseStamped</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;msg is not of expected type PoseStamped&#39;</span><span class="p">)</span>
+
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">([</span><span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+                                   <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                   <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span><span class="p">],</span>
+                                  <span class="nb">float</span><span class="p">)</span>
+
+        <span class="n">quaternion</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">([</span><span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
+
+        <span class="n">frame_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">frame_id</span><span class="p">:</span>
+            <span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">quaternion</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.from_pose_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.from_pose_msg">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_pose_msg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize Pose from ros geometry_msgs/Pose</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        msg : Pose from geometry_msgs</span>
+<span class="sd">            pose message</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Instance of Pose from pose message</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If msg is not of type Pose</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">geometry_msgs</span><span class="o">.</span><span class="n">Pose</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;msg is not of type ros geometry_msgs/Pose&#39;</span><span class="p">)</span>
+
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">([</span><span class="n">msg</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+                                   <span class="n">msg</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                   <span class="n">msg</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span><span class="p">],</span>
+                                  <span class="nb">float</span><span class="p">)</span>
+
+        <span class="n">quaternion</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">([</span><span class="n">msg</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                 <span class="n">msg</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">quaternion</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        frame_id : str (readonly)</span>
+<span class="sd">            Id of the coordinate system / frame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">translation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        translation : numpy.array((3,) dtype=floating) (readonly)</span>
+<span class="sd">            numpy row array of size 3 which describes the translation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">quaternion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        quaternion: Quaternion(pyquaternion lib) (readonly)</span>
+<span class="sd">            Quaternion which describes the rotation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span>
+
+<div class="viewcode-block" id="Pose.normalize_rotation"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.normalize_rotation">[docs]</a>    <span class="k">def</span> <span class="nf">normalize_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of Pose with normalized quaternion</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Instance of Pose with normalized quaternion / rotation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">elements</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Pose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">,</span>
+                        <span class="n">normalize_rotation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_normalize_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">_fast_normalise</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span>
+
+<div class="viewcode-block" id="Pose.is_rotation_normalized"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.is_rotation_normalized">[docs]</a>    <span class="k">def</span> <span class="nf">is_rotation_normalized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns True is rotation is normalized</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : bool</span>
+<span class="sd">            True is rotation is normalized else False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">elements</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Pose.rotation_matrix"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.rotation_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">rotation_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the rotation matrix (3x3 numpy array)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        rotation_matrix : np.ndarray</span>
+<span class="sd">            A 3x3 numpy array with dtype float which represents the rotation</span>
+<span class="sd">            matrix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotation_matrix</span></div>
+
+<div class="viewcode-block" id="Pose.transformation_matrix"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.transformation_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">transformation_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the transformation martix in homogenous coordinates (4x4 numpy array)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        transformation_matrix : np.ndarray</span>
+<span class="sd">            A 4x4 numpy array with dtype float which represents the transformation</span>
+<span class="sd">            matrix in homogenous coordinates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">transformation_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">transformation_matrix</span>
+        <span class="n">transformation_matrix</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span>
+        <span class="k">return</span> <span class="n">transformation_matrix</span></div>
+
+<div class="viewcode-block" id="Pose.inverse"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.inverse">[docs]</a>    <span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_frame_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance which contains the inverse of this pose</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        new_frame_id : str convertable</span>
+<span class="sd">            name of the coordinate system in which pose is now defined </span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        inv_pose : Pose</span>
+<span class="sd">            pose which is the inverse of self</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If new_frame_id is not of type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">q_inv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">inverse</span>
+        <span class="n">t_inv</span> <span class="o">=</span> <span class="n">q_inv</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">t_inv</span><span class="p">,</span> <span class="n">q_inv</span><span class="p">,</span> <span class="n">new_frame_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.translate"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.translate">[docs]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Translate pose</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        translation : Iterable</span>
+<span class="sd">            translation which defines the change in x,y,z</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        translated_pose : Pose</span>
+<span class="sd">            pose which is translated by translate vector</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If translation is not convertable to np.ndarray</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If translation is not of size 3 (x,y,z)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">translation</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;provided translation is not&#39;</span>
+                                 <span class="s1">&#39; convertabel to a numpy vector of size (3,)&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exc</span>
+
+        <span class="n">new_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">+</span> <span class="n">translation</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">new_t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.rotate"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.rotate">[docs]</a>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rotation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rotate pose</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rotation: (Quaternion or np.ndarray)</span>
+<span class="sd">            defines rotation by Quaternion or 3x3 rotation matrix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        rotated_pose : Pose</span>
+<span class="sd">            pose which is rotated by rotation</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError : type mismatch</span>
+<span class="sd">            If rotation is not one of expected types</span>
+<span class="sd">            3x3 np.ndarray or pyquaternion.Quaternion</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If initialization of Quaternion is not possible</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_quaternion</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">)</span>
+        <span class="n">is_rotation_matrix</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span>
+                              <span class="n">rotation</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">is_quaternion</span><span class="p">:</span>
+            <span class="n">new_q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">*</span> <span class="n">rotation</span>
+        <span class="k">elif</span> <span class="n">is_rotation_matrix</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">*</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">rotation</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;quaternion initialization went wrong&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;rotation is not one of expected types &#39;</span>
+                            <span class="s1">&#39;Quaternion or np.ndarray (3x3)&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">,</span> <span class="n">new_q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pose.to_posestamped_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.to_posestamped_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_posestamped_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of the ROS message PoseStamped</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">            Instance of ROS message PoseStamped (seq and time are not set)</span>
+<span class="sd">            docs.ros.org/kinetic/api/geometry_msgs/html/msg/PoseStamped.html</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">pose_stamped</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">.</span><span class="n">PoseStamped</span><span class="p">()</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span>
+
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">pose_stamped</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">pose_stamped</span></div>
+
+<div class="viewcode-block" id="Pose.to_pose_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.Pose.to_pose_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_pose_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of the ROS message Pose</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">            Instance of ROS message Pose</span>
+<span class="sd">            geometry_msgs/Pose</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">pose</span> <span class="o">=</span> <span class="n">geometry_msgs</span><span class="o">.</span><span class="n">Pose</span><span class="p">()</span>
+
+        <span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">pose</span></div>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">])</span>
+
+        <span class="n">translation_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;translation.&#39;</span><span class="o">+</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span>
+                                     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span>
+                                     <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">)])</span>
+        <span class="n">quaternion_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;quaternion.&#39;</span><span class="o">+</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span>
+                                    <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="p">)])</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;Pose:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">translation_str</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">quaternion_str</span> <span class="o">+</span>
+                <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">frame_id : &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">r_tol</span> <span class="o">=</span> <span class="mf">1.0e-6</span>
+        <span class="n">a_tol</span> <span class="o">=</span> <span class="mf">1.0e-7</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">translation</span><span class="p">,</span>
+                           <span class="n">rtol</span><span class="o">=</span><span class="n">r_tol</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">a_tol</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">quaternion</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="n">new_q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">quaternion</span>
+            <span class="n">new_t</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">+</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">translation</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">new_t</span><span class="p">,</span> <span class="n">new_q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="nb">issubclass</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+                <span class="n">new_t</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">+</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">new_t</span>
+            <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">new_t</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">+</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">new_t</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,):</span>
+                <span class="n">new_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="n">new_t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">*</span> <span class="n">other</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">other</span><span class="p">[:</span><span class="mi">3</span><span class="p">]))</span>
+                <span class="k">return</span> <span class="n">new_t</span>
+            <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">new_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__translation</span> <span class="o">*</span> <span class="n">other</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                      <span class="bp">self</span><span class="o">.</span><span class="n">__quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">other</span><span class="p">[:</span><span class="mi">3</span><span class="p">]))</span>
+                <span class="n">new_t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">new_t</span>
+            <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+                <span class="n">product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transformation_matrix</span><span class="p">(),</span> <span class="n">other</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_transformation_matrix</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;vector is not of shape (3,), (3,1),&#39;</span>
+                          <span class="s1">&#39; (4,), (4,1)  or matrix (4,4)&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;other is not of expected type Pose,&#39;</span>
+                      <span class="s1">&#39; 3 or 4 dimensional numpy vector or&#39;</span>
+                      <span class="s1">&#39; 4x4 transformation matrix dtype floating&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformation_matrix</span><span class="p">())</span>
+
+    <span class="n">__array_priority__</span> <span class="o">=</span> <span class="mi">10000</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

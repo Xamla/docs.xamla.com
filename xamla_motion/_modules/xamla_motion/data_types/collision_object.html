@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xamla_motion.data_types.collision_object &mdash; xamla_motion 0.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #57678d" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/rosvita-docs-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client.html">Motion client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_client_v2.html">Motion client version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/gripper_client.html">Gripper client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client.html">WorldView client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/world_view_client_v2.html">WorldViewClient version 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/motion_service.html">Motion Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/data_types.html">Data types</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">xamla_motion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>xamla_motion.data_types.collision_object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for xamla_motion.data_types.collision_object</h1><div class="highlight"><pre>
+<span></span><span class="c1"># collision_object.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Xamla and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">.pose</span> <span class="k">import</span> <span class="n">Pose</span>
+<span class="kn">from</span> <span class="nn">..xamla_motion_exceptions</span> <span class="k">import</span> <span class="n">ArgumentError</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="k">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">unique</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">import</span> <span class="nn">moveit_msgs.msg</span> <span class="k">as</span> <span class="nn">moveit_msgs</span>
+<span class="kn">import</span> <span class="nn">shape_msgs.msg</span> <span class="k">as</span> <span class="nn">shape_msgs</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">float_convertable</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;float_convertable&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">CollisionPrimitiveKind</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">plane</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">box</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">sphere</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">cylinder</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">cone</span> <span class="o">=</span> <span class="mi">4</span>
+
+
+<div class="viewcode-block" id="CollisionPrimitive"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive">[docs]</a><span class="k">class</span> <span class="nc">CollisionPrimitive</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class CollisionPrimitive</span>
+
+<span class="sd">    At the moment following simple primitives are supported:</span>
+<span class="sd">    plane, box, sphere, cylinder, cone</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    from_shape_msg(msg, pose)</span>
+<span class="sd">        Creates an Instance of CollisionPrimitive from moveit shape msg</span>
+<span class="sd">    create_plane(a, b, c, d, pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a plane</span>
+<span class="sd">    create_box(cls, x, y, z, pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a box</span>
+<span class="sd">    create_unit_box(pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents unit box</span>
+<span class="sd">    create_sphere(radius, pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a sphere</span>
+<span class="sd">    create_unit_sphere(pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents unit sphere</span>
+<span class="sd">    create_cylinder(height, radius, pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a cylinder</span>
+<span class="sd">    create_cone(height, radius, pose)</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a cone</span>
+<span class="sd">    to_shape_msg()</span>
+<span class="sd">        Creates an instance of moveit/shape_msgs.Plane for a plane primitive</span>
+<span class="sd">        or an instance of moveit/shape_msgs.SolidPrimitive for all other primitive</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">expected_parameter_count</span> <span class="o">=</span> <span class="p">{</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                                <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">box</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                                <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">sphere</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">cylinder</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">cone</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="n">CollisionPrimitiveKind</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">float_convertable</span><span class="p">],</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of CollisionPrimitive</span>
+
+<span class="sd">        Representation of a plane, using the plane equation ax + by + cz + d = 0</span>
+<span class="sd">            a := parameters[0]</span>
+<span class="sd">            b := parameters[1]</span>
+<span class="sd">            c := parameters[2]</span>
+<span class="sd">            d := parameters[3]</span>
+
+<span class="sd">        Representation of a box</span>
+<span class="sd">            x := parameters[0]</span>
+<span class="sd">            y := parameters[1]</span>
+<span class="sd">            z := parameters[2]</span>
+
+<span class="sd">        Representation of a sphere</span>
+<span class="sd">        radius := parameters[0]</span>
+
+<span class="sd">        Representation of a cylinder</span>
+<span class="sd">            height := parameters[0]</span>
+<span class="sd">            radius := parameters[1]</span>
+
+<span class="sd">        Representation of a cone</span>
+<span class="sd">            height := parameters[0]</span>
+<span class="sd">            radius := parameters[1]</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kind : CollisionPrimitiveKind</span>
+<span class="sd">            Specifices which kind of primitive the new instance should represent</span>
+<span class="sd">        parameters : Iterable[float convertable]</span>
+<span class="sd">            Parameters which describe the primitive</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            pose describes the position and orientation of the mid point of the primitive</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitive</span>
+<span class="sd">            An Instance of collision primitive</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If kind is not of type CollisionPrimitiveKind</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If parameters is not of type iterable of float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If for a specific primitive kind the wrong number of parameters</span>
+<span class="sd">            are provided</span>
+<span class="sd">            If kind is CollisionPrimitiveKind.plane and the normal vector</span>
+<span class="sd">            is described only by zeros</span>
+<span class="sd">            If kind is not CollisionPrimitveKind.plane and a parameter in</span>
+<span class="sd">            parameters is smaller than zero</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        Create a instance of a box collision primitive which is one meter in size</span>
+<span class="sd">        in all three dimensions and the origin is the origin of the world </span>
+<span class="sd">        coordinate system</span>
+
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; from xamla_motion.data_types import CollisionPrimitive, CollisionPrimitiveKind, Pose</span>
+<span class="sd">        &gt;&gt;&gt; origin = Pose.from_transformation_matrix(np.eye(4),&#39;world&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; CollisionPrimitive(CollisionPrimitiveKind.box,[1.0,1.0,1.0], origin)</span>
+<span class="sd">        CollisionPrimitive</span>
+<span class="sd">        pose = Pose:</span>
+<span class="sd">        translation.x : 0.0</span>
+<span class="sd">        translation.y : 0.0</span>
+<span class="sd">        translation.z : 0.0</span>
+<span class="sd">        quaternion.w : 1.0</span>
+<span class="sd">        quaternion.x : 0.0</span>
+<span class="sd">        quaternion.y : 0.0</span>
+<span class="sd">        quaternion.z : 0.0</span>
+<span class="sd">        frame_id : world</span>
+<span class="sd">        kind = CollisionPrimitiveKind.box</span>
+<span class="sd">        parameters = [ 1.  1.  1.]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">CollisionPrimitiveKind</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;kind is nof of expected type&#39;</span>
+                            <span class="s1">&#39; CollisionPrimitiveKind&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">Pose</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;pose is not of expected type Pose&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_parameter_count</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;expected &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_parameter_count</span><span class="p">[</span><span class="n">kind</span><span class="p">])</span>
+                             <span class="o">+</span> <span class="s1">&#39; parameters for primitive &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">+</span>
+                             <span class="s1">&#39; but provide &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;invalid normal vector for plane primitive, parameters:&#39;</span> <span class="o">+</span>
+                                 <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:0.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;parameters for collision primitive&#39;</span> <span class="o">+</span>
+                                 <span class="nb">str</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;must not be negative, parameters: &#39;</span> <span class="o">+</span>
+                                 <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:0.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__kind</span> <span class="o">=</span> <span class="n">kind</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pose</span> <span class="o">=</span> <span class="n">pose</span>
+
+<div class="viewcode-block" id="CollisionPrimitive.from_shape_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.from_shape_msg">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_shape_msg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an Instance of CollisionPrimitive from moveit shape msg</span>
+
+<span class="sd">        At the moment it can handle moveit plane and solid primitive</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        msg : message type from moveit/shape_msgs</span>
+<span class="sd">            Message from which a CollisionPrimitive should be created</span>
+<span class="sd">        pose : Pose</span>
+<span class="sd">            Pose instance which describes the midpoint pose of primitive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">shape_msgs</span><span class="o">.</span><span class="n">Plane</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">coef</span><span class="p">,</span> <span class="n">pose</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">shape_msgs</span><span class="o">.</span><span class="n">SolidPrimitive</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">type</span><span class="p">),</span> <span class="n">msg</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_plane"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_plane">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_plane</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a plane</span>
+
+<span class="sd">        Representation of a plane, using the plane equation ax + by + cz + d = 0</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a: float convertable</span>
+<span class="sd">            a parameter of plane equation</span>
+<span class="sd">        b: float convertable</span>
+<span class="sd">            b parameter of plane equation</span>
+<span class="sd">        c: float convertable</span>
+<span class="sd">            c parameter of plane equation</span>
+<span class="sd">        d: float convertable</span>
+<span class="sd">            d parameter of plane equation</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the plane</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a plane</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If the normal vector is described only by zeros</span>
+<span class="sd">            If kind is not CollisionPrimitveKind.plane and a parameter in</span>
+<span class="sd">            parameters is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_box"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_box">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_box</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a box</span>
+
+<span class="sd">        Representation of box aligned with pose xyz coordinates</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x: float convertable</span>
+<span class="sd">            x coordinate of pose</span>
+<span class="sd">        y: float convertable</span>
+<span class="sd">            y coordinate of pose</span>
+<span class="sd">        z: float convertable</span>
+<span class="sd">            z coordinate of pose</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the box</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a box</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">box</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_unit_box"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_box">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_unit_box</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents unit box</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the box</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a unit box</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">box</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_sphere"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_sphere">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_sphere</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a sphere</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius: float convertable</span>
+<span class="sd">            radius of the sphere</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the sphere</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a sphere</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">sphere</span><span class="p">,</span> <span class="p">[</span><span class="n">radius</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_unit_sphere"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_unit_sphere">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_unit_sphere</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents unit sphere</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the sphere</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a unit sphere</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">sphere</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_cylinder"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cylinder">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_cylinder</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a cylinder</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        height : float convertable</span>
+<span class="sd">            height of the cylinder</span>
+<span class="sd">        radius : float convertable</span>
+<span class="sd">            radius of the cylinder</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the cylinder</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a cylinder</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">cylinder</span><span class="p">,</span> <span class="p">[</span><span class="n">height</span><span class="p">,</span> <span class="n">radius</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CollisionPrimitive.create_cone"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.create_cone">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_cone</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">pose</span><span class="p">:</span> <span class="n">Pose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of CollisionPrimitive which represents a cone</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        height : float convertable</span>
+<span class="sd">            height of the cone</span>
+<span class="sd">        radius : float convertable</span>
+<span class="sd">            radius of the cone</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Pose of the midpoint of the cone</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionPrimitve</span>
+<span class="sd">            Primitive which represents a cone</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If pose is not of type Pose</span>
+<span class="sd">            If a parameter is not float convertable</span>
+<span class="sd">        ValuesError</span>
+<span class="sd">            If  a parameter in is smaller than zero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">cone</span><span class="p">,</span> <span class="p">[</span><span class="n">height</span><span class="p">,</span> <span class="n">radius</span><span class="p">],</span> <span class="n">pose</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        kind: CollisionPrimitiveKind</span>
+<span class="sd">            kind of the collision primitive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kind</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        parameters: numpy.array(dtype.floating)</span>
+<span class="sd">            parameters which describe the primitive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        pose: Pose</span>
+<span class="sd">            Describes the position and orientation of the primitive for the primitive midpoint</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pose</span>
+
+<div class="viewcode-block" id="CollisionPrimitive.to_shape_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionPrimitive.to_shape_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_shape_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance of moveit/shape_msgs.Plane for a plane primitive</span>
+<span class="sd">        or an instance of moveit/shape_msgs.SolidPrimitive for all other primitive</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kind</span> <span class="ow">is</span> <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">shape_msgs</span><span class="o">.</span><span class="n">Plane</span><span class="p">()</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">coef</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">shape_msgs</span><span class="o">.</span><span class="n">SolidPrimitive</span><span class="p">()</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kind</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                       <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">s</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">kind</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kind</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__parameters</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CollisionObject"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionObject">[docs]</a><span class="k">class</span> <span class="nc">CollisionObject</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class CollisionObject</span>
+
+<span class="sd">    An Instance of this class represent a collision object.</span>
+<span class="sd">    A collision object can be a simple primitive or a assembly of</span>
+<span class="sd">    many primitives</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    from_collision_object_msg(msg)</span>
+<span class="sd">        Create a Pose from an instance of moveit_msgs/CollisionObject</span>
+<span class="sd">    to_collision_object_msg(self, action):</span>
+<span class="sd">        Creates a ROS collision object message from this instance</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primitives</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">CollisionPrimitive</span><span class="p">],</span> <span class="n">frame_id</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialization of CollisionObject class</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        primitives : Iterable[CollisionPrimitives] or None</span>
+<span class="sd">            primitives which describe the collision object</span>
+<span class="sd">        frame_id : str</span>
+<span class="sd">            Frame / coordinate system in which the</span>
+<span class="sd">            collision object is described</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionObject</span>
+<span class="sd">            Instance of CollisionObject</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If primitives are not of type iterable of</span>
+<span class="sd">            CollisionPrimitives or None or</span>
+<span class="sd">            if frame_id is not str convertable</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">primitives</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">CollisionPrimitive</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;primitives is not of type iterable of&#39;</span>
+                            <span class="s1">&#39; CollisionPrimitives or empty&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">frame_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">primitives</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CollisionObject.from_collision_object_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionObject.from_collision_object_msg">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_collision_object_msg</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a Pose from an instance of moveit_msgs/CollisionObject</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        msg : ros message moveit_msgs/CollisionObject</span>
+<span class="sd">            Message of moveit_msgs/CollisionObject</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        CollisionObject</span>
+<span class="sd">            New instance of collision object from msg</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If msg is not of type moveit_msgs/CollisionObject</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">primitives</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">moveit_msgs</span><span class="o">.</span><span class="n">CollisionObject</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;msg is not of type  moveit_msgs/CollisionObject&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">planes</span><span class="p">):</span>
+            <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CollisionPrimitive</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">,</span>
+                                                 <span class="n">p</span><span class="o">.</span><span class="n">coef</span><span class="p">,</span>
+                                                 <span class="n">Pose</span><span class="o">.</span><span class="n">from_pose_msg</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">plane_poses</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                                                    <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span><span class="p">)))</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">primitives</span><span class="p">):</span>
+            <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CollisionPrimitive</span><span class="p">(</span><span class="n">CollisionPrimitiveKind</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">type</span><span class="p">),</span>
+                                                 <span class="n">p</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span>
+                                                 <span class="n">Pose</span><span class="o">.</span><span class="n">from_pose_msg</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">primitive_poses</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                                                    <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">primitives</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        frame_id : str (read only)</span>
+<span class="sd">            Frame / coordinate system in which the</span>
+<span class="sd">            collision object is described</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">primitives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        primitives : List[CollisionPrimitives] or None (read only)</span>
+<span class="sd">            primitives which describe the collision object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span>
+
+<div class="viewcode-block" id="CollisionObject.to_collision_object_msg"><a class="viewcode-back" href="../../../source/data_types.html#xamla_motion.data_types.CollisionObject.to_collision_object_msg">[docs]</a>    <span class="k">def</span> <span class="nf">to_collision_object_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a ROS collision object message from this instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        action : moveit_msg/CollisionObject operation</span>
+<span class="sd">            Defines which action/opertation should be performed</span>
+<span class="sd">            (add, remove, append, move)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        moveit_msgs/CollisionObject </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">moveit_msgs</span><span class="o">.</span><span class="n">CollisionObject</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span>
+
+        <span class="n">planes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">plane_poses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">primitives</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">primitive_poses</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">kind</span> <span class="ow">is</span> <span class="n">CollisionPrimitiveKind</span><span class="o">.</span><span class="n">plane</span><span class="p">:</span>
+                <span class="n">plane_poses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">to_pose_msg</span><span class="p">())</span>
+                <span class="n">planes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">to_shape_msg</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">primitive_poses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">to_pose_msg</span><span class="p">())</span>
+                <span class="n">primitives</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">to_shape_msg</span><span class="p">())</span>
+
+        <span class="n">msg</span><span class="o">.</span><span class="n">planes</span> <span class="o">=</span> <span class="n">planes</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">plane_poses</span> <span class="o">=</span> <span class="n">plane_poses</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">primitives</span> <span class="o">=</span> <span class="n">primitives</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">primitive_poses</span> <span class="o">=</span> <span class="n">primitive_poses</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">meshes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">mesh_poses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">action</span>
+
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frame_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__primitives</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xamla
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

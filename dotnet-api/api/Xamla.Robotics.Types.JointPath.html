@@ -1,0 +1,864 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JointPath
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JointPath
+   ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Xamla.Robotics.Types.JointPath">
+  
+  
+  <h1 id="Xamla_Robotics_Types_JointPath" data-uid="Xamla.Robotics.Types.JointPath" class="text-break">Class JointPath
+  </h1>
+  <div class="markdown level0 summary"><p>A <code>JointPath</code> hold a list of joint values and provide operations for manipulating this list of joint values.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JointPath</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Xamla.Robotics.Types.html">Xamla.Robotics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Xamla.Robotics.Types.dll</h6>
+  <h5 id="Xamla_Robotics_Types_JointPath_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JointPath : IJointPath, IReadOnlyList&lt;JointValues&gt;, IReadOnlyCollection&lt;JointValues&gt;, IEnumerable&lt;JointValues&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath__ctor_" data-uid="Xamla.Robotics.Types.JointPath.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointSet_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointValues__" data-uid="Xamla.Robotics.Types.JointPath.#ctor(Xamla.Robotics.Types.JointSet,System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointValues})">JointPath(JointSet, IEnumerable&lt;JointValues&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointPath</code> from the given set of joints and the given collection of joint values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointPath(JointSet joints, IEnumerable&lt;JointValues&gt; points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">joints</span></td>
+        <td><p>The names of the joints used in the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The joint values that should be added to the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when no <code data-dev-comment-type="paramref" class="paramref">joints</code> or no <code data-dev-comment-type="paramref" class="paramref">points</code> are given.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when there is a mismatch between any <code>JointSet</code> in <code data-dev-comment-type="paramref" class="paramref">points</code> and the given <code>JointSet</code> <code data-dev-comment-type="paramref" class="paramref">joints</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointSet_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointValues___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointPath.html#Xamla_Robotics_Types_JointPath_JointSet">JointSet</a></div>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath__ctor_" data-uid="Xamla.Robotics.Types.JointPath.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointSet_Xamla_Robotics_Types_JointValues___" data-uid="Xamla.Robotics.Types.JointPath.#ctor(Xamla.Robotics.Types.JointSet,Xamla.Robotics.Types.JointValues[])">JointPath(JointSet, JointValues[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointPath</code> from the given set of joints and the given array of joint values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointPath(JointSet joints, params JointValues[] points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td><span class="parametername">joints</span></td>
+        <td><p>The names of the joints used in the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The joint values that should be added to the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when no <code data-dev-comment-type="paramref" class="paramref">joints</code> or no <code data-dev-comment-type="paramref" class="paramref">points</code> are given.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when there is a mismatch between any <code>JointSet</code> in <code data-dev-comment-type="paramref" class="paramref">points</code> and the given <code>JointSet</code> <code data-dev-comment-type="paramref" class="paramref">joints</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointSet_Xamla_Robotics_Types_JointValues____seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointPath.html#Xamla_Robotics_Types_JointPath_JointSet">JointSet</a></div>
+  </div>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath__ctor_" data-uid="Xamla.Robotics.Types.JointPath.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointPath.#ctor(Xamla.Robotics.Types.JointValues)">JointPath(JointValues)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointPath</code> containing only the given point in Joint space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointPath(JointValues point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">point</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath__ctor_" data-uid="Xamla.Robotics.Types.JointPath.#ctor*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath__ctor_Xamla_Robotics_Types_JointValues_Xamla_Robotics_Types_JointValues_" data-uid="Xamla.Robotics.Types.JointPath.#ctor(Xamla.Robotics.Types.JointValues,Xamla.Robotics.Types.JointValues)">JointPath(JointValues, JointValues)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <code>JointPath</code> containing the given start and end point in Joint space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointPath(JointValues start, JointValues goal)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Start point of the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><span class="parametername">goal</span></td>
+        <td><p>End point of the new <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when there is a mismatch between the <code>JointSet</code> in <code data-dev-comment-type="paramref" class="paramref">start</code> and <code data-dev-comment-type="paramref" class="paramref">goal</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Xamla_Robotics_Types_JointPath_Empty" data-uid="Xamla.Robotics.Types.JointPath.Empty">Empty</h4>
+  <div class="markdown level1 summary"><p>Creates a new empty <code>JointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly JointPath Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointPath.html">JointPath</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Count_" data-uid="Xamla.Robotics.Types.JointPath.Count*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Count" data-uid="Xamla.Robotics.Types.JointPath.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the amount of points in the current <code>JointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Item_" data-uid="Xamla.Robotics.Types.JointPath.Item*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Item_System_Int32_" data-uid="Xamla.Robotics.Types.JointPath.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Accesses the <code>JointValues</code> of the current <code>JointPath</code> at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointValues this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index at which the <code>JointValue</code> should be retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></td>
+        <td><p>The <code>JointValue</code> at the given index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_JointSet_" data-uid="Xamla.Robotics.Types.JointPath.JointSet*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_JointSet" data-uid="Xamla.Robotics.Types.JointPath.JointSet">JointSet</h4>
+  <div class="markdown level1 summary"><p>Gets the set of joints that is used for the current <code>JointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JointSet JointSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.JointSet.html">JointSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Append_" data-uid="Xamla.Robotics.Types.JointPath.Append*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Append_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointValues__" data-uid="Xamla.Robotics.Types.JointPath.Append(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointValues})">Append(IEnumerable&lt;JointValues&gt;)</h4>
+  <div class="markdown level1 summary"><p>Appends the given collection of joint values to the current joint path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Append(IEnumerable&lt;JointValues&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection of joint values that should be appended to the current joint path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><p>A new instance of <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Concat_" data-uid="Xamla.Robotics.Types.JointPath.Concat*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Concat_Xamla_Robotics_Types_IJointPath_" data-uid="Xamla.Robotics.Types.JointPath.Concat(Xamla.Robotics.Types.IJointPath)">Concat(IJointPath)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the points of the given joint path and the points of the current joint path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Concat(IJointPath other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>Another joint path that should be concatenated with the current one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><p>A new instance of <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">other</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointPath.GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_GetEnumerator" data-uid="Xamla.Robotics.Types.JointPath.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Gets an enumerator over the points in the current <code>JointPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;JointValues&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Prepend_" data-uid="Xamla.Robotics.Types.JointPath.Prepend*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Prepend_System_Collections_Generic_IEnumerable_Xamla_Robotics_Types_JointValues__" data-uid="Xamla.Robotics.Types.JointPath.Prepend(System.Collections.Generic.IEnumerable{Xamla.Robotics.Types.JointValues})">Prepend(IEnumerable&lt;JointValues&gt;)</h4>
+  <div class="markdown level1 summary"><p>Prepends the given collection of joint values to the current joint path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Prepend(IEnumerable&lt;JointValues&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>A collection of joint values that should be prepended to the current joint path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><p>A new instance of <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Sub_" data-uid="Xamla.Robotics.Types.JointPath.Sub*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Sub_System_Int32_System_Int32_" data-uid="Xamla.Robotics.Types.JointPath.Sub(System.Int32,System.Int32)">Sub(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the sub joint path defined by the given range [startIndex, endIndex].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Sub(int startIndex, int endIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The index where the sub joint path should start.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">endIndex</span></td>
+        <td><p>The index where the sub joint path should end.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><p>A new instance of <code>JointPath</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">startIndex</code> or <code data-dev-comment-type="paramref" class="paramref">endIndex</code> are out of range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_Transform_" data-uid="Xamla.Robotics.Types.JointPath.Transform*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_Transform_System_Func_Xamla_Robotics_Types_JointValues_System_Int32_Xamla_Robotics_Types_JointValues__" data-uid="Xamla.Robotics.Types.JointPath.Transform(System.Func{Xamla.Robotics.Types.JointValues,System.Int32,Xamla.Robotics.Types.JointValues})">Transform(Func&lt;JointValues, Int32, JointValues&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the given transformation function to all joint values of the current joint path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPath Transform(Func&lt;JointValues, int, JointValues&gt; transform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>, <span class="xref">System.Int32</span>, <a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a>&gt;</td>
+        <td><span class="parametername">transform</span></td>
+        <td><p>A function that is called for each joint value with its index in the path and that should return a new joint value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a></td>
+        <td><p>A new instance of <code>JointPath</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Xamla_Robotics_Types_JointPath_System_Collections_IEnumerable_GetEnumerator_" data-uid="Xamla.Robotics.Types.JointPath.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Xamla_Robotics_Types_JointPath_System_Collections_IEnumerable_GetEnumerator" data-uid="Xamla.Robotics.Types.JointPath.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.IJointPath.html">IJointPath</a>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.JointPathExtensions.html#Xamla_Robotics_Types_JointPathExtensions_Prepend_Xamla_Robotics_Types_IJointPath_Xamla_Robotics_Types_JointValues___">JointPathExtensions.Prepend(IJointPath, JointValues[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.JointPathExtensions.html#Xamla_Robotics_Types_JointPathExtensions_Append_Xamla_Robotics_Types_IJointPath_Xamla_Robotics_Types_JointValues___">JointPathExtensions.Append(IJointPath, JointValues[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Xamla.Robotics.Types.ModelConversionExtensions.html#Xamla_Robotics_Types_ModelConversionExtensions_ToModel_Xamla_Robotics_Types_IJointPath_">ModelConversionExtensions.ToModel(IJointPath)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Xamla.Robotics.Types.JointValues.html">JointValues</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
